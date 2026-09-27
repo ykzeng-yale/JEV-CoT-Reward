@@ -1,0 +1,1309 @@
+{
+  "status": "exploratory_screen_complete_no_positive_jev_signal",
+  "protocol": "mechanism-v1-online-emitted-checkpoint",
+  "counts": {
+    "planned_problems": 24,
+    "eligible_problems": 24,
+    "skipped_problems": 0,
+    "episodes": 288,
+    "durable_calls": 773,
+    "checkpoint_attempts": 24
+  },
+  "audit": {
+    "ready": true,
+    "outcome_disagreements": 0,
+    "unknown_work_calls": 0
+  },
+  "action_success": {
+    "continue": {
+      "n_problems": 24,
+      "mean": 0.4895833333333333,
+      "bootstrap_percentile_95": [
+        0.3854166666666667,
+        0.59375
+      ]
+    },
+    "repair": {
+      "n_problems": 24,
+      "mean": 0.4166666666666667,
+      "bootstrap_percentile_95": [
+        0.3125,
+        0.5208333333333334
+      ]
+    },
+    "branch": {
+      "n_problems": 24,
+      "mean": 0.3854166666666667,
+      "bootstrap_percentile_95": [
+        0.3020833333333333,
+        0.46875
+      ]
+    }
+  },
+  "action_differences": {
+    "repair_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.07291666666666667,
+      "bootstrap_percentile_95": [
+        -0.14583333333333334,
+        0.0
+      ]
+    },
+    "branch_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.10416666666666667,
+      "bootstrap_percentile_95": [
+        -0.17708333333333334,
+        -0.03125
+      ]
+    },
+    "branch_minus_repair": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.10442708333333332,
+        0.041666666666666664
+      ]
+    }
+  },
+  "ridge_policies": {
+    "cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.46875,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.5625
+        ]
+      },
+      "action_counts": {
+        "continue": 18,
+        "repair": 4,
+        "branch": 2
+      },
+      "costs": {
+        "deployment_generated_tokens": 940.8645833333334,
+        "deployment_prompt_tokens_processed": 1712.2291666666667,
+        "deployment_service_seconds": 22.29919821357665,
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0
+      }
+    },
+    "cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.3541666666666667,
+          0.5625
+        ]
+      },
+      "action_counts": {
+        "continue": 18,
+        "repair": 4,
+        "branch": 2
+      },
+      "costs": {
+        "deployment_generated_tokens": 941.15625,
+        "deployment_prompt_tokens_processed": 1712.90625,
+        "deployment_service_seconds": 22.287085230035398,
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24
+      }
+    },
+    "cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.375,
+          0.5416666666666666
+        ]
+      },
+      "action_counts": {
+        "continue": 15,
+        "repair": 4,
+        "branch": 5
+      },
+      "costs": {
+        "deployment_generated_tokens": 952.3958333333334,
+        "deployment_prompt_tokens_processed": 1852.5416666666667,
+        "deployment_service_seconds": 22.69237182037129,
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141
+      }
+    },
+    "training_selected_constant": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797,
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0
+      }
+    },
+    "training_selected_family_constant": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797,
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0
+      }
+    },
+    "always_continue": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797,
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0
+      }
+    }
+  },
+  "ridge_contrasts": {
+    "cheap_tfidf_minus_training_selected_constant": {
+      "n_problems": 24,
+      "mean": -0.020833333333333332,
+      "bootstrap_percentile_95": [
+        -0.07291666666666667,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_plus_jev_minus_training_selected_constant": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_plus_local_minus_training_selected_constant": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.09375,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_minus_training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.020833333333333332,
+      "bootstrap_percentile_95": [
+        -0.07291666666666667,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_plus_jev_minus_training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_plus_local_minus_training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.09375,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_plus_jev_minus_cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.041666666666666664,
+        0.020833333333333332
+      ]
+    },
+    "cheap_tfidf_plus_local_minus_cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "cheap_tfidf_plus_jev_minus_cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.041666666666666664,
+        0.041666666666666664
+      ]
+    }
+  },
+  "family_stratified": {
+    "arithmetic_construction": {
+      "n_problems": 12,
+      "policies": {
+        "cheap_tfidf": {
+          "n_problems": 12,
+          "mean": 0.1875,
+          "bootstrap_percentile_95": [
+            0.08333333333333333,
+            0.3333333333333333
+          ]
+        },
+        "cheap_tfidf_plus_jev": {
+          "n_problems": 12,
+          "mean": 0.16666666666666666,
+          "bootstrap_percentile_95": [
+            0.0625,
+            0.3125
+          ]
+        },
+        "cheap_tfidf_plus_local": {
+          "n_problems": 12,
+          "mean": 0.16666666666666666,
+          "bootstrap_percentile_95": [
+            0.0625,
+            0.2916666666666667
+          ]
+        },
+        "training_selected_constant": {
+          "n_problems": 12,
+          "mean": 0.20833333333333334,
+          "bootstrap_percentile_95": [
+            0.08333333333333333,
+            0.3541666666666667
+          ]
+        },
+        "training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": 0.20833333333333334,
+          "bootstrap_percentile_95": [
+            0.08333333333333333,
+            0.3541666666666667
+          ]
+        },
+        "always_continue": {
+          "n_problems": 12,
+          "mean": 0.20833333333333334,
+          "bootstrap_percentile_95": [
+            0.08333333333333333,
+            0.3541666666666667
+          ]
+        }
+      },
+      "paired_policy_differences": {
+        "cheap_tfidf_minus_training_selected_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_training_selected_constant": {
+          "n_problems": 12,
+          "mean": -0.041666666666666664,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_local_minus_training_selected_constant": {
+          "n_problems": 12,
+          "mean": -0.041666666666666664,
+          "bootstrap_percentile_95": [
+            -0.10416666666666667,
+            0.0
+          ]
+        },
+        "cheap_tfidf_minus_training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": -0.041666666666666664,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_local_minus_training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": -0.041666666666666664,
+          "bootstrap_percentile_95": [
+            -0.10416666666666667,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_cheap_tfidf": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_local_minus_cheap_tfidf": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_cheap_tfidf_plus_local": {
+          "n_problems": 12,
+          "mean": 0.0,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0625
+          ]
+        }
+      }
+    },
+    "weighted_path": {
+      "n_problems": 12,
+      "policies": {
+        "cheap_tfidf": {
+          "n_problems": 12,
+          "mean": 0.75,
+          "bootstrap_percentile_95": [
+            0.625,
+            0.875
+          ]
+        },
+        "cheap_tfidf_plus_jev": {
+          "n_problems": 12,
+          "mean": 0.75,
+          "bootstrap_percentile_95": [
+            0.5833333333333334,
+            0.8958333333333334
+          ]
+        },
+        "cheap_tfidf_plus_local": {
+          "n_problems": 12,
+          "mean": 0.75,
+          "bootstrap_percentile_95": [
+            0.625,
+            0.875
+          ]
+        },
+        "training_selected_constant": {
+          "n_problems": 12,
+          "mean": 0.7708333333333334,
+          "bootstrap_percentile_95": [
+            0.6041666666666666,
+            0.9166666666666666
+          ]
+        },
+        "training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": 0.7708333333333334,
+          "bootstrap_percentile_95": [
+            0.6041666666666666,
+            0.9166666666666666
+          ]
+        },
+        "always_continue": {
+          "n_problems": 12,
+          "mean": 0.7708333333333334,
+          "bootstrap_percentile_95": [
+            0.6041666666666666,
+            0.9166666666666666
+          ]
+        }
+      },
+      "paired_policy_differences": {
+        "cheap_tfidf_minus_training_selected_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_training_selected_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_plus_local_minus_training_selected_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_minus_training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_plus_local_minus_training_selected_family_constant": {
+          "n_problems": 12,
+          "mean": -0.020833333333333332,
+          "bootstrap_percentile_95": [
+            -0.125,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_cheap_tfidf": {
+          "n_problems": 12,
+          "mean": 0.0,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0625
+          ]
+        },
+        "cheap_tfidf_plus_local_minus_cheap_tfidf": {
+          "n_problems": 12,
+          "mean": 0.0,
+          "bootstrap_percentile_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "cheap_tfidf_plus_jev_minus_cheap_tfidf_plus_local": {
+          "n_problems": 12,
+          "mean": 0.0,
+          "bootstrap_percentile_95": [
+            -0.0625,
+            0.0625
+          ]
+        }
+      }
+    }
+  },
+  "additional_policies": {
+    "forest_mean:cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4479166666666667,
+        "bootstrap_percentile_95": [
+          0.3541666666666667,
+          0.53125
+        ]
+      },
+      "action_counts": {
+        "repair": 11,
+        "continue": 12,
+        "branch": 1
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 951.125,
+        "deployment_prompt_tokens_processed": 1659.3854166666667,
+        "deployment_service_seconds": 22.475837332041312
+      }
+    },
+    "forest_mean:cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4375,
+        "bootstrap_percentile_95": [
+          0.34375,
+          0.53125
+        ]
+      },
+      "action_counts": {
+        "repair": 11,
+        "continue": 11,
+        "branch": 2
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24,
+        "deployment_generated_tokens": 951.3854166666666,
+        "deployment_prompt_tokens_processed": 1711.3229166666667,
+        "deployment_service_seconds": 22.52486644880264
+      }
+    },
+    "forest_mean:cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4375,
+        "bootstrap_percentile_95": [
+          0.34375,
+          0.53125
+        ]
+      },
+      "action_counts": {
+        "repair": 10,
+        "continue": 12,
+        "branch": 2
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141,
+        "deployment_generated_tokens": 954.2708333333334,
+        "deployment_prompt_tokens_processed": 1713.875,
+        "deployment_service_seconds": 22.64132962108124
+      }
+    },
+    "forest_dispersion:cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4479166666666667,
+        "bootstrap_percentile_95": [
+          0.3541666666666667,
+          0.53125
+        ]
+      },
+      "action_counts": {
+        "repair": 11,
+        "continue": 12,
+        "branch": 1
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 951.125,
+        "deployment_prompt_tokens_processed": 1659.3854166666667,
+        "deployment_service_seconds": 22.475837332041312
+      }
+    },
+    "forest_dispersion:cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4375,
+        "bootstrap_percentile_95": [
+          0.34375,
+          0.53125
+        ]
+      },
+      "action_counts": {
+        "repair": 11,
+        "continue": 12,
+        "branch": 1
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24,
+        "deployment_generated_tokens": 951.1770833333334,
+        "deployment_prompt_tokens_processed": 1660.3854166666667,
+        "deployment_service_seconds": 22.48894241664675
+      }
+    },
+    "forest_dispersion:cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4375,
+        "bootstrap_percentile_95": [
+          0.34375,
+          0.53125
+        ]
+      },
+      "action_counts": {
+        "repair": 10,
+        "continue": 12,
+        "branch": 2
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141,
+        "deployment_generated_tokens": 954.2708333333334,
+        "deployment_prompt_tokens_processed": 1713.875,
+        "deployment_service_seconds": 22.64132962108124
+      }
+    },
+    "sparse_repair_gate:cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4791666666666667,
+        "bootstrap_percentile_95": [
+          0.375,
+          0.5833333333333334
+        ]
+      },
+      "action_counts": {
+        "repair": 4,
+        "continue": 20
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24,
+        "deployment_generated_tokens": 947.09375,
+        "deployment_prompt_tokens_processed": 1638.71875,
+        "deployment_service_seconds": 22.386821809098667
+      }
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    },
+    "sparse_branch_gate:cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "branch": 1,
+        "continue": 23
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141,
+        "deployment_generated_tokens": 940.9791666666666,
+        "deployment_prompt_tokens_processed": 1667.1458333333333,
+        "deployment_service_seconds": 22.288287433203852
+      }
+    },
+    "entropy_median_gate:cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4270833333333333,
+        "bootstrap_percentile_95": [
+          0.3333333333333333,
+          0.5104166666666666
+        ]
+      },
+      "action_counts": {
+        "branch": 11,
+        "continue": 13
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 949.9166666666666,
+        "deployment_prompt_tokens_processed": 2046.0,
+        "deployment_service_seconds": 22.71719641701202
+      }
+    },
+    "validity_07_gate:cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.46875,
+        "bootstrap_percentile_95": [
+          0.3645833333333333,
+          0.5729166666666666
+        ]
+      },
+      "action_counts": {
+        "continue": 21,
+        "repair": 3
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24,
+        "deployment_generated_tokens": 940.6354166666666,
+        "deployment_prompt_tokens_processed": 1630.6770833333333,
+        "deployment_service_seconds": 22.229116127603145
+      }
+    },
+    "validity_07_gate:cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4791666666666667,
+        "bootstrap_percentile_95": [
+          0.375,
+          0.5731770833333318
+        ]
+      },
+      "action_counts": {
+        "repair": 8,
+        "continue": 16
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141,
+        "deployment_generated_tokens": 943.1145833333334,
+        "deployment_prompt_tokens_processed": 1640.625,
+        "deployment_service_seconds": 22.337960466567893
+      }
+    },
+    "reference:cheap_tfidf": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.46875,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.5625
+        ]
+      },
+      "action_counts": {
+        "continue": 18,
+        "repair": 4,
+        "branch": 2
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 940.8645833333334,
+        "deployment_prompt_tokens_processed": 1712.2291666666667,
+        "deployment_service_seconds": 22.29919821357665
+      }
+    },
+    "reference:cheap_tfidf_plus_jev": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.3541666666666667,
+          0.5625
+        ]
+      },
+      "action_counts": {
+        "continue": 18,
+        "repair": 4,
+        "branch": 2
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 4.260025e-05,
+        "jev_recorded_service_seconds_per_problem": 0.26677867537364364,
+        "jev_cost_measured_problems": 24,
+        "deployment_generated_tokens": 941.15625,
+        "deployment_prompt_tokens_processed": 1712.90625,
+        "deployment_service_seconds": 22.287085230035398
+      }
+    },
+    "reference:cheap_tfidf_plus_local": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.375,
+          0.5416666666666666
+        ]
+      },
+      "action_counts": {
+        "continue": 15,
+        "repair": 4,
+        "branch": 5
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "local_acquisition_measured_problems": 24,
+        "local_generated_tokens_per_measured_problem": 68.16666666666667,
+        "local_prompt_tokens_per_measured_problem": 883.125,
+        "local_service_seconds_per_measured_problem": 2.114677354150141,
+        "deployment_generated_tokens": 952.3958333333334,
+        "deployment_prompt_tokens_processed": 1852.5416666666667,
+        "deployment_service_seconds": 22.69237182037129
+      }
+    },
+    "reference:training_selected_constant": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    },
+    "reference:training_selected_family_constant": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    },
+    "reference:always_continue": {
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.3854166666666667,
+          0.59375
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "costs": {
+        "jev_uncached_equivalent_usd_per_problem": 0.0,
+        "jev_recorded_service_seconds_per_problem": 0.0,
+        "deployment_generated_tokens": 941.7291666666666,
+        "deployment_prompt_tokens_processed": 1632.3958333333333,
+        "deployment_service_seconds": 22.281116582045797
+      }
+    }
+  },
+  "additional_contrasts": {
+    "forest_mean:cheap_tfidf_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.09375,
+        0.010416666666666666
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_jev_minus_forest_mean:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_jev_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.0
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_local_minus_forest_mean:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_local_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.0
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_jev_minus_forest_mean:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_jev_minus_validity_07_gate:cheap_tfidf_plus_jev": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.09375,
+        0.020833333333333332
+      ]
+    },
+    "forest_mean:cheap_tfidf_plus_local_minus_validity_07_gate:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.020833333333333332
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.09375,
+        0.010416666666666666
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_jev_minus_forest_dispersion:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_jev_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.0
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_local_minus_forest_dispersion:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_local_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.0
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_jev_minus_forest_dispersion:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_jev_minus_validity_07_gate:cheap_tfidf_plus_jev": {
+      "n_problems": 24,
+      "mean": -0.03125,
+      "bootstrap_percentile_95": [
+        -0.09375,
+        0.020833333333333332
+      ]
+    },
+    "forest_dispersion:cheap_tfidf_plus_local_minus_validity_07_gate:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.10416666666666667,
+        0.020833333333333332
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_jev_minus_sparse_repair_gate:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_jev_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_local_minus_sparse_repair_gate:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_local_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_jev_minus_sparse_repair_gate:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_jev_minus_validity_07_gate:cheap_tfidf_plus_jev": {
+      "n_problems": 24,
+      "mean": 0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.020833333333333332,
+        0.041666666666666664
+      ]
+    },
+    "sparse_repair_gate:cheap_tfidf_plus_local_minus_validity_07_gate:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": 0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.020833333333333332,
+        0.041666666666666664
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_jev_minus_sparse_branch_gate:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_jev_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_local_minus_sparse_branch_gate:cheap_tfidf": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_local_minus_reference:training_selected_family_constant": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_jev_minus_sparse_branch_gate:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_jev_minus_validity_07_gate:cheap_tfidf_plus_jev": {
+      "n_problems": 24,
+      "mean": 0.020833333333333332,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.052083333333333336
+      ]
+    },
+    "sparse_branch_gate:cheap_tfidf_plus_local_minus_validity_07_gate:cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": 0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.020833333333333332,
+        0.041666666666666664
+      ]
+    }
+  },
+  "generation_accounting": {
+    "generated_tokens": 201006,
+    "prompt_tokens_processed": 515138,
+    "elapsed_seconds": 4899.315721468069,
+    "shared_initial_generated_tokens": 6583,
+    "discarded_branch_generated_tokens": 6144,
+    "unknown_work_calls": 0,
+    "wall_elapsed_seconds": 4912.378889207728,
+    "inserted_instruction_tokens": 5888
+  },
+  "local_judge_acquisition": {
+    "records": 24,
+    "records_with_measured_generation": 24,
+    "outside_run_records_excluded": 0,
+    "failed_records": 0,
+    "records_with_unknown_generation_work": 0,
+    "unmatched_started_problem_ids": [],
+    "totals_are_lower_bounds": false,
+    "generated_tokens": 1636.0,
+    "prompt_tokens_processed": 21195.0,
+    "model_service_seconds": 50.75225649960339,
+    "note": "Additional diagnostic acquisition; not included in the generator-only token envelope or earlier collection totals."
+  },
+  "jev_run_cost_usd": 0.001022406,
+  "global_jev_accounted_usd": 0.00124614,
+  "feature_coverage": {
+    "jev_complete": 24,
+    "local_complete": 24
+  },
+  "limitations": [
+    "Single-checkpoint all-arm replay value, conditional on checkpoint eligibility; not sequential deployment.",
+    "Bootstrap intervals resample held-out problem contributions without refitting folds; training-instability uncertainty is not included.",
+    "Generation envelope is shared; judge acquisition latency and money are additional and are reported separately, not proven cost-neutral.",
+    "No hyperparameter selection on held-out outcomes; an independent frozen-policy test is still needed.",
+    "Local-judge acquisition costs are not inferred when the local-feature file does not supply a measured cost ledger.",
+    "Task family is observable and can confound pooled feature gains. Family-constant controls and within-family contrasts do not establish transfer to an unseen family.",
+    "Missing judge values are training-fold-imputed with missingness indicators; gains may reflect acquisition failure patterns rather than semantic content."
+  ],
+  "private_analysis_sha256": {
+    "mechanism_v1_analysis.json": "e4861e057ad1e90deb9e13f5e4a64690e132ee1662d36f69e35388cb3c44b205",
+    "mechanism_v1_additional_baselines.json": "912786911c94bf22db3507e6fe87f29ebb98ccf23943e194858f4d8bb58e70b8",
+    "mechanism_v1_integrity.json": "db6e328ad8110929b6552e04ea310847e7f7eb8e1bdd2bdb868c8456b447a99f"
+  },
+  "release_note": "Aggregate derived report; original private analysis and raw hosted responses are not included. No prospective deployment result."
+}
