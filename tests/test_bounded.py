@@ -24,3 +24,17 @@ def test_wall_timeout_retains_failure_receipt_and_reaps_own_worker(tmp_path):
     assert result['status']=='failed' and result['stop_reason']=='wall_limit'
     assert result['exit_code'] is not None
     assert result['elapsed_seconds']<5
+
+
+@pytest.mark.parametrize('field', ['wall_seconds', 'rss_mib', 'output_mib', 'poll_seconds'])
+@pytest.mark.parametrize('value', [float('nan'), float('inf'), -1.0, 0.0])
+def test_invalid_limit_cannot_launch_an_unbounded_worker(tmp_path, monkeypatch, field, value):
+    def unexpected_launch(*args, **kwargs):
+        pytest.fail('Invalid limits must be rejected before process launch')
+    monkeypatch.setattr(bounded.subprocess, 'Popen', unexpected_launch)
+    limits = dict(wall_seconds=3, rss_mib=512, output_mib=1, poll_seconds=.02)
+    limits[field] = value
+    control = tmp_path / 'invalid'
+    with pytest.raises(ValueError, match='Finite positive'):
+        bounded.run([sys.executable, '-c', 'pass'], control, **limits)
+    assert not control.exists()

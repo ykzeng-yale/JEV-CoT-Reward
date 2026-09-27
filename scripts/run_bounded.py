@@ -8,6 +8,7 @@ Keep control receipts private when commands contain local filesystem paths.
 import argparse
 from datetime import datetime, timezone
 import json
+import math
 import os
 from pathlib import Path
 import signal
@@ -16,8 +17,9 @@ import time
 
 
 def run(command, control, *, wall_seconds, rss_mib, output_mib, poll_seconds=1):
-    if not command or min(wall_seconds, rss_mib, output_mib, poll_seconds) <= 0:
-        raise ValueError("Positive bounds and a command are required")
+    if not command or any(not math.isfinite(value) or value <= 0
+                          for value in (wall_seconds, rss_mib, output_mib, poll_seconds)):
+        raise ValueError("Finite positive bounds and a command are required")
     control=Path(control)
     control.mkdir(parents=True,exist_ok=False)
     started=time.monotonic()

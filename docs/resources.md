@@ -23,7 +23,7 @@ The mini reports **Apple M4, 10 CPU cores, 16 GiB unified memory, macOS 15.3.1**
 
 ## Reusable local models and runtimes
 
-Model weight sizes below are bytes on disk, not peak inference memory. Cache snapshots contain public open-weight models. `results/resources.json` records exact snapshot paths and weight-file sizes.
+Model weight sizes below are bytes on disk, not peak inference memory. Cache snapshots contain public open-weight models. `results/resources.json` records public model identities, revisions and weight-file sizes; machine-specific cache paths are omitted.
 
 | Model snapshot | Weight size | Best immediate role |
 |---|---:|---|
@@ -33,21 +33,17 @@ Model weight sizes below are bytes on disk, not peak inference memory. Cache sna
 | Qwen/Qwen2.5-7B-Instruct-GGUF | 4.36 GiB across two shards | Later model-size comparison |
 | mlx-community/Qwen2.5-Coder-7B-Instruct-4bit | 3.99 GiB | Already quantized MLX coding extension |
 
-Exact primary path:
+Use the local Hugging Face snapshot for the pinned primary revision above. Set `MODEL_SNAPSHOT` to its absolute directory when running experiments; the harness refuses a remote model identifier and does not download weights.
+
+Verified project runtime:
 
 ```text
-/Users/yukangzengcmac/.cache/huggingface/hub/models--Qwen--Qwen3-4B-Instruct-2507/snapshots/cdbee75f17c01a7cc42f958dc650907174af0554
-```
-
-Verified runtime:
-
-```text
-/Users/yukangzengcmac/ICLR-WinRatioAgentEvals/.venv/bin/python
+.venv/bin/python (Python 3.12.13)
 mlx==0.32.2
 mlx-lm==0.31.3
 ```
 
-A second existing environment in `ClaudeCodeLocalModelDeploymentExperiment/.venv` has MLX 0.31.2 and mlx-lm 0.31.3. Its packages were only inventoried. The initial feasibility probe reused an existing runtime. The project now has its own `.venv` with MLX 0.32.2 and mlx-lm 0.31.3, pinned in `requirements.lock.txt`; the real paired experiments ran through that project environment. Its installed footprint is approximately 464 MiB, mostly reusable cached packages.
+The initial feasibility probe reused an existing local MLX environment. The project now has its own `.venv` with MLX 0.32.2 and mlx-lm 0.31.3, pinned in `requirements.lock.txt`; the real paired experiments ran through that project environment. Its installed footprint is approximately 464 MiB, mostly reusable cached packages. Other projects' filesystem locations are not needed to reproduce this setup.
 
 The available Qwen3 checkpoint is the **Instruct-2507** variant. A study using it measures interventions on its observable scratchpad/answer prefix. It must not be described as an experiment on hidden reasoning or silently equated with the original Qwen3 thinking model. Quantization changes the generator and is held fixed across study arms.
 
@@ -77,21 +73,21 @@ Timeouts are checked between emitted tokens. A prefill or Metal kernel already r
 ## What to allocate now
 
 1. **Use existing compute:** a single 4-bit Qwen3-4B process, one active sequence, explicit visible reasoning, and exact-token checkpoint records. No new GPU is required for feasibility work.
-2. **Start short:** 128–512 generation tokens per continuation, modest fresh procedural tasks, and 1–2 checkpoints. Tune difficulty on development examples until outcomes vary; do not infer success from trivial arithmetic or intervention-created errors alone.
+2. **Use the frozen development-tested schedule:** the current mechanism screen allows 1,024 generated tokens per hypothetical episode and one online checkpoint at the first newline after 256 tokens, capped at 384. Earlier 512-token instrumentation is retained separately. Difficulty changes require fresh development data and a new protocol.
 3. **Retain paired arms:** continue/repair/branch use the same cached checkpoint and remaining generation budget. Count discarded candidates and repair generations. Any added instruction tokens increase prefill cost and must be recorded.
 4. **Reserve disk:** the current 51.6 GiB can accommodate code, dependency setup, and a small text/ID-based pilot. Do not duplicate model weights or save full logits/KV caches. Additional storage or cleanup becomes useful only after a justified expansion; this audit deletes nothing.
 5. **Scale on evidence:** at the observed short-prompt rate, 1 million generated tokens would take roughly 6.4 device-hours before additional long-prefill/verification costs. This is a rough extrapolation, not a throughput promise. A 26-million-token pilot would be about a week on this device even at that rate, so first run a materially smaller decision experiment.
 
 The user's **$25 total Jev limit** is separate from local compute. Local generation and controller fitting need no paid model API. Price, batching, latency, retry reserve, and actual billed input-token usage should be handled by the Jev budget ledger; do not extrapolate that a hosted judge is free because local inference dominates wall time.
 
-The Mac mini execution route and basic hardware are now verified. Before moving a justified longer experiment there, check its runtime/model availability, available storage, and concurrent workloads, then measure the actual inference envelope. Larger confirmatory experiments may benefit from a 48–80 GB NVIDIA worker, but the present host is sufficient to test instrumentation and an initial signal without purchasing hardware.
+The [later pool qualification](mac_compute.md) verifies SSH/SFTP and bounded CPU execution on both peers. It records their runtime/model availability and transient resources. Neither peer has yet passed this generator's inference qualification; before moving a justified longer model experiment there, refresh available storage and concurrent workloads, then measure the actual inference envelope. Larger confirmatory experiments may benefit from a 48–80 GB NVIDIA worker, but the present host is sufficient to test instrumentation and an initial signal without purchasing hardware.
 
 ## Repeat the audit
 
 ```sh
-python3 scripts/collect_resources.py \
-  --python /Users/yukangzengcmac/ICLR-WinRatioAgentEvals/.venv/bin/python \
-  --output results/resources.json
+.venv/bin/python scripts/collect_resources.py \
+  --python "$(pwd)/.venv/bin/python" \
+  --output runs/resources-new.json
 ```
 
 Use `--ssh-host mac-mini` for the verified remote route. The alias selects the enrolled client identity and pinned host-key file. The script uses batch mode and strict host-key checking; it will not add trust entries or request passwords. A direct hostname does not necessarily select those alias-specific settings.
