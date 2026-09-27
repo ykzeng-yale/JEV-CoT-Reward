@@ -23,7 +23,7 @@ def local_choice(backend, task_prompt, retained_text, views, seed, max_tokens):
     return {'choice':choice,'error':error,'generation':generation.to_dict(),'prompt_ids':prompt}
 
 
-def collect_pool(backend,task,cp,config,index,record,rollout,judge=local_choice):
+def collect_pool(backend,task,cp,config,index,record,rollout,judge=local_choice,jev_client=None):
     """record(kind, row) must durably persist each row before returning."""
     pid=task['id'];prompt=cp['prompt_ids'];retained=cp['retained_ids'];initial=cp['initial']
     budget=config['budget'];reserve=config['final_reserve'];base=config['task_seed']+index*10000
@@ -46,6 +46,14 @@ def collect_pool(backend,task,cp,config,index,record,rollout,judge=local_choice)
     record('local_judge',{'problem_id':pid,**local})
     choices['local_semantic']=local['choice'] if local['choice'] is not None else choices['likelihood']
     if local['choice'] is None:failures['local_semantic']='invalid_choice_fallback_likelihood'
+    jev=None
+    if config.get('jev'):
+        if jev_client is None: raise ValueError('Jev client required by frozen protocol')
+        from .branch_jev import select
+        jev=select(jev_client,task['prompt'],backend.decode(retained),views)
+        record('jev_judge',{'problem_id':pid,**jev})
+        choices['jev_semantic']=jev['choice'] if jev['choice'] is not None else choices['likelihood']
+        if jev['choice'] is None: failures['jev_semantic']='invalid_choice_fallback_likelihood'
     pool_tokens=sum(g.generated_tokens for g in candidates)
     pool_prompts=sum(g.prompt_tokens for g in candidates)
     pool_seconds=sum(g.elapsed_seconds for g in candidates)
@@ -82,6 +90,9 @@ def collect_pool(backend,task,cp,config,index,record,rollout,judge=local_choice)
                 selector_service_seconds=local['generation']['elapsed_seconds'],
                 acquisition_note='Selector costs apply to local_semantic only; cheap selectors use zero additional generation.',
                 pool_generated_tokens=pool_tokens,selected_candidate_generated_tokens=g.generated_tokens)
+            if jev is not None:
+                row.update(jev_accounted_usd=jev['accounted_usd'],jev_input_tokens=jev['input_tokens'],
+                           jev_acquisition_seconds=jev['acquisition_seconds'])
             if row['episode_generated_tokens']>budget:raise ValueError('Generator budget exceeded')
             record('outcomes',row);outcomes.append(row)
     return decision,outcomes

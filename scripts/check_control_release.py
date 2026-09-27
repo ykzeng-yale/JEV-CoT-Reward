@@ -17,10 +17,14 @@ def check(root):
             raise ValueError('Release changed')
     tasks={t['id']:t for t in json.loads((root/'tasks.json').read_text())}
     rows=[json.loads(s) for s in (root/'outcomes.jsonl').read_text().splitlines()]
-    counts=defaultdict(lambda:[0,0]);seen=set()
+    counts=defaultdict(lambda:[0,0]);seen=set();branch_rows=set()
     for r in rows:
         if verify(tasks[r['problem_id']],r['text']) != r['outcome']: raise ValueError('Outcome disagreement')
-        groups=r.get('policies',[r['action']])
+        if 'candidate' in r:
+            identity=(r['problem_id'],r.get('repeat',0),r['candidate'])
+            if identity in branch_rows: raise ValueError('Duplicate branch outcome')
+            branch_rows.add(identity)
+        groups=r.get('selectors',r.get('policies',[r['action']]))
         for group in groups:
             key=(r['problem_id'],group,r.get('repeat',0))
             if key in seen: raise ValueError('Duplicate episode')

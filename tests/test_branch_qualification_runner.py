@@ -23,7 +23,7 @@ def test_runner_preserves_all_enrollment_and_records_checkpoint_before_pool(tmp_
         return {'problem_id':task['id'],'initial':g.to_dict(),'retained_ids':g.token_ids,'prompt_ids':prompt},None
     monkeypatch.setattr(runner,'checkpoint_from_initial',checkpoint)
     output=tmp_path/'out'
-    def pool(backend,task,cp,config,index,record,rollout):
+    def pool(backend,task,cp,config,index,record,rollout,**kwargs):
         assert task['id'] in (output/'checkpoints.jsonl').read_text()
         record('decisions',{'problem_id':task['id'],'choices':{}})
         rows=[{'problem_id':task['id'],'fixture':i} for i in range(8)]

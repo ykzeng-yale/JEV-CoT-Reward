@@ -20,10 +20,11 @@ CONFIG=ROOT/'configs/branch_qualification_v2.json'
 
 
 def run(args):
-    config=json.loads(CONFIG.read_text());start=time.monotonic()
+    config_path=getattr(args,'config',CONFIG)
+    config=json.loads(config_path.read_text());start=time.monotonic()
     args.output.mkdir(parents=True,exist_ok=False)
     source={}
-    for p in list((ROOT/'scripts').glob('*.py'))+list((ROOT/'src/jev_control').glob('*.py'))+[CONFIG,ROOT/'requirements.lock.txt']:
+    for p in list((ROOT/'scripts').glob('*.py'))+list((ROOT/'src/jev_control').glob('*.py'))+[config_path,ROOT/'requirements.lock.txt']:
         relative=p.relative_to(ROOT);target=args.output/'source'/relative
         target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(p.read_bytes());source[str(relative)]=file_sha256(target)
     schedule=[]
@@ -35,7 +36,12 @@ def run(args):
         'schedule_sha256':file_sha256(args.output/'schedule.json'),
         'package_versions':{p:importlib.metadata.version(p) for p in ('mlx','mlx-lm','numpy','transformers')}}
     write_json(args.output/'manifest.json',manifest)
-    names=('checkpoints','outcomes','generation_started','generation_events','skipped','candidates','decisions','local_judge')
+    jev_client=None
+    if config.get('jev'):
+        from jev_control.jev import JevClient
+        jev_client=JevClient(stage_cap_usd=config['jev_cumulative_stage_cap_usd'])
+        manifest['jev_ledger_before']=jev_client.status()
+    names=('jev_judge','checkpoints','outcomes','generation_started','generation_events','skipped','candidates','decisions','local_judge')
     for name in names:(args.output/(name+'.jsonl')).touch()
     def record(kind,row):durable_record(args.output/(kind+'.jsonl'),{**row,'recorded_unix':time.time()})
     completed=eligible=outcomes=0;status='failed'
@@ -57,7 +63,7 @@ def run(args):
                     'prompt_ids':prompt,'initial_outcome':verify(task,initial.text)})
             else:
                 record('checkpoints',cp);eligible+=1
-                _,rows=collect_pool(backend,task,cp,config,index,record,rollout)
+                _,rows=collect_pool(backend,task,cp,config,index,record,rollout,jev_client=jev_client)
                 outcomes+=len(rows)
             completed+=1
             print(json.dumps({'completed_problems':completed,'eligible_problems':eligible,'outcomes':outcomes}),flush=True)
@@ -65,6 +71,7 @@ def run(args):
     except BaseException as exc:
         manifest['error_type']=type(exc).__name__;raise
     finally:
+        if jev_client is not None: manifest['jev_ledger_after']=jev_client.status()
         manifest.update(status=status,finished_unix=time.time());write_json(args.output/'manifest.json',manifest)
         write_json(args.output/'summary.json',{'status':status,'completed_problems':completed,'eligible_problems':eligible,
             'planned_problems':config['problems'],'outcomes':outcomes,'wall_seconds':time.monotonic()-start,
@@ -73,6 +80,6 @@ def run(args):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--model',required=True);p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--wall-seconds',type=float,default=7200);a=p.parse_args()
+    p.add_argument('--config',type=Path,default=CONFIG);p.add_argument('--wall-seconds',type=float,default=7200);a=p.parse_args()
     if not math.isfinite(a.wall_seconds) or a.wall_seconds<=0:p.error('Finite positive deadline required')
     run(a)

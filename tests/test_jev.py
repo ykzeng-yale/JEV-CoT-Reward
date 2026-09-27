@@ -54,3 +54,27 @@ def test_caps_and_pinning(tmp_path):
 
 def test_judge_allowlist():
     assert set(judge_state("task", "history", "step")) == {"task", "history", "latest_segment"}
+
+CHOICE = {'check': {'type': 'choice', 'instructions': 'Choose', 'criteria': {'0': 'a', '1': 'b'}}}
+
+def choice_response(payload):
+    return {'model': MODEL, 'answers': {'check': {'type': 'choice', 'choice': '1',
+            'probabilities': {'0': .2, '1': .8}, 'confidence': .6}}, 'usage': {'input_tokens': 100}}
+
+def test_choice_cache_and_schema(tmp_path):
+    c=JevClient(tmp_path/'ledger', transport=choice_response, api_key='test')
+    assert c.evaluate('x', CHOICE)['response']['answers']['check']['choice']=='1'
+    assert c.evaluate('x', CHOICE)['cache_hit']
+    before=c.status()['accounted_usd']
+    with pytest.raises(ValueError): c.evaluate('y', {'check': {'type':'choice','instructions':'x'}})
+    assert c.status()['accounted_usd']==before
+
+@pytest.mark.parametrize('patch', [
+    {'choice':'0'}, {'choice':True}, {'probabilities':{'0':.2,'1':.2}},
+    {'probabilities':{'0':float('nan'),'1':.8}}, {'probabilities':{'x':.2,'1':.8}},
+    {'confidence':True}, {'confidence':2}])
+def test_choice_malformed_retains_reservation(tmp_path,patch):
+    r=choice_response(None);r['answers']['check'].update(patch)
+    c=JevClient(tmp_path/'ledger', transport=lambda p:r, api_key='test')
+    with pytest.raises(ValueError):c.evaluate('x',CHOICE)
+    assert c.status()['accounted_usd']==.01

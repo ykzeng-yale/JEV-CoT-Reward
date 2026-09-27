@@ -21,7 +21,10 @@ def export(run, audit_path, destination):
         if Path(name).name!=name or sha(run/name)!=digest: raise ValueError('Stale audit')
     fields=('problem_id','family','index','repeat','action','seed','outcome','text',
             'generated_tokens','prompt_tokens_processed','elapsed_seconds','policies',
-            'hypothetical_deployment_costs','collection_sharing','decision_record_sha256')
+            'hypothetical_deployment_costs','collection_sharing','decision_record_sha256',
+            'candidate','selectors','episode_generated_tokens','episode_prompt_tokens',
+            'episode_service_seconds','selector_generated_tokens','selector_prompt_tokens',
+            'selector_service_seconds','acquisition_note','pool_generated_tokens','selected_candidate_generated_tokens')
     rows=[{k:r[k] for k in fields if k in r} for r in lines(run/'outcomes.jsonl')]
     tasks=[s['task'] for s in json.loads((run/'schedule.json').read_text())]
     payload={'tasks.json':json.dumps(tasks,indent=2)+'\n',

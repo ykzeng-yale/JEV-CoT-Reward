@@ -25,9 +25,12 @@ def audit(run,tokenizer_dir):
     m.require(manifest['status']==summary['status']=='complete','Run incomplete')
     constants,tasks=checked_task_contracts(run,manifest)
     config=manifest['config']
-    m.require(config==m.read_json(run/'source/configs/branch_qualification_v2.json'),'Config mismatch')
-    fixed={'protocol':'common-pool-branch-qualification-v2-development-only','problems':8,'repeats':2,'task_seed':791027,
+    v3=config.get('protocol')=='common-pool-branch-replication-v3-development-only'
+    config_name='branch_replication_v3.json' if v3 else 'branch_qualification_v2.json'
+    m.require(config==m.read_json(run/'source/configs'/config_name),'Config mismatch')
+    fixed={'protocol':'common-pool-branch-qualification-v2-development-only','problems':config['problems'],'repeats':2,'task_seed':791027,
         'budget':2048,'checkpoint_target':256,'checkpoint_cap':384,'final_reserve':128,'candidate_count':3,'candidate_tokens':128,'judge_tokens':128,'jev':False}
+    if v3: fixed.update(protocol='common-pool-branch-replication-v3-development-only',problems=24,repeats=4,task_seed=891027,jev=True)
     m.require(all(config[k]==v for k,v in fixed.items()),'Unsupported settings')
     # The prompt/schema implementation is reviewed current code, never arbitrary source execution.
     name='src/jev_control/branch_selectors.py'
@@ -45,10 +48,12 @@ def audit(run,tokenizer_dir):
     chat=lambda text:list(chat_tokenizer.apply_chat_template([{'role':'user','content':text}],tokenize=True,add_generation_prompt=True,return_dict=False))
     suffix=m.literal(ast.parse((run/'source/scripts/run_development.py').read_text()),'PROMPT_SUFFIX')
     schedule=m.read_json(run/'schedule.json')
-    m.require(len(schedule)==8 and m.digest((run/'schedule.json').read_bytes())==manifest['schedule_sha256'],'Schedule mismatch')
+    m.require(len(schedule)==config['problems'] and m.digest((run/'schedule.json').read_bytes())==manifest['schedule_sha256'],'Schedule mismatch')
     cps=m.indexed(m.read_jsonl(run/'checkpoints.jsonl'),'checkpoints');skips=m.indexed(m.read_jsonl(run/'skipped.jsonl'),'skipped')
     decisions=m.indexed(m.read_jsonl(run/'decisions.jsonl'),'decisions');local=m.indexed(m.read_jsonl(run/'local_judge.jsonl'),'local')
     m.require(not(set(cps)&set(skips)) and set(cps)==set(decisions)==set(local),'State/selection inventory mismatch')
+    hosted=m.indexed(m.read_jsonl(run/'jev_judge.jsonl'),'jev') if v3 else {}
+    if v3: m.require(set(hosted)==set(cps),'Jev inventory mismatch')
     candidates={};outcomes={}
     for row in m.read_jsonl(run/'candidates.jsonl'):
         key=(row['problem_id'],row['candidate']);m.require(key not in candidates,'Duplicate candidate');candidates[key]=row
@@ -91,12 +96,36 @@ def audit(run,tokenizer_dir):
         m.require(local[pid]['choice']==parsed and local[pid]['error']==(None if parsed is not None else 'invalid_local_choice'),'Local parsing mismatch')
         choices['local_semantic']=parsed if parsed is not None else choices['likelihood']
         if parsed is None:failures['local_semantic']='invalid_choice_fallback_likelihood'
+        if v3:
+            from jev_control.branch_jev import request
+            from jev_control.jev import canonical, MODEL, PRICE_PER_MILLION, RESERVE_USD
+            jr=hosted[pid];state,questions=request(task['prompt'],tokenizer.decode(cp['retained_ids']),views)
+            m.require(jr['request']=={'state':state,'questions':questions},'Jev information mismatch')
+            if jr['error'] is None:
+                result=jr['result'];response=result['response'];answer=response['answers']['candidate']
+                m.require(response['model']==MODEL and answer['type']=='choice','Jev model/type mismatch')
+                probs=answer['probabilities']
+                m.require(set(probs)=={'0','1','2'} and all(type(v) in (int,float) and 0<=v<=1 for v in probs.values()),'Invalid Jev distribution')
+                m.equal_number(sum(probs.values()),1.,'Jev normalization')
+                m.require(answer['choice'] in probs and probs[answer['choice']]>=max(probs.values())-1e-8,'Invalid Jev choice')
+                m.require(jr['choice']==int(answer['choice']),'Jev parsing mismatch')
+                payload={'model':MODEL,'state':state,'questions':questions}
+                m.require(result['request_sha256']==m.digest(canonical(payload).encode()),'Jev request digest mismatch')
+                m.require(jr['input_tokens']==response['usage']['input_tokens'],'Jev usage mismatch')
+                m.equal_number(jr['accounted_usd'],jr['input_tokens']*PRICE_PER_MILLION/1e6,'Jev cost')
+                choices['jev_semantic']=jr['choice']
+            else:
+                m.require(jr['choice'] is None,'Failed Jev choice used')
+                m.equal_number(jr['accounted_usd'],RESERVE_USD,'Jev failure reserve')
+                choices['jev_semantic']=choices['likelihood'];failures['jev_semantic']='invalid_choice_fallback_likelihood'
+            m.require(jr['recorded_unix']>=local[pid]['recorded_unix'],'Jev chronology mismatch')
+            m.require(decisions[pid]['recorded_unix']>=jr['recorded_unix'],'Decision before Jev')
         decision=decisions[pid];m.require(decision['choices']==choices and decision['failures']==failures,'Selector decision mismatch')
         m.require(decision['recorded_unix']>=local[pid]['recorded_unix']>=local_start,'Selection chronology mismatch')
         totals={'pool_generated_tokens':sum(g['generated_tokens'] for g in pool),'pool_prompt_tokens':sum(g['prompt_tokens'] for g in pool),
                 'pool_service_seconds':sum(g['elapsed_seconds'] for g in pool)}
         for key,value in totals.items():m.equal_number(decision[key],value,key)
-        for repeat in range(2):
+        for repeat in range(config['repeats']):
             seed=base+1000+repeat*100
             for j in (None,0,1,2):
                 key=(pid,repeat,j);m.require(key in outcomes,'Missing outcome');seen_outcomes.add(key);row=outcomes[key]
@@ -127,14 +156,17 @@ def audit(run,tokenizer_dir):
                     'selector_service_seconds':lg['elapsed_seconds'] if is_branch else 0.}
                 for name,value in expected.items():m.equal_number(row[name],value,name)
                 m.require(row['episode_generated_tokens']<=2048,'Episode generator budget exceeded')
+                if is_branch and v3:
+                    for field,source in [('jev_accounted_usd','accounted_usd'),('jev_acquisition_seconds','acquisition_seconds')]: m.equal_number(row[field],hosted[pid][source],field)
+                    m.require(row['jev_input_tokens']==hosted[pid]['input_tokens'],'Jev token mismatch')
                 if is_branch:
                     m.require(row['pool_generated_tokens']==pool_charge and row['selected_candidate_generated_tokens']==selected['generated_tokens'],'Pool cost mismatch')
                 m.require(row['recorded_unix']>=decision['recorded_unix'],'Outcome recorded before decision')
     m.require(seen_candidates==set(candidates) and seen_outcomes==set(outcomes),'Extra records')
     m.require(set(cps)|set(skips)=={i['task']['id'] for i in schedule},'Extra enrollment')
     m.require(ledger.cursor==len(ledger.events),'Unaccounted calls')
-    m.require(summary['completed_problems']==8 and summary['eligible_problems']==len(cps) and summary['outcomes']==len(outcomes),'Summary mismatch')
-    return {'status':'passed_branch_qualification_audit','ready_for_analysis':True,'problems':8,'eligible_problems':len(cps),
+    m.require(summary['completed_problems']==config['problems'] and summary['eligible_problems']==len(cps) and summary['outcomes']==len(outcomes),'Summary mismatch')
+    return {'status':'passed_branch_qualification_audit','ready_for_analysis':True,'problems':config['problems'],'eligible_problems':len(cps),
         'outcomes':len(outcomes),'candidates':len(candidates),'durable_calls':len(ledger.events),'outcome_disagreements':0,
         'input_sha256':{p.name:m.digest(p.read_bytes()) for p in run.iterdir() if p.is_file() and p.suffix in ('.json','.jsonl')},
         'audit_source_sha256':m.digest(Path(__file__).read_bytes()),

@@ -1,0 +1,219 @@
+{
+  "status": "audited_development_branch_qualification",
+  "enrolled_problems": 8,
+  "eligible_problems": 8,
+  "unique_outcomes": 64,
+  "hypothetical_policy_episodes": 80,
+  "policies": {
+    "continue": {
+      "successes": 9,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.5625,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.6875
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.125,
+        "weighted_path": 1.0
+      },
+      "mean_episode_generator_tokens": 1413.5,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 1245.5,
+      "mean_total_model_service_seconds": 32.58787009911612
+    },
+    "uniform": {
+      "successes": 10,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.625,
+        "bootstrap_percentile_95": [
+          0.4375,
+          0.875
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.375,
+        "weighted_path": 0.875
+      },
+      "mean_episode_generator_tokens": 1560.6875,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 2701.375,
+      "mean_total_model_service_seconds": 36.60857973661041
+    },
+    "likelihood": {
+      "successes": 11,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.875
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.375,
+        "weighted_path": 1.0
+      },
+      "mean_episode_generator_tokens": 1579.125,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 2587.8125,
+      "mean_total_model_service_seconds": 36.98830872634426
+    },
+    "entropy_reduction": {
+      "successes": 11,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.875
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.375,
+        "weighted_path": 1.0
+      },
+      "mean_episode_generator_tokens": 1566.25,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 2587.8125,
+      "mean_total_model_service_seconds": 36.71161171060521
+    },
+    "local_semantic": {
+      "successes": 11,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.875
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.375,
+        "weighted_path": 1.0
+      },
+      "mean_episode_generator_tokens": 1520.3125,
+      "mean_selector_generated_tokens": 7.0,
+      "mean_total_processed_prompt_tokens": 3583.4375,
+      "mean_total_model_service_seconds": 36.521083968051244
+    }
+  },
+  "paired_contrasts": {
+    "uniform_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        -0.125,
+        0.1875
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "likelihood_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.125,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.25
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "entropy_reduction_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.125,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.25
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "local_semantic_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.125,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.25
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "likelihood_minus_uniform": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.1875
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "entropy_reduction_minus_uniform": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.1875
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "local_semantic_minus_uniform": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.1875
+      ],
+      "warning": "Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim."
+    }
+  },
+  "agreement_with_uniform_by_problem": {
+    "uniform": 8,
+    "likelihood": 1,
+    "entropy_reduction": 3,
+    "local_semantic": 3
+  },
+  "local_failure_count": 0,
+  "candidate_unique_text_counts": {
+    "weighted_path-791027-0": 3,
+    "arithmetic_construction-791027-1": 3,
+    "weighted_path-791027-2": 3,
+    "arithmetic_construction-791027-3": 3,
+    "weighted_path-791027-4": 3,
+    "arithmetic_construction-791027-5": 3,
+    "weighted_path-791027-6": 3,
+    "arithmetic_construction-791027-7": 3
+  },
+  "split_repeat_diagnostic": [
+    {
+      "selection_repeat": 0,
+      "evaluation_repeat": 1,
+      "selected_candidate_success": 0.625,
+      "uniform_success": 0.625,
+      "interpretation": "Noisy outcome-informed candidate selection; overlapping splits, not deployable and not an oracle bound."
+    },
+    {
+      "selection_repeat": 1,
+      "evaluation_repeat": 0,
+      "selected_candidate_success": 0.625,
+      "uniform_success": 0.625,
+      "interpretation": "Noisy outcome-informed candidate selection; overlapping splits, not deployable and not an oracle bound."
+    }
+  ],
+  "collection_generated_tokens": 68388,
+  "collection_service_seconds": 1605.6556022455916,
+  "audit_sha256": "acd0ac22060acbb8d46b9171378e5b3a5d07b523a1ffc14706e3cc9a2ae998a2",
+  "analysis_sha256": "c1f1cedd232da2c8110142b361df5c4c6e6a86305a4eaf9f74c5d296b20de252",
+  "limitations": [
+    "Shared candidate pool and continuations couple policies; independent unit is original problem.",
+    "Generator caps do not match total compute; local judge acquisition is separately charged.",
+    "Shadow continuations for unselected candidates are collection cost, not free deployed evidence.",
+    "The complete GUARD trigger, prompts and scheduling are not reproduced.",
+    "No Jev efficacy, transfer, sequential control or training tested.",
+    "A degenerate empirical bootstrap does not establish equivalence."
+  ]
+}

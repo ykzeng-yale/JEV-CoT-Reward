@@ -1,0 +1,30 @@
+{
+  "protocol": "common-pool-branch-replication-v3-development-only",
+  "task_seed": 891027,
+  "problems": 24,
+  "repeats": 4,
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "candidate_count": 3,
+  "candidate_tokens": 128,
+  "judge_tokens": 128,
+  "selectors": [
+    "uniform",
+    "likelihood",
+    "entropy_reduction",
+    "local_semantic",
+    "jev_semantic"
+  ],
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "quantization_bits": 4,
+  "jev": true,
+  "enrollment": "24 fresh development problems; all ineligible cases retained without replacement. No v1 test reuse.",
+  "comparison": "Common candidate pool, all selector choices saved before downstream outcomes. Continue receives full remaining generator budget; every branch is charged the entire pool, including discarded candidates. Local selector generation/prefill/time are additionally recorded, not hidden inside a claim of total-compute matching. Jev uses identical observable task/history/candidate text and a Choice primitive; probability is not a causal value. Jev latency/input usage/USD are additional acquisition costs.",
+  "fallback": "Missing cheap scores select first; invalid local or Jev selects likelihood. No hosted retry. Failed requests retain conservative reservations.",
+  "limitations": "Entropy-reduction ranking is a GUARD-inspired component, not a full published-method reproduction. Same generator backbone supplies local judging; it is not the gold verifier. Two continuations cannot identify a reliable oracle action.",
+  "transition": "Audit all outcomes; primary exploratory contrasts Jev-minus-likelihood and Jev-minus-local. No winner promotion on this development sample. Fresh prospective design required.",
+  "jev_cumulative_stage_cap_usd": 1.0
+}

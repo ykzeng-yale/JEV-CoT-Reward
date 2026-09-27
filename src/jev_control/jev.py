@@ -66,20 +66,26 @@ class JevClient:
                 "groups": [{"status": r[0], "attempts": r[1], "usd": r[2]} for r in rows]}
 
     def evaluate(self, state, questions):
-        # This study uses only Noul. Reject unsupported/malformed schemas before
+        # Reject unsupported/malformed schemas before
         # reserving budget or making a paid request.
         if not isinstance(state, (str, dict, list)):
             raise ValueError("State must be a string, object, or array")
         if not isinstance(questions, dict) or not 1 <= len(questions) <= 16:
-            raise ValueError("Screen adapter requires a map of 1–16 Noul questions")
+            raise ValueError("Screen adapter requires a map of 1–16 typed questions")
         for name, question in questions.items():
             if not isinstance(name, str) or not name or not isinstance(question, dict):
                 raise ValueError("Question names and entries must be well-formed")
-            if question.get("type") != "noul":
-                raise ValueError("Screen adapter supports only Noul questions")
+            if question.get("type") not in ("noul", "choice"):
+                raise ValueError("Adapter supports Noul and Choice questions")
             if not isinstance(question.get("instructions"), (str, dict, list)):
                 raise ValueError("Question instructions must be a string, object, or array")
-            if "criteria" in question:
+            if question["type"] == "choice":
+                criteria = question.get("criteria")
+                if not isinstance(criteria, dict) or not 2 <= len(criteria) <= 255:
+                    raise ValueError("Choice requires 2–255 criteria")
+                if any(not isinstance(k, str) or not k or not isinstance(v, (str, dict, list)) for k, v in criteria.items()):
+                    raise ValueError("Invalid Choice criteria")
+            elif "criteria" in question:
                 criteria = question["criteria"]
                 if not isinstance(criteria, dict) or set(criteria) - {"true", "false"}:
                     raise ValueError("Noul criteria must map true/false to descriptions")
@@ -144,6 +150,20 @@ class JevClient:
                     value = answer.get("noul")
                     if type(value) not in (float, int) or not math.isfinite(value) or not 0 <= value <= 1:
                         raise ValueError("Invalid probability")
+                else:
+                    probs = answer.get("probabilities")
+                    if not isinstance(probs, dict) or set(probs) != set(question["criteria"]):
+                        raise ValueError("Choice probability keys mismatch")
+                    if any(type(v) not in (int, float) or not math.isfinite(v) or not 0 <= v <= 1 for v in probs.values()):
+                        raise ValueError("Invalid Choice probabilities")
+                    if not math.isclose(sum(probs.values()), 1., abs_tol=1e-5):
+                        raise ValueError("Choice probabilities do not sum to one")
+                    choice = answer.get("choice")
+                    if not isinstance(choice, str) or choice not in probs or probs[choice] < max(probs.values()) - 1e-8:
+                        raise ValueError("Invalid Choice selection")
+                    confidence = answer.get("confidence")
+                    if type(confidence) not in (int, float) or not math.isfinite(confidence) or not 0 <= confidence <= 1:
+                        raise ValueError("Invalid Choice confidence")
             cost = n * PRICE_PER_MILLION / 1_000_000
             record = {"response": response, "elapsed_seconds": time.perf_counter() - started,
                       "input_cost_usd": cost, "request_sha256": digest}

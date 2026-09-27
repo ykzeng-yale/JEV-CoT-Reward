@@ -6,7 +6,8 @@ from jev_control.branch_experiment import collect_pool
 from jev_control.mlx_backend import Generation
 
 
-def test_pool_is_charged_in_full_and_decisions_precede_shadow_outcomes():
+@pytest.mark.parametrize('use_jev',[False,True])
+def test_pool_is_charged_in_full_and_decisions_precede_shadow_outcomes(use_jev):
     class Backend:
         context={}
         def decode(self,ids):return ''.join(map(chr,ids))
@@ -24,7 +25,10 @@ def test_pool_is_charged_in_full_and_decisions_precede_shadow_outcomes():
         calls.append(remaining)
         return {'action':'continue','seed':seed,'text':'fixture','outcome':{'success':False},
                 'generated_tokens':remaining,'prompt_tokens_processed':len(prompt+retained),'elapsed_seconds':.1,'calls':[],'overhead':[]}
-    decisions,rows=collect_pool(backend,{'id':'p','prompt':'task'},cp,config,0,record,rollout,judge)
+    from jev_control.jev import JevClient, MODEL
+    client=SimpleNamespace(evaluate=lambda state,questions: {'response':{'answers':{'candidate':{'choice':'1'}},'usage':{'input_tokens':100}},'input_cost_usd':.0000042})
+    config['jev']=use_jev
+    decisions,rows=collect_pool(backend,{'id':'p','prompt':'task'},cp,config,0,record,rollout,judge,jev_client=client)
     assert len(rows)==8 and calls==[90,78,78,90,78,78]
     assert decisions['choices']['local_semantic']==decisions['choices']['likelihood']==0
     assert decisions['choices']['entropy_reduction']==2
@@ -33,3 +37,8 @@ def test_pool_is_charged_in_full_and_decisions_precede_shadow_outcomes():
     first_outcome=next(i for i,(k,r) in enumerate(events) if k=='outcomes')
     assert next(i for i,(k,r) in enumerate(events) if k=='decisions')<first_outcome
     assert len([r for k,r in events if k=='candidates'])==3
+
+    if use_jev:
+        assert decisions["choices"]["jev_semantic"]==1
+        assert next(i for i,(k,r) in enumerate(events) if k=="jev_judge")<first_outcome
+        assert all(r["jev_accounted_usd"]==.0000042 for r in rows if r["candidate"] is not None)
