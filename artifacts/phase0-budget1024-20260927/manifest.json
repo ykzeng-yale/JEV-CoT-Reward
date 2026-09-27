@@ -1,0 +1,41 @@
+{
+  "problems": 4,
+  "repeats": 1,
+  "budget": 1024,
+  "prefix_tokens": 128,
+  "final_reserve": 96,
+  "quantize_bits": 4,
+  "seed": 20260927,
+  "kind": "phase0_instrumentation",
+  "schema": "semantic-v1",
+  "started_unix": 1790536791.125959,
+  "selector": "mean_base_logprob",
+  "note": "Explicit observable rationales; non-thinking instruct generator. Not a confirmatory study.",
+  "implementation_version": "screen-v1-final-reserve-fix",
+  "implementation_sha256": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+  "source_sha256": {
+    "run_screen.py": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+    "__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+    "features.py": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+    "jev.py": "c63f373771ac08fec42b820c98c4b835c24a8b4d8bd7fe789c5fed372d9d1515",
+    "mlx_backend.py": "dc385c453bc43ee1d196d961e8294df7207ef70a2c4d806de09dee2fd52ee7eb",
+    "tasks.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd"
+  },
+  "package_versions": {
+    "mlx": "0.32.2",
+    "mlx-lm": "0.31.3",
+    "transformers": "5.17.0",
+    "numpy": "2.5.3",
+    "httpx": "0.28.1"
+  },
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_identity": {
+    "repository": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "local_path_omitted": true
+  },
+  "release_kind": "public_local_outputs_without_hosted_judge_responses",
+  "original_run_id": "phase0-budget1024-20260927",
+  "hosted_judge_responses_omitted": true,
+  "recorded_labels_copied_without_rescoring": true
+}

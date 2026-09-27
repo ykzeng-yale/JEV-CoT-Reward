@@ -1,0 +1,44 @@
+{
+  "format_version": "public-local-diagnostics-v1",
+  "original_run_id": "phase0-20260927",
+  "checkpoint_records": 6,
+  "outcome_records": 36,
+  "episode_identity": [
+    "problem_id",
+    "action",
+    "repeat"
+  ],
+  "original_input_sha256": {
+    "manifest.json": "7683086b7ae497373537c328a4743b6a33e73ab367927c967af34ebb6107b264",
+    "checkpoints.jsonl": "3f9b3ac439401f023284f9b8eadbcbeed2402c2cf8c33042dc948cac19778eb4",
+    "outcomes.jsonl": "c0ed0fc76df837e746250bc0cdc9e30be7f854c88a37df75f1fd3f09cfe07453",
+    "summary.json": "66af4f3a6c4b000f8f49ea583689e63234200edb58871068037b91c412e7c9f0",
+    "local_judge.jsonl": "4f13a387dc2eb2b4601010792ae8faa52752cb00a2bb66544b041997d4bd3d52",
+    "review_audit.json": "e23c2f8a20719ed07aac5c5e92505dbe51c47ce0ece6e026970aa24f6911fc96"
+  },
+  "released_files_sha256": {
+    "checkpoints.jsonl": "32f70fb934c9fe7c5079c151fe2cb90963f5516144a1dadd474f02770dd9afdf",
+    "local_judge.jsonl": "6218bdc36580e7008346a4682c862fd3166a8530b29804e4a407e967fc0f2eaa",
+    "manifest.json": "ed769f7bc90e19e422f9bf8a86d9908afce121e043ebc52c95489956c19bca96",
+    "outcomes.jsonl": "71247e265602a0a7a63f936a997ed345560c1144a372d90c42da2c88ef77ada5",
+    "review_audit.json": "e23c2f8a20719ed07aac5c5e92505dbe51c47ce0ece6e026970aa24f6911fc96",
+    "source/run_screen.py": "4ecb2643f05bcbe53b577c5ae7f160140a0ea27ad197ca8057e9a32ca82d3e2f",
+    "source/tasks_reference.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+    "source_manifest.json": "eb6513f46bce35aa4e0bcdd1effdd46f0d229e6a9f01a357efcd9a09435ddd96",
+    "summary.json": "77abaa98a8279618af27370bf5ec08fdc85ded79f16f4f93dcdb097108f7bab5",
+    "tasks.jsonl": "08b634ef7f4ab0c443fe442db254d28f89cf4c070f6cb5663e35995216bfeb38"
+  },
+  "omitted_data": [
+    "All hosted Jev response, probability, feature, request, and usage objects",
+    "API key, credential/cache storage, endpoints and host/network configuration",
+    "Absolute filesystem paths and unrelated model/cache inventory",
+    "Historical credential/network adapter source (original hash retained)"
+  ],
+  "reproducibility_limits": [
+    "Original local outputs, token IDs, costs, source hashes and recorded outcome labels are preserved; labels were not regenerated or rescored.",
+    "Jev feature ablations cannot be reproduced from this release; hosted output publication requires separate terms clarification.",
+    "Independent local-judge records, when present, were generated without Jev outputs and are separately identified.",
+    "Earlier reconstructed or reference source files retain explicit provenance limitations.",
+    "These are development diagnostics, not independent held-out policy tests."
+  ]
+}

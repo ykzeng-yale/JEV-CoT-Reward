@@ -1,0 +1,43 @@
+{
+  "format_version": "public-local-diagnostics-v1",
+  "original_run_id": "phase0-budget1024-20260927",
+  "checkpoint_records": 4,
+  "outcome_records": 12,
+  "episode_identity": [
+    "problem_id",
+    "action",
+    "repeat"
+  ],
+  "original_input_sha256": {
+    "manifest.json": "46027acdf91e1679e9b8d5f1695f7b1fc2b77279ca13dbb653e3ead5dafb1efa",
+    "checkpoints.jsonl": "83d74a78e8072a5134efa9a3555aed51f1244d60b5878221cd2c623ea3d5d511",
+    "outcomes.jsonl": "29fe9751f6fe0f4505182577e449d738b0ba6cd0bde89cbd4c25a2a809d9e10c",
+    "summary.json": "273e6057e97c360a96bb8a97d303169adc3305dcd4d35a78c3dbd0506309a473"
+  },
+  "released_files_sha256": {
+    "checkpoints.jsonl": "1ba4fff1732f982e18e2af68cd705cc2fc8bb93e44882555cd9bd7fed35333a4",
+    "manifest.json": "88df466a68cdb31af282c7e112a583589db13612a2968e80f784bea29dd81950",
+    "outcomes.jsonl": "7c149caefed1f1ad4ace79b95ef74eb9c501c6c43f4ee0b9187167cf630921f7",
+    "source/__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+    "source/features.py": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+    "source/mlx_backend.py": "dc385c453bc43ee1d196d961e8294df7207ef70a2c4d806de09dee2fd52ee7eb",
+    "source/run_screen.py": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+    "source/tasks.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+    "source_manifest.json": "dc5896f14b683611e771230c2c00933d480149251d84aa7de69eb7cd0f829f57",
+    "summary.json": "dd31553d574de28460a698528267ddd8fba23eda5c5d50e4e857764987fdf07b",
+    "tasks.jsonl": "9dd30440e1bfd61ec50650ad2853dd3ffc0b5723f6467ca356aa11a47057be5e"
+  },
+  "omitted_data": [
+    "All hosted Jev response, probability, feature, request, and usage objects",
+    "API key, credential/cache storage, endpoints and host/network configuration",
+    "Absolute filesystem paths and unrelated model/cache inventory",
+    "Historical credential/network adapter source (original hash retained)"
+  ],
+  "reproducibility_limits": [
+    "Original local outputs, token IDs, costs, source hashes and recorded outcome labels are preserved; labels were not regenerated or rescored.",
+    "Jev feature ablations cannot be reproduced from this release; hosted output publication requires separate terms clarification.",
+    "Independent local-judge records, when present, were generated without Jev outputs and are separately identified.",
+    "Earlier reconstructed or reference source files retain explicit provenance limitations.",
+    "These are development diagnostics, not independent held-out policy tests."
+  ]
+}

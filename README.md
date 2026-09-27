@@ -14,6 +14,7 @@ Local-first research on whether a fast typed judge supplies useful information f
 - [Verified Mac compute pool](docs/mac_compute.md) and [active project scope](docs/project_goal.md).
 - [First executed results](docs/results.md): separates model experiments, mathematical validation, and remaining work.
 - [Source provenance](docs/source_manifest.json), [spending stages](configs/stages.json).
+- [Public local-model diagnostics](artifacts/README.md): original outcomes, checkpoints, costs and source snapshots; raw hosted-judge responses excluded.
 
 The earlier conversation's download links and claimed synthetic numbers were not present in this initially empty repository. All results here must point to actual saved runs.
 
@@ -57,6 +58,8 @@ The next development diagnostic captures an online newline boundary after 256 to
 ```
 
 [Frozen settings](configs/development_v1.json). This diagnostic makes no Jev calls. Stochastic resume uses a fresh recorded RNG seed; it does not claim bitwise replay equivalence. Earlier generate-then-rewind diagnostics remain separately labeled and are not pooled with online checkpoints.
+
+For longer authorized runs, `scripts/run_bounded.py` records process identity and stops its own process group at a wall-clock, sampled-RSS, or log-size limit. RSS is not a hard limit on Metal/unified memory. Use a new control directory for every run; retain incomplete outputs and receipts.
 
 ## Budget and credential handling
 

@@ -1,0 +1,22 @@
+{
+  "files": [
+    {
+      "released_path": "source/run_screen.py",
+      "sha256": "4ecb2643f05bcbe53b577c5ae7f160140a0ea27ad197ca8057e9a32ca82d3e2f",
+      "original_declared_sha256": "4ecb2643f05bcbe53b577c5ae7f160140a0ea27ad197ca8057e9a32ca82d3e2f",
+      "status": "reconstructed_runner_as_declared_in_original_manifest",
+      "source_run_id": "phase0-20260927"
+    },
+    {
+      "released_path": "source/tasks_reference.py",
+      "sha256": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+      "original_declared_sha256": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+      "status": "later_run_verification_reference_not_attested_original_helper",
+      "source_run_id": "phase0-budget1024-20260927"
+    }
+  ],
+  "omitted_original_sources": [],
+  "original_runner_sha256": "4ecb2643f05bcbe53b577c5ae7f160140a0ea27ad197ca8057e9a32ca82d3e2f",
+  "original_snapshot_note": "Reconstructed from pre-review source by reversing the recorded review patch while process was running.",
+  "note": "Snapshots preserve historical bytes; omitted adapters are not needed to verify stored task outcomes. No source is represented as captured when it was reconstructed or borrowed as a later reference."
+}

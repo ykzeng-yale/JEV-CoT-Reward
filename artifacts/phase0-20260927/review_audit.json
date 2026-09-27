@@ -1,0 +1,10 @@
+{
+  "implementation_review": "screen-v0 completed-run audit",
+  "episodes": 36,
+  "problems": 6,
+  "incomplete_final_reserve_affected": [],
+  "generated_token_budget_violations": [],
+  "exact_initial_prefix_hash_mismatches": [],
+  "checkpoints_with_discarded_future_tail": 5,
+  "restriction": "Do not use initial.mean_logprob or initial.mean_entropy as checkpoint features when discarded_prefix_tail_tokens>0; retained per-token stats were not saved in v0. No Jev-controlled policy was evaluated."
+}

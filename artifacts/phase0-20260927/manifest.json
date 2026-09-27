@@ -1,0 +1,27 @@
+{
+  "problems": 6,
+  "repeats": 2,
+  "budget": 512,
+  "prefix_tokens": 128,
+  "final_reserve": 96,
+  "quantize_bits": 4,
+  "seed": 20260927,
+  "kind": "phase0_instrumentation",
+  "schema": "semantic-v1",
+  "started_unix": 1790536389.291702,
+  "selector": "mean_base_logprob",
+  "note": "Explicit observable rationales; non-thinking instruct generator. Not a confirmatory study.",
+  "implementation_version": "screen-v0",
+  "implementation_sha256": "4ecb2643f05bcbe53b577c5ae7f160140a0ea27ad197ca8057e9a32ca82d3e2f",
+  "source_snapshot_note": "Reconstructed from pre-review source by reversing the recorded review patch while process was running.",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_identity": {
+    "repository": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "local_path_omitted": true
+  },
+  "release_kind": "public_local_outputs_without_hosted_judge_responses",
+  "original_run_id": "phase0-20260927",
+  "hosted_judge_responses_omitted": true,
+  "recorded_labels_copied_without_rescoring": true
+}
