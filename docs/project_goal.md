@@ -1,3 +1,5 @@
+> Reopened at the user’s request: the [v2 research curriculum](research_curriculum_v2.md) governs the new active goal. The completion review below applies only to the v1 diagnostic branch, not the original broad research program.
+
 # Active project goal
 
 Activated on 2026-09-27 at the user's request. Complete a reproducible local-first investigation of whether typed semantic judge features improve the choice of reasoning interventions. Use frozen open-weight generators and independent executable outcome checks. The Jev account allocation is a **$25 total ceiling**, with staged caps in `configs/stages.json`; expenditure is not a research target.

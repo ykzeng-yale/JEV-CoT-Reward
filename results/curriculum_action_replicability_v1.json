@@ -1,0 +1,97 @@
+{
+  "status": "exploratory_development_diagnostic",
+  "problems": 24,
+  "splits": [
+    {
+      "selection_repeats": [
+        0,
+        1
+      ],
+      "evaluation_repeats": [
+        2,
+        3
+      ],
+      "selection_success": 0.5416666666666666,
+      "evaluation_success": 0.4791666666666667,
+      "continue_evaluation_success": 0.4791666666666667,
+      "paired_gain": 0.0
+    },
+    {
+      "selection_repeats": [
+        0,
+        2
+      ],
+      "evaluation_repeats": [
+        1,
+        3
+      ],
+      "selection_success": 0.5833333333333334,
+      "evaluation_success": 0.4583333333333333,
+      "continue_evaluation_success": 0.4583333333333333,
+      "paired_gain": 0.0
+    },
+    {
+      "selection_repeats": [
+        0,
+        3
+      ],
+      "evaluation_repeats": [
+        1,
+        2
+      ],
+      "selection_success": 0.5625,
+      "evaluation_success": 0.4583333333333333,
+      "continue_evaluation_success": 0.4791666666666667,
+      "paired_gain": -0.02083333333333337
+    },
+    {
+      "selection_repeats": [
+        1,
+        2
+      ],
+      "evaluation_repeats": [
+        0,
+        3
+      ],
+      "selection_success": 0.5625,
+      "evaluation_success": 0.4166666666666667,
+      "continue_evaluation_success": 0.5,
+      "paired_gain": -0.08333333333333331
+    },
+    {
+      "selection_repeats": [
+        1,
+        3
+      ],
+      "evaluation_repeats": [
+        0,
+        2
+      ],
+      "selection_success": 0.5416666666666666,
+      "evaluation_success": 0.4583333333333333,
+      "continue_evaluation_success": 0.5208333333333334,
+      "paired_gain": -0.06250000000000006
+    },
+    {
+      "selection_repeats": [
+        2,
+        3
+      ],
+      "evaluation_repeats": [
+        0,
+        1
+      ],
+      "selection_success": 0.6041666666666666,
+      "evaluation_success": 0.3958333333333333,
+      "continue_evaluation_success": 0.5,
+      "paired_gain": -0.10416666666666669
+    }
+  ],
+  "mean_split_gain": -0.0451388888888889,
+  "limitations": [
+    "Uses outcome-informed checkpoint selection, not a deployable controller.",
+    "Split results overlap and are not independent replications or a confidence interval.",
+    "Two selection repeats are noisy; failure does not prove absence of action heterogeneity.",
+    "The prospective test is excluded; no test outcomes become tuning labels."
+  ]
+}

@@ -6,6 +6,8 @@ Local-first research on whether a fast typed judge supplies useful information f
 
 **Prior-art finding:** intervention advantage and same-prefix action experiments already have direct prior art. This project is a replication and proposed extension on semantic-feature value, transfer, and selective acquisition. A Jev-specific improvement has not been established.
 
+**Active research:** the [v2 curriculum](docs/research_curriculum_v2.md) reopens the broader program, beginning with baseline adequacy and action qualification. The v1 no-scale decision applies to that configuration only.
+
 ## Research package
 
 - [Prior-art and source-code audit](docs/literature_audit.md): 25 papers, pinned code references, important novelty corrections.
