@@ -1,0 +1,23 @@
+{
+  "protocol": "common-pool-branch-qualification-v2-development-only",
+  "task_seed": 791027,
+  "problems": 8,
+  "repeats": 2,
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "candidate_count": 3,
+  "candidate_tokens": 128,
+  "judge_tokens": 128,
+  "selectors": ["uniform", "likelihood", "entropy_reduction", "local_semantic"],
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "quantization_bits": 4,
+  "jev": false,
+  "enrollment": "Eight fresh development problems; retain all ineligible cases without replacement. Conditional-on-checkpoint qualification, not a full deployment trial.",
+  "comparison": "Common candidate pool, all selector choices saved before downstream outcomes. Continue receives full remaining generator budget; every branch is charged the entire pool, including discarded candidates. Local selector generation/prefill/time are additionally recorded, not hidden inside a claim of total-compute matching.",
+  "fallback": "Missing cheap scores select first candidate; invalid local output selects likelihood choice. No retries.",
+  "limitations": "Entropy-reduction ranking is a GUARD-inspired component, not a full published-method reproduction. Same generator backbone supplies local judging; it is not the gold verifier. Two continuations cannot identify a reliable oracle action.",
+  "transition": "Audit all calls and outcomes, then compare candidate availability and frozen selector value. No automatic promotion from eight problems or same-sample oracle maxima."
+}

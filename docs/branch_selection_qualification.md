@@ -16,7 +16,7 @@ To diagnose selection, independently continue every candidate under the same rem
 
 Separate three baselines: ordinary continue using the full allowance; candidate generation plus uniform selection; and candidate generation plus each informed selector. Charge the full pool to every hypothetical branch policy, including rejected candidates. Charge judging separately and reserve or subtract it consistently for any matched-total-resource comparison. Report actual shared collection costs separately. Missing scores or malformed local outputs need a frozen fallback, recorded as failure, not a retry-until-valid procedure.
 
-The implemented `branch_selectors.py` currently provides ranking and strict local-choice parsing only. A runner, complete budget contract, candidate count/length grid, source pinning, integration tests and frozen schedule remain required before launch. Running repair qualification is not modified to add branches midstream.
+The implemented `branch_selectors.py` supplies ranking and strict local-choice parsing. `branch_experiment.py` and `scripts/run_branch_qualification.py` now implement the common-pool collection, pre-outcome durable decisions, separate local-judge accounting, early-ended candidate handling and source snapshots. Twelve targeted tests pass. `configs/branch_qualification_v2.json` specifies eight fresh development problems, three 128-token candidates, two continuations per candidate, a 2,048 generator-token allowance and a separate 128-token local selector cap. An independent complete-run audit and integration review remain required before interpreting results. This runner has not been launched; the repair experiment is unchanged.
 
 ## Requirement for the later published-method comparator
 
