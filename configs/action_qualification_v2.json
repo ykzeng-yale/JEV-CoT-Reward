@@ -1,0 +1,19 @@
+{
+  "protocol": "repair-action-qualification-v2-development-only",
+  "task_seed": 691027,
+  "problems": 8,
+  "repeats": 2,
+  "actions": ["continue", "sham", "suffix_repair", "recheck", "segment_repair"],
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "quantization_bits": 4,
+  "jev": false,
+  "interpretation": "Development action qualification; no efficacy, heterogeneity or power claim from eight problems/two repeats. Historical v1 is not a randomized budget comparator.",
+  "enrollment": "Fixed eight fresh problems; retain ineligible states, no replacements, no success-based checkpoint selection.",
+  "continuation": "Same seed per problem/repeat across actions; shared RNG number is not a variance reduction guarantee. Randomized execution order.",
+  "gate": "Inspect complete enrollment, treatment integrity, total costs, task difficulty and informative failure modes before a separately specified replication. No automatic best-action promotion."
+}
