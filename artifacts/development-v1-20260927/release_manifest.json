@@ -1,0 +1,44 @@
+{
+  "format_version": "public-local-development-v1",
+  "protocol": "development-v1-online-boundary",
+  "original_run_id": "development-v1-20260927",
+  "task_records": 12,
+  "outcome_records": 48,
+  "checkpoint_records": 24,
+  "checkpoint_storage": "Unchanged per-episode checkpoint field inside outcomes.jsonl; not a separate shared-checkpoint table.",
+  "episode_identity": [
+    "problem_id",
+    "condition",
+    "repeat"
+  ],
+  "original_input_sha256": {
+    "manifest.json": "6971a514680c38f2beca310ee74898966569ae77e59822389209e6f601aa89ff",
+    "tasks.jsonl": "fb9cc33dbe8a9be62e092ee1709b103345b848706e215024c3d610992b006df7",
+    "outcomes.jsonl": "b3e08c6a7ba5de2ada1f25be4a0f364a8673ba050bd387e9c80eb1803e76f5d1",
+    "summary.json": "4ca80f0cfca49be4b38526e0fcde851523ea7fe6140e05708c7ad8686461ace6"
+  },
+  "released_files_sha256": {
+    "manifest.json": "c9f8fc13fa8784b1e5be39cc8a27de958eae4212c7bc337a0cb237f8fa1e3c58",
+    "outcomes.jsonl": "aeff550f944f746996f1ce0161b00d37055681a372e4400566ae601b5c0208a2",
+    "source/__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+    "source/features.py": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+    "source/mlx_backend.py": "a9fdf404f7642eec64c4cc90f4e19f74373cb5f3783f96f1543b1f9fdba8df38",
+    "source/run_development.py": "85c6ca1af0b5e09469e37bc8187c9e7c34ae027d5a2a3a5b2eae6c21c4da8474",
+    "source/run_screen.py": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+    "source/tasks.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+    "source_manifest.json": "fdf65b710ff06bb701ab0da73e2c720162c47c0ddcf6b45812587a121e8dd802",
+    "summary.json": "4ca80f0cfca49be4b38526e0fcde851523ea7fe6140e05708c7ad8686461ace6",
+    "tasks.jsonl": "fb9cc33dbe8a9be62e092ee1709b103345b848706e215024c3d610992b006df7"
+  },
+  "omitted_data": [
+    "Absolute filesystem paths and local model-cache location",
+    "Unused credential/network adapter source; original declared hash retained"
+  ],
+  "reproducibility_limits": [
+    "Complete recorded task/episode identity grid checked against the completion summary before export.",
+    "Local outputs, calls, tokens, costs, checkpoint fields and stored outcome labels are copied without regeneration or rescoring.",
+    "No hosted Jev outputs exist in this protocol; it cannot establish a Jev feature or policy effect.",
+    "Online-boundary protocol and captured backend source differ from historical generate-then-rewind runs; never silently pool versions.",
+    "This is development-only baseline/sham data, not an equivalence test or confirmatory held-out policy evaluation."
+  ]
+}

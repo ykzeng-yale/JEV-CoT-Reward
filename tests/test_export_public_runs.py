@@ -170,3 +170,121 @@ def test_network_and_machine_path_scan_emits_filenames_only():
     files = {"clean.txt": b"public text", "endpoint.txt": b"https://private.example.org",
              "host.txt": b"10.2.3.4", "path.txt": b"/Users/private/person/data"}
     assert exporter.scan_public_files(files) == ["endpoint.txt", "host.txt", "path.txt"]
+
+
+def fixture_development(tmp_path):
+    run, old_checkpoint, old_rows, original_manifest = fixture_run(tmp_path, "development-fixture")
+    (run / "checkpoints.jsonl").unlink()
+    (run / "local_judge.jsonl").unlink()
+    for original_path in exporter.DEVELOPMENT_SOURCE_PATHS:
+        path = run / "source" / Path(original_path).name
+        if not path.exists():
+            path.write_text(f'"""Captured fixture source for {Path(original_path).name}."""\n')
+    sources = {name: exporter.digest((run / "source" / Path(name).name).read_bytes())
+               for name in exporter.DEVELOPMENT_SOURCE_PATHS}
+    sources["src/jev_control/jev.py"] = exporter.digest((run / "source" / "jev.py").read_bytes())
+    manifest = {"model": original_manifest["model"], "output": original_manifest["output"],
+                "protocol": exporter.DEVELOPMENT_PROTOCOL, "problems": 2, "repeats": 2,
+                "task_seed": 111, "sampling_seed": 222, "budget": 1024,
+                "checkpoint_target": 256, "checkpoint_cap": 384, "final_reserve": 96,
+                "prompt_suffix": "Use concise intermediate calculations.",
+                "quantization": {"bits": 4, "group_size": 64, "mode": "affine"},
+                "temperature": 0.7, "top_p": 0.9, "source_sha256": sources,
+                "packages": {"mlx-lm": "0.31.3"}, "finalization": "Recorded common final reserve.",
+                "resume_rng": "Fresh recorded seed."}
+    tasks, rows = [], []
+    for index in range(2):
+        task = copy.deepcopy(old_checkpoint["task"])
+        task["id"] = f"dev-task-{index}"
+        tasks.append({"task": task, "prompt_ids": [1, 2, 3]})
+        for repeat in range(2):
+            for condition in ("baseline", "sham"):
+                # Store deliberately chosen labels and costs. The exporter
+                # copies these values and must never call a verifier or runner.
+                row = {"problem_id": task["id"], "family": task["family"],
+                       "condition": condition, "seed": 222 + index * 100 + repeat,
+                       "text": old_rows[0]["text"], "outcome": {"success": repeat == 0, "reason": "recorded"},
+                       "calls": copy.deepcopy(old_rows[0]["calls"]), "generated_tokens": 2,
+                       "elapsed_seconds": 0.25, "prompt_tokens_processed": 10, "overhead": [],
+                       "checkpoint": None if condition == "baseline" else {
+                           "token_ids": [11, 12], "text": "2 + 3 = 5\n", "prefix_sha256": "d" * 64,
+                           "position": 2, "calculation_marker": True},
+                       "checkpoint_status": "not_requested" if condition == "baseline" else "eligible",
+                       "repeat": repeat, "episode_id": f"original-dev-{index}-{condition}-{repeat}"}
+                rows.append(row)
+    summary = {"kind": "development_framing_and_online_sham_not_jev_effect", "episodes": 8,
+               "independent_problems": 2,
+               "conditions": {condition: {"n": 4, "successes": 2, "generated_tokens": 8,
+                                           "elapsed_seconds": 1.0,
+                                           "checkpoint_status": {"not_requested" if condition == "baseline" else "eligible": 4},
+                                           "calculation_marker_checkpoints": 0 if condition == "baseline" else 4,
+                                           "families": {"arithmetic_construction": {"n": 4, "successes": 2}}}
+                              for condition in ("baseline", "sham")},
+               "warning": "Development only."}
+    for name, data in [("manifest.json", manifest), ("summary.json", summary)]:
+        (run / name).write_bytes(exporter.json_bytes(data))
+    for name, records in [("tasks.jsonl", tasks), ("outcomes.jsonl", rows)]:
+        (run / name).write_bytes(exporter.jsonl_bytes(records))
+    return run, tasks, rows, manifest
+
+
+def test_development_mode_preserves_tasks_calls_checkpoints_labels_and_costs(tmp_path):
+    run, tasks, rows, manifest = fixture_development(tmp_path)
+    original = {str(p.relative_to(run)): exporter.digest(p.read_bytes()) for p in run.rglob("*") if p.is_file()}
+    destination = tmp_path / "dev-release"
+    exporter.export_run(run, destination, mode="development-v1")
+    assert exporter.read_jsonl(destination / "tasks.jsonl") == tasks
+    assert exporter.read_jsonl(destination / "outcomes.jsonl") == rows
+    assert not (destination / "checkpoints.jsonl").exists()  # Checkpoints retain original per-episode context.
+    assert exporter.read_json(destination / "manifest.json")["source_sha256"] == manifest["source_sha256"]
+    assert original == {str(p.relative_to(run)): exporter.digest(p.read_bytes()) for p in run.rglob("*") if p.is_file()}
+
+
+def test_development_auto_route_and_explicit_no_version_mixing(tmp_path):
+    run, _, _, _ = fixture_development(tmp_path)
+    files = exporter.build_release(run)
+    assert json.loads(files["release_manifest.json"])["format_version"] == "public-local-development-v1"
+    with pytest.raises(ValueError, match="All-arm export mode"):
+        exporter.build_release(run, mode="all-arm")
+    with pytest.raises(ValueError, match="cannot borrow"):
+        exporter.build_release(run, reference_run=run)
+    ordinary, _, _, _ = fixture_run(tmp_path, "old-run")
+    with pytest.raises(ValueError, match="requires its recorded protocol"):
+        exporter.build_release(ordinary, mode="development-v1")
+
+
+def test_development_requires_completion_marker_and_full_identity_grid(tmp_path):
+    run, _, rows, _ = fixture_development(tmp_path)
+    summary = (run / "summary.json").read_bytes()
+    (run / "summary.json").unlink()
+    with pytest.raises(ValueError, match="no completion summary"):
+        exporter.build_release(run)
+    (run / "summary.json").write_bytes(summary)
+    (run / "outcomes.jsonl").write_bytes(exporter.jsonl_bytes(rows[:-1]))
+    with pytest.raises(ValueError, match="identity grid is incomplete"):
+        exporter.build_release(run)
+
+
+def test_development_source_hashes_use_flat_captured_files_and_original_keys(tmp_path):
+    run, _, _, manifest = fixture_development(tmp_path)
+    files = exporter.build_release(run)
+    source = json.loads(files["source_manifest.json"])
+    backend = next(item for item in source["files"] if item["original_repository_path"] == "src/jev_control/mlx_backend.py")
+    assert backend["original_declared_sha256"] == manifest["source_sha256"]["src/jev_control/mlx_backend.py"]
+    assert files["source/mlx_backend.py"] == (run / "source" / "mlx_backend.py").read_bytes()
+    assert "source/jev.py" not in files
+    (run / "source" / "mlx_backend.py").write_text("LATER_VERSION = True\n")
+    with pytest.raises(ValueError, match="Development source hash mismatch: mlx_backend.py"):
+        exporter.build_release(run)
+
+
+def test_development_rejects_all_arm_rows_and_unknown_protocol(tmp_path):
+    run, _, rows, manifest = fixture_development(tmp_path)
+    rows[0]["action"] = "continue"
+    (run / "outcomes.jsonl").write_bytes(exporter.jsonl_bytes(rows))
+    with pytest.raises(ValueError, match="all-arm/version mixing"):
+        exporter.build_release(run)
+    manifest["protocol"] = "development-v2-unknown"
+    (run / "manifest.json").write_bytes(exporter.json_bytes(manifest))
+    with pytest.raises(ValueError, match="Unsupported recorded protocol"):
+        exporter.build_release(run)

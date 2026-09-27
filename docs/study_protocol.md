@@ -41,7 +41,11 @@ The research pilot should move to audited procedural families in [Reasoning Gym]
 
 Freeze task difficulty on development examples to avoid both floor and ceiling effects. Preserve every sampled problem. If a problem finishes before its target checkpoint, record “no eligible checkpoint”; it remains in episode-level evaluation and contributes no forced replay. Never extend a completed trace merely to create a treatment opportunity.
 
-Active Phase 0 generates an initial prefix of at most 128 tokens and retains a natural paragraph boundary after at least 32 tokens, while the task is unfinished. Any generated tail removed after boundary detection remains charged. For the larger screen, freeze a target and boundary parser based on actual completion lengths; do not assume 512-token prefixes are common. “Segment boundary” is a deterministic parser rule; a blank line is a formatting boundary, not proof of semantic completeness. Log the realized position, boundary failures, and overshoot. Later pilot checkpoints may use fractions of the total budget, but do not tune them on held-out failures.
+Historical Phase 0 generated an initial block of at most 128 tokens, screened the whole block for completion/answer phase, then retained a paragraph boundary after at least 32 tokens. Generated tails remained charged. This is a generate-then-rewind constructed-state distribution, not online stopping at the retained paragraph; earlier all-arm effects are scoped to that protocol.
+
+Development v1 instead stops **online** at the first emitted newline at or after 256 tokens, capped at 384. It never uses later text to choose a checkpoint. Twelve fresh problems, two seeds, baseline generation and sham-resume make 48 episodes; each has 1,024 generated tokens including a shared 96-token final-answer reserve. The baseline is uninterrupted up to that reserve; both conditions use the same finalization rule. Resume preserves token IDs but uses a fresh recorded RNG seed, so this is not a claim of stochastic bitwise equivalence. See `configs/development_v1.json` and `scripts/run_development.py`.
+
+The gated mechanism v1 adopts that online boundary, with the last retained paragraph as the judge's latest segment and prior paragraphs as history. A newline/paragraph is a formatting unit, not proof of semantic completeness; a surface calculation marker is a diagnostic, not a correctness label. Its fixed schedule covers 24 new problems and four continuations per action, using distinct task seeds from development. Model weights/tokenizer/config, source bytes, rubric, schedule, package versions, failures and incomplete calls are recorded. See `configs/mechanism_v1.json` and `scripts/run_mechanism.py`. A preparation or interrupted-call failure is not scientific futility. Later checkpoint/horizon variants need a new frozen protocol and fresh tasks.
 
 Sample natural checkpoints without using Jev scores or outcomes. Stratify task families and prespecified difficulty bins. Induced errors, edited traces, or adversarial prefixes form a separate diagnostic dataset and cannot substitute for natural-prefix results.
 
@@ -52,7 +56,7 @@ The active Phase 0 uses a **512-token** total generator allowance including init
 | Action | Contract | Accounting |
 |---|---|---|
 | Continue | Resume exact saved prefix with baseline sampling and no additional advice | Uses remaining allowance |
-| Local repair | Roll back the last complete segment, with a maximum rollback of 128 tokens; insert a frozen self-correction instruction and regenerate | Rolled-back generation is not refunded; new tokens and extra prefill are charged |
+| Local repair | Roll back to a paragraph boundary if one occurs within the final 128 tokens; otherwise remove that 128-token suffix. Insert a frozen self-correction instruction and regenerate | Rolled-back generation is not refunded; new tokens and extra prefill are charged |
 | Local branch | Active Phase 0 samples two next-segment candidates, each at most 64 tokens, from the checkpoint; a fixed selector chooses one, then baseline continuation resumes | Both candidates and continuation are charged; selected candidate tokens are not charged twice |
 
 Use one frozen selector across all controller comparisons. Active Phase 0 selects by the candidate's **mean base-model token log probability**, without another judge-generation call. This is a weak instrumentation baseline, not evidence that the branch implementation is strong or that likely text is correct. Specify tie behavior. For Phase 1, compare a stronger audited local semantic selector on development tasks and freeze it before data collection. It receives only the checkpoint and candidate texts, never gold outcomes; randomized candidate order and choice-only output can control position and verbosity effects. If that selector generates tokens using the same model, debit those tokens from the same allowance, and record its extra prefill. A random-selector ablation separates branching diversity from selector quality.
@@ -65,20 +69,21 @@ Repair necessarily changes context and instructions. Its estimated effect belong
 
 The inexpensive baseline includes depth, elapsed generation tokens, remaining budget, repeated n-gram counts, task-visible metadata, selected-token entropy/log-probability summaries when available, and train-only TF-IDF/SVD of the prefix. Do not give one condition hidden logits unavailable to another without reporting a separate access regime.
 
-Use the same six semantic question meanings for Jev and the local judge:
+The implemented `semantic-v1` schema asks the same seven binary question meanings of Jev and the local judge. A richer categorical epistemic-role schema is a future version, not an output of this run:
 
 | Signal | Target |
 |---|---|
-| Epistemic role | Assertion, hypothesis, test, retraction, or planning |
+| Tentative hypothesis | Explicit tentative hypothesis or assumption to be tested, rather than an established assertion |
 | Explicit contradiction | Mutually incompatible asserted claims under the same stated assumptions |
-| Unsupported dependency | A conclusion relies on a premise/tool result not yet supplied |
+| Unsupported dependency | An unavailable observation, source or tool result is treated as already obtained |
 | Repeated failure | A previously failed approach repeats without addressing its failure |
 | Error localization | A specific potentially repairable error is identified |
 | Testability | A concrete available check distinguishes active hypotheses |
+| Local validity | Asserted conclusions are supported by the given premises/history, treating hypotheses as tentative |
 
 Use closed-set questions, a frozen rubric version, and one batched Jev request per unique checkpoint when the verified API supports it. Preserve raw response distributions, missingness, model version, exact rubric, normalized state hash, usage, elapsed time, and failure status. Cache by all model/question/state parameters that affect the response. Features are collected before replay outcomes are inspected. Never ask Jev for the known final answer or add the answer to its state.
 
-One exploratory conjecture being unproved is not automatically an incorrect assertion. Jev confidence is not a bound on action-value error. The local judge is independently specified; it is not trained to imitate Jev responses.
+One exploratory conjecture being unproved is not automatically an incorrect assertion. Jev confidence is not a bound on action-value error. The initial local judge uses the same cached 4B weights under a separate frozen prompt, with no Jev outputs. It is independently prompted, not an independent backbone or a model trained to imitate Jev. Its generated numeric probabilities are not assumed calibrated; invalid JSON/fields remain failures and recorded missing features.
 
 Use a small regularized per-action Bernoulli outcome model, initially pooled logistic regression with action interactions; a shallow boosted-tree learner is a secondary development choice. Keep learner class and tuning budget the same across feature sets. Fit every observed replay outcome, not the maximum noisy action mean as a classification label. Weight problems equally so long traces or extra replications do not dominate silently. Features must be available at action-selection time.
 
@@ -88,10 +93,10 @@ The supplied exploratory analysis implements a simpler per-action Ridge model on
 
 The user-authorized Jev ceiling is **$25 total**. It is a ceiling, not a target. The expected first useful test should cost far less than one dollar at currently verified input-token rates; compute, data quality, and small-sample uncertainty are likely the constraints. A provider-side cap is preferable when available. Local enforcement should stop new requests before a conservative liability reserve reaches the cap.
 
-| Stage | Design | New Jev spending ceiling | Gate |
+| Stage | Design | Jev spending ceiling | Gate |
 |---|---|---:|---|
-| 0: instrument | Active: 6 tasks × 3 arms × 2 repeats; sham/resume, validator, budget, cache and failure tests | $0.25 cumulative | Correct accounting and usable unfinished prefixes |
-| 1: mechanism screen | 24–48 independent natural problems; at most one checkpoint; 3 actions × 4 replays | $1.00 cumulative | Nondegenerate outcomes and evidence of actionable differences worth more data |
+| 0: instrument | Completed: 6 tasks × 3 arms × 2 repeats; sham/resume, validator, budget, cache and failure tests | $0.25 cumulative | Correct accounting and usable unfinished prefixes |
+| 1: mechanism screen | Frozen v1: 24 new problems; at most one checkpoint; 3 actions × 4 replays. Expansion to 48 requires a separate review | $1.00 cumulative | Nondegenerate outcomes and evidence of actionable differences worth more data |
 | 1b: replication | Prespecified 12 eligible checkpoints; 3 actions × 12 **new** replays | Within Stage 1 cap | Check persistence and winner's bias independently |
 | 2: gated pilot | 120 development + 60 tuning + 120 untouched test problems; at most 2 checkpoints per development problem, 3 actions × 3 replays; 4–6 frozen policies on test | $5.00 cumulative | Positive held-out value/cost evidence, not a Jev-score increase |
 | 3: targeted extension | Extra replication or one transfer/sequential test chosen from the unresolved question | $20.00 cumulative | Written result review selects the next informative test |

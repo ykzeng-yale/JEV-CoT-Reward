@@ -60,6 +60,23 @@ AUDIT_FIELDS = (
     "restriction",
 )
 SOURCE_FILES = ("__init__.py", "features.py", "mlx_backend.py", "tasks.py", "run_screen.py")
+DEVELOPMENT_PROTOCOL = "development-v1-online-boundary"
+DEVELOPMENT_MANIFEST_FIELDS = (
+    "problems", "repeats", "task_seed", "sampling_seed", "budget", "checkpoint_target",
+    "checkpoint_cap", "final_reserve", "started_unix", "protocol", "prompt_suffix",
+    "quantization", "temperature", "top_p", "source_sha256", "packages",
+    "finalization", "resume_rng",
+)
+DEVELOPMENT_OUTCOME_FIELDS = (
+    "problem_id", "family", "condition", "seed", "text", "outcome", "calls",
+    "generated_tokens", "elapsed_seconds", "prompt_tokens_processed", "overhead",
+    "checkpoint", "checkpoint_status", "repeat", "episode_id",
+)
+DEVELOPMENT_CHECKPOINT_FIELDS = ("token_ids", "text", "prefix_sha256", "position", "calculation_marker")
+DEVELOPMENT_SOURCE_PATHS = (
+    "scripts/run_development.py", "scripts/run_screen.py", "src/jev_control/__init__.py",
+    "src/jev_control/features.py", "src/jev_control/mlx_backend.py", "src/jev_control/tasks.py",
+)
 # Match values, never print matched content. Literal schema/rubric names are not
 # credentials; the omitted Jev adapter is not needed for outcome verification.
 UNSAFE_PATTERNS = tuple(re.compile(pattern, re.IGNORECASE) for pattern in (
@@ -212,7 +229,7 @@ def source_files(run_dir: Path, manifest: dict, reference_run: Path | None) -> t
                    "note": "Snapshots preserve historical bytes; omitted adapters are not needed to verify stored task outcomes. No source is represented as captured when it was reconstructed or borrowed as a later reference."}
 
 
-def build_release(run_dir: Path, reference_run: Path | None = None) -> dict[str, bytes]:
+def build_all_arm_release(run_dir: Path, reference_run: Path | None = None) -> dict[str, bytes]:
     manifest = read_json(run_dir / "manifest.json")
     original_checkpoints = read_jsonl(run_dir / "checkpoints.jsonl")
     original_outcomes = read_jsonl(run_dir / "outcomes.jsonl")
@@ -302,10 +319,143 @@ def build_release(run_dir: Path, reference_run: Path | None = None) -> dict[str,
     return files
 
 
-def export_run(run_dir: Path, output_dir: Path, reference_run: Path | None = None) -> dict:
+def verify_development_completion(tasks: list[dict], rows: list[dict], manifest: dict, summary: dict) -> None:
+    """Check the planned identity grid and recorded counts, never rescore text."""
+    n = manifest.get("problems")
+    repeats = manifest.get("repeats")
+    if type(n) is not int or type(repeats) is not int or n <= 0 or repeats <= 0:
+        raise ValueError("Invalid recorded development enrollment")
+    ids = [item["task"]["id"] for item in tasks]
+    if len(ids) != n or len(ids) != len(set(ids)):
+        raise ValueError("Development task records are incomplete or duplicated")
+    if any("action" in row or row.get("condition") not in {"baseline", "sham"} for row in rows):
+        raise ValueError("Development-v1 outcome schema does not permit all-arm/version mixing")
+    identities = [(row["problem_id"], row["condition"], row["repeat"]) for row in rows]
+    expected = {(pid, condition, repeat) for pid in ids
+                for condition in ("baseline", "sham") for repeat in range(repeats)}
+    if len(identities) != len(expected) or set(identities) != expected:
+        raise ValueError("Development outcome identity grid is incomplete or duplicated")
+    if summary.get("episodes") != len(expected) or summary.get("independent_problems") != n:
+        raise ValueError("Development completion summary does not match planned enrollment")
+    conditions = summary.get("conditions", {})
+    if set(conditions) != {"baseline", "sham"}:
+        raise ValueError("Development summary condition schema mismatch")
+    for condition in ("baseline", "sham"):
+        selected = [row for row in rows if row["condition"] == condition]
+        if conditions[condition].get("n") != len(selected):
+            raise ValueError("Development recorded condition count mismatch")
+        if conditions[condition].get("successes") != sum(row["outcome"]["success"] for row in selected):
+            raise ValueError("Development summary differs from original stored outcome labels")
+
+
+def build_development_release(run_dir: Path) -> dict[str, bytes]:
+    manifest = read_json(run_dir / "manifest.json")
+    if manifest.get("protocol") != DEVELOPMENT_PROTOCOL:
+        raise ValueError("Explicit development-v1 mode requires its recorded protocol")
+    if not (run_dir / "summary.json").is_file():
+        raise ValueError("Development run has no completion summary; refusing partial export")
+    tasks = read_jsonl(run_dir / "tasks.jsonl")
+    rows = read_jsonl(run_dir / "outcomes.jsonl")
+    summary = read_json(run_dir / "summary.json")
+    verify_development_completion(tasks, rows, manifest, summary)
+    public_manifest = keep(manifest, DEVELOPMENT_MANIFEST_FIELDS)
+    identity = model_identity(manifest.get("model", ""))
+    public_manifest.update({"model": identity["repository"], "model_identity": identity,
+                            "release_kind": "public_local_development_online_boundary",
+                            "original_run_id": run_dir.name, "hosted_judge_used": False,
+                            "recorded_labels_copied_without_rescoring": True})
+    public_tasks = [{"task": public_task(row["task"]), "prompt_ids": row["prompt_ids"]} for row in tasks]
+    public_rows = []
+    for original in rows:
+        row = keep(original, DEVELOPMENT_OUTCOME_FIELDS)
+        row["outcome"] = keep(original["outcome"], LABEL_FIELDS)
+        row["calls"] = [keep(call, GENERATION_FIELDS) for call in original["calls"]]
+        row["overhead"] = [keep(item, OVERHEAD_FIELDS) for item in original["overhead"]]
+        row["checkpoint"] = None if original["checkpoint"] is None else keep(original["checkpoint"], DEVELOPMENT_CHECKPOINT_FIELDS)
+        public_rows.append(row)
+    files = {
+        "manifest.json": json_bytes(public_manifest),
+        "tasks.jsonl": jsonl_bytes(public_tasks),
+        "outcomes.jsonl": jsonl_bytes(public_rows),
+        "summary.json": json_bytes(keep(summary, ("kind", "episodes", "independent_problems", "conditions", "warning"))),
+    }
+    declared = manifest.get("source_sha256", {})
+    if not all(name in declared for name in DEVELOPMENT_SOURCE_PATHS):
+        raise ValueError("Development source manifest lacks a required captured local source")
+    provenance = []
+    for original_name in DEVELOPMENT_SOURCE_PATHS:
+        leaf = Path(original_name).name
+        # Launch captures are flat despite repository-relative manifest keys.
+        # Never use the current repository helper as a substitute.
+        path = run_dir / "source" / leaf
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f"Missing or symlinked development launch source: {leaf}")
+        content = path.read_bytes()
+        actual = digest(content)
+        if actual != declared[original_name]:
+            raise ValueError(f"Development source hash mismatch: {leaf}")
+        released_name = f"source/{leaf}"
+        files[released_name] = content
+        provenance.append({"released_path": released_name, "original_repository_path": original_name,
+                           "sha256": actual, "original_declared_sha256": declared[original_name],
+                           "status": "captured_development_launch_source", "source_run_id": run_dir.name})
+    omitted = [{"original_repository_path": name, "original_declared_sha256": sha,
+                "reason": "Credential/network adapter excluded; never used for this local development run"
+                if Path(name).name == "jev.py" else "Outside captured local-source allowlist"}
+               for name, sha in declared.items() if name not in DEVELOPMENT_SOURCE_PATHS]
+    files["source_manifest.json"] = json_bytes({
+        "protocol": DEVELOPMENT_PROTOCOL, "files": provenance, "omitted_original_sources": omitted,
+        "original_runner_sha256": declared["scripts/run_development.py"],
+        "layout": "Original launch files were captured flat under source; original repository-relative keys are preserved in this manifest.",
+        "note": "These are the recorded launch snapshots, not attestations about current repository helpers or later backend versions.",
+    })
+    release = {
+        "format_version": "public-local-development-v1", "protocol": DEVELOPMENT_PROTOCOL,
+        "original_run_id": run_dir.name, "task_records": len(tasks), "outcome_records": len(rows),
+        "checkpoint_records": sum(row["checkpoint"] is not None for row in rows),
+        "checkpoint_storage": "Unchanged per-episode checkpoint field inside outcomes.jsonl; not a separate shared-checkpoint table.",
+        "episode_identity": ["problem_id", "condition", "repeat"],
+        "original_input_sha256": {name: digest((run_dir / name).read_bytes())
+                                  for name in ("manifest.json", "tasks.jsonl", "outcomes.jsonl", "summary.json")},
+        "released_files_sha256": {name: digest(content) for name, content in sorted(files.items())},
+        "omitted_data": ["Absolute filesystem paths and local model-cache location",
+                         "Unused credential/network adapter source; original declared hash retained"],
+        "reproducibility_limits": [
+            "Complete recorded task/episode identity grid checked against the completion summary before export.",
+            "Local outputs, calls, tokens, costs, checkpoint fields and stored outcome labels are copied without regeneration or rescoring.",
+            "No hosted Jev outputs exist in this protocol; it cannot establish a Jev feature or policy effect.",
+            "Online-boundary protocol and captured backend source differ from historical generate-then-rewind runs; never silently pool versions.",
+            "This is development-only baseline/sham data, not an equivalence test or confirmatory held-out policy evaluation.",
+        ],
+    }
+    files["release_manifest.json"] = json_bytes(release)
+    unsafe = scan_public_files(files)
+    if unsafe:
+        raise UnsafeExportError("\n".join(unsafe))
+    return files
+
+
+def build_release(run_dir: Path, reference_run: Path | None = None, mode: str = "auto") -> dict[str, bytes]:
+    if mode not in {"auto", "all-arm", "development-v1"}:
+        raise ValueError("Unknown public export mode")
+    protocol = read_json(run_dir / "manifest.json").get("protocol")
+    if protocol is not None and protocol != DEVELOPMENT_PROTOCOL:
+        raise ValueError("Unsupported recorded protocol; refusing implicit version mixing")
+    if mode == "auto":
+        mode = "development-v1" if protocol == DEVELOPMENT_PROTOCOL else "all-arm"
+    if mode == "development-v1":
+        if reference_run is not None:
+            raise ValueError("Development snapshots cannot borrow another run's helpers")
+        return build_development_release(run_dir)
+    if protocol is not None:
+        raise ValueError("All-arm export mode cannot accept development protocol records")
+    return build_all_arm_release(run_dir, reference_run)
+
+
+def export_run(run_dir: Path, output_dir: Path, reference_run: Path | None = None, mode: str = "auto") -> dict:
     if output_dir.exists():
         raise FileExistsError("Destination already exists; public exports are not overwritten")
-    files = build_release(run_dir, reference_run)
+    files = build_release(run_dir, reference_run, mode)
     output_dir.parent.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir()
     for name, content in sorted(files.items()):
@@ -323,9 +473,10 @@ def main():
     parser.add_argument("run_dir", type=Path)
     parser.add_argument("output_dir", type=Path)
     parser.add_argument("--verification-reference-run", type=Path)
+    parser.add_argument("--mode", choices=("auto", "all-arm", "development-v1"), default="auto")
     args = parser.parse_args()
     try:
-        report = export_run(args.run_dir, args.output_dir, args.verification_reference_run)
+        report = export_run(args.run_dir, args.output_dir, args.verification_reference_run, args.mode)
     except UnsafeExportError as exc:
         # Print ONLY relative matching paths, never patterns or matched values.
         print(str(exc), file=sys.stderr)

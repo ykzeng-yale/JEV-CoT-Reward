@@ -15,7 +15,8 @@
     {
       "name": "mechanism_screen",
       "cumulative_jev_cap_usd": 1,
-      "problems": 48,
+      "problems": 24,
+      "maximum_after_separate_review": 48,
       "repeats_per_action": 4,
       "gate": "Valid replay and intermediate difficulty; preserve all enrollment and missingness"
     },

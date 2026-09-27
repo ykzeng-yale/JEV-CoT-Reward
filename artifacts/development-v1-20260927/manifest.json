@@ -1,0 +1,47 @@
+{
+  "problems": 12,
+  "repeats": 2,
+  "task_seed": 391027,
+  "sampling_seed": 271027,
+  "budget": 1024,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 96,
+  "started_unix": 1790538551.738574,
+  "protocol": "development-v1-online-boundary",
+  "prompt_suffix": "\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+  "quantization": {
+    "bits": 4,
+    "group_size": 64,
+    "mode": "affine"
+  },
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "source_sha256": {
+    "scripts/run_development.py": "85c6ca1af0b5e09469e37bc8187c9e7c34ae027d5a2a3a5b2eae6c21c4da8474",
+    "scripts/run_screen.py": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+    "src/jev_control/__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+    "src/jev_control/features.py": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+    "src/jev_control/jev.py": "c63f373771ac08fec42b820c98c4b835c24a8b4d8bd7fe789c5fed372d9d1515",
+    "src/jev_control/mlx_backend.py": "a9fdf404f7642eec64c4cc90f4e19f74373cb5f3783f96f1543b1f9fdba8df38",
+    "src/jev_control/tasks.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd"
+  },
+  "packages": {
+    "mlx": "0.32.2",
+    "mlx-lm": "0.31.3",
+    "numpy": "2.5.3",
+    "transformers": "5.17.0"
+  },
+  "finalization": "Same reserve intervention in both conditions; baseline uninterrupted until final reserve.",
+  "resume_rng": "Fresh recorded seed on resume; no common-random-number or bitwise stochastic claim.",
+  "model": "Qwen/Qwen3-4B-Instruct-2507",
+  "model_identity": {
+    "repository": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "local_path_omitted": true
+  },
+  "release_kind": "public_local_development_online_boundary",
+  "original_run_id": "development-v1-20260927",
+  "hosted_judge_used": false,
+  "recorded_labels_copied_without_rescoring": true
+}

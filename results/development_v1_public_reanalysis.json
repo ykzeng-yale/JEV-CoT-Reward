@@ -1,0 +1,1213 @@
+{
+  "schema_version": 1,
+  "status": "complete_development_descriptive",
+  "scientific_final": false,
+  "expected_plan_complete": true,
+  "partial_explicitly_requested": false,
+  "purpose": "Development framing and fixed baseline/sham comparison; no Jev-effect or equivalence claim",
+  "counts": {
+    "expected_problems": 12,
+    "recorded_tasks": 12,
+    "problems_with_outcomes": 12,
+    "expected_episodes": 48,
+    "observed_episodes": 48,
+    "paired_problem_repeat_cells": 24,
+    "missing_episodes": 0
+  },
+  "missing_episode_keys": [],
+  "conditions": {
+    "baseline": {
+      "episodes": 24,
+      "independent_problems": 12,
+      "successes": 12,
+      "success_rate": 0.5,
+      "costs": {
+        "generated_tokens": 22451,
+        "prompt_tokens_processed": 27846,
+        "elapsed_seconds": 522.6354056252167,
+        "inserted_instruction_tokens": 336,
+        "generation_calls": 45
+      },
+      "checkpoint_status": {
+        "not_requested": 24
+      },
+      "calculation_marker_checkpoints": 0,
+      "timeout_episodes": 0,
+      "verification_reasons": {
+        "checked_path": 12,
+        "invalid_answer": 9,
+        "checked_expression": 3
+      },
+      "families": {
+        "arithmetic_construction": {
+          "episodes": 12,
+          "independent_problems": 6,
+          "successes": 2,
+          "success_rate": 0.16666666666666666,
+          "costs": {
+            "generated_tokens": 11595,
+            "prompt_tokens_processed": 14544,
+            "elapsed_seconds": 269.463048376143,
+            "inserted_instruction_tokens": 192,
+            "generation_calls": 24
+          },
+          "checkpoint_status": {
+            "not_requested": 12
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 9,
+            "checked_expression": 3
+          }
+        },
+        "weighted_path": {
+          "episodes": 12,
+          "independent_problems": 6,
+          "successes": 10,
+          "success_rate": 0.8333333333333334,
+          "costs": {
+            "generated_tokens": 10856,
+            "prompt_tokens_processed": 13302,
+            "elapsed_seconds": 253.17235724907368,
+            "inserted_instruction_tokens": 144,
+            "generation_calls": 21
+          },
+          "checkpoint_status": {
+            "not_requested": 12
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 12
+          }
+        }
+      },
+      "failed_outcome_costs": {
+        "generated_tokens": 11574,
+        "prompt_tokens_processed": 14990,
+        "elapsed_seconds": 269.4839484579861,
+        "inserted_instruction_tokens": 192,
+        "generation_calls": 24
+      }
+    },
+    "sham": {
+      "episodes": 24,
+      "independent_problems": 12,
+      "successes": 12,
+      "success_rate": 0.5,
+      "costs": {
+        "generated_tokens": 22482,
+        "prompt_tokens_processed": 37586,
+        "elapsed_seconds": 531.0771534191445,
+        "inserted_instruction_tokens": 320,
+        "generation_calls": 68
+      },
+      "checkpoint_status": {
+        "eligible": 24
+      },
+      "calculation_marker_checkpoints": 24,
+      "timeout_episodes": 0,
+      "verification_reasons": {
+        "checked_path": 12,
+        "invalid_answer": 10,
+        "checked_expression": 2
+      },
+      "families": {
+        "arithmetic_construction": {
+          "episodes": 12,
+          "independent_problems": 6,
+          "successes": 2,
+          "success_rate": 0.16666666666666666,
+          "costs": {
+            "generated_tokens": 11749,
+            "prompt_tokens_processed": 19482,
+            "elapsed_seconds": 276.80139008164406,
+            "inserted_instruction_tokens": 192,
+            "generation_calls": 36
+          },
+          "checkpoint_status": {
+            "eligible": 12
+          },
+          "calculation_marker_checkpoints": 12,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 10,
+            "checked_expression": 2
+          }
+        },
+        "weighted_path": {
+          "episodes": 12,
+          "independent_problems": 6,
+          "successes": 10,
+          "success_rate": 0.8333333333333334,
+          "costs": {
+            "generated_tokens": 10733,
+            "prompt_tokens_processed": 18104,
+            "elapsed_seconds": 254.2757633375004,
+            "inserted_instruction_tokens": 128,
+            "generation_calls": 32
+          },
+          "checkpoint_status": {
+            "eligible": 12
+          },
+          "calculation_marker_checkpoints": 12,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 12
+          }
+        }
+      },
+      "failed_outcome_costs": {
+        "generated_tokens": 11727,
+        "prompt_tokens_processed": 20144,
+        "elapsed_seconds": 276.88211649656296,
+        "inserted_instruction_tokens": 192,
+        "generation_calls": 36
+      }
+    }
+  },
+  "per_original_problem": [
+    {
+      "problem_id": "weighted_path-391027-0",
+      "family": "weighted_path",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1840,
+            "prompt_tokens_processed": 1568,
+            "elapsed_seconds": 42.46852416638285,
+            "inserted_instruction_tokens": 16,
+            "generation_calls": 3
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1832,
+            "prompt_tokens_processed": 2526,
+            "elapsed_seconds": 43.35107445996255,
+            "inserted_instruction_tokens": 16,
+            "generation_calls": 5
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "arithmetic_construction-391027-1",
+      "family": "arithmetic_construction",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1894,
+            "prompt_tokens_processed": 2420,
+            "elapsed_seconds": 43.92309358436614,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 1,
+            "checked_expression": 1
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1971,
+            "prompt_tokens_processed": 3212,
+            "elapsed_seconds": 46.36463862564415,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 1,
+            "checked_expression": 1
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "weighted_path-391027-2",
+      "family": "weighted_path",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1868,
+            "prompt_tokens_processed": 2828,
+            "elapsed_seconds": 43.848008709959686,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1868,
+            "prompt_tokens_processed": 3840,
+            "elapsed_seconds": 44.77488116826862,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "arithmetic_construction-391027-3",
+      "family": "arithmetic_construction",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 1888,
+            "prompt_tokens_processed": 2424,
+            "elapsed_seconds": 43.88348875101656,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 2048,
+            "prompt_tokens_processed": 3338,
+            "elapsed_seconds": 48.208725082688034,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "weighted_path-391027-4",
+      "family": "weighted_path",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1870,
+            "prompt_tokens_processed": 2908,
+            "elapsed_seconds": 44.02326362486929,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1870,
+            "prompt_tokens_processed": 3947,
+            "elapsed_seconds": 44.79559800028801,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "arithmetic_construction-391027-5",
+      "family": "arithmetic_construction",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 2048,
+            "prompt_tokens_processed": 2432,
+            "elapsed_seconds": 47.48611333221197,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 2048,
+            "prompt_tokens_processed": 3259,
+            "elapsed_seconds": 48.59609679225832,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "weighted_path-391027-6",
+      "family": "weighted_path",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1864,
+            "prompt_tokens_processed": 2772,
+            "elapsed_seconds": 43.805802499875426,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1864,
+            "prompt_tokens_processed": 3758,
+            "elapsed_seconds": 44.64714962616563,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "arithmetic_construction-391027-7",
+      "family": "arithmetic_construction",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 1895,
+            "prompt_tokens_processed": 2420,
+            "elapsed_seconds": 44.569318667054176,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1894,
+            "prompt_tokens_processed": 3243,
+            "elapsed_seconds": 44.801314458251,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_expression": 1,
+            "invalid_answer": 1
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.5
+    },
+    {
+      "problem_id": "weighted_path-391027-8",
+      "family": "weighted_path",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1590,
+            "prompt_tokens_processed": 1631,
+            "elapsed_seconds": 36.60998795647174,
+            "inserted_instruction_tokens": 16,
+            "generation_calls": 3
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1525,
+            "prompt_tokens_processed": 1455,
+            "elapsed_seconds": 35.19275441579521,
+            "inserted_instruction_tokens": 0,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "arithmetic_construction-391027-9",
+      "family": "arithmetic_construction",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 1,
+          "success_rate": 0.5,
+          "costs": {
+            "generated_tokens": 1972,
+            "prompt_tokens_processed": 2424,
+            "elapsed_seconds": 45.78122612461448,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 1,
+            "checked_expression": 1
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 1890,
+            "prompt_tokens_processed": 3217,
+            "elapsed_seconds": 44.587408458814025,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": -0.5
+    },
+    {
+      "problem_id": "weighted_path-391027-10",
+      "family": "weighted_path",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1824,
+            "prompt_tokens_processed": 1595,
+            "elapsed_seconds": 42.416770291514695,
+            "inserted_instruction_tokens": 16,
+            "generation_calls": 3
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 2,
+          "success_rate": 1.0,
+          "costs": {
+            "generated_tokens": 1774,
+            "prompt_tokens_processed": 2578,
+            "elapsed_seconds": 41.51430566702038,
+            "inserted_instruction_tokens": 16,
+            "generation_calls": 5
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "checked_path": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    },
+    {
+      "problem_id": "arithmetic_construction-391027-11",
+      "family": "arithmetic_construction",
+      "conditions": {
+        "baseline": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 1898,
+            "prompt_tokens_processed": 2424,
+            "elapsed_seconds": 43.819807916879654,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 4
+          },
+          "checkpoint_status": {
+            "not_requested": 2
+          },
+          "calculation_marker_checkpoints": 0,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 1,
+            "checked_expression": 1
+          }
+        },
+        "sham": {
+          "episodes": 2,
+          "independent_problems": 1,
+          "successes": 0,
+          "success_rate": 0.0,
+          "costs": {
+            "generated_tokens": 1898,
+            "prompt_tokens_processed": 3213,
+            "elapsed_seconds": 44.24320666398853,
+            "inserted_instruction_tokens": 32,
+            "generation_calls": 6
+          },
+          "checkpoint_status": {
+            "eligible": 2
+          },
+          "calculation_marker_checkpoints": 2,
+          "timeout_episodes": 0,
+          "verification_reasons": {
+            "invalid_answer": 2
+          }
+        }
+      },
+      "complete_paired_repeats": true,
+      "sham_minus_baseline": 0.0
+    }
+  ],
+  "fixed_control_comparison": {
+    "estimand": "Mean per-original-problem sham success rate minus fixed baseline success rate",
+    "independent_problems": 12,
+    "difference": 0.0,
+    "descriptive_stratified_percentile_95": [
+      -0.125,
+      0.125
+    ],
+    "strata": {
+      "weighted_path": 6,
+      "arithmetic_construction": 6
+    },
+    "draws": 2000,
+    "seed": 271828,
+    "resampling_unit": "Original problem, retaining both conditions and all repeats; preserve family counts",
+    "interpretation": "Descriptive small-development-sample interval; no equivalence claim, Jev effect, or confirmatory coverage guarantee."
+  },
+  "eligibility_and_markers": {
+    "sham_status_breakdown": {
+      "eligible": {
+        "episodes": 24,
+        "independent_problems": 12,
+        "successes": 12,
+        "success_rate": 0.5,
+        "costs": {
+          "generated_tokens": 22482,
+          "prompt_tokens_processed": 37586,
+          "elapsed_seconds": 531.0771534191445,
+          "inserted_instruction_tokens": 320,
+          "generation_calls": 68
+        },
+        "checkpoint_status": {
+          "eligible": 24
+        },
+        "calculation_marker_checkpoints": 24,
+        "timeout_episodes": 0,
+        "verification_reasons": {
+          "checked_path": 12,
+          "invalid_answer": 10,
+          "checked_expression": 2
+        }
+      }
+    },
+    "eligible_with_marker": {
+      "episodes": 24,
+      "independent_problems": 12,
+      "successes": 12,
+      "success_rate": 0.5,
+      "costs": {
+        "generated_tokens": 22482,
+        "prompt_tokens_processed": 37586,
+        "elapsed_seconds": 531.0771534191445,
+        "inserted_instruction_tokens": 320,
+        "generation_calls": 68
+      },
+      "checkpoint_status": {
+        "eligible": 24
+      },
+      "calculation_marker_checkpoints": 24,
+      "timeout_episodes": 0,
+      "verification_reasons": {
+        "checked_path": 12,
+        "invalid_answer": 10,
+        "checked_expression": 2
+      }
+    },
+    "eligible_without_marker": {
+      "episodes": 0,
+      "independent_problems": 0,
+      "successes": 0,
+      "success_rate": null,
+      "costs": {
+        "generated_tokens": 0,
+        "prompt_tokens_processed": 0,
+        "elapsed_seconds": 0,
+        "inserted_instruction_tokens": 0,
+        "generation_calls": 0
+      },
+      "checkpoint_status": {},
+      "calculation_marker_checkpoints": 0,
+      "timeout_episodes": 0,
+      "verification_reasons": {}
+    }
+  },
+  "prepause_matching": {
+    "paired_cells": 24,
+    "full_sham_prefix_agreements": 24,
+    "disagreements": [],
+    "pairs": [
+      {
+        "problem_id": "weighted_path-391027-0",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 264,
+        "compared_tokens": 264,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-0",
+        "repeat": 1,
+        "baseline_initial_tokens": 904,
+        "sham_initial_tokens": 278,
+        "compared_tokens": 278,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-1",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 263,
+        "compared_tokens": 263,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-1",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 263,
+        "compared_tokens": 263,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-2",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 262,
+        "compared_tokens": 262,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-2",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 280,
+        "compared_tokens": 280,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-3",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 315,
+        "compared_tokens": 315,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-3",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 331,
+        "compared_tokens": 331,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-4",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 261,
+        "compared_tokens": 261,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-4",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 268,
+        "compared_tokens": 268,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-5",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 285,
+        "compared_tokens": 285,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-5",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 270,
+        "compared_tokens": 270,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-6",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 260,
+        "compared_tokens": 260,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-6",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 284,
+        "compared_tokens": 284,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-7",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 269,
+        "compared_tokens": 269,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-7",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 288,
+        "compared_tokens": 288,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-8",
+        "repeat": 0,
+        "baseline_initial_tokens": 658,
+        "sham_initial_tokens": 261,
+        "compared_tokens": 261,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-8",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 278,
+        "compared_tokens": 278,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-9",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 269,
+        "compared_tokens": 269,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-9",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 256,
+        "compared_tokens": 256,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-10",
+        "repeat": 0,
+        "baseline_initial_tokens": 890,
+        "sham_initial_tokens": 258,
+        "compared_tokens": 258,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "weighted_path-391027-10",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 291,
+        "compared_tokens": 291,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-11",
+        "repeat": 0,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 265,
+        "compared_tokens": 265,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      },
+      {
+        "problem_id": "arithmetic_construction-391027-11",
+        "repeat": 1,
+        "baseline_initial_tokens": 928,
+        "sham_initial_tokens": 256,
+        "compared_tokens": 256,
+        "sham_initial_is_baseline_prefix": true,
+        "first_disagreement_position_zero_based": null,
+        "baseline_shorter_than_sham": false,
+        "sham_checkpoint_status": "eligible"
+      }
+    ],
+    "interpretation": "Observed same-problem/seed prefix diagnostic only; fresh resume seeds and stochastic execution do not imply global bitwise equivalence."
+  },
+  "outcome_reverification": {
+    "episodes": 48,
+    "disagreements": [],
+    "analysis_uses": "Recomputed strict task outcomes; original records are never rewritten"
+  },
+  "accounting": {
+    "generated_tokens": 44933,
+    "prompt_tokens_processed": 65432,
+    "elapsed_seconds": 1053.7125590443611,
+    "inserted_instruction_tokens": 656,
+    "generation_calls": 113,
+    "includes": "All saved generation calls, including failed outcomes and timeouts; injected instructions count as prompt overhead, not generated tokens",
+    "wall_time_scope": "Sum of recorded generation-call service times, excluding model load and unsaved failures; not end-to-end elapsed time"
+  },
+  "integrity": {
+    "call_caps_counts_seeds_prefixes_and_decoded_text_verified": true,
+    "final_instruction_and_successive_prefixes_verified": true,
+    "completion_summary_present": true
+  },
+  "provenance": {
+    "run_source_sha256": {
+      "scripts/run_development.py": "85c6ca1af0b5e09469e37bc8187c9e7c34ae027d5a2a3a5b2eae6c21c4da8474",
+      "scripts/run_screen.py": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+      "src/jev_control/__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+      "src/jev_control/features.py": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+      "src/jev_control/jev.py": "c63f373771ac08fec42b820c98c4b835c24a8b4d8bd7fe789c5fed372d9d1515",
+      "src/jev_control/mlx_backend.py": "a9fdf404f7642eec64c4cc90f4e19f74373cb5f3783f96f1543b1f9fdba8df38",
+      "src/jev_control/tasks.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd"
+    },
+    "analysis_source_sha256": "bb0a9842f96a334846e1bed4b1e5d140bb4c3a00802afc520485b3fea3314b46",
+    "source_validation": {
+      "mode": "public_release_with_explicit_unused_adapter_omission",
+      "released_file_hashes_verified": true,
+      "release_manifest_sha256": "2dc351dec1f579cf95cb44fd493471705a08a1335d7676d00eec3dbbe15d77eb",
+      "source_manifest_sha256": "fdf65b710ff06bb701ab0da73e2c720162c47c0ddcf6b45812587a121e8dd802",
+      "omitted_original_sources": [
+        {
+          "original_repository_path": "src/jev_control/jev.py",
+          "original_declared_sha256": "c63f373771ac08fec42b820c98c4b835c24a8b4d8bd7fe789c5fed372d9d1515",
+          "content_verified": false,
+          "reason": "Unused network adapter intentionally not released"
+        }
+      ],
+      "note": "Original launch hash inventory is preserved separately from content verified in this public release."
+    },
+    "verifier_source_sha256": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+    "input_sha256": {
+      "manifest.json": "c9f8fc13fa8784b1e5be39cc8a27de958eae4212c7bc337a0cb237f8fa1e3c58",
+      "tasks.jsonl": "fb9cc33dbe8a9be62e092ee1709b103345b848706e215024c3d610992b006df7",
+      "outcomes.jsonl": "aeff550f944f746996f1ce0161b00d37055681a372e4400566ae601b5c0208a2",
+      "summary.json": "4ca80f0cfca49be4b38526e0fcde851523ea7fe6140e05708c7ad8686461ace6"
+    },
+    "audit_time_tokenizer_json_sha256": "aeb13307a71acd8fe81861d94ad54ab689df773318809eed3cbe794b4492dae4",
+    "tokenizer_identity_note": "Audit reference only; the launch manifest did not independently hash tokenizer bytes.",
+    "expected_plan": {
+      "protocol": "development-v1-online-boundary",
+      "problems": 12,
+      "repeats": 2,
+      "task_seed": 391027,
+      "sampling_seed": 271027,
+      "budget": 1024,
+      "checkpoint_target": 256,
+      "checkpoint_cap": 384,
+      "final_reserve": 96,
+      "temperature": 0.7,
+      "top_p": 0.9,
+      "quantization": {
+        "bits": 4,
+        "group_size": 64,
+        "mode": "affine"
+      }
+    }
+  },
+  "limitations": [
+    "Twelve original problems by default; repeated generations are not independent tasks.",
+    "The family-stratified bootstrap describes this fixed-control development comparison; it cannot establish equivalence or nominal small-sample coverage.",
+    "Calculation markers are surface syntax, not verified useful reasoning.",
+    "Saved-call costs include failed outcomes; work that crashed before a row was saved cannot be recovered from these files.",
+    "No policy learning, Jev calls, model inference or network calls are performed by this analysis."
+  ]
+}

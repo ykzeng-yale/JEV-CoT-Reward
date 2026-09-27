@@ -1,0 +1,48 @@
+{
+  "kind": "development_framing_and_online_sham_not_jev_effect",
+  "episodes": 48,
+  "independent_problems": 12,
+  "conditions": {
+    "baseline": {
+      "n": 24,
+      "successes": 12,
+      "generated_tokens": 22451,
+      "elapsed_seconds": 522.6354056252167,
+      "checkpoint_status": {
+        "not_requested": 24
+      },
+      "calculation_marker_checkpoints": 0,
+      "families": {
+        "arithmetic_construction": {
+          "n": 12,
+          "successes": 2
+        },
+        "weighted_path": {
+          "n": 12,
+          "successes": 10
+        }
+      }
+    },
+    "sham": {
+      "n": 24,
+      "successes": 12,
+      "generated_tokens": 22482,
+      "elapsed_seconds": 531.0771534191445,
+      "checkpoint_status": {
+        "eligible": 24
+      },
+      "calculation_marker_checkpoints": 24,
+      "families": {
+        "arithmetic_construction": {
+          "n": 12,
+          "successes": 2
+        },
+        "weighted_path": {
+          "n": 12,
+          "successes": 10
+        }
+      }
+    }
+  },
+  "warning": "Small development sample; distinct resume RNG seeds. Not an equivalence test or confirmatory policy evaluation."
+}

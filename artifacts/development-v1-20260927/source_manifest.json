@@ -1,0 +1,63 @@
+{
+  "protocol": "development-v1-online-boundary",
+  "files": [
+    {
+      "released_path": "source/run_development.py",
+      "original_repository_path": "scripts/run_development.py",
+      "sha256": "85c6ca1af0b5e09469e37bc8187c9e7c34ae027d5a2a3a5b2eae6c21c4da8474",
+      "original_declared_sha256": "85c6ca1af0b5e09469e37bc8187c9e7c34ae027d5a2a3a5b2eae6c21c4da8474",
+      "status": "captured_development_launch_source",
+      "source_run_id": "development-v1-20260927"
+    },
+    {
+      "released_path": "source/run_screen.py",
+      "original_repository_path": "scripts/run_screen.py",
+      "sha256": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+      "original_declared_sha256": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+      "status": "captured_development_launch_source",
+      "source_run_id": "development-v1-20260927"
+    },
+    {
+      "released_path": "source/__init__.py",
+      "original_repository_path": "src/jev_control/__init__.py",
+      "sha256": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+      "original_declared_sha256": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+      "status": "captured_development_launch_source",
+      "source_run_id": "development-v1-20260927"
+    },
+    {
+      "released_path": "source/features.py",
+      "original_repository_path": "src/jev_control/features.py",
+      "sha256": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+      "original_declared_sha256": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+      "status": "captured_development_launch_source",
+      "source_run_id": "development-v1-20260927"
+    },
+    {
+      "released_path": "source/mlx_backend.py",
+      "original_repository_path": "src/jev_control/mlx_backend.py",
+      "sha256": "a9fdf404f7642eec64c4cc90f4e19f74373cb5f3783f96f1543b1f9fdba8df38",
+      "original_declared_sha256": "a9fdf404f7642eec64c4cc90f4e19f74373cb5f3783f96f1543b1f9fdba8df38",
+      "status": "captured_development_launch_source",
+      "source_run_id": "development-v1-20260927"
+    },
+    {
+      "released_path": "source/tasks.py",
+      "original_repository_path": "src/jev_control/tasks.py",
+      "sha256": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+      "original_declared_sha256": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+      "status": "captured_development_launch_source",
+      "source_run_id": "development-v1-20260927"
+    }
+  ],
+  "omitted_original_sources": [
+    {
+      "original_repository_path": "src/jev_control/jev.py",
+      "original_declared_sha256": "c63f373771ac08fec42b820c98c4b835c24a8b4d8bd7fe789c5fed372d9d1515",
+      "reason": "Credential/network adapter excluded; never used for this local development run"
+    }
+  ],
+  "original_runner_sha256": "85c6ca1af0b5e09469e37bc8187c9e7c34ae027d5a2a3a5b2eae6c21c4da8474",
+  "layout": "Original launch files were captured flat under source; original repository-relative keys are preserved in this manifest.",
+  "note": "These are the recorded launch snapshots, not attestations about current repository helpers or later backend versions."
+}

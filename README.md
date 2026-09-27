@@ -49,7 +49,7 @@ Add `--jev` to collect the seven frozen rubric features at each unique eligible 
 
 Read each script's `--help` for implemented limits. These small arithmetic/graph tasks test the instrumentation; they are not a substitute for audited research benchmarks.
 
-The next development diagnostic captures an online newline boundary after 256 tokens, capped at 384, without looking ahead and rolling back. It compares baseline generation (uninterrupted until the shared final-answer reserve) with exact-prefix pause/resume on 12 fresh problems and two seeds:
+The completed development diagnostic captures an online newline boundary after 256 tokens, capped at 384, without looking ahead and rolling back. It compares baseline generation (uninterrupted until the shared final-answer reserve) with exact-prefix pause/resume on 12 fresh problems and two seeds:
 
 ```sh
 .venv/bin/python scripts/run_development.py \
@@ -58,6 +58,10 @@ The next development diagnostic captures an online newline boundary after 256 to
 ```
 
 [Frozen settings](configs/development_v1.json). This diagnostic makes no Jev calls. Stochastic resume uses a fresh recorded RNG seed; it does not claim bitwise replay equivalence. Earlier generate-then-rewind diagnostics remain separately labeled and are not pooled with online checkpoints.
+
+Both development conditions solved 12/24 episodes (graph 10/12, arithmetic 2/12). All 24 paused prefixes matched their uninterrupted counterparts before pausing, and the independent audit found no outcome or accounting disagreement. This small sample does not establish equivalence. [Development gate](docs/development_gate.md): proceed only to a limited exploratory mechanism screen.
+
+The next frozen schedule is 24 fresh problems × three actions × four continuations, with one online checkpoint and 1,024 generated tokens per hypothetical episode. The [mechanism configuration](configs/mechanism_v1.json) records the full contract; `scripts/run_mechanism.py --help` describes the runner. It is currently collecting data, not reporting a trained-policy benefit. Jev queries use the central ledger with a $1 cumulative stage cap. The independent local judge and grouped analysis follow collection.
 
 For longer authorized runs, `scripts/run_bounded.py` records process identity and stops its own process group at a wall-clock, sampled-RSS, or log-size limit. RSS is not a hard limit on Metal/unified memory. Use a new control directory for every run; retain incomplete outputs and receipts.
 
