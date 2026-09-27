@@ -1,6 +1,6 @@
 # Research curriculum v2: reopen the scientific program
 
-User authorized September 27, 2026. The original broad research question remains open. The completed v1 branch is a small negative/inconclusive diagnostic, not completion of the whole program. Preserve its records and test designation. A new active goal supersedes the previous branch-completion framing.
+User authorized September 27, 2026. The original broad research question remains open. The completed v1 branch is a small negative/inconclusive diagnostic, not completion of the whole program. Preserve its records and test designation. The broad research objective supersedes the previous branch-completion framing; scheduled authorization continues work even while app goal mode is paused.
 
 ## First baseline/design audit
 

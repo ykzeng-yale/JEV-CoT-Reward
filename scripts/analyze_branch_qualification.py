@@ -45,28 +45,41 @@ def analyze(run,audit_path):
             'mean_selector_generated_tokens':float(np.mean([r['selector_generated_tokens'] if acquire else 0 for r in selected])),
             'mean_total_processed_prompt_tokens':float(np.mean([r['episode_prompt_tokens']+(r['selector_prompt_tokens'] if acquire else 0) for r in selected])),
             'mean_total_model_service_seconds':float(np.mean([r['episode_service_seconds']+(r['selector_service_seconds'] if acquire else 0) for r in selected]))}
+    if config.get('jev'):
+        for policy in policies:
+            selected=[lookup[pid,r,policy] for pid in ids for r in range(config['repeats'])]
+            hosted=policy=='jev_semantic'
+            results[policy]['mean_jev_accounted_usd']=float(np.mean([r.get('jev_accounted_usd',0) if hosted else 0 for r in selected]))
+            results[policy]['mean_jev_acquisition_seconds']=float(np.mean([r.get('jev_acquisition_seconds',0) if hosted else 0 for r in selected]))
+            results[policy]['mean_jev_input_tokens']=float(np.mean([r.get('jev_input_tokens') or 0 if hosted else 0 for r in selected]))
     contrasts={}
-    for left,right in [(p,'continue') for p in policies[1:]]+[(p,'uniform') for p in policies[2:]]:
+    pairs=[(p,'continue') for p in policies[1:]]+[(p,'uniform') for p in policies[2:]]
+    if config.get('jev'):pairs += [('jev_semantic','likelihood'),('jev_semantic','local_semantic')]
+    for left,right in pairs:
         contrasts[left+'_minus_'+right]={**estimate(values[left]-values[right],indices),
-            'warning':'Exploratory eight-problem comparison; no nominal coverage or post-selection efficacy claim.'}
+            'warning':'Exploratory development comparison; no nominal coverage or post-selection efficacy claim.'}
     decisions=read_lines(run/'decisions.jsonl');candidates=read_lines(run/'candidates.jsonl')
     agreement={p:sum(d['choices'][p]==d['choices']['uniform'] for d in decisions) for p in config['selectors']}
     split=[]
     by_candidate={(r['problem_id'],r['repeat'],r['candidate']):r for r in rows if r['candidate'] is not None}
     # This is explicitly an outcome-informed development diagnostic, not a policy.
-    for selection,evaluation in [(0,1),(1,0)]:
+    half=config['repeats']//2
+    splits=[(list(range(half)),list(range(half,config['repeats']))),
+            (list(range(half,config['repeats'])),list(range(half)))]
+    for selection,evaluation in splits:
         chosen=[];uniform=[]
         for pid in ids:
-            winner=max(range(config['candidate_count']),key=lambda j:int(by_candidate[pid,selection,j]['outcome']['success']))
-            chosen.append(by_candidate[pid,evaluation,winner]['outcome']['success'])
-            uniform.append(lookup[pid,evaluation,'uniform']['outcome']['success'])
-        split.append({'selection_repeat':selection,'evaluation_repeat':evaluation,
+            winner=max(range(config['candidate_count']),key=lambda j:sum(int(by_candidate[pid,r,j]['outcome']['success']) for r in selection))
+            chosen.append(np.mean([by_candidate[pid,r,winner]['outcome']['success'] for r in evaluation]))
+            uniform.append(np.mean([lookup[pid,r,'uniform']['outcome']['success'] for r in evaluation]))
+        split.append({'selection_repeats':selection,'evaluation_repeats':evaluation,
             'selected_candidate_success':float(np.mean(chosen)),'uniform_success':float(np.mean(uniform)),
             'interpretation':'Noisy outcome-informed candidate selection; overlapping splits, not deployable and not an oracle bound.'})
     events=read_lines(run/'generation_events.jsonl')
     return {'status':'audited_development_branch_qualification','enrolled_problems':config['problems'],
         'eligible_problems':len(ids),'unique_outcomes':len(rows),'hypothetical_policy_episodes':len(lookup),
         'policies':results,'paired_contrasts':contrasts,'agreement_with_uniform_by_problem':agreement,
+        'jev_failure_count':sum('jev_semantic' in d['failures'] for d in decisions),
         'local_failure_count':sum('local_semantic' in d['failures'] for d in decisions),
         'candidate_unique_text_counts':{pid:len({c['generation']['text'] for c in candidates if c['problem_id']==pid}) for pid in ids},
         'split_repeat_diagnostic':split,
@@ -78,7 +91,7 @@ def analyze(run,audit_path):
             'Generator caps do not match total compute; local judge acquisition is separately charged.',
             'Shadow continuations for unselected candidates are collection cost, not free deployed evidence.',
             'The complete GUARD trigger, prompts and scheduling are not reproduced.',
-            'No Jev efficacy, transfer, sequential control or training tested.',
+            'Direct selector development study; no confirmatory Jev efficacy, transfer, sequential control or training tested.',
             'A degenerate empirical bootstrap does not establish equivalence.']}
 
 

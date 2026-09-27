@@ -1,25 +1,35 @@
 # Research continuation state
 
-Updated September 27, 2026. The user explicitly requested active progress rather than monitor-only recurring turns. The existing broad curriculum remains the objective; do not close it after a narrow diagnostic or create a duplicate goal.
+Updated September 27, 2026, after launching v3a. Broad curriculum remains open; no duplicate goal or automatic completion.
 
-## Current dependency
+## Authoritative live dependency
 
-The repair experiment `runs/action-qualification-v2-20260927` is terminal: external receipt confirms exit 0, 2,440.77 seconds, all 80 outcomes. Its complete independent audit passed 104 calls with zero outcome disagreements; report: `docs/action_qualification_v2_results.md`. Continue solved 11/16 and segment repair 12/16; uncertainty remains wide, so no benefit or best-policy promotion is claimed.
+`runs/branch-replication-v3a-20260927` is the active 24-problem/four-repeat development replication. Receipt: `runs/branch-replication-v3a-control/process.json`. Worker PID **57951**, start **Sun Sep 27 19:35:23 2026** local. Supervisor session 18896. Verify PID AND start time against the receipt; never infer termination from a stale log or restart a live job. Cooperative limit 14,400 seconds, external 14,550, sampled RSS 8 GiB. One local MLX model job only.
 
-The current live experiment is `runs/branch-qualification-v2-20260927`, with receipt `runs/branch-qualification-v2-control/process.json`, original worker PID 43550, start September 27 at 19:00:04 local. Verify that exact identity before acting; do not restart the completed repair job. The branch run has eight fresh development problems, a common three-candidate pool, four pre-outcome selectors and two continuations per candidate plus continue. No Jev calls. The local selector shares the generator backbone; it is not a gold verifier. At launch, memory pressure reported 53% free; other small Python processes were present, so service time is descriptive rather than isolated-hardware latency.
+The first launch (`runs/branch-replication-v3-20260927`, control without `a`, PID 57919) failed before task scheduling/model inference/API dispatch because a relative config path was not resolved before source freezing. Exit 1 was verified. Preserve that failed directory/receipt. The tested path fix is commit 1dbfb8a. v3a uses the same frozen scientific config; it is not a replacement for observed outcomes.
 
-The scientific limitation is incomplete evidence about action effectiveness, selector quality and baseline adequacy. Existing small negative Jev comparisons cannot identify which component failed. The theoretical framework is conditional and mainly standard, not an unresolved proof blocking the current experiments or evidence of a practical benefit.
+Protocol: `docs/branch_replication_v3_protocol.md`; config: `configs/branch_replication_v3.json`. Same pools and downstream outcomes compare continue, uniform, likelihood, entropy, local semantic and Jev semantic. At most 24 hosted calls, central $1 cumulative development cap/$25 project hard cap. First call succeeded; last observed ledger: 56 successful requests total, $0.002324574. Query ledger for current spend; do not print responses or credentials. All selector decisions precede downstream continuations. Do not inspect partial success rates to alter the run.
 
-## Work while inference runs
+At launch memory pressure reported 55% free and 44 GiB disk available. Hardware is sufficient for this bounded worker. Current limitations are evidence precision, causal intervention/controller qualification and complete published-baseline compatibility—not a missing theory proof or more memory.
 
-1. Independently audit the new branch runner's treatment, decision ordering, candidate completion handling and per-policy/collection cost accounting. The complete-run auditor and analysis are implemented, but need actual full-run execution once collection finishes. Do not run a competing model process merely to appear faster; fresh timing comparisons should avoid contention.
-2. Finish the compatible published-method comparator contract. The entropy ranking component is only GUARD-inspired; it does not satisfy the complete published-controller requirement.
-3. Review the integrated manuscript theory, exact bibliography and reproducibility package. The source compiles; this is not yet a finished scientific paper.
+## Completed evidence
 
-Once the branch process is authoritatively terminal, run `scripts/audit_branch_qualification.py` with the pinned local tokenizer, then `scripts/analyze_branch_qualification.py` using its passed report. Use new report filenames. Publish all selectors and candidate/selection diagnostics, not a post-hoc winner. The analyzer separately charges local acquisition and reports original-problem clusters. Interpret repair and branch development evidence together to specify a fixed independent replication; keep the prior prospective v1 test excluded from training and selection.
+Repair v2: 80 outcomes, 104 calls, zero audit disagreements; continue 11/16, segment repair 12/16 with wide uncertainty. Branch v2: 64 distinct outcomes, 126 calls, zero disagreements; continue 9/16, uniform 10/16, likelihood/entropy/local 11/16 each. No semantic increment or Jev efficacy established. Published reports and terminal releases are on GitHub. v1 prospective test remains closed to model selection/training.
 
-## Recurring workflow
+Manuscript `paper/main.tex` includes both v2 diagnostics, standard conditional theory and pending v3 status; built-in compilation passed. Not arXiv-ready and no upload authorized.
 
-The existing automation `jev-experiment-completion-check` was updated in place, renamed “Jev research progression,” and set to every 30 minutes. It now directs substantive authorized work, not simply checking and exiting. It must not disable itself after one experiment. While a verified live job blocks the next scientific decision, work on independent useful tasks; when those are exhausted, wait through the schedule instead of idle active polling. Notify only for meaningful findings, completed stages, failures or actual required resources.
+## Terminal-run procedure
 
-Goal-mode activation is controlled by the app/user; do not edit internal state or claim a paused goal is active. The user's new instruction authorizes research continuation regardless of that UI flag. Respect the single cumulative $25 Jev ledger and keep credentials private. No new Jev calls are needed for the current repair/branch qualification work.
+1. Check the recorded v3a process identity and terminal receipt/manifest. Do not restart a live or merely quiet run.
+2. Run `scripts/audit_branch_qualification.py` with the pinned local tokenizer and a NEW `results/branch_replication_v3_audit.json`. It supports v2 and v3; hosted prompt hashes, choice parsing, chronology, labels and cost fields are checked. Raw hosted records remain private.
+3. Only after audit passes, run `scripts/analyze_branch_qualification.py` with that report and a NEW `results/branch_replication_v3_analysis.json`. The analyzer adds Jev-vs-likelihood/local contrasts, acquisition cost and disjoint two-repeat half diagnostics. It was updated during collection without looking at partial outcomes, following the frozen protocol.
+4. Independently review all outcome counts, failed/ineligible cases and selector disagreement. Reconcile actual ledger charges versus conservative per-episode acquisition costs. Publish an allowlisted release, update the paper, compile and push.
+5. Advance the curriculum based on complete evidence; no automatic broad-project closure from either a small positive or negative result.
+
+## Independent work completed / next qualification
+
+The v2 terminal export reproduces all labels. Choice API validation and ordering/cost tests pass. GUARD's pinned trigger/ranking semantics now have CPU qualification tests (`docs/guard_qualification_contract.md`); this is NOT a full published comparator. Full integration requires predictive-logit/boundary handling and a separately qualified all-work runner, and cannot be claimed from common-pool entropy ranking. Qualify it before a prospective full-controller claim. Separate-model local judging, strong learned cheap representations, fresh rate-matched deployment and sequential/transfer tests remain in the curriculum.
+
+## Recurring authorization
+
+The existing 30-minute `jev-experiment-completion-check` heartbeat authorizes active research, not monitor-only work. Keep it enabled. Notify on meaningful findings/failure/resource needs. Goal mode is paused and cannot be programmatically reactivated; do not edit internal goal state. This does not block authorized research. While the run is live, avoid competing inference, changing its code/config, or making adaptive decisions from partial results.

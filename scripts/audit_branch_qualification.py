@@ -35,6 +35,9 @@ def audit(run,tokenizer_dir):
     # The prompt/schema implementation is reviewed current code, never arbitrary source execution.
     name='src/jev_control/branch_selectors.py'
     m.require(m.digest((ROOT/name).read_bytes())==manifest['source_sha256'][name],'Unsupported selector/prompt implementation')
+    if v3:
+        name='src/jev_control/branch_jev.py'
+        m.require(m.digest((ROOT/name).read_bytes())==manifest['source_sha256'][name],'Unsupported Jev prompt implementation')
     identity=manifest['model_identity']
     for name,digest in identity['file_sha256'].items():
         m.safe_relative(name)
@@ -106,7 +109,7 @@ def audit(run,tokenizer_dir):
                 m.require(response['model']==MODEL and answer['type']=='choice','Jev model/type mismatch')
                 probs=answer['probabilities']
                 m.require(set(probs)=={'0','1','2'} and all(type(v) in (int,float) and 0<=v<=1 for v in probs.values()),'Invalid Jev distribution')
-                m.equal_number(sum(probs.values()),1.,'Jev normalization')
+                m.require(abs(sum(probs.values())-1.)<=1e-5,'Jev normalization')
                 m.require(answer['choice'] in probs and probs[answer['choice']]>=max(probs.values())-1e-8,'Invalid Jev choice')
                 m.require(jr['choice']==int(answer['choice']),'Jev parsing mismatch')
                 payload={'model':MODEL,'state':state,'questions':questions}
