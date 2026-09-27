@@ -101,28 +101,11 @@ def audit(run,tokenizer_dir):
         if parsed is None:failures['local_semantic']='invalid_choice_fallback_likelihood'
         if v3:
             from jev_control.branch_jev import request
-            from jev_control.jev import canonical, MODEL, PRICE_PER_MILLION, RESERVE_USD
+            from audit_branch_jev import audit_record
             jr=hosted[pid];state,questions=request(task['prompt'],tokenizer.decode(cp['retained_ids']),views)
-            m.require(jr['request']=={'state':state,'questions':questions},'Jev information mismatch')
-            if jr['error'] is None:
-                result=jr['result'];response=result['response'];answer=response['answers']['candidate']
-                m.require(response['model']==MODEL and answer['type']=='choice','Jev model/type mismatch')
-                probs=answer['probabilities']
-                m.require(set(probs)=={'0','1','2'} and all(type(v) in (int,float) and 0<=v<=1 for v in probs.values()),'Invalid Jev distribution')
-                m.require(abs(sum(probs.values())-1.)<=1e-5,'Jev normalization')
-                m.require(answer['choice'] in probs and probs[answer['choice']]>=max(probs.values())-1e-8,'Invalid Jev choice')
-                m.require(jr['choice']==int(answer['choice']),'Jev parsing mismatch')
-                payload={'model':MODEL,'state':state,'questions':questions}
-                m.require(result['request_sha256']==m.digest(canonical(payload).encode()),'Jev request digest mismatch')
-                m.require(jr['input_tokens']==response['usage']['input_tokens'],'Jev usage mismatch')
-                m.equal_number(jr['accounted_usd'],jr['input_tokens']*PRICE_PER_MILLION/1e6,'Jev cost')
-                choices['jev_semantic']=jr['choice']
-            else:
-                m.require(jr['choice'] is None,'Failed Jev choice used')
-                m.equal_number(jr['accounted_usd'],RESERVE_USD,'Jev failure reserve')
-                choices['jev_semantic']=choices['likelihood'];failures['jev_semantic']='invalid_choice_fallback_likelihood'
-            m.require(jr['recorded_unix']>=local[pid]['recorded_unix'],'Jev chronology mismatch')
-            m.require(decisions[pid]['recorded_unix']>=jr['recorded_unix'],'Decision before Jev')
+            parsed_jev=audit_record(jr,{'state':state,'questions':questions},local[pid]['recorded_unix'],decisions[pid]['recorded_unix'])
+            choices['jev_semantic']=parsed_jev if parsed_jev is not None else choices['likelihood']
+            if parsed_jev is None:failures['jev_semantic']='invalid_choice_fallback_likelihood'
         decision=decisions[pid];m.require(decision['choices']==choices and decision['failures']==failures,'Selector decision mismatch')
         m.require(decision['recorded_unix']>=local[pid]['recorded_unix']>=local_start,'Selection chronology mismatch')
         totals={'pool_generated_tokens':sum(g['generated_tokens'] for g in pool),'pool_prompt_tokens':sum(g['prompt_tokens'] for g in pool),

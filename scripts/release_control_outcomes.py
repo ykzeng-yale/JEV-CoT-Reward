@@ -24,7 +24,7 @@ def export(run, audit_path, destination):
             'hypothetical_deployment_costs','collection_sharing','decision_record_sha256',
             'candidate','selectors','episode_generated_tokens','episode_prompt_tokens',
             'episode_service_seconds','selector_generated_tokens','selector_prompt_tokens',
-            'selector_service_seconds','acquisition_note','pool_generated_tokens','selected_candidate_generated_tokens')
+            'selector_service_seconds','jev_accounted_usd','jev_input_tokens','jev_acquisition_seconds','acquisition_note','pool_generated_tokens','selected_candidate_generated_tokens')
     rows=[{k:r[k] for k in fields if k in r} for r in lines(run/'outcomes.jsonl')]
     tasks=[s['task'] for s in json.loads((run/'schedule.json').read_text())]
     payload={'tasks.json':json.dumps(tasks,indent=2)+'\n',

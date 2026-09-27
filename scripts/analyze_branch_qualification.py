@@ -51,7 +51,10 @@ def analyze(run,audit_path):
             hosted=policy=='jev_semantic'
             results[policy]['mean_jev_accounted_usd']=float(np.mean([r.get('jev_accounted_usd',0) if hosted else 0 for r in selected]))
             results[policy]['mean_jev_acquisition_seconds']=float(np.mean([r.get('jev_acquisition_seconds',0) if hosted else 0 for r in selected]))
-            results[policy]['mean_jev_input_tokens']=float(np.mean([r.get('jev_input_tokens') or 0 if hosted else 0 for r in selected]))
+            known=[r['jev_input_tokens'] for r in selected if r.get('jev_input_tokens') is not None] if hosted else [0]*len(selected)
+            results[policy]['mean_jev_input_tokens_among_known']=float(np.mean(known)) if known else None
+            results[policy]['jev_usage_missing_episodes']=len(selected)-len(known)
+            results[policy]['mean_serial_service_plus_jev_seconds']=results[policy]['mean_total_model_service_seconds']+results[policy]['mean_jev_acquisition_seconds']
     contrasts={}
     pairs=[(p,'continue') for p in policies[1:]]+[(p,'uniform') for p in policies[2:]]
     if config.get('jev'):pairs += [('jev_semantic','likelihood'),('jev_semantic','local_semantic')]
