@@ -20,7 +20,7 @@ CONFIG=ROOT/'configs/branch_qualification_v2.json'
 
 
 def run(args):
-    config_path=getattr(args,'config',CONFIG)
+    config_path=Path(getattr(args,'config',CONFIG)).resolve()
     config=json.loads(config_path.read_text());start=time.monotonic()
     args.output.mkdir(parents=True,exist_ok=False)
     source={}

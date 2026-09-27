@@ -30,7 +30,7 @@ def test_runner_preserves_all_enrollment_and_records_checkpoint_before_pool(tmp_
         for row in rows:record('outcomes',row)
         return {},rows
     monkeypatch.setattr(runner,'collect_pool',pool)
-    runner.run(SimpleNamespace(output=output,model='fixture',wall_seconds=60))
+    runner.run(SimpleNamespace(output=output,model='fixture',wall_seconds=60,config=Path('configs/branch_qualification_v2.json')))
     summary=json.loads((output/'summary.json').read_text())
     assert summary['status']=='complete' and summary['completed_problems']==8
     assert summary['outcomes']==(64 if eligible else 0)
