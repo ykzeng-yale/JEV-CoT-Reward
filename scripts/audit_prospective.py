@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Audit completed prospective records without generation or hosted requests."""
 import argparse
+import ast
 import hashlib
 import json
 from pathlib import Path
@@ -30,6 +31,15 @@ def audit(run, tokenizer_dir):
         if name not in identity['weight_files_sha256']:
             m.require(m.digest((tokenizer_dir/name).read_bytes())==digest,'Tokenizer metadata mismatch')
     tokenizer=m.LocalTokenizer(tokenizer_dir)
+    from transformers import AutoTokenizer
+    chat_tokenizer=AutoTokenizer.from_pretrained(str(tokenizer_dir),local_files_only=True,trust_remote_code=False)
+    chat=lambda text: list(chat_tokenizer.apply_chat_template([{'role':'user','content':text}],tokenize=True,add_generation_prompt=True))
+    feature_tree=ast.parse((run/'source/src/jev_control/features.py').read_text())
+    rubric_record=m.read_json(run/'rubric.json')
+    m.require(rubric_record=={'schema':m.literal(feature_tree,'SCHEMA_VERSION'),
+                            'questions':m.literal(feature_tree,'QUESTIONS')},'Rubric changed from frozen questions')
+    quant=manifest['actual_quantization_config']
+    m.require(quant.get('bits')==4 and quant.get('group_size')==64 and quant.get('mode','affine')=='affine','Unexpected loaded quantization')
     schedule=m.read_json(run/'schedule.json')
     m.require(m.digest((run/'schedule.json').read_bytes())==manifest['schedule_sha256'],'Schedule hash mismatch')
     checkpoints=m.read_jsonl(run/'checkpoints.jsonl');rows=m.read_jsonl(run/'outcomes.jsonl')
@@ -48,12 +58,12 @@ def audit(run, tokenizer_dir):
         task=item['task'];pid=task['id'];cp=cps[pid]
         expected=tasks['make_task'](index,config['task_seed'])
         # Literal captured prompt suffix, inspected through the mechanism contract.
-        import ast
         tree=ast.parse((run/'source/scripts/run_development.py').read_text())
         expected['prompt']+=m.literal(tree,'PROMPT_SUFFIX')
         m.require(item['index']==index and task==expected,'Task schedule changed')
         m.require(pid not in frozen['training_problem_ids'],'Training/test overlap')
         m.require(item['initial_seed']==config['task_seed']+index and item['continuation_seed']==config['task_seed']+index*10000,'Seed schedule changed')
+        m.require(cp['prompt_ids']==chat(task['prompt']),'Initial chat prompt differs from task')
         initial=ledger.take({'phase':'initial','problem_id':pid},cp['prompt_ids'],384,item['initial_seed'],checkpoint=True,row_call=cp['initial'])
         m.online_boundary(initial,256,tokenizer)
         m.require(cp['task']==task and cp['retained_ids']==initial['token_ids'],'Initial checkpoint data mismatch')
@@ -64,15 +74,19 @@ def audit(run, tokenizer_dir):
             record=local[pid];event=ledger.events[ledger.cursor]
             g=ledger.take({'phase':'local_judge','problem_id':pid,'temperature':0},event['prefix_ids'],192,20260927+index,row_call=record['generation'])
             # The recorded prompt must contain exactly the frozen rubric payload.
-            decoded=tokenizer.decode(event['prefix_ids'])
             rubric=m.read_json(run/'rubric.json')['questions']
             expected_prompt=judge_prompt(cp['state'],rubric)
-            m.require(expected_prompt in decoded,'Local judge prompt omitted or changed state/rubric')
+            m.require(event['prefix_ids']==chat(expected_prompt),'Local judge prompt differs from exact state/rubric template')
             parsed=None
             try:
                 if g['finish_reason']!='timeout':parsed=parse_probabilities(g['text'],rubric)
             except (ValueError,TypeError):pass
             m.require(record.get('probabilities')==parsed,'Local parsed features differ from generation')
+            m.require(bool(record.get('error'))==(parsed is None),'Local failure status mismatch')
+            expected_local={'usd':0.,'generated_tokens':g['generated_tokens'],'prompt_tokens':g['prompt_tokens'],'service_seconds':g['elapsed_seconds']}
+            expected_jev={'usd':cp['jev'].get('input_cost_usd'),'service_seconds':cp['jev'].get('elapsed_seconds'),'generated_tokens':0}
+            m.require(decisions[pid]['acquisition_costs']['cheap_tfidf_plus_local']==expected_local,'Local acquisition accounting mismatch')
+            m.require(decisions[pid]['acquisition_costs']['cheap_tfidf_plus_jev']==expected_jev,'Jev acquisition accounting mismatch')
             document,numeric=screen.observable_features(cp,1024)
             expected_actions={'always_continue':'continue'}
             for name,controller in controllers.items():
@@ -87,6 +101,11 @@ def audit(run, tokenizer_dir):
         else:
             m.require(all(a=='continue' for a in decisions[pid]['decisions'].values()),'Ineligible state intervened on')
             m.require(predictions[pid]['probabilities']=={} and pid not in local,'Ineligible state received judge/prediction')
+        free={'usd':0.,'generated_tokens':0,'service_seconds':0.}
+        for policy in ('always_continue','cheap_tfidf'):
+            m.require(decisions[pid]['acquisition_costs'][policy]==free,'Cheap policy charged semantic acquisition')
+        if not eligible:
+            m.require(all(v==free for v in decisions[pid]['acquisition_costs'].values()),'Ineligible episode acquisition cost mismatch')
         selected=[r for r in rows if r['problem_id']==pid]
         for row in sorted(selected,key=lambda r:m.ACTIONS.index(r['action'])):
             audit_selected_rollout(row,item,cp,config,tokenizer,constants,ledger)
