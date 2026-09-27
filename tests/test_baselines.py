@@ -88,3 +88,36 @@ def test_complete_synthetic_comparison_uses_same_grouped_folds(tmp_path):
     report["crossfit"]["status"] = "not_run"
     with pytest.raises(ValueError, match="complete audited"):
         extra.compare(report, {}, [], {}, 100)
+
+
+def test_semantic_heuristic_keeps_query_costs_and_rate_matched_controls(tmp_path):
+    from test_screen_audit import make_run, analysis, lines
+    script_dir = Path(__file__).parents[1] / 'scripts'
+    sys.path.insert(0, str(script_dir))
+    try:
+        spec = importlib.util.spec_from_file_location('semantic_baselines', script_dir / 'analyze_baselines.py')
+        extra = importlib.util.module_from_spec(spec); spec.loader.exec_module(extra)
+    finally:
+        sys.path.remove(str(script_dir))
+    run = tmp_path / 'synthetic_semantics'
+    cps, rows, manifest = make_run(run)
+    for cp in cps:
+        validity = .9 if cp['task']['family'] == 'left' else .2
+        cp['jev'] = {'response': {'answers': {key: {'noul': validity if key == 'locally_valid' else .5}
+                                           for key in analysis.SEMANTIC_KEYS}},
+                     'input_cost_usd': .003, 'elapsed_seconds': .7}
+    lines(run / 'checkpoints.jsonl', cps)
+    report = analysis.analyze(run, learned=True, draws=20)
+    result = extra.compare(report, {cp['problem_id']: cp for cp in cps}, rows, {}, manifest['budget'], draws=20)
+    name = 'validity_07_gate:cheap_tfidf_plus_jev'
+    policy = result['policies'][name]
+    assert policy['success']['mean'] == 1
+    assert policy['action_counts'] == {'continue': 12, 'repair': 12}
+    assert policy['costs']['jev_uncached_equivalent_usd_per_problem'] == pytest.approx(.003)
+    assert policy['costs']['jev_recorded_service_seconds_per_problem'] == pytest.approx(.7)
+    # Family alone explains this fixture's optimal action. A correct within-family
+    # randomization therefore grants no spurious targeting advantage.
+    control = result['within_fold_family_rate_matched_diagnostic'][name]
+    assert control['expected_success']['mean'] == 1
+    assert control['selected_minus_randomized']['mean'] == 0
+    assert result['policies']['entropy_median_gate:cheap_tfidf']['action_counts'] == {'continue': 24}
