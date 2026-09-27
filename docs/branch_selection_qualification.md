@@ -21,3 +21,7 @@ The implemented `branch_selectors.py` supplies ranking and strict local-choice p
 ## Requirement for the later published-method comparator
 
 A ranking-component adaptation cannot satisfy the whole “strong compatible published controller” requirement. A separate integration must preserve a method's actual trigger and intervention semantics, or justify every adaptation, and establish that its input/runtime assumptions are available. RSD needs distinct draft/target roles; math-specific PRMs need a compatible task domain. Use this branch diagnostic to qualify machinery, not as a substitute for the published-method comparison.
+
+## Launch and audit status
+
+Launched September 27, 2026 after repair v2 completed and its audit passed. Runtime records are in `runs/branch-qualification-v2-20260927` and its separate control directory. The independent auditor is `scripts/audit_branch_qualification.py`; analysis is `scripts/analyze_branch_qualification.py`. They check/report full-pool accounting, exact pre-outcome choices, terminal candidates, local failure fallback and original-problem weighting. These tools must pass on the completed actual run before any result is claimed. Local acquisition is charged only to the local-semantic policy, despite sharing collection records. No Jev calls are made.

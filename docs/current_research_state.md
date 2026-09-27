@@ -4,17 +4,19 @@ Updated September 27, 2026. The user explicitly requested active progress rather
 
 ## Current dependency
 
-The local repair experiment `runs/action-qualification-v2-20260927` is live under `runs/action-qualification-v2-control/process.json` (original worker 87342, start September 27 at 18:11:28 local). Verify process identity, never assume this note means it is still running. At the latest resource assessment it had 25/80 continuations and approximately 42 generated tokens per model-service second. Reported MLX peak was 3.81 GB; system free memory was 51% with about 45 GiB disk available. This is an execution-time dependency, not an observed memory failure. RSS alone excludes some Metal/shared memory.
+The repair experiment `runs/action-qualification-v2-20260927` is terminal: external receipt confirms exit 0, 2,440.77 seconds, all 80 outcomes. Its complete independent audit passed 104 calls with zero outcome disagreements; report: `docs/action_qualification_v2_results.md`. Continue solved 11/16 and segment repair 12/16; uncertainty remains wide, so no benefit or best-policy promotion is claimed.
+
+The current live experiment is `runs/branch-qualification-v2-20260927`, with receipt `runs/branch-qualification-v2-control/process.json`, original worker PID 43550, start September 27 at 19:00:04 local. Verify that exact identity before acting; do not restart the completed repair job. The branch run has eight fresh development problems, a common three-candidate pool, four pre-outcome selectors and two continuations per candidate plus continue. No Jev calls. The local selector shares the generator backbone; it is not a gold verifier. At launch, memory pressure reported 53% free; other small Python processes were present, so service time is descriptive rather than isolated-hardware latency.
 
 The scientific limitation is incomplete evidence about action effectiveness, selector quality and baseline adequacy. Existing small negative Jev comparisons cannot identify which component failed. The theoretical framework is conditional and mainly standard, not an unresolved proof blocking the current experiments or evidence of a practical benefit.
 
 ## Work while inference runs
 
-1. Independently audit the new branch runner's treatment, decision ordering, candidate completion handling and per-policy/collection cost accounting. Prepare the complete-run auditor and analysis before using its results. Do not run a competing model process merely to appear faster; fresh timing comparisons should avoid contention.
+1. Independently audit the new branch runner's treatment, decision ordering, candidate completion handling and per-policy/collection cost accounting. The complete-run auditor and analysis are implemented, but need actual full-run execution once collection finishes. Do not run a competing model process merely to appear faster; fresh timing comparisons should avoid contention.
 2. Finish the compatible published-method comparator contract. The entropy ranking component is only GUARD-inspired; it does not satisfy the complete published-controller requirement.
 3. Review the integrated manuscript theory, exact bibliography and reproducibility package. The source compiles; this is not yet a finished scientific paper.
 
-Once the repair process is authoritatively terminal, audit and analyze its full records without changing outcomes. Use new report filenames. Diagnose truncation, history deletion and prompt effects, with original-problem clustering and explicit small-sample uncertainty. Make a recorded replication/redesign decision rather than automatically stopping the project. Keep the prior prospective v1 test excluded from training and selection.
+Once the branch process is authoritatively terminal, run `scripts/audit_branch_qualification.py` with the pinned local tokenizer, then `scripts/analyze_branch_qualification.py` using its passed report. Use new report filenames. Publish all selectors and candidate/selection diagnostics, not a post-hoc winner. The analyzer separately charges local acquisition and reports original-problem clusters. Interpret repair and branch development evidence together to specify a fixed independent replication; keep the prior prospective v1 test excluded from training and selection.
 
 ## Recurring workflow
 
