@@ -76,21 +76,173 @@ A new development run compares continue, a neutral prompt, suffix repair, rechec
 Larger independent evaluation, sequential control, horizon and generator transfer, and controller-guided training are future gated experiments. Their absence cannot be replaced by hypothetical results or theorem assumptions. A failed setting motivates diagnosis or a justified redesign; it does not close the original scientific question.
 
 \appendix
-\section{Elementary decision-theoretic results}
-These results specialize established decision theory and are not presented as novel general theorems.
+\section{Theory, assumptions and scope}
+These propositions specialize established experimental identification, decision theory and policy learning. They are not claimed as new general theorems. Their conditions are not certified by a judge's confidence or by the present small experiments. The observable history includes exact tokens and formatting, candidate frontier, tool/environment state, remaining resources, and the fixed model, quantization, sampler and backend. Changing any of these may change the estimand. Random continuations define distributions of potential outcomes, not a uniquely observable individual counterfactual future.
+
+\subsection{Identification and eligibility}
+\begin{proposition}[Checkpoint identification]
+Suppose interventions and the subsequent policy $\mu$ are well defined; replay restores the checkpoint and environment without cross-arm interference; assignment is independent of potential outcomes conditional on $H$; each studied action has positive assignment probability; and failures/truncations follow a prespecified inclusion rule. Then
+\[
+Q^\mu(h,a)=\mathbb E[U\mid H=h,A=a].
+\]
+\end{proposition}
+\begin{proof}
+Consistency gives $U=U^{a,\mu}$ on $A=a$. Conditional randomization implies
+$\mathbb E[U^{a,\mu}\mid H=h,A=a]=\mathbb E[U^{a,\mu}\mid H=h]$.
+Positivity makes the former conditional mean observable, yielding the result.
+\end{proof}
+For complete all-arm collection, the mean of $m_{ia}$ replays is conditionally unbiased if its positive replicate count is fixed independently of their outcomes and every replay has the correct marginal continuation distribution. Independence between replays is needed for common elementary variance formulas, not for linearity of expectation. Outcome-dependent stopping can bias the stopped mean. Equal integer seeds after diverging prefixes do not automatically give useful common-random-number coupling.
+
+Let $R$ be a frozen checkpoint-construction protocol and $E$ its pre-intervention eligibility event. The conditional estimand is on $P_R(H\mid E=1)$. If two policies use the same $R$, intervene once and have identical ineligible fallback, then
+\[
+V_R(\pi)-V_R(\pi_0)=P_R(E=1)\mathbb E[Q_R^\mu(H,\pi(H))-Q_R^\mu(H,\pi_0(H))\mid E=1].
+\]
+To prove this, decompose the full-episode difference by $E$, cancel the common fallback term and apply the conditional action means. Different prefix builders, eligibility rules or repeated interventions invalidate that derivation. A generate-then-rewind prefix selected using later emitted text is not an online stopping-time checkpoint, even if its retained tokens exactly match a natural prefix. Historical constructed-state experiments must remain separately labeled.
+
+For sparse randomized arms with known $e_a(H)>0$, a frozen policy $\pi$ and independently fitted outcome functions $m_a$, define
+\[
+\phi_\pi=m_{\pi(H)}(H)+\frac{\mathbf1\{A=\pi(H)\}}{e_A(H)}[U-m_A(H)].
+\]
+Conditional on $H$ and the fitted functions, the correction has expectation $Q^\mu(H,\pi(H))-m_{\pi(H)}(H)$, so $\mathbb E\phi_\pi=V^\mu(\pi)$. Estimated propensities require additional consistency assumptions; the label ``doubly robust'' alone supplies no guarantee. Cross-fitting must separate original problems.
+
+\subsection{Semantic representation and acquisition}
 \begin{proposition}[Free-information comparison]
-For a fixed distribution of potential utilities $U^a$, a fixed action set, and nested representations $W$ and $(W,J)$, the optimal measurable-policy values satisfy $V^*_{W,J}\geq V^*_W$, if acquiring $J$ has no cost and does not change the state or budget.
+For a fixed distribution of potential utilities, fixed actions and nested representations $W$ and $(W,J)$, define
+\[
+V^*_{W,J}=\mathbb E\max_a\mathbb E[U^a\mid W,J],\qquad
+V^*_W=\mathbb E\max_a\mathbb E[U^a\mid W].
+\]
+If acquiring $J$ is free and changes neither state nor budget, $V^*_{W,J}\geq V^*_W$.
 \end{proposition}
 \begin{proof}
-Every measurable policy depending on $W$ is also an admissible policy depending on $(W,J)$ that ignores $J$. Taking the supremum over the larger policy class cannot decrease its value. This statement does not compare finite-sample fitted learners or account for acquisition cost.
+Every policy measurable in $W$ is also admissible with $(W,J)$ and can ignore $J$. Taking a supremum over the larger policy class cannot decrease value.
 \end{proof}
-\begin{proposition}[Greedy action-value error]
-At a fixed checkpoint, suppose $|\widehat Q(a)-Q(a)|\leq\epsilon$ for every available action. If $a^*\in\arg\max_a Q(a)$ and $\widehat a\in\arg\max_a\widehat Q(a)$, then $Q(a^*)-Q(\widehat a)\leq2\epsilon$.
+Finite fitted learners need not improve. If one action is optimal everywhere, informative semantic classifications can have no decision value. If $J=f(H)$, or its randomness is independent of rollout outcomes conditional on $H$, it contributes no external information beyond full history; the hypothesis concerns a computationally useful representation relative to feasible cheap alternatives.
+
+For deterministic known acquisition cost $c_J$, with acquisition affecting subsequent behavior only through information and remaining resource vector $B$, the pre-query comparison is
+\[
+\mathbb E_{J\mid w,B}\!\left[\max_{a\in\mathcal A(B-c_J)}Q(w,J,B-c_J,a)\right]
+\quad\hbox{versus}\quad
+\max_{a\in\mathcal A(B)}Q_0(w,B,a).
+\]
+The maximum belongs inside the expectation over the unobserved signal. Stochastic failure, latency or usage requires integrating over the entire acquisition outcome, including fallback, exhaustion and any changed external state. Hard constraints and cost preferences may coexist, but their units must be declared and fees must not accidentally be subtracted twice.
+
+\subsection{Action-value error and replay precision}
+\begin{proposition}[Greedy regret]
+At a checkpoint, suppose $\max_a|\widehat Q(a)-Q(a)|\leq\epsilon$. If $a^*\in\arg\max_a Q(a)$ and $\widehat a\in\arg\max_a\widehat Q(a)$, then $Q(a^*)-Q(\widehat a)\leq2\epsilon$.
 \end{proposition}
 \begin{proof}
-Insert $\widehat Q(a^*)$ and $\widehat Q(\widehat a)$ between the two true values. The estimated-value difference is nonpositive by greedy selection. Each of the remaining two errors is at most $\epsilon$.
+Insert $\widehat Q(a^*)$ and $\widehat Q(\widehat a)$ between the two true values. The estimated-value difference is nonpositive by selection, while each of the two remaining errors is at most $\epsilon$.
 \end{proof}
-These assumptions do not follow from a judge's confidence. The repository's extended theory notes address identification, sequential deployment, audit weighting and transfer; integrating their reviewed proofs into this manuscript remains outstanding.
+A unique optimal action with gap exceeding $2\epsilon$ must be selected. Representation and estimation errors add by the triangle inequality when both are bounded uniformly at the relevant states. Neither calibration nor AUROC establishes such a bound.
+
+For $M$ fixed checkpoints, $K$ actions and $m$ independent Bernoulli replays per pair, Hoeffding and a union bound yield
+\[
+P\!\left(\max_{i,a}|\widehat Q_i(a)-Q_i(a)|>\epsilon\right)
+\leq2MK\exp(-2m\epsilon^2).
+\]
+Thus $m\geq\log(2MK/\delta)/(2\epsilon^2)$ suffices. At $M=48,K=3,\delta=.05,\epsilon=.10$, the rounded requirement is 433 replays per pair. A few repeats can support pooled modeling; they do not supply reliable individual best-action labels. A sample maximum evaluated on its own selection data is optimistic. Independent continuations must assess the selected rule.
+
+\subsection{Sequential control}
+Use a finite-horizon history-state process with resource counters, time and acquisition phase included in $H_t$. Absorb early termination with zero future reward and use zero terminal value. Let the deterministic baseline choose $a_{0t}(h)$, with
+\[
+Q_t^\mu(h,a)=\mathbb E[r_t+V_{t+1}^\mu(H_{t+1})\mid h,a],\quad
+A_t^\mu(h,a)=Q_t^\mu(h,a)-V_t^\mu(h).
+\]
+\begin{proposition}[Conditional sequential improvement]
+Suppose both policies share initial distribution, transitions, reward and resource envelope. On every history reachable by $\pi$, assume all errors satisfy
+$|\widehat Q_t(h,a)-Q_t^\mu(h,a)|\leq\epsilon_t(h)$.
+If $\pi$ deviates only when
+\[
+\widehat Q_t(h,a)-\widehat Q_t(h,a_{0t})>2\epsilon_t(h),
+\]
+then $V^\pi\geq V^\mu$.
+\end{proposition}
+\begin{proof}
+At a switched state the true difference is at least the estimated difference minus $2\epsilon_t(h)$, hence positive. At an unswitched state it is zero. Since $V_t^\mu(h)=Q_t^\mu(h,a_{0t})$, all visited advantages are nonnegative. Conditional expectation and telescoping give
+\[
+\mathbb E_\pi\sum_{t=0}^{T-1}A_t^\mu(H_t,A_t)
+=\mathbb E_\pi\sum_t[r_t+V_{t+1}^\mu(H_{t+1})-V_t^\mu(H_t)]
+=V^\pi-V^\mu\geq0.
+\]
+\end{proof}
+The uniform premise covers newly reached states, not only baseline prefixes. One-step replay therefore does not establish this result's premises in deployment. A gate evaluated after paying for a judge can only compare policies in that post-query state; query purchase must separately have nonnegative advantage or be included in the full intervention. Judge confidence is not the required simultaneous error bound.
+
+\subsection{Held-out evaluation}
+\begin{proposition}[Frozen-policy certificate]
+Freeze $K$ policies before $n$ independent problem evaluations. Let $D_{ik}\in[-1,1]$ be the per-problem difference in mean success over a fixed number of seeds from a fixed baseline. With probability at least $1-\alpha$, simultaneously for all policies,
+\[
+\Delta_k\geq\overline D_k-\sqrt{2\log(K/\alpha)/n}.
+\]
+\end{proposition}
+\begin{proof}
+Hoeffding for independent observations of range width two gives
+$P(\overline D_k-\Delta_k\geq t)\leq\exp(-nt^2/2)$.
+Set $t=\sqrt{2\log(K/\alpha)/n}$ and union-bound over $K$. Within-problem correlation between policies or seeds does not require independence across those observations.
+\end{proof}
+For deterministic weights $w_i\geq0$ summing to one, weighted Hoeffding replaces the radius by $\sqrt{2\log(K/\alpha)\sum_iw_i^2}$. At $n=3000,K=1,\alpha=.05$, the unweighted radius is 0.04469. Cost-penalized utility must use its actual bounded range or be rescaled; the binary-success range cannot silently be reused.
+
+Problem-grouped cross-fitting prevents direct training leakage but leaves dependence between fold contributions through overlapping training samples. Fixed-contribution bootstrap intervals have no generic nominal coverage. An exact illustration uses independent $Y_1,Y_2\sim\operatorname{Bernoulli}(.5)$ and a cross-fitted rule that activates the positive-reward action on each problem only if the other outcome is one. Both held-out contributions equal $Y_1Y_2$. Their mean expectation is .25, but resampling either realized pair $(0,0)$ or $(1,1)$ gives a point interval excluding .25. This counterexample rejects a universal guarantee, not every possible asymptotic procedure.
+
+Adaptive peeking requires an appropriate sequential method; a test-selected prompt or feature schema is test reuse. A binding study-wide query budget can couple task outcomes unless allocation is part of the evaluated protocol. Independent problem sampling is additionally needed to generalize from a fixed checkpoint list to a task population.
+
+\subsection{Opportunity-cost-aware pruning audits}
+Fix $N$ logged proposed-pruning states and complete matched-budget keep/reallocate and prune/reallocate protocols. Let $L_i$ be their expected utility difference. Draw audit indicator $R_i$ with known $p_i>0$, independent of future replay outcomes conditional on the logged state. Suppose $\widehat L_i$ is an unbiased estimate of that state's difference.
+\begin{proposition}[Audit weighting]
+$\widehat L=N^{-1}\sum_iR_i\widehat L_i/p_i$ is unbiased for $N^{-1}\sum_iL_i$.
+\end{proposition}
+\begin{proof}
+Conditional independence and unbiasedness give $\mathbb E[R_i\widehat L_i/p_i]=p_iL_i/p_i=L_i$. Sum and divide by $N$.
+\end{proof}
+Small probabilities can produce severe variance. The target is the logged state distribution, not the updated controller's new distribution. A retained branch's success under free additional compute omits the opportunity cost and estimates a different target. Reusing audits for both controller updates and evaluation is adaptive reuse.
+
+\subsection{Transfer}
+For aligned states, actions and utility scales define $r_D(h,\pi)=\max_a Q_D(h,a)-Q_D(h,\pi(h))$. Assume $P_T\ll P_S$, $dP_T/dP_S\leq\kappa$, and $\sup_{h,a}|Q_T(h,a)-Q_S(h,a)|\leq\zeta$ on the relevant support.
+\begin{proposition}[Conditional transfer bound]
+$\operatorname{Regret}_T(\pi)\leq\kappa\operatorname{Regret}_S(\pi)+2\zeta$.
+\end{proposition}
+\begin{proof}
+The uniform value bound implies $\max_aQ_T(h,a)\leq\max_aQ_S(h,a)+\zeta$ and $Q_T(h,\pi(h))\geq Q_S(h,\pi(h))-\zeta$, hence $r_T\leq r_S+2\zeta$. Integrate under $P_T$ and use nonnegativity of $r_S$ and the density-ratio bound.
+\end{proof}
+New families may violate overlap; new generators or budgets can make $\zeta$ large. Aligning compressed states adds representation assumptions. No arbitrary-OOD, discovery or alignment guarantee follows.
+
+\subsection{Selective acquisition}
+Freeze complete no-query and query-then-control protocols, including failures, latency and budget effects, with potential utilities $U_0,U_J$. A pre-query gate $\eta(W)\in\{0,1\}$ cannot inspect $J$. Put $d(w)=\mathbb E[U_J-U_0\mid W=w]$.
+\begin{proposition}[Acquisition value and regret]
+\[
+V(\eta)=\mathbb E U_0+\mathbb E[\eta(W)d(W)],\qquad
+\eta^*(w)=\mathbf1\{d(w)>0\}.
+\]
+Its regret is $\mathbb E[|d(W)|\mathbf1\{\eta(W)\ne\eta^*(W)\}]$. If $|\widehat d-d|\leq\epsilon$ and $\widehat\eta=\mathbf1\{\widehat d>0\}$, this regret is at most $\epsilon P(|d(W)|\leq\epsilon)$.
+\end{proposition}
+\begin{proof}
+Condition the utility $\eta(W)U_J+(1-\eta(W))U_0$ on $W$ to obtain the value identity. Maximizing its integrand gives the sign rule, and each wrong sign loses $|d(w)|$. A wrong estimated sign implies $|d(w)|\leq|\widehat d(w)-d(w)|\leq\epsilon$; integrate.
+\end{proof}
+The component policies must be frozen before independent acquisition-effect labeling, or fitted through an appropriately nested procedure. Already-paid responses identify information value rather than purchase value. Subtracting average latency from a token-matched run generally cannot reconstruct deadline-constrained outcomes.
+
+\section{Binary intervention gates and ties}
+For any coupling of binary outcomes $(Y_c,Y_a)$ conditional on cheap features $W=w$, let $p_+=P(Y_a=1,Y_c=0\mid w)$ and $p_-=P(Y_a=0,Y_c=1\mid w)$. Define $r=p_++p_-$ and $\eta=p_+/r$ when $r>0$, with $\eta=.5$ otherwise. Enumerating the four outcome pairs gives
+\[
+\Delta(w)=\mathbb E[Y_a-Y_c\mid w]=p_+-p_-=r(2\eta-1).
+\]
+Predicting an outright win and thresholding its probability at .5 need not select positive expected advantage. For a binary gate $g$, the loss
+\[
+\ell_g=\mathbf1\{Y_a>Y_c\}(1-g)+\mathbf1\{Y_a<Y_c\}g
+\]
+satisfies $\mathbb E\ell_g=P(Y_a>Y_c)-[V(g)-\mathbb E Y_c]$, by direct expansion. Ties contribute zero. Preserve original problem and full-pair weights when dropping ties; renormalizing each problem by its discordant count changes the target.
+
+For an interior fitted probability $q(w)\in(0,1)$, set $g_q=\mathbf1\{q>.5\}$ and let $g^*$ use $\eta$. The population excess weighted logarithmic loss is
+\[
+\mathcal E_{\log}=\mathbb E[r(W)\operatorname{KL}(\operatorname{Bern}(\eta(W))\Vert\operatorname{Bern}(q(W)))].
+\]
+Then
+\[
+V(g^*)-V(g_q)\leq\sqrt{2\mathbb E[r(W)]\mathcal E_{\log}}.
+\]
+To prove it, wrong-sign loss is $r|2\eta-1|\leq2r|\eta-q|$. For fixed $q$, the function $\operatorname{KL}(\operatorname{Bern}(p)\Vert\operatorname{Bern}(q))-2(p-q)^2$ has nonnegative second derivative $1/[p(1-p)]-4$, and value and derivative zero at $p=q$. Therefore KL is at least $2(p-q)^2$; Cauchy--Schwarz completes the bound. Endpoint predictions require limiting care and may have infinite loss. This statement concerns population unregularized excess loss, not training accuracy or the optimizer's penalized objective. Comparing separate gates' conditional-win probabilities cannot rank several actions because their discordance factors differ.
+
+\section{Theory validation and empirical boundaries}
+The repository records fourteen finite checks, including 200 finite-MDP performance-difference checks, 500 greedy-regret constructions, exact acquisition-value examples, adaptive-stopping bias, cross-fit dependence and noisy-oracle optimism. These support implementation consistency, not universal proofs or real Jev efficacy. The reviewed theory notes and baseline appendix supply the provenance for this manuscript integration. None of the untested sequential, transfer or pruning assumptions has been established experimentally.
 
 \begin{thebibliography}{9}
 \bibitem{pav} \emph{Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning}. arXiv:2410.08146.
