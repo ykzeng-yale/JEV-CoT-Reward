@@ -18,6 +18,16 @@ from prospective_replay import checked_task_contracts, audit_selected_rollout
 from run_prospective import load_frozen
 
 
+def chat_ids(tokenizer, text):
+    return list(tokenizer.apply_chat_template([{'role':'user','content':text}],
+        tokenize=True, add_generation_prompt=True, return_dict=False))
+
+
+def restored_judge_prompt(state, rubric):
+    # Durable sorted JSON changes insertion order; restore the collection contract.
+    return judge_prompt({k:state[k] for k in ('task','history','latest_segment')}, rubric)
+
+
 def audit(run, tokenizer_dir):
     manifest=m.read_json(run/'manifest.json');summary=m.read_json(run/'summary.json')
     m.require(manifest['status']==summary['status']=='complete','Prospective run incomplete')
@@ -33,7 +43,7 @@ def audit(run, tokenizer_dir):
     tokenizer=m.LocalTokenizer(tokenizer_dir)
     from transformers import AutoTokenizer
     chat_tokenizer=AutoTokenizer.from_pretrained(str(tokenizer_dir),local_files_only=True,trust_remote_code=False)
-    chat=lambda text: list(chat_tokenizer.apply_chat_template([{'role':'user','content':text}],tokenize=True,add_generation_prompt=True))
+    chat=lambda text: chat_ids(chat_tokenizer, text)
     feature_tree=ast.parse((run/'source/src/jev_control/features.py').read_text())
     rubric_record=m.read_json(run/'rubric.json')
     m.require(rubric_record=={'schema':m.literal(feature_tree,'SCHEMA_VERSION'),
@@ -75,7 +85,7 @@ def audit(run, tokenizer_dir):
             g=ledger.take({'phase':'local_judge','problem_id':pid,'temperature':0},event['prefix_ids'],192,20260927+index,row_call=record['generation'])
             # The recorded prompt must contain exactly the frozen rubric payload.
             rubric=m.read_json(run/'rubric.json')['questions']
-            expected_prompt=judge_prompt(cp['state'],rubric)
+            expected_prompt=restored_judge_prompt(cp['state'],rubric)
             m.require(event['prefix_ids']==chat(expected_prompt),'Local judge prompt differs from exact state/rubric template')
             parsed=None
             try:

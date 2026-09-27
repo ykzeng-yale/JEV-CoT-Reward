@@ -1,3 +1,5 @@
+> Latest completed evidence: [mechanism gate](mechanism_v1_gate.md) and [prospective diagnostic](prospective_v1_gate.md). The sections below preserve earlier development results; their next-step descriptions are historical.
+
 # Executed results and research decision
 
 Date: September 27, 2026. These are development/instrumentation results, not a completed main study or a demonstration that Jev improves reasoning. The repository and local working directory were empty when work began; prior chat download links and numerical claims were not treated as existing artifacts.

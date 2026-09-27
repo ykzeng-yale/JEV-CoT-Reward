@@ -31,6 +31,7 @@ def test_paired_analysis_counts_shared_results_once_per_policy_and_rejects_stale
     result=analyze(tmp_path,audit_path,draws=20)
     assert result['policy_episodes']==96 and result['actual_shared_action_continuations']==24
     assert result['collection_generated_tokens']==240
+    assert all('does not establish equivalence' in c['bootstrap_warning'] for c in result['paired_contrasts'].values())
     assert all(p['successes']==12 for p in result['policies'].values())
     assert all(c['mean']==0 and c['discordant_problems']==0 for c in result['paired_contrasts'].values())
     (tmp_path/'outcomes.jsonl').write_text('changed')

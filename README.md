@@ -2,7 +2,9 @@
 
 Local-first research on whether a fast typed judge supplies useful information for **choosing reasoning interventions**. The generator is frozen; terminal answers are checked independently. Jev is a feature source, never the gold verifier.
 
-**Current finding:** intervention advantage and same-prefix action experiments already have direct prior art. This project is a replication and proposed extension on semantic-feature value, transfer, and selective acquisition. A Jev-specific improvement has not been established.
+**Completed diagnostic:** on 24 fresh prospective problems, always-continue, cheap-feature and Jev-feature controllers each solved 11/24; the local-judge controller solved 12/24. No Jev improvement was established. [Results, costs and no-scale decision](docs/prospective_v1_gate.md).
+
+**Prior-art finding:** intervention advantage and same-prefix action experiments already have direct prior art. This project is a replication and proposed extension on semantic-feature value, transfer, and selective acquisition. A Jev-specific improvement has not been established.
 
 ## Research package
 
@@ -62,7 +64,7 @@ The completed development diagnostic captures an online newline boundary after 2
 
 Both development conditions solved 12/24 episodes (graph 10/12, arithmetic 2/12). All 24 paused prefixes matched their uninterrupted counterparts before pausing, and the independent audit found no outcome or accounting disagreement. This small sample does not establish equivalence. [Development gate](docs/development_gate.md): proceed only to a limited exploratory mechanism screen.
 
-The next frozen schedule is 24 fresh problems × three actions × four continuations, with one online checkpoint and 1,024 generated tokens per hypothetical episode. The [mechanism configuration](configs/mechanism_v1.json) records the full contract; `scripts/run_mechanism.py --help` describes the runner. It is currently collecting data, not reporting a trained-policy benefit. Jev queries use the central ledger with a $1 cumulative stage cap. The independent local judge and grouped analysis follow collection.
+The next frozen schedule is 24 fresh problems × three actions × four continuations, with one online checkpoint and 1,024 generated tokens per hypothetical episode. The [mechanism configuration](configs/mechanism_v1.json) records the full contract; `scripts/run_mechanism.py --help` describes the runner. It completed 288 continuations; continue solved 47/96, repair 40/96 and branch 37/96. The [mechanism gate](docs/mechanism_v1_gate.md) did not support scaling. Jev queries use the central ledger with a $1 cumulative stage cap. The independent local judge and grouped analysis follow collection.
 
 After completion, `scripts/audit_mechanism.py` reconstructs all recorded token/call chains and recomputes original outcomes without changing labels. Learned mechanism analysis requires that passed report via `--integrity-report`; changed input files invalidate it. The audit loads tokenizer files only. It does not replay model computation or establish that a controller helps.
 
@@ -86,7 +88,7 @@ All workers must share `~/.local/state/jev-cot-reward/jev.sqlite3`. Do not reset
 
 The first generator is **Qwen3-4B-Instruct-2507**, a non-thinking instruction model. We intervene on explicitly generated explanations, not private reasoning. Matched generator-token budgets are not matched total FLOPs or latency. The selector is a deliberately simple baseline, not a PRM reproduction.
 
-Not yet completed: the 24–48-problem scientific screen, learned-policy deployment, strong published control baselines, task/generator transfer, generator RL, and scientific-discovery evaluation. Advancement depends on instrument quality and measured decision signal, not on spending the full API allocation.
+Completed: the 24-problem mechanism screen and separately frozen 24-problem prospective single-checkpoint deployment diagnostic. Gated extensions not pursued: strong published control baselines, sequential control, task/generator transfer, generator RL, and scientific-discovery evaluation. Advancement depends on instrument quality and measured decision signal, not on spending the full API allocation.
 
 ## Reuse
 

@@ -16,3 +16,18 @@ Activated on 2026-09-27 at the user's request. Complete a reproducible local-fir
 The project is complete when the qualified experimental branch reaches an evidence-supported decision, remaining claims are scoped accordingly, theory and implementation reviews are resolved, and a reproducible report/code release is published. A positive Jev effect is not required. Failure of a measured gate can end an expansion, but a fixable instrumentation bug is not evidence against the hypothesis. An unavailable resource or incomplete evaluation is reported as outstanding work, never counted as successful completion.
 
 Current goal status is maintained by Codex. This document records scientific scope; it does not assert that all work packages have finished.
+
+## Completion review, September 27, 2026
+
+The bounded experimental branch is complete with a negative/inconclusive scale decision; this does not mean every originally proposed extension was executed.
+
+| Work package | Completed evidence |
+|---|---|
+| Compute | Pinned SSH/SFTP to both remote Macs; remote finite CPU validation; local 4-bit inference qualification. Fresh SSH checks passed again at release. Remote model inference remains unqualified. |
+| Theory and prior art | Pinned 25-paper/source audit, eight conditional propositions, independent review and fourteen numerical checks; novelty narrowed explicitly. |
+| Development | Fresh baseline/sham run, exact-prefix and outcome audit; gate admitted only a small mechanism screen. |
+| Mechanism | 24 problems, 288 continuations, independent local and Jev features, grouped learner/heuristic comparisons and passed integrity audit. No positive Jev increment. |
+| Prospective | Four pre-frozen policies, 24 new problems, all 96 policy outcomes accounted for via 42 shared selected-action continuations; zero audit disagreements. |
+| Release | Tested code and frozen protocols, aggregate reports, terminal tasks/texts/costs with hashes and model-free outcome reproduction. Raw hosted features/private fitted pickle excluded; feature-level public reproduction therefore limited. |
+
+The final release passed 292 tests. Recorded Jev expenditure is $0.002268504, below the $25 ceiling. No additional paid or remote inference workload is pending. The [prospective gate](prospective_v1_gate.md) closes automatic scaling: large pilot, stronger-controller reproductions, sequential/OOD evaluation and generator training remain unexecuted extensions requiring new scientific justification. There is no demonstrated Jev improvement or general OOD claim.

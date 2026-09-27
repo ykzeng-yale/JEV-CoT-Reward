@@ -1,0 +1,182 @@
+{
+  "status": "completed_small_prospective_diagnostic",
+  "independent_problems": 24,
+  "policy_episodes": 96,
+  "actual_shared_action_continuations": 42,
+  "policies": {
+    "always_continue": {
+      "successes": 11,
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.2916666666666667,
+          0.625
+        ]
+      },
+      "action_counts": {
+        "continue": 24
+      },
+      "mean_generator_tokens": 947.9166666666666,
+      "mean_generator_prompt_tokens": 1605.6666666666667,
+      "mean_generator_service_seconds": 22.17568114947062,
+      "mean_acquisition_usd": 0.0,
+      "mean_acquisition_service_seconds": 0.0,
+      "mean_acquisition_generated_tokens": 0.0
+    },
+    "cheap_tfidf": {
+      "successes": 11,
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.2916666666666667,
+          0.625
+        ]
+      },
+      "action_counts": {
+        "continue": 17,
+        "branch": 4,
+        "repair": 3
+      },
+      "mean_generator_tokens": 948.8333333333334,
+      "mean_generator_prompt_tokens": 1810.875,
+      "mean_generator_service_seconds": 22.25563610799145,
+      "mean_acquisition_usd": 0.0,
+      "mean_acquisition_service_seconds": 0.0,
+      "mean_acquisition_generated_tokens": 0.0
+    },
+    "cheap_tfidf_plus_jev": {
+      "successes": 11,
+      "success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.2916666666666667,
+          0.625
+        ]
+      },
+      "action_counts": {
+        "continue": 14,
+        "repair": 5,
+        "branch": 5
+      },
+      "mean_generator_tokens": 949.0833333333334,
+      "mean_generator_prompt_tokens": 1856.625,
+      "mean_generator_service_seconds": 22.29526686136766,
+      "mean_acquisition_usd": 4.25985e-05,
+      "mean_acquisition_service_seconds": 0.21451126547375074,
+      "mean_acquisition_generated_tokens": 0.0
+    },
+    "cheap_tfidf_plus_local": {
+      "successes": 12,
+      "success": {
+        "n_problems": 24,
+        "mean": 0.5,
+        "bootstrap_percentile_95": [
+          0.3333333333333333,
+          0.6666666666666666
+        ]
+      },
+      "action_counts": {
+        "branch": 4,
+        "continue": 12,
+        "repair": 8
+      },
+      "mean_generator_tokens": 965.0,
+      "mean_generator_prompt_tokens": 1835.625,
+      "mean_generator_service_seconds": 22.706215816355932,
+      "mean_acquisition_usd": 0.0,
+      "mean_acquisition_service_seconds": 2.1463305661454797,
+      "mean_acquisition_generated_tokens": 68.45833333333333
+    }
+  },
+  "paired_contrasts": {
+    "cheap_tfidf_plus_jev_minus_cheap_tfidf": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0,
+      "bootstrap_warning": "No observed discordance: the degenerate empirical interval does not establish equivalence or zero population uncertainty."
+    },
+    "cheap_tfidf_plus_local_minus_cheap_tfidf": {
+      "n_problems": 24,
+      "mean": 0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.08333333333333333,
+        0.16666666666666666
+      ],
+      "discordant_problems": 3,
+      "bootstrap_warning": null
+    },
+    "cheap_tfidf_plus_jev_minus_cheap_tfidf_plus_local": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.16666666666666666,
+        0.08333333333333333
+      ],
+      "discordant_problems": 3,
+      "bootstrap_warning": null
+    },
+    "cheap_tfidf_minus_always_continue": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0,
+      "bootstrap_warning": "No observed discordance: the degenerate empirical interval does not establish equivalence or zero population uncertainty."
+    },
+    "cheap_tfidf_plus_jev_minus_always_continue": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0,
+      "bootstrap_warning": "No observed discordance: the degenerate empirical interval does not establish equivalence or zero population uncertainty."
+    },
+    "cheap_tfidf_plus_local_minus_always_continue": {
+      "n_problems": 24,
+      "mean": 0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.08333333333333333,
+        0.16666666666666666
+      ],
+      "discordant_problems": 3,
+      "bootstrap_warning": null
+    }
+  },
+  "family_success": {
+    "arithmetic_construction": {
+      "always_continue": 0.25,
+      "cheap_tfidf": 0.25,
+      "cheap_tfidf_plus_jev": 0.25,
+      "cheap_tfidf_plus_local": 0.25
+    },
+    "weighted_path": {
+      "always_continue": 0.6666666666666666,
+      "cheap_tfidf": 0.6666666666666666,
+      "cheap_tfidf_plus_jev": 0.6666666666666666,
+      "cheap_tfidf_plus_local": 0.75
+    }
+  },
+  "collection_generated_tokens": 36762,
+  "collection_model_service_seconds": 883.1635619681329,
+  "audit_sha256": "44c83ba7d27bce6ab720c5f6d38b9dca8edb41e929176e95d9219432173ab23d",
+  "analysis_source_sha256": "df6092f990a0c532f65559565e3e0b342172e3137675cdb9524ea6af945a09a5",
+  "limitations": [
+    "24 problems and one trajectory each cannot establish equivalence or small benefits.",
+    "Policies were frozen before these tasks; this is one-checkpoint control, not sequential adaptation.",
+    "Identical actions share continuation outcomes; inference and resampling are paired by original problem.",
+    "Bootstrap ranges are descriptive; report all contrasts, without post-test policy selection.",
+    "Generator tokens are matched; acquisition and prefill costs are additional.",
+    "Summed model service is not end-to-end latency or a matched wall-clock deployment test."
+  ]
+}

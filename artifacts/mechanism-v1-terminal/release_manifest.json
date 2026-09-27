@@ -1,0 +1,23 @@
+{
+  "original_run": "mechanism-v1-20260927",
+  "original_audit_sha256": "db6e328ad8110929b6552e04ea310847e7f7eb8e1bdd2bdb868c8456b447a99f",
+  "original_input_sha256": {
+    "manifest.json": "5d7c8c5aaf1382e30be4c0f813d00eeace7ae8fa874d1ac6ff4cb31980909916",
+    "summary.json": "3f15dc479d166a39646065c13a342894bf1ee8c3d82366504a34cb43103d2d88",
+    "schedule.json": "a22dd48f51e25228a5ee5504e2b1f14450c4b0c6322a95dea332bc70d9ea7be5",
+    "rubric.json": "7838241768e594a17090ae7e666598759b12710c51c5c443d7998163a624e45f",
+    "checkpoint_attempts.jsonl": "4a6663b43c81c9bbb161cf3c4bcdc9388a424cf478b5b9f5108c606c0ee21e5f",
+    "checkpoints.jsonl": "d40091d560a5653ba7ef4bcfbcba4f02f5faad13c9127469234e62e7329b6ac0",
+    "skipped.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "outcomes.jsonl": "cc2cb1bab2e53757c157dbb60c6cae642f0070c9080952832ff9f3c6ec82932a",
+    "generation_started.jsonl": "089dabd59bf95596a86503373510b4cc60fe1b75c11f5eaee4dcc984ddda0e3c",
+    "generation_events.jsonl": "2737d31e3a1eda79803da97fbf4a1e0cdafd0bf39eb1a5a3c1083fed6dde4d95"
+  },
+  "released_sha256": {
+    "tasks.json": "ecc59da1f4967bd0ad36ae472b33ed49d3113e1be9387f27adfd9ac1bf93e848",
+    "outcomes.jsonl": "dc0ae1ac04794c2335e7ae0ee9a694c02378e34a8990f6a29fb4516bcd19feed"
+  },
+  "scope": "Terminal outcome reproduction only. No hosted responses, fitted controller, token-call replay or feature analysis.",
+  "rows": 288,
+  "problems": 24
+}

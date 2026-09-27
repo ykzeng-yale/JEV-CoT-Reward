@@ -58,7 +58,8 @@ def analyze(run, integrity, draws=10000):
     for left,right in [('cheap_tfidf_plus_jev','cheap_tfidf'),('cheap_tfidf_plus_local','cheap_tfidf'),
                        ('cheap_tfidf_plus_jev','cheap_tfidf_plus_local'),*[(p,'always_continue') for p in POLICIES if p!='always_continue']]:
         diff=values[left]-values[right]
-        contrasts[left+'_minus_'+right]={**estimate(diff,indices),'discordant_problems':int((diff!=0).sum())}
+        contrasts[left+'_minus_'+right]={**estimate(diff,indices),'discordant_problems':int((diff!=0).sum()),
+            'bootstrap_warning': ('No observed discordance: the degenerate empirical interval does not establish equivalence or zero population uncertainty.' if not np.any(diff) else None)}
     family_results={f:{p:float(v[np.asarray(families)==f].mean()) for p,v in values.items()} for f in sorted(set(families))}
     events=read_lines(run/'generation_events.jsonl')
     return {'status':'completed_small_prospective_diagnostic','independent_problems':len(ids),

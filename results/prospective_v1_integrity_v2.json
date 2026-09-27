@@ -1,0 +1,35 @@
+{
+  "status": "passed_prospective_audit",
+  "ready_for_analysis": true,
+  "assignment": {
+    "problems": 24,
+    "unique_action_outcomes": 42,
+    "policy_episodes": 96,
+    "assignment_and_cost_checks": "passed",
+    "scope": "Does not certify token replay, feature provenance, prediction correctness or terminal verification"
+  },
+  "predicted_checkpoints": 24,
+  "durable_calls": 142,
+  "outcome_disagreements": 0,
+  "input_sha256": {
+    "summary.json": "4940100a9bc9d98ebe26dfbfd702d8fe05fef83a478714da183c03a237669981",
+    "predictions.jsonl": "0000510381f2e0004370866440d69a05c982e59a81e59f70213860677c602e26",
+    "local_judge.jsonl": "010ac4276781bb8d0a4a7523caf8bceac7e20494ce8bd8a990c19e56d888a680",
+    "generation_started.jsonl": "46cc2cbaa073cd292fd0d75e55ae5d84dbf5d786daad94e370e6883c78e4102b",
+    "rubric.json": "7838241768e594a17090ae7e666598759b12710c51c5c443d7998163a624e45f",
+    "decisions.jsonl": "eabcb121eacbe806f161bcc8e561dfc0770f86037a43c74474cec7540b33e08b",
+    "outcomes.jsonl": "185d9f2895a44a40857e84258f9cb9c97baf67a1ea6edc6dfcd86d02b0b98415",
+    "checkpoints.jsonl": "550b579bfd8afff343d03abc6cf96c8f6e8c3504f0b305b1c556774fa1e0cd2c",
+    "manifest.json": "2655bfbdae44a888e8746d97180f3bd9cc464a8892a3f3301a46591bfc8fd649",
+    "schedule.json": "5cf05f24b8bd5fc7f2c2914176b50a5b3058a14ffcd5601fce37c4267b5c90d7",
+    "checkpoint_attempts.jsonl": "0bf05b66efc0e383e116c8ee7e2e1abbc3609a1f6fcebbeb5d8283168df62ce4",
+    "generation_events.jsonl": "d271634f195f8c957ca84b7796cb6cd8adf709ca88212f07051695cb4de7ef65"
+  },
+  "audit_source_sha256": "7ef0801a92b09c554e0bc948891d8ee8ed4f374ce1aa6332b92877c62fddd982",
+  "limitations": [
+    "No model inference replay; call/token/state contracts are reconstructed.",
+    "Hosted feature content is measured input, not certified truth.",
+    "Decision ordering uses recorded timestamps and durable record hashes; not external timestamp attestation.",
+    "Weight files are not rehashed; tokenizer metadata is checked."
+  ]
+}
