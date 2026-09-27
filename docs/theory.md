@@ -257,6 +257,8 @@ Conditional purchase may be unnecessary if always-Jev is effectively free at the
 
 ## 10. What would constitute new evidence
 
+The [binary-outcome baseline appendix](baseline_contracts.md) derives an additional decision-loss identity: outright-win probability and expected intervention gain differ when outcomes tie. It gives the discordance-conditioned gate target, equal-problem weighting rule, and a population logistic-loss-to-value bound. These are standard binary-learning arguments specialized to the actual endpoint, not evidence that a fitted gate or Jev improves outcomes.
+
 The mathematical results establish what a properly executed experiment measures and when particular implications are valid. Because prior work already targets intervention effects, the Jev-specific empirical contribution must establish that typed semantic features improve *held-out policy value* over strong cheap and local-judge features; gains survive feature-acquisition costs; and selective acquisition, repeated deployment, or a specified transfer test adds useful evidence beyond the existing intervention-control literature. A study can also deliver a rigorous negative result rather than a new controller.
 
 A negative Jev result remains informative. Improved offline feature prediction without improved deployment utility is not a successful control method. An observed controller improvement with no incremental Jev benefit supports learned metareasoning, not a Jev-specific claim.

@@ -186,11 +186,10 @@ def estimate(values: list[float] | np.ndarray, indices: np.ndarray) -> dict:
     }
 
 
-def fit_predict(train_docs, test_docs, train_numeric, test_numeric, train_rows, train_ids, test_ids, alpha):
+def representation_matrices(train_docs, test_docs, train_numeric, test_numeric):
     from scipy import sparse
     from sklearn.feature_extraction.text import TfidfVectorizer
     from sklearn.impute import SimpleImputer
-    from sklearn.linear_model import Ridge
     from sklearn.preprocessing import StandardScaler
 
     vectorizer = TfidfVectorizer(ngram_range=(1, 2), max_features=4096, sublinear_tf=True)
@@ -208,6 +207,12 @@ def fit_predict(train_docs, test_docs, train_numeric, test_numeric, train_rows, 
     test_num = scaler.transform(imputer.transform(test_numeric))
     x_train = sparse.hstack([train_text, sparse.csr_matrix(train_num)], format="csr")
     x_test = sparse.hstack([test_text, sparse.csr_matrix(test_num)], format="csr")
+    return x_train, x_test, int(train_text.shape[1])
+
+
+def fit_predict(train_docs, test_docs, train_numeric, test_numeric, train_rows, train_ids, test_ids, alpha):
+    from sklearn.linear_model import Ridge
+    x_train, x_test, vocabulary_size = representation_matrices(train_docs, test_docs, train_numeric, test_numeric)
     locations = {pid: index for index, pid in enumerate(train_ids)}
     predictions = np.empty((len(test_ids), len(ACTIONS)))
     for action_index, action in enumerate(ACTIONS):
@@ -221,7 +226,7 @@ def fit_predict(train_docs, test_docs, train_numeric, test_numeric, train_rows, 
         model = Ridge(alpha=alpha, solver="lsqr")
         model.fit(x, y, sample_weight=weights)
         predictions[:, action_index] = np.clip(model.predict(x_test), 0, 1)
-    return predictions, int(train_text.shape[1])
+    return predictions, vocabulary_size
 
 
 def crossfit(problems: list[dict], rows: list[dict], checkpoints: dict, budget: int,
@@ -721,6 +726,25 @@ def analyze(run_dir: Path, *, draws=2000, seed=20260927, learned=False, alpha=10
     }
 
 
+def validate_integrity_report(run_dir, report_path):
+    report = read_json(report_path)
+    if (not isinstance(report, dict) or report.get("status") != "passed_integrity_audit"
+            or report.get("ready_for_statistical_analysis") is not True
+            or report.get("outcome_reverification", {}).get("disagreement_count") != 0
+            or report.get("accounting", {}).get("unknown_work_calls") != 0):
+        raise ValueError("A passed independent mechanism integrity report is required")
+    expected = {"manifest.json", "summary.json", "schedule.json", "rubric.json", "checkpoint_attempts.jsonl",
+                "checkpoints.jsonl", "skipped.json", "outcomes.jsonl", "generation_started.jsonl", "generation_events.jsonl"}
+    hashes = report.get("provenance", {}).get("input_sha256", {})
+    if set(hashes) != expected:
+        raise ValueError("Integrity report has an incomplete or unexpected input inventory")
+    for name in sorted(expected):
+        path = run_dir / name
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != hashes[name]:
+            raise ValueError(f"Integrity report does not match current {name}")
+    return hashlib.sha256(report_path.read_bytes()).hexdigest()
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dir", type=Path)
@@ -730,10 +754,17 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=20260927)
     parser.add_argument("--ridge-alpha", type=float, default=10.0)
     parser.add_argument("--local-features", type=Path, help="JSONL: problem_id and response.answers/features/probabilities; defaults to run_dir/local_judge.jsonl if present")
+    parser.add_argument("--integrity-report", type=Path, help="Passed independent audit; required for mechanism learned analysis")
     args = parser.parse_args()
     if args.bootstrap_draws < 100 or not math.isfinite(args.ridge_alpha) or args.ridge_alpha <= 0:
         parser.error("Use at least 100 bootstrap draws and a positive finite ridge alpha")
     try:
+        manifest = read_json(args.run_dir / "manifest.json", {})
+        integrity_digest = None
+        if args.learned and manifest.get("protocol", "").startswith("mechanism-v1"):
+            if not args.integrity_report:
+                raise ValueError("Run audit_mechanism.py first and supply --integrity-report for learned analysis")
+            integrity_digest = validate_integrity_report(args.run_dir, args.integrity_report)
         local = {}
         local_path = args.local_features or args.run_dir / "local_judge.jsonl"
         if args.local_features and not local_path.exists():
@@ -746,6 +777,7 @@ def main() -> None:
                 local[pid] = record
         result = analyze(args.run_dir, draws=args.bootstrap_draws, seed=args.seed,
                          learned=args.learned, alpha=args.ridge_alpha, local_features=local)
+        result["independent_integrity_report_sha256"] = integrity_digest
         if local_path.exists():
             result["raw_data_sources"].append({"path": str(local_path.resolve()), "sha256": hashlib.sha256(local_path.read_bytes()).hexdigest()})
         result["analysis_source_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()

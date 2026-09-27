@@ -42,6 +42,31 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def test_independent_integrity_gate_rejects_stale_data_and_incomplete_audits(tmp_path):
+    names = ("manifest.json", "summary.json", "schedule.json", "rubric.json", "checkpoint_attempts.jsonl",
+             "checkpoints.jsonl", "skipped.json", "outcomes.jsonl", "generation_started.jsonl", "generation_events.jsonl")
+    for name in names:
+        (tmp_path / name).write_text("{}\n")
+    report = {"status": "passed_integrity_audit", "ready_for_statistical_analysis": True,
+              "outcome_reverification": {"disagreement_count": 0}, "accounting": {"unknown_work_calls": 0},
+              "provenance": {"input_sha256": {name: digest(tmp_path / name) for name in names}}}
+    target = tmp_path / "audit.json"
+    write(target, report)
+    assert analysis.validate_integrity_report(tmp_path, target) == digest(target)
+    (tmp_path / "outcomes.jsonl").write_text('{"changed":true}\n')
+    with pytest.raises(ValueError, match="does not match"):
+        analysis.validate_integrity_report(tmp_path, target)
+    (tmp_path / "outcomes.jsonl").write_text("{}\n")
+    report["provenance"]["input_sha256"].pop("rubric.json")
+    write(target, report)
+    with pytest.raises(ValueError, match="incomplete"):
+        analysis.validate_integrity_report(tmp_path, target)
+    report["ready_for_statistical_analysis"] = False
+    write(target, report)
+    with pytest.raises(ValueError, match="passed independent"):
+        analysis.validate_integrity_report(tmp_path, target)
+
+
 def make_run(path, n=24, mechanism=False):
     path.mkdir()
     cps, rows, plan, events = [], [], [], []

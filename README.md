@@ -10,6 +10,7 @@ Local-first research on whether a fast typed judge supplies useful information f
 - [Staged study protocol](docs/study_protocol.md): estimands, treatments, grouping, comparators, costs, and decision gates.
 - [Theory with proofs](docs/theory.md): identification, information value, regret, sequential assumptions, audits, transfer, and selective acquisition. Standard results specialized to this design, not new general theorems.
 - [Independent theory review](docs/theory_review.md): eligibility targets, adaptive replication, cross-fit dependence, and acquisition accounting.
+- [Baseline contracts and binary-outcome theory](docs/baseline_contracts.md): paper-inspired comparisons, tie-aware gate target and its surrogate-loss bound.
 - [Observed hardware and resource plan](docs/resources.md).
 - [Verified Mac compute pool](docs/mac_compute.md) and [active project scope](docs/project_goal.md).
 - [First executed results](docs/results.md): separates model experiments, mathematical validation, and remaining work.
@@ -62,6 +63,8 @@ The completed development diagnostic captures an online newline boundary after 2
 Both development conditions solved 12/24 episodes (graph 10/12, arithmetic 2/12). All 24 paused prefixes matched their uninterrupted counterparts before pausing, and the independent audit found no outcome or accounting disagreement. This small sample does not establish equivalence. [Development gate](docs/development_gate.md): proceed only to a limited exploratory mechanism screen.
 
 The next frozen schedule is 24 fresh problems × three actions × four continuations, with one online checkpoint and 1,024 generated tokens per hypothetical episode. The [mechanism configuration](configs/mechanism_v1.json) records the full contract; `scripts/run_mechanism.py --help` describes the runner. It is currently collecting data, not reporting a trained-policy benefit. Jev queries use the central ledger with a $1 cumulative stage cap. The independent local judge and grouped analysis follow collection.
+
+After completion, `scripts/audit_mechanism.py` reconstructs all recorded token/call chains and recomputes original outcomes without changing labels. Learned mechanism analysis requires that passed report via `--integrity-report`; changed input files invalidate it. The audit loads tokenizer files only. It does not replay model computation or establish that a controller helps.
 
 For longer authorized runs, `scripts/run_bounded.py` records process identity and stops its own process group at a wall-clock, sampled-RSS, or log-size limit. RSS is not a hard limit on Metal/unified memory. Use a new control directory for every run; retain incomplete outputs and receipts.
 
