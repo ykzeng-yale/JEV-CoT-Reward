@@ -187,27 +187,9 @@ def estimate(values: list[float] | np.ndarray, indices: np.ndarray) -> dict:
 
 
 def representation_matrices(train_docs, test_docs, train_numeric, test_numeric):
-    from scipy import sparse
-    from sklearn.feature_extraction.text import TfidfVectorizer
-    from sklearn.impute import SimpleImputer
-    from sklearn.preprocessing import StandardScaler
-
-    vectorizer = TfidfVectorizer(ngram_range=(1, 2), max_features=4096, sublinear_tf=True)
-    try:
-        train_text = vectorizer.fit_transform(train_docs)
-        test_text = vectorizer.transform(test_docs)
-    except ValueError as exc:
-        if "empty vocabulary" not in str(exc):
-            raise
-        train_text = sparse.csr_matrix((len(train_docs), 0))
-        test_text = sparse.csr_matrix((len(test_docs), 0))
-    imputer = SimpleImputer(strategy="median", add_indicator=True, keep_empty_features=True)
-    scaler = StandardScaler()
-    train_num = scaler.fit_transform(imputer.fit_transform(train_numeric))
-    test_num = scaler.transform(imputer.transform(test_numeric))
-    x_train = sparse.hstack([train_text, sparse.csr_matrix(train_num)], format="csr")
-    x_test = sparse.hstack([test_text, sparse.csr_matrix(test_num)], format="csr")
-    return x_train, x_test, int(train_text.shape[1])
+    from jev_control.representation import fit_representation
+    fitted, x_train = fit_representation(train_docs, train_numeric)
+    return x_train, fitted.transform(test_docs, test_numeric), fitted.vocabulary_size
 
 
 def fit_predict(train_docs, test_docs, train_numeric, test_numeric, train_rows, train_ids, test_ids, alpha):
@@ -781,6 +763,8 @@ def main() -> None:
         if local_path.exists():
             result["raw_data_sources"].append({"path": str(local_path.resolve()), "sha256": hashlib.sha256(local_path.read_bytes()).hexdigest()})
         result["analysis_source_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+        from jev_control import representation
+        result["representation_source_sha256"] = hashlib.sha256(Path(representation.__file__).read_bytes()).hexdigest()
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     except (ValueError, KeyError, TypeError) as exc:

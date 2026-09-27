@@ -171,7 +171,9 @@ def main():
     result = compare(report, checkpoints, rows, local, budget)
     result["independent_integrity_report_sha256"] = integrity_digest
     result["input_provenance"] = report["raw_data_sources"]
-    source_paths = [Path(__file__), Path(screen.__file__), Path(__file__).resolve().parents[1] / "src/jev_control/baselines.py"]
+    source_paths = [Path(__file__), Path(screen.__file__),
+                    Path(__file__).resolve().parents[1] / "src/jev_control/baselines.py",
+                    Path(__file__).resolve().parents[1] / "src/jev_control/representation.py"]
     result["analysis_sources_sha256"] = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}
     local_path = args.run / "local_judge.jsonl"
     if local_path.exists():
