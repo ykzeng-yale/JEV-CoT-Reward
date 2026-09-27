@@ -1,0 +1,238 @@
+{
+  "status": "audited_development_action_qualification",
+  "enrolled_problems": 8,
+  "eligible_problems": 8,
+  "episodes": 80,
+  "actions": {
+    "continue": {
+      "successes": 11,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.4375,
+          0.9375
+        ]
+      },
+      "family_success": {
+        "weighted_path": 0.75,
+        "arithmetic_construction": 0.625
+      },
+      "mean_episode_generated_tokens": 1371.75,
+      "mean_episode_processed_prompt_tokens": 1138.25,
+      "mean_removed_tokens": 0.0,
+      "mean_inserted_instruction_tokens": 0.0,
+      "last_finish_reason_counts": {
+        "stop": 13,
+        "length": 3
+      },
+      "outcome_reason_counts": {
+        "invalid_path_format": 2,
+        "checked_path": 6,
+        "invalid_answer": 3,
+        "checked_expression": 5
+      },
+      "mean_episode_model_service_seconds": 35.402397780970205
+    },
+    "sham": {
+      "successes": 10,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.625,
+        "bootstrap_percentile_95": [
+          0.3125,
+          0.875
+        ]
+      },
+      "family_success": {
+        "weighted_path": 0.75,
+        "arithmetic_construction": 0.5
+      },
+      "mean_episode_generated_tokens": 1490.8125,
+      "mean_episode_processed_prompt_tokens": 1159.5625,
+      "mean_removed_tokens": 0.0,
+      "mean_inserted_instruction_tokens": 17.0,
+      "last_finish_reason_counts": {
+        "stop": 12,
+        "length": 4
+      },
+      "outcome_reason_counts": {
+        "checked_path": 6,
+        "invalid_answer": 4,
+        "checked_expression": 4,
+        "invalid_path_format": 2
+      },
+      "mean_episode_model_service_seconds": 36.90000392170623
+    },
+    "suffix_repair": {
+      "successes": 11,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.4375,
+          0.875
+        ]
+      },
+      "family_success": {
+        "weighted_path": 0.75,
+        "arithmetic_construction": 0.625
+      },
+      "mean_episode_generated_tokens": 1334.3125,
+      "mean_episode_processed_prompt_tokens": 856.875,
+      "mean_removed_tokens": 38.625,
+      "mean_inserted_instruction_tokens": 17.0,
+      "last_finish_reason_counts": {
+        "stop": 14,
+        "length": 2
+      },
+      "outcome_reason_counts": {
+        "invalid_path_format": 2,
+        "checked_path": 6,
+        "invalid_answer": 3,
+        "checked_expression": 5
+      },
+      "mean_episode_model_service_seconds": 31.663507340825163
+    },
+    "recheck": {
+      "successes": 11,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.4375,
+          0.9375
+        ]
+      },
+      "family_success": {
+        "weighted_path": 0.875,
+        "arithmetic_construction": 0.5
+      },
+      "mean_episode_generated_tokens": 1461.8125,
+      "mean_episode_processed_prompt_tokens": 898.5,
+      "mean_removed_tokens": 0.0,
+      "mean_inserted_instruction_tokens": 17.0,
+      "last_finish_reason_counts": {
+        "stop": 15,
+        "length": 1
+      },
+      "outcome_reason_counts": {
+        "checked_path": 7,
+        "invalid_answer": 4,
+        "checked_expression": 4,
+        "invalid_path_format": 1
+      },
+      "mean_episode_model_service_seconds": 34.65758440585341
+    },
+    "segment_repair": {
+      "successes": 12,
+      "episodes": 16,
+      "problem_weighted_success": {
+        "n_problems": 8,
+        "mean": 0.75,
+        "bootstrap_percentile_95": [
+          0.5625,
+          0.9375
+        ]
+      },
+      "family_success": {
+        "weighted_path": 1.0,
+        "arithmetic_construction": 0.5
+      },
+      "mean_episode_generated_tokens": 1433.6875,
+      "mean_episode_processed_prompt_tokens": 1114.375,
+      "mean_removed_tokens": 38.625,
+      "mean_inserted_instruction_tokens": 17.0,
+      "last_finish_reason_counts": {
+        "stop": 14,
+        "length": 2
+      },
+      "outcome_reason_counts": {
+        "checked_path": 8,
+        "invalid_answer": 2,
+        "checked_expression": 5,
+        "missing_final": 1
+      },
+      "mean_episode_model_service_seconds": 41.20171247632243
+    }
+  },
+  "paired_contrasts": {
+    "sham_minus_continue": {
+      "n_problems": 8,
+      "mean": -0.0625,
+      "bootstrap_percentile_95": [
+        -0.25,
+        0.125
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    },
+    "suffix_repair_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.1875,
+        0.1875
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    },
+    "recheck_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.3125,
+        0.25
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    },
+    "segment_repair_minus_continue": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        -0.1875,
+        0.3125
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    },
+    "suffix_repair_minus_recheck": {
+      "n_problems": 8,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.125,
+        0.125
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    },
+    "segment_repair_minus_suffix_repair": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        -0.125,
+        0.1875
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    },
+    "recheck_minus_sham": {
+      "n_problems": 8,
+      "mean": 0.0625,
+      "bootstrap_percentile_95": [
+        -0.25,
+        0.3125
+      ],
+      "warning": "Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection."
+    }
+  },
+  "audit_sha256": "b57cfb5b3546f1355e564d2350330f8b594c41cbb96bb572832846add0dc2c06",
+  "analysis_sha256": "18e81bec81ec18f2d2b01353bb3dd2f0d9e92642102afb795435674c31b52b14",
+  "limitations": [
+    "Conditional on online checkpoint eligibility; no full-policy deployment claim.",
+    "Two repeats per action cannot establish stable state-specific effects.",
+    "Generator-token allowances matched; prefill, actual length and runtime differ.",
+    "No Jev acquisition, fitted controller, novel task-family transfer or scientific discovery tested.",
+    "Historical v1 is not a randomized budget comparator; do not pool.",
+    "A degenerate empirical bootstrap does not establish zero uncertainty."
+  ]
+}

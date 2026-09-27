@@ -1,0 +1,21 @@
+{
+  "original_run": "action-qualification-v2-20260927",
+  "original_audit_sha256": "b57cfb5b3546f1355e564d2350330f8b594c41cbb96bb572832846add0dc2c06",
+  "original_input_sha256": {
+    "summary.json": "4a3d918d554f8a8154630f258ceb118ed12794469d9c29f106784cedfa0243bd",
+    "generation_started.jsonl": "5844dc697dc591f41e3d89745b536d7ab921ce49cce53b81de5472d4daf6ae3d",
+    "skipped.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "outcomes.jsonl": "7064b41480bc378a3e6e61642de4b40d78cbcb5fd16ccdb4a4b87ca9f0109f7c",
+    "checkpoints.jsonl": "e8514c16850cd146070dc04c11fe83de42e45cdf25045bcd114693d9384e9352",
+    "manifest.json": "8a75226c52aeb1ad1ac803ae29b929f77e2d605c5fce33583f7b5d3f3fcc7ead",
+    "schedule.json": "ebe7a3477dcfe8cbf0c241158ce8374fa36dba471ac79468645ca278507633c2",
+    "generation_events.jsonl": "642c5d14e5cb26fec27b1c6c50acfc9e89adc8ed6c9e2a3e3cfb19f32309f062"
+  },
+  "released_sha256": {
+    "tasks.json": "1c6e5ea6953cc1e315dfc399e3ab7996262fdcc2bdf7e7f14099a4885982e101",
+    "outcomes.jsonl": "54dce2c46f07d3f27a98945740c66876b4285b6eb0928f6e34563b3ee3dbd6d7"
+  },
+  "scope": "Terminal outcome reproduction only. No hosted responses, fitted controller, token-call replay or feature analysis.",
+  "rows": 80,
+  "problems": 8
+}

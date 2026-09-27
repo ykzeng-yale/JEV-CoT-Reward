@@ -8,6 +8,8 @@ Local-first research on whether a fast typed judge supplies useful information f
 
 **Active research:** the [v2 curriculum](docs/research_curriculum_v2.md) reopens the broader program, beginning with baseline adequacy and action qualification. The v1 no-scale decision applies to that configuration only.
 
+Latest curriculum evidence: [repair qualification v2](docs/action_qualification_v2_results.md) completed 80 audited continuations. Full-segment repair solved 12/16 versus 11/16 for continue; uncertainty is wide and no improvement is established.
+
 ## Research package
 
 - [Working manuscript](paper/main.tex): compiling development draft; incomplete experiments and theory integration are explicitly marked.
