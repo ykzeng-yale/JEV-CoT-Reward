@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{proposition}{Proposition}
+\title{Do Typed Semantic Judgments Help Choose Reasoning Interventions?\\A Local-First Experimental Study}
+\author{Working research draft --- authorship to be finalized}
+\date{September 27, 2026}
+\begin{document}
+\maketitle
+\begin{center}\textbf{Development draft: not submission-ready. Research program ongoing.}\end{center}
+\begin{abstract}
+We investigate whether typed semantic judgments add decision value when selecting interventions in a frozen language model's observable reasoning. We separate judge quality, action effectiveness, policy learning, and acquisition cost. Initial local experiments used independently verified procedural graph and arithmetic tasks. A 24-problem mechanism screen and a separate 24-problem prospective diagnostic did not demonstrate an incremental benefit from Jev features. These small experiments concern narrow interventions and do not establish general ineffectiveness. An ongoing curriculum evaluates intervention quality and stronger baselines before larger, sequential or transfer studies. We present explicit estimands and reproducibility boundaries rather than claim a new control principle or a positive result.
+\end{abstract}
+
+\section{Research question and prior art}
+The question is whether inexpensive semantic features improve the selection of useful interventions enough to justify acquisition costs. It is not whether a judge agrees with a final verifier. Process-advantage verification already relates reasoning steps to subsequent success \cite{pav}; reward-guided speculative decoding controls draft acceptance \cite{rsd}. Work on intervention value and learned gates \cite{calibration,dial} limits novelty claims for checkpoint branching and outcome-grounded control. GUARD provides a relevant local-branching precedent \cite{guard}. Our contribution remains under investigation; substituting Jev for a reward model is not by itself a new methodological principle.
+
+\section{Estimand and experimental separation}
+Let $H$ be a complete observable checkpoint, $b$ the remaining resource allowance, $a$ an intervention and $\mu$ a frozen subsequent policy. For independently verified terminal success $Y$ and a specified cost $C$, define
+\[
+Q^\mu(h,b,a)=\mathbb E[Y^{a,\mu}-\lambda C^{a,\mu}\mid H=h,b],\qquad
+\Delta^\mu(h,b,a)=Q^\mu(h,b,a)-Q^\mu(h,b,a_0).
+\]
+Cost units and $\lambda$ must be declared. We currently report success, tokens, service time and dollars separately; there is no measured hardware-independent cost conversion. All-arm experiments clone the same observable checkpoint and run actual continuations. Gold task data is used by the terminal evaluator, never by the intervention selector. Multiple checkpoints or repeats from one problem do not create independent task samples.
+
+We distinguish (i) whether the available actions have useful, reproducible differences; (ii) whether semantic features predict those differences beyond cheap text and token statistics; and (iii) whether the resulting frozen policy improves fresh complete episodes. A failure at one layer does not identify all other layers as ineffective.
+
+\section{Executed initial experiments}
+The generator was frozen Qwen3-4B-Instruct-2507 under local MLX four-bit inference. This is a non-thinking instruction model: interventions operate on generated explanations, not inaccessible internal reasoning. The tasks were procedural weighted directed paths and arithmetic constructions, checked by independent executable validators. These are instrumentation and development domains, not evidence of scientific discovery.
+
+The mechanism screen enrolled 24 fresh problems, with three actions and four continuations per action. An online newline checkpoint was targeted at 256 emitted tokens, capped at 384. The total generated-token allowance was 1,024 per hypothetical episode, including the initial prefix and discarded work. Repair rewound at most 128 tokens; branch generated two candidates of at most 64 tokens and selected by mean base likelihood. These are deliberately narrow action definitions.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lr}
+\toprule
+Mechanism action & Verified successes / continuations\\
+\midrule
+Continue & 47/96\\
+Suffix repair & 40/96\\
+Likelihood-selected branch & 37/96\\
+\bottomrule
+\end{tabular}
+\caption{Exploratory mechanism results. There are 24 independent problems, not 288 independent tasks.}
+\end{table}
+
+Grouped cross-fit Ridge replay success was 46.88\% with cheap features and 45.83\% after adding either Jev or local semantic features. Replay and overlapping fitted folds do not provide a generic nominal-coverage efficacy interval. The training-selected constant achieved 48.96\%.
+
+A separate prospective diagnostic froze four policies before 24 new problems. Identical selected actions shared a continuation, producing 42 actual selected-action outcomes for 96 hypothetical policy episodes. Every selection was recorded before the corresponding outcomes.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Prospective policy & Successes & Continue / repair / branch\\
+\midrule
+Always continue & 11/24 & 24 / 0 / 0\\
+Cheap features & 11/24 & 17 / 3 / 4\\
+Cheap + Jev & 11/24 & 14 / 5 / 5\\
+Cheap + local judge & 12/24 & 12 / 8 / 4\\
+\bottomrule
+\end{tabular}
+\caption{Small frozen-policy diagnostic, not a confirmatory efficacy study.}
+\end{table}
+
+There were no discordant terminal outcomes between the cheap and Jev policies. Their empirical paired bootstrap interval degenerates to zero, which \emph{does not establish equivalence or zero population uncertainty}. The local judge difference was one success, with three discordant problems; its descriptive stratified bootstrap range was $-8.33$ to $+16.67$ percentage points. No positive benefit was established.
+
+\section{Costs, integrity and limitations}
+The mechanism run recorded 201,006 generated tokens and 4,899.32 model-service seconds, excluding its separately recorded local-feature acquisition. Prospective collection used 36,762 generated tokens and 883.16 model-service seconds. Shared collection cost differs from each policy's hypothetical deployment cost. Local judge acquisition added a mean 68.46 tokens and 2.146 seconds per prospective problem; Jev added a mean 0.215 seconds. Matched generator-token caps are not matched total compute or latency.
+
+Independent audits reconstructed recorded token/call chains, interventions and final labels, finding no outcome disagreements. These checks are not fresh inference replay or externally attested timestamps. Public terminal tasks, texts, labels and costs permit model-free outcome reproduction; hosted features and a private fitted controller are excluded, limiting public feature-level reproducibility. No broad OOD, long-horizon, alignment or innovation claim is supported by these initial results.
+
+\section{Ongoing curriculum and missing evidence}
+A new development run compares continue, a neutral prompt, suffix repair, rechecking without deletion, and complete-segment reconstruction at a 2,048-token allowance. It is running; no result is asserted here. Branch-selector qualification will separate candidate generation from ranking. Static, randomized/rate-matched, strong cheap-text, local-judge and compatible published-controller comparisons remain required for later claims. A component inspired by a published method is explicitly an adaptation, not a reproduction.
+
+Larger independent evaluation, sequential control, horizon and generator transfer, and controller-guided training are future gated experiments. Their absence cannot be replaced by hypothetical results or theorem assumptions. A failed setting motivates diagnosis or a justified redesign; it does not close the original scientific question.
+
+\appendix
+\section{Elementary decision-theoretic results}
+These results specialize established decision theory and are not presented as novel general theorems.
+\begin{proposition}[Free-information comparison]
+For a fixed distribution of potential utilities $U^a$, a fixed action set, and nested representations $W$ and $(W,J)$, the optimal measurable-policy values satisfy $V^*_{W,J}\geq V^*_W$, if acquiring $J$ has no cost and does not change the state or budget.
+\end{proposition}
+\begin{proof}
+Every measurable policy depending on $W$ is also an admissible policy depending on $(W,J)$ that ignores $J$. Taking the supremum over the larger policy class cannot decrease its value. This statement does not compare finite-sample fitted learners or account for acquisition cost.
+\end{proof}
+\begin{proposition}[Greedy action-value error]
+At a fixed checkpoint, suppose $|\widehat Q(a)-Q(a)|\leq\epsilon$ for every available action. If $a^*\in\arg\max_a Q(a)$ and $\widehat a\in\arg\max_a\widehat Q(a)$, then $Q(a^*)-Q(\widehat a)\leq2\epsilon$.
+\end{proposition}
+\begin{proof}
+Insert $\widehat Q(a^*)$ and $\widehat Q(\widehat a)$ between the two true values. The estimated-value difference is nonpositive by greedy selection. Each of the remaining two errors is at most $\epsilon$.
+\end{proof}
+These assumptions do not follow from a judge's confidence. The repository's extended theory notes address identification, sequential deployment, audit weighting and transfer; integrating their reviewed proofs into this manuscript remains outstanding.
+
+\begin{thebibliography}{9}
+\bibitem{pav} \emph{Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning}. arXiv:2410.08146.
+\bibitem{rsd} \emph{Reward-Guided Speculative Decoding for Efficient LLM Reasoning}. arXiv:2501.19324.
+\bibitem{calibration} \emph{Calibration Is Not Control: Why LLM-Agent Oversight Needs Intervention}. arXiv:2606.21399v1.
+\bibitem{dial} \emph{Same Signal, Opposite Meaning: Direction-Informed Adaptive Learning for LLM Agents}. arXiv:2605.06908v1.
+\bibitem{guard} \emph{Dissecting Failure Dynamics in Large Language Model Reasoning}. arXiv:2604.14528v1.
+\end{thebibliography}
+\end{document}

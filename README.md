@@ -10,6 +10,9 @@ Local-first research on whether a fast typed judge supplies useful information f
 
 ## Research package
 
+- [Working manuscript](paper/main.tex): compiling development draft; incomplete experiments and theory integration are explicitly marked.
+- [Branch-selection qualification contract](docs/branch_selection_qualification.md): separates candidate quality, ranking and total costs.
+
 - [Prior-art and source-code audit](docs/literature_audit.md): 25 papers, pinned code references, important novelty corrections.
 - [Staged study protocol](docs/study_protocol.md): estimands, treatments, grouping, comparators, costs, and decision gates.
 - [Theory with proofs](docs/theory.md): identification, information value, regret, sequential assumptions, audits, transfer, and selective acquisition. Standard results specialized to this design, not new general theorems.
