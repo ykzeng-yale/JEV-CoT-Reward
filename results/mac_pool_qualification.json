@@ -1,0 +1,657 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-27T19:46:11.864533+00:00",
+  "scope": "Read-only Mac compute pool qualification for JEV-CoT-Reward; network inventory and authentication material intentionally omitted.",
+  "actions": {
+    "remote_commands": "read-only probes",
+    "sftp": "Read public SystemVersion.plist to /dev/null",
+    "installed_packages": false,
+    "downloaded_models": false,
+    "started_inference": false,
+    "changed_services": false,
+    "inspected_experiment_outputs": false,
+    "used_paid_api": false
+  },
+  "connections": [
+    {
+      "from": "lead",
+      "to": "mini",
+      "observed_at_utc": "2026-09-27T19:45:08.021803+00:00",
+      "ssh_returncode": 0,
+      "ssh_platform": "Darwin",
+      "sftp_returncode": 0,
+      "strict_existing_host_trust": true,
+      "agent_forwarding": false
+    },
+    {
+      "from": "lead",
+      "to": "aux",
+      "observed_at_utc": "2026-09-27T19:45:08.702131+00:00",
+      "ssh_returncode": 0,
+      "ssh_platform": "Darwin",
+      "sftp_returncode": 0,
+      "strict_existing_host_trust": true,
+      "agent_forwarding": false
+    },
+    {
+      "from": "mini",
+      "to": "aux",
+      "observed_at_utc": "2026-09-27T19:42:55Z",
+      "ssh_returncode": 0,
+      "ssh_platform": "Darwin",
+      "sftp_returncode": 0,
+      "strict_existing_host_trust": true,
+      "agent_forwarding": false
+    },
+    {
+      "from": "aux",
+      "to": "mini",
+      "observed_at_utc": "2026-09-27T19:42:56Z",
+      "ssh_returncode": 0,
+      "ssh_platform": "Darwin",
+      "sftp_returncode": 0,
+      "strict_existing_host_trust": true,
+      "agent_forwarding": false
+    },
+    {
+      "from": "mini",
+      "to": "lead",
+      "status": "pending_enrollment",
+      "attempted": false
+    },
+    {
+      "from": "aux",
+      "to": "lead",
+      "status": "pending_enrollment",
+      "attempted": false
+    }
+  ],
+  "lead_inbound_note": "Peers have no enrolled lead alias/pin; listener not assessed; inbound remains pending.",
+  "hosts": [
+    {
+      "role": "lead",
+      "observed_at_utc": "2026-09-27T19:44:17.663324+00:00",
+      "os_version": "26.5.2",
+      "architecture": "arm64",
+      "hardware_model": "Mac17,2",
+      "chip": "Apple M5",
+      "ram_bytes": 34359738368,
+      "logical_cpus": 10,
+      "load_average": "{ 3.15 2.99 3.18 }",
+      "memory_pressure_query": "The system has 34359738368 (2097152 pages with a page size of 16384).\nSystem-wide memory free percentage: 59%",
+      "swap": "total = 16384.00M  used = 15280.25M  free = 1103.75M  (encrypted)",
+      "disk": {
+        "total_bytes": 994610155520,
+        "used_bytes": 938823364608,
+        "free_bytes": 55786790912,
+        "free_gib": 51.96
+      },
+      "power": "Now drawing from 'AC Power'\n -InternalBattery-0\t100%; charged; 0:00 remaining present: true",
+      "gpus": [
+        {
+          "sppci_model": "Apple M5",
+          "sppci_cores": "10"
+        }
+      ],
+      "relevant_processes": [
+        {
+          "name": "Google Chrome Helper (Renderer)",
+          "count": 15,
+          "rss_kib_sum": 3649744
+        },
+        {
+          "name": "Codex (Renderer)",
+          "count": 6,
+          "rss_kib_sum": 1732864
+        },
+        {
+          "name": "Google Chrome",
+          "count": 1,
+          "rss_kib_sum": 493456
+        },
+        {
+          "name": "codex",
+          "count": 3,
+          "rss_kib_sum": 435456
+        },
+        {
+          "name": "Google Chrome Helper",
+          "count": 5,
+          "rss_kib_sum": 240864
+        },
+        {
+          "name": "Codex (Service)",
+          "count": 3,
+          "rss_kib_sum": 209440
+        },
+        {
+          "name": "limactl",
+          "count": 2,
+          "rss_kib_sum": 112288
+        },
+        {
+          "name": "WindowServer",
+          "count": 1,
+          "rss_kib_sum": 111824
+        },
+        {
+          "name": "Python",
+          "count": 4,
+          "rss_kib_sum": 46880
+        },
+        {
+          "name": "com.apple.SafariPlatformSupport.Helper",
+          "count": 3,
+          "rss_kib_sum": 41904
+        },
+        {
+          "name": "com.apple.Safari.SafeBrowsing.Service",
+          "count": 1,
+          "rss_kib_sum": 27584
+        },
+        {
+          "name": "codex-code-mode-host",
+          "count": 1,
+          "rss_kib_sum": 22320
+        },
+        {
+          "name": "SafariBookmarksSyncAgent",
+          "count": 3,
+          "rss_kib_sum": 8704
+        },
+        {
+          "name": "python",
+          "count": 1,
+          "rss_kib_sum": 5744
+        },
+        {
+          "name": "SafariLaunchAgent",
+          "count": 1,
+          "rss_kib_sum": 4320
+        },
+        {
+          "name": "SafariViewService",
+          "count": 2,
+          "rss_kib_sum": 2480
+        },
+        {
+          "name": "SafariAdapter",
+          "count": 1,
+          "rss_kib_sum": 1472
+        }
+      ],
+      "python_runtimes": [
+        {
+          "label": "system",
+          "python": "3.9.6",
+          "packages": {}
+        },
+        {
+          "label": "uv-cpython-3.12-macos-aarch64-none",
+          "python": "3.12.13",
+          "packages": {}
+        },
+        {
+          "label": "uv-cpython-3.13-macos-aarch64-none",
+          "python": "3.13.13",
+          "packages": {}
+        },
+        {
+          "label": "jev-project",
+          "python": "3.12.13",
+          "packages": {
+            "mlx": "0.32.2",
+            "mlx-lm": "0.31.3",
+            "transformers": "5.17.0",
+            "numpy": "2.5.3",
+            "scikit-learn": "1.9.1"
+          }
+        }
+      ],
+      "other_runtimes": {
+        "uv": {
+          "binary_present": true,
+          "version": "0.11.17"
+        },
+        "ollama": {
+          "binary_present": false,
+          "version": null
+        }
+      },
+      "ollama_cache_metadata": [],
+      "relevant_huggingface_cache_metadata": [
+        {
+          "model": "Qwen/Qwen2.5-3B-Instruct-GGUF",
+          "snapshots": [
+            {
+              "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe",
+              "weight_file_count": 1,
+              "weight_bytes": 2104932768
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen2.5-7B-Instruct-GGUF",
+          "snapshots": [
+            {
+              "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f",
+              "weight_file_count": 2,
+              "weight_bytes": 4683073632
+            }
+          ]
+        },
+        {
+          "model": "Qwen/Qwen3-4B-Instruct-2507",
+          "snapshots": [
+            {
+              "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+              "weight_file_count": 3,
+              "weight_bytes": 8044982000
+            }
+          ]
+        },
+        {
+          "model": "mlx-community/Qwen2.5-Coder-7B-Instruct-4bit",
+          "snapshots": [
+            {
+              "revision": "019cc73c45c770444708a6dd8690c66243cc5c80",
+              "weight_file_count": 1,
+              "weight_bytes": 4284346255
+            }
+          ]
+        },
+        {
+          "model": "unsloth/Qwen3-4B-Instruct-2507-GGUF",
+          "snapshots": [
+            {
+              "revision": "a06e946bb6b655725eafa393f4a9745d460374c9",
+              "weight_file_count": 1,
+              "weight_bytes": 2497281120
+            }
+          ]
+        }
+      ],
+      "other_huggingface_cache_entry_count": 10,
+      "scope_note": "Snapshot of named system metrics, relevant process basenames, selected runtime locations and known model caches; not an exhaustive environment search or resource reservation."
+    },
+    {
+      "role": "mini",
+      "observed_at_utc": "2026-09-27T19:44:18.085073+00:00",
+      "os_version": "15.3.1",
+      "architecture": "arm64",
+      "hardware_model": "Mac16,10",
+      "chip": "Apple M4",
+      "ram_bytes": 17179869184,
+      "logical_cpus": 10,
+      "load_average": "{ 1.75 1.94 1.78 }",
+      "memory_pressure_query": "The system has 17179869184 (1048576 pages with a page size of 16384).\nSystem-wide memory free percentage: 75%",
+      "swap": "total = 1024.00M  used = 225.31M  free = 798.69M  (encrypted)",
+      "disk": {
+        "total_bytes": 245107195904,
+        "used_bytes": 229265068032,
+        "free_bytes": 15842127872,
+        "free_gib": 14.75
+      },
+      "power": "Now drawing from 'AC Power'",
+      "gpus": [
+        {
+          "sppci_model": "Apple M4",
+          "sppci_cores": "10"
+        }
+      ],
+      "relevant_processes": [
+        {
+          "name": "Codex (Renderer)",
+          "count": 4,
+          "rss_kib_sum": 1049968
+        },
+        {
+          "name": "codex",
+          "count": 1,
+          "rss_kib_sum": 353264
+        },
+        {
+          "name": "Google Chrome",
+          "count": 1,
+          "rss_kib_sum": 342624
+        },
+        {
+          "name": "Google Chrome Helper",
+          "count": 5,
+          "rss_kib_sum": 329136
+        },
+        {
+          "name": "Codex (Service)",
+          "count": 3,
+          "rss_kib_sum": 169104
+        },
+        {
+          "name": "WindowServer",
+          "count": 1,
+          "rss_kib_sum": 83632
+        },
+        {
+          "name": "codex-code-mode-host",
+          "count": 1,
+          "rss_kib_sum": 56320
+        },
+        {
+          "name": "Ollama",
+          "count": 1,
+          "rss_kib_sum": 29760
+        },
+        {
+          "name": "ollama",
+          "count": 1,
+          "rss_kib_sum": 15104
+        },
+        {
+          "name": "Python",
+          "count": 1,
+          "rss_kib_sum": 13536
+        },
+        {
+          "name": "SafariConfigurationSubscriber",
+          "count": 1,
+          "rss_kib_sum": 6192
+        },
+        {
+          "name": "SafariLaunchAgent",
+          "count": 1,
+          "rss_kib_sum": 5840
+        }
+      ],
+      "python_runtimes": [
+        {
+          "label": "system",
+          "python": "3.9.6",
+          "packages": {
+            "numpy": "1.26.4",
+            "scikit-learn": "1.6.1"
+          }
+        },
+        {
+          "label": "uv-cpython-3.10.19-macos-aarch64-none",
+          "python": "3.10.19",
+          "packages": {}
+        },
+        {
+          "label": "uv-cpython-3.11.14-macos-aarch64-none",
+          "python": "3.11.14",
+          "packages": {}
+        },
+        {
+          "label": "uv-cpython-3.12.12-macos-aarch64-none",
+          "python": "3.12.12",
+          "packages": {}
+        },
+        {
+          "label": "uv-cpython-3.14.3-macos-aarch64-none",
+          "python": "3.14.3",
+          "packages": {}
+        }
+      ],
+      "other_runtimes": {
+        "uv": {
+          "binary_present": true,
+          "version": "0.9.30"
+        },
+        "ollama": {
+          "binary_present": true,
+          "version": "0.34.0"
+        }
+      },
+      "ollama_cache_metadata": [
+        {
+          "model": "Kimina-Prover-Distill-1.7B",
+          "tag": "latest",
+          "declared_total_bytes": 4069679610,
+          "referenced_blob_count": 3,
+          "present_size_matching_blobs": 3,
+          "digest_or_execution_verified": false
+        }
+      ],
+      "relevant_huggingface_cache_metadata": [],
+      "other_huggingface_cache_entry_count": 0,
+      "scope_note": "Snapshot of named system metrics, relevant process basenames, selected runtime locations and known model caches; not an exhaustive environment search or resource reservation."
+    },
+    {
+      "role": "aux",
+      "observed_at_utc": "2026-09-27T19:44:18.180098+00:00",
+      "os_version": "26.6",
+      "architecture": "arm64",
+      "hardware_model": "Mac14,5",
+      "chip": "Apple M2 Max",
+      "ram_bytes": 34359738368,
+      "logical_cpus": 12,
+      "load_average": "{ 5.80 7.10 7.33 }",
+      "memory_pressure_query": "The system has 34359738368 (2097152 pages with a page size of 16384).\nSystem-wide memory free percentage: 46%",
+      "swap": "total = 10240.00M  used = 8906.25M  free = 1333.75M  (encrypted)",
+      "disk": {
+        "total_bytes": 994662584320,
+        "used_bytes": 975799218176,
+        "free_bytes": 18863366144,
+        "free_gib": 17.57
+      },
+      "power": "Now drawing from 'AC Power'\n -InternalBattery-0\t80%; AC attached; not charging present: true",
+      "gpus": [
+        {
+          "sppci_model": "Apple M2 Max",
+          "sppci_cores": "30"
+        }
+      ],
+      "relevant_processes": [
+        {
+          "name": "Codex (Renderer)",
+          "count": 36,
+          "rss_kib_sum": 5859584
+        },
+        {
+          "name": "Google Chrome Helper (Renderer)",
+          "count": 40,
+          "rss_kib_sum": 5645872
+        },
+        {
+          "name": "Codex (Service)",
+          "count": 6,
+          "rss_kib_sum": 521520
+        },
+        {
+          "name": "Google Chrome Helper",
+          "count": 5,
+          "rss_kib_sum": 397120
+        },
+        {
+          "name": "Google Chrome",
+          "count": 1,
+          "rss_kib_sum": 358832
+        },
+        {
+          "name": "codex",
+          "count": 2,
+          "rss_kib_sum": 323536
+        },
+        {
+          "name": "com.docker.backend",
+          "count": 2,
+          "rss_kib_sum": 82864
+        },
+        {
+          "name": "WindowServer",
+          "count": 1,
+          "rss_kib_sum": 69536
+        },
+        {
+          "name": "com.apple.SafariPlatformSupport.Helper",
+          "count": 4,
+          "rss_kib_sum": 65968
+        },
+        {
+          "name": "Docker Desktop",
+          "count": 1,
+          "rss_kib_sum": 43936
+        },
+        {
+          "name": "codex-code-mode-host",
+          "count": 1,
+          "rss_kib_sum": 23856
+        },
+        {
+          "name": "Python",
+          "count": 1,
+          "rss_kib_sum": 17952
+        },
+        {
+          "name": "Docker Desktop Helper (GPU)",
+          "count": 1,
+          "rss_kib_sum": 12544
+        },
+        {
+          "name": "com.docker.virtualization",
+          "count": 1,
+          "rss_kib_sum": 11808
+        },
+        {
+          "name": "com.docker.build",
+          "count": 1,
+          "rss_kib_sum": 9680
+        },
+        {
+          "name": "SafariWidgetExtension",
+          "count": 1,
+          "rss_kib_sum": 8400
+        },
+        {
+          "name": "Docker Desktop Helper",
+          "count": 1,
+          "rss_kib_sum": 8000
+        },
+        {
+          "name": "SafariAdapter",
+          "count": 1,
+          "rss_kib_sum": 5456
+        },
+        {
+          "name": "com.docker.dev-envs",
+          "count": 1,
+          "rss_kib_sum": 2544
+        },
+        {
+          "name": "com.docker.vmnetd",
+          "count": 1,
+          "rss_kib_sum": 2256
+        }
+      ],
+      "python_runtimes": [
+        {
+          "label": "system",
+          "python": "3.9.6",
+          "packages": {
+            "numpy": "1.26.4",
+            "scikit-learn": "1.5.2"
+          }
+        },
+        {
+          "label": "homebrew",
+          "python": "3.14.4",
+          "packages": {
+            "mlx": "0.31.2",
+            "torch": "2.10.0",
+            "transformers": "5.1.0",
+            "numpy": "2.4.1",
+            "scikit-learn": "1.8.0"
+          }
+        },
+        {
+          "label": "homebrew-3.12",
+          "python": "3.12.10",
+          "packages": {}
+        }
+      ],
+      "other_runtimes": {
+        "uv": {
+          "binary_present": true,
+          "version": "0.11.7"
+        },
+        "ollama": {
+          "binary_present": true,
+          "version": "0.21.2"
+        }
+      },
+      "ollama_cache_metadata": [
+        {
+          "model": "nomic-embed-text",
+          "tag": "latest",
+          "declared_total_bytes": 274302450,
+          "referenced_blob_count": 4,
+          "present_size_matching_blobs": 4,
+          "digest_or_execution_verified": false
+        },
+        {
+          "model": "qwen2.5",
+          "tag": "0.5b",
+          "declared_total_bytes": 397821319,
+          "referenced_blob_count": 5,
+          "present_size_matching_blobs": 5,
+          "digest_or_execution_verified": false
+        },
+        {
+          "model": "qwen2.5",
+          "tag": "1.5b",
+          "declared_total_bytes": 986061892,
+          "referenced_blob_count": 5,
+          "present_size_matching_blobs": 5,
+          "digest_or_execution_verified": false
+        }
+      ],
+      "relevant_huggingface_cache_metadata": [],
+      "other_huggingface_cache_entry_count": 12,
+      "scope_note": "Snapshot of named system metrics, relevant process basenames, selected runtime locations and known model caches; not an exhaustive environment search or resource reservation."
+    }
+  ],
+  "recommendation": {
+    "immediate_instrumented_generator_host": "lead",
+    "reason": "Existing project Python 3.12, pinned MLX/mlx-lm environment and primary Qwen3-4B snapshot; prior task-specific generation checks are documented in docs/resources.md.",
+    "mini": "Candidate for future bounded CPU-only validation or analysis after code/dependency qualification. Current inspected caches/runtimes do not provide the same Qwen3+MLX generator.",
+    "aux": "Candidate for future small-model comparison after separate runtime/model smoke qualification and fresh resource admission. Competing desktop and Docker load; no same-generator environment verified.",
+    "suggested_initial_remote_cpu_pilot_caps": {
+      "concurrent_jobs": 1,
+      "cpu_threads": 2,
+      "rss_bytes": 2147483648,
+      "task_disk_bytes": 536870912,
+      "output_bytes": 52428800,
+      "wall_seconds": 600,
+      "reserve_free_disk_bytes": 10737418240
+    },
+    "suggested_future_small_model_smoke_caps": {
+      "host": "aux",
+      "concurrent_model_processes": 1,
+      "candidate": "Existing qwen2.5:0.5b or 1.5b manifest, after pinned-digest and runtime verification",
+      "context_tokens": 2048,
+      "generated_tokens": 128,
+      "wall_seconds": 120,
+      "process_memory_bytes": 4294967296,
+      "task_disk_bytes": 268435456,
+      "output_bytes": 10485760
+    },
+    "cap_status": "Recommendations only; no remote job or enforcement supervisor was created.",
+    "before_remote_execution": [
+      "Freeze code, runtime and input digests; establish model identity for any inference.",
+      "Use a unique immutable task directory; record actual PID, process start identity, logs and cleanup ownership.",
+      "Check memory pressure, swap trend, disk and peer workload afresh; do not stop peer work.",
+      "Use a supervisor to enforce process/time/output limits; only terminate the owned job on a limit breach.",
+      "Keep paid Jev calls and shared spending ledger on the lead; remote workers return public local-only artifacts.",
+      "Lead pulls results with SFTP; inbound SSH to lead is unnecessary.",
+      "Keep any inference endpoint loopback-only; do not start a service as a consequence of this audit."
+    ]
+  },
+  "limitations": [
+    "Memory free percentage is the memory_pressure -Q metric, not directly allocatable RAM. Swap in use is a snapshot, not evidence of current paging rate.",
+    "Process RSS sums can double-count shared pages and omit GPU/VM allocations; probe Python processes appear in the snapshot.",
+    "Only selected known interpreters were examined. Absence of mlx-lm there does not prove absence from every private project environment.",
+    "Cache files and Ollama referenced blob sizes were inspected; no content hash validation or model execution occurred.",
+    "Ollama CLI version does not establish a compatible live server or backend capability.",
+    "No remote throughput, numerical equivalence, exact-token checkpoint support, or workload competence is established by SSH success.",
+    "Host names, addresses, users, key material, executable paths and unrelated private directory listings are omitted."
+  ]
+}

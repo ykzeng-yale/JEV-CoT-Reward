@@ -1,0 +1,37 @@
+{
+  "kind": "real_model_instrumentation_not_confirmatory",
+  "attempted_problems": 4,
+  "eligible_problems": 4,
+  "skipped_problems": 0,
+  "episodes": 12,
+  "actions": {
+    "continue": {
+      "successes": 0,
+      "n": 4
+    },
+    "repair": {
+      "successes": 2,
+      "n": 4
+    },
+    "branch": {
+      "successes": 1,
+      "n": 4
+    }
+  },
+  "continuation_generated_tokens": 10298,
+  "continuation_seconds": 244.34380508307368,
+  "actual_shared_prefix_tokens": 512,
+  "jev_budget": {
+    "hard_cap_usd": 25.0,
+    "stage_cap_usd": 0.25,
+    "accounted_usd": 0.000223734,
+    "groups": [
+      {
+        "status": "ok",
+        "attempts": 7,
+        "usd": 0.000223734
+      }
+    ]
+  },
+  "interpretation": "All-arm data collection, not evaluation of a Jev-guided policy. Repeats are clustered within problems."
+}

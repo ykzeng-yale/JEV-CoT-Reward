@@ -1,0 +1,424 @@
+{
+  "analysis_version": 1,
+  "run_directory": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927",
+  "run_kind": "phase0_instrumentation",
+  "raw_data_sources": [
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/manifest.json",
+      "sha256": "7683086b7ae497373537c328a4743b6a33e73ab367927c967af34ebb6107b264"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/checkpoints.jsonl",
+      "sha256": "3f9b3ac439401f023284f9b8eadbcbeed2402c2cf8c33042dc948cac19778eb4"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/outcomes.jsonl",
+      "sha256": "c0ed0fc76df837e746250bc0cdc9e30be7f854c88a37df75f1fd3f09cfe07453"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/summary.json",
+      "sha256": "66af4f3a6c4b000f8f49ea583689e63234200edb58871068037b91c412e7c9f0"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/review_audit.json",
+      "sha256": "e23c2f8a20719ed07aac5c5e92505dbe51c47ce0ece6e026970aa24f6911fc96"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/run_screen_source.py",
+      "sha256": "4ecb2643f05bcbe53b577c5ae7f160140a0ea27ad197ca8057e9a32ca82d3e2f"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-20260927/local_judge.jsonl",
+      "sha256": "4f13a387dc2eb2b4601010792ae8faa52752cb00a2bb66544b041997d4bd3d52"
+    }
+  ],
+  "implementation": {
+    "version": "screen-v0",
+    "source_snapshot_note": "Reconstructed from pre-review source by reversing the recorded review patch while process was running.",
+    "review_audit": {
+      "implementation_review": "screen-v0 completed-run audit",
+      "episodes": 36,
+      "problems": 6,
+      "incomplete_final_reserve_affected": [],
+      "generated_token_budget_violations": [],
+      "exact_initial_prefix_hash_mismatches": [],
+      "checkpoints_with_discarded_future_tail": 5,
+      "restriction": "Do not use initial.mean_logprob or initial.mean_entropy as checkpoint features when discarded_prefix_tail_tokens>0; retained per-token stats were not saved in v0. No Jev-controlled policy was evaluated."
+    }
+  },
+  "classification": "descriptive_phase0_or_exploratory_screen_not_confirmatory",
+  "enrollment": {
+    "planned_attempted_problems": 6,
+    "recorded_problems": 6,
+    "not_yet_recorded_problems": 0,
+    "eligible_checkpoints": 6,
+    "skipped_problems": 0,
+    "skip_reasons": {},
+    "complete_all_arm_problems": 6,
+    "incomplete_checkpoints": [],
+    "observed_episodes": 36,
+    "expected_repeats_per_action": 2,
+    "complete_problem_families": {
+      "arithmetic_construction": 3,
+      "weighted_path": 3
+    },
+    "all_arm_enrollment_rule": "Contrasts and learned comparisons use complete scheduled arms only; incomplete cases and all incurred costs remain reported."
+  },
+  "per_problem": [
+    {
+      "problem_id": "arithmetic_construction-20260927-1",
+      "family": "arithmetic_construction",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 816.0,
+          "deployment_service_seconds": 12.152119333855808
+        },
+        "repair": {
+          "successes": 1,
+          "n": 2,
+          "success_rate": 0.5,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 838.0,
+          "deployment_service_seconds": 12.224081376101822
+        },
+        "branch": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 476.5,
+          "deployment_prompt_tokens_processed": 1238.0,
+          "deployment_service_seconds": 12.029752937145531
+        }
+      }
+    },
+    {
+      "problem_id": "arithmetic_construction-20260927-3",
+      "family": "arithmetic_construction",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 833.0,
+          "deployment_service_seconds": 12.510772063862532
+        },
+        "repair": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 841.0,
+          "deployment_service_seconds": 12.135733124800026
+        },
+        "branch": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 1271.0,
+          "deployment_service_seconds": 12.676552394870669
+        }
+      }
+    },
+    {
+      "problem_id": "arithmetic_construction-20260927-5",
+      "family": "arithmetic_construction",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 768.0,
+          "deployment_service_seconds": 11.887094270903617
+        },
+        "repair": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 764.0,
+          "deployment_service_seconds": 11.859573604073375
+        },
+        "branch": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 1144.0,
+          "deployment_service_seconds": 12.320666979067028
+        }
+      }
+    },
+    {
+      "problem_id": "weighted_path-20260927-0",
+      "family": "weighted_path",
+      "actions": {
+        "continue": {
+          "successes": 2,
+          "n": 2,
+          "success_rate": 1.0,
+          "deployment_generated_tokens": 420.0,
+          "deployment_prompt_tokens_processed": 1021.0,
+          "deployment_service_seconds": 11.44987487513572
+        },
+        "repair": {
+          "successes": 1,
+          "n": 2,
+          "success_rate": 0.5,
+          "deployment_generated_tokens": 466.0,
+          "deployment_prompt_tokens_processed": 969.0,
+          "deployment_service_seconds": 12.517727166879922
+        },
+        "branch": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 423.0,
+          "deployment_prompt_tokens_processed": 1581.0,
+          "deployment_service_seconds": 12.228353812824935
+        }
+      }
+    },
+    {
+      "problem_id": "weighted_path-20260927-2",
+      "family": "weighted_path",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 424.0,
+          "deployment_prompt_tokens_processed": 932.0,
+          "deployment_service_seconds": 10.51578720798716
+        },
+        "repair": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 960.0,
+          "deployment_service_seconds": 12.546907581854612
+        },
+        "branch": {
+          "successes": 1,
+          "n": 2,
+          "success_rate": 0.5,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 1378.0,
+          "deployment_service_seconds": 12.93830602010712
+        }
+      }
+    },
+    {
+      "problem_id": "weighted_path-20260927-4",
+      "family": "weighted_path",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 430.0,
+          "deployment_prompt_tokens_processed": 883.0,
+          "deployment_service_seconds": 10.344034895766526
+        },
+        "repair": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 512.0,
+          "deployment_prompt_tokens_processed": 911.0,
+          "deployment_service_seconds": 12.10479843756184
+        },
+        "branch": {
+          "successes": 0,
+          "n": 2,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 430.0,
+          "deployment_prompt_tokens_processed": 1299.0,
+          "deployment_service_seconds": 10.960904541425407
+        }
+      }
+    }
+  ],
+  "per_action_problem_weighted_success": {
+    "continue": {
+      "n_problems": 6,
+      "mean": 0.16666666666666666,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.5
+      ]
+    },
+    "repair": {
+      "n_problems": 6,
+      "mean": 0.16666666666666666,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.3333333333333333
+      ]
+    },
+    "branch": {
+      "n_problems": 6,
+      "mean": 0.08333333333333333,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.25
+      ]
+    }
+  },
+  "paired_action_differences": {
+    "repair_minus_continue": {
+      "n_problems": 6,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.16666666666666666,
+        0.16666666666666666
+      ]
+    },
+    "branch_minus_continue": {
+      "n_problems": 6,
+      "mean": -0.08333333333333333,
+      "bootstrap_percentile_95": [
+        -0.5,
+        0.25
+      ]
+    },
+    "branch_minus_repair": {
+      "n_problems": 6,
+      "mean": -0.08333333333333333,
+      "bootstrap_percentile_95": [
+        -0.3333333333333333,
+        0.16666666666666666
+      ]
+    }
+  },
+  "costs": {
+    "collection_prefix_generated_tokens_counted_once": 768.0,
+    "collection_continuation_generated_tokens_all_arms": 12795.0,
+    "collection_prompt_tokens_processed": 33039.0,
+    "collection_model_service_seconds": 333.0336545826867,
+    "discarded_prefix_tail_tokens_already_charged": 210.0,
+    "discarded_branch_tokens_already_charged_known": 768.0,
+    "unknown_discarded_branch_breakdown_episodes": 0,
+    "removed_repair_tokens_already_charged": 174.0,
+    "inserted_instruction_tokens_not_generation": 780.0,
+    "jev_new_calls_in_this_run": 6,
+    "jev_new_call_usd_in_this_run": 0.000198156,
+    "jev_new_call_service_seconds": 2.142271707765758,
+    "global_jev_budget_snapshot_if_present": {
+      "hard_cap_usd": 25.0,
+      "stage_cap_usd": 0.25,
+      "accounted_usd": 0.000223734,
+      "groups": [
+        {
+          "status": "ok",
+          "attempts": 7,
+          "usd": 0.000223734
+        }
+      ]
+    },
+    "ledger_issues": [],
+    "note": "Discard categories are subsets of charged work; do not add them again. Service sums exclude loading/orchestration and are not end-to-end wall-clock latency.",
+    "collection_total_generated_tokens": 13563.0,
+    "local_judge_acquisition": {
+      "records": 6,
+      "records_with_measured_generation": 6,
+      "generated_tokens": 402.0,
+      "prompt_tokens_processed": 3903.0,
+      "model_service_seconds": 11.771258584223688,
+      "note": "Additional diagnostic acquisition; not included in the generator-only token envelope or earlier collection totals."
+    }
+  },
+  "crossfit": {
+    "status": "not_run",
+    "reason": "Requires --learned and at least 24 complete independent problems; six-problem Phase 0 cannot support policy superiority."
+  },
+  "feature_quality": {
+    "semantic_keys": [
+      "hypothesis",
+      "contradiction",
+      "unsupported",
+      "repeated_failure",
+      "localized_error",
+      "testable",
+      "locally_valid"
+    ],
+    "per_checkpoint": [
+      {
+        "problem_id": "arithmetic_construction-20260927-1",
+        "jev_observed_features": 7,
+        "local_observed_features": 7,
+        "retained_entropy_available": false,
+        "retained_logprob_available": false,
+        "discarded_future_tail_tokens": 7.0
+      },
+      {
+        "problem_id": "arithmetic_construction-20260927-3",
+        "jev_observed_features": 7,
+        "local_observed_features": 7,
+        "retained_entropy_available": true,
+        "retained_logprob_available": true,
+        "discarded_future_tail_tokens": 0.0
+      },
+      {
+        "problem_id": "arithmetic_construction-20260927-5",
+        "jev_observed_features": 7,
+        "local_observed_features": 7,
+        "retained_entropy_available": false,
+        "retained_logprob_available": false,
+        "discarded_future_tail_tokens": 28.0
+      },
+      {
+        "problem_id": "weighted_path-20260927-0",
+        "jev_observed_features": 7,
+        "local_observed_features": 7,
+        "retained_entropy_available": false,
+        "retained_logprob_available": false,
+        "discarded_future_tail_tokens": 5.0
+      },
+      {
+        "problem_id": "weighted_path-20260927-2",
+        "jev_observed_features": 7,
+        "local_observed_features": 7,
+        "retained_entropy_available": false,
+        "retained_logprob_available": false,
+        "discarded_future_tail_tokens": 87.0
+      },
+      {
+        "problem_id": "weighted_path-20260927-4",
+        "jev_observed_features": 7,
+        "local_observed_features": 7,
+        "retained_entropy_available": false,
+        "retained_logprob_available": false,
+        "discarded_future_tail_tokens": 83.0
+      }
+    ],
+    "jev_complete_checkpoints": 6,
+    "local_complete_checkpoints": 6,
+    "retained_entropy_available_checkpoints": 1,
+    "local_records_outside_this_run": [],
+    "restriction": "Whole-generation entropy/logprob are excluded whenever the checkpoint discarded future tokens; explicit retained-only statistics must match the retained token count. Feature presence is not evidence of predictive value."
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 20260927,
+    "unit": "original problem",
+    "strata": "task family",
+    "interval": "pointwise percentile 95%; descriptive, no multiplicity adjustment",
+    "singleton_strata": []
+  },
+  "interpretation": [
+    "Phase 0 (especially n=6) checks instrumentation and headroom; it is inadequate for superiority or generalization claims.",
+    "Repeated continuations are clustered within problems and are not independent problem samples.",
+    "Results condition on observed eligible checkpoints; early-completed and boundary-ineligible problems are not silently treated as intervention failures.",
+    "All-arm data collection is not evidence that a Jev-guided sequential policy improves task outcomes.",
+    "Stratified bootstrap conditions on the observed family mix and cannot establish held-out-family generalization."
+  ],
+  "analysis_source_sha256": "021aff8f1d297f954b1c563e4ec50fc506da09bc2de111585f55327b91bc439c"
+}

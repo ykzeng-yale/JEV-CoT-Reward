@@ -1,0 +1,140 @@
+{
+  "observed_at_utc": "2026-09-27T19:09:55.546462+00:00",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "architecture": "arm64",
+  "chip": "Apple M5",
+  "ram_bytes": 34359738368,
+  "logical_cpus": 10,
+  "disk": {
+    "total_bytes": 994610155520,
+    "used_bytes": 939244707840,
+    "free_bytes": 55365447680
+  },
+  "swap": "total = 16384.00M  used = 15360.25M  free = 1023.75M  (encrypted)",
+  "runtime_inventory": [
+    {
+      "python": "3.9.6",
+      "packages": {
+        "mlx": null,
+        "mlx-lm": null,
+        "torch": null,
+        "transformers": null,
+        "numpy": null,
+        "scikit-learn": null,
+        "llama-cpp-python": null
+      }
+    },
+    {
+      "python": "3.12.13",
+      "packages": {
+        "mlx": "0.32.2",
+        "mlx-lm": "0.31.3",
+        "torch": null,
+        "transformers": "5.17.0",
+        "numpy": "2.4.1",
+        "scikit-learn": null,
+        "llama-cpp-python": null
+      }
+    }
+  ],
+  "huggingface_cache": [
+    {
+      "cache_name": "models--Qwen--Qwen2.5-3B-Instruct-GGUF",
+      "snapshots": [
+        {
+          "weights": [
+            {
+              "name": "qwen2.5-3b-instruct-q4_k_m.gguf",
+              "bytes": 2104932768
+            }
+          ],
+          "weight_bytes": 2104932768,
+          "revision": "7dabda4d13d513e3e842b20f0d435c732f172cbe"
+        }
+      ]
+    },
+    {
+      "cache_name": "models--Qwen--Qwen2.5-7B-Instruct-GGUF",
+      "snapshots": [
+        {
+          "weights": [
+            {
+              "name": "qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf",
+              "bytes": 3993201344
+            },
+            {
+              "name": "qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf",
+              "bytes": 689872288
+            }
+          ],
+          "weight_bytes": 4683073632,
+          "revision": "bb5d59e06d9551d752d08b292a50eb208b07ab1f"
+        }
+      ]
+    },
+    {
+      "cache_name": "models--Qwen--Qwen3-4B-Instruct-2507",
+      "snapshots": [
+        {
+          "weights": [
+            {
+              "name": "model-00001-of-00003.safetensors",
+              "bytes": 3957900840
+            },
+            {
+              "name": "model-00002-of-00003.safetensors",
+              "bytes": 3987450520
+            },
+            {
+              "name": "model-00003-of-00003.safetensors",
+              "bytes": 99630640
+            }
+          ],
+          "weight_bytes": 8044982000,
+          "revision": "cdbee75f17c01a7cc42f958dc650907174af0554"
+        }
+      ]
+    },
+    {
+      "cache_name": "models--mlx-community--Qwen2.5-Coder-7B-Instruct-4bit",
+      "snapshots": [
+        {
+          "weights": [
+            {
+              "name": "model.safetensors",
+              "bytes": 4284346255
+            }
+          ],
+          "weight_bytes": 4284346255,
+          "revision": "019cc73c45c770444708a6dd8690c66243cc5c80"
+        }
+      ]
+    },
+    {
+      "cache_name": "models--unsloth--Qwen3-4B-Instruct-2507-GGUF",
+      "snapshots": [
+        {
+          "weights": [
+            {
+              "name": "Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+              "bytes": 2497281120
+            }
+          ],
+          "weight_bytes": 2497281120,
+          "revision": "a06e946bb6b655725eafa393f4a9745d460374c9"
+        }
+      ]
+    }
+  ],
+  "nvidia_smi_available": false,
+  "gpus": [
+    {
+      "sppci_model": "Apple M5",
+      "sppci_cores": "10"
+    }
+  ],
+  "remote": {
+    "historical_status": "Initial SSH probe refused; subsequently verified. See mac_pool_qualification.json."
+  },
+  "publication_note": "Historical host snapshot; filesystem paths and unrelated cached models omitted from this public export. Later SSH qualification is in mac_pool_qualification.json."
+}

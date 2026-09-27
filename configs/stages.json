@@ -1,0 +1,41 @@
+{
+  "hard_total_jev_usd": 25,
+  "model": "jev-1.13.0",
+  "input_price_per_million_verified_2026_09_27": 0.042,
+  "no_automatic_retries": true,
+  "single_global_budget_database": "~/.local/state/jev-cot-reward/jev.sqlite3",
+  "stages": [
+    {
+      "name": "instrumentation",
+      "cumulative_jev_cap_usd": 0.25,
+      "problems": 6,
+      "repeats_per_action": 2,
+      "purpose": "Validate prefix replay, strict validators, all-work accounting and live Jev adapter"
+    },
+    {
+      "name": "mechanism_screen",
+      "cumulative_jev_cap_usd": 1,
+      "problems": 48,
+      "repeats_per_action": 4,
+      "gate": "Valid replay and intermediate difficulty; preserve all enrollment and missingness"
+    },
+    {
+      "name": "pilot",
+      "cumulative_jev_cap_usd": 5,
+      "development_problems": 120,
+      "test_problems": 120,
+      "gate": "Replicated useful action differences and preliminary decision signal justify compute",
+      "tuning_problems": 60
+    },
+    {
+      "name": "replication_and_shift",
+      "cumulative_jev_cap_usd": 20,
+      "gate": "Frozen pilot policy improves independent outcomes at measured costs"
+    },
+    {
+      "name": "reserve",
+      "cumulative_jev_cap_usd": 25,
+      "purpose": "Failed requests, audits and prespecified replication; not automatic expenditure"
+    }
+  ]
+}

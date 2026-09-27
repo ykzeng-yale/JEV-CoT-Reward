@@ -1,0 +1,63 @@
+# Independent theory and estimand review
+
+Review date: 2026-09-27. Scope: `docs/theory.md`, the current replay and analysis scripts, the recorded Phase 0 and 1,024-token development results, and the literature audit. No inference, Jev request, experimental-code edit, or new empirical outcome was produced by this review. Mathematical examples are fully stipulated constructions.
+
+## Review conclusion
+
+The eight main propositions are valid under their explicit conditions. They are standard identification, decision-theoretic, concentration, and performance-difference arguments; the literature audit rules out presenting intervention advantage or same-prefix replay as this project's original invention. None implies that Jev improves a real task. Several conditions were underspecified or could be mistaken for properties already established by the implementation. Those distinctions are corrected in the theory document.
+
+The most consequential correction is inferential: problem-grouped cross-fitting prevents direct within-problem training leakage, but it does **not** yield independent out-of-fold contributions or justify a generic 95% bootstrap interval. The most consequential experiment distinction is between a retrospectively constructed generate-then-rewind state and an online stopping-time checkpoint. Both can support valid experiments; they answer different questions.
+
+## Findings and dispositions
+
+| Finding | Consequence | Disposition |
+|---|---|---|
+| Ordinary replay means were described as unbiased without explicitly fixing replicate counts | Stopping after favorable/unfavorable outcomes can bias an arm mean even if each next draw is unbiased | Added the fixed-count/independent-count condition and an exact stopped-mean counterexample |
+| Proposition 5 could be applied incorrectly to grouped cross-fit outputs | Overlapping training folds couple out-of-fold contributions; fixed-contribution resampling has no generic nominal coverage | Added a precise limitation, distinguished fold-trained from final-refit policies, and added an exact counterexample |
+| Current historical checkpoint construction looks ahead within a generated block before rewinding | Eligibility and state distributions differ from a decision made online at the retained paragraph | Named the constructed-state estimand; added eligibility-to-full-episode decomposition and its assumptions |
+| A deterministic scalar/vector query-cost expression omitted failures, random latency, and feasibility | Post-query action selection may be infeasible or compare unequal states | Restricted the simple expression and described complete acquisition-outcome integration |
+| “Fixed resource envelope” could be read as compute matching | Current arms constrain emitted generator tokens; injected prompts, prefill, Jev latency, and local-judge inference are additional work | Explicitly named the token envelope and the full-resource deployment distinction |
+| An apparent realized best arm can be confused with the optimal expected-value action | Maximizing noisy replay outcomes produces winner's bias | Added a two-arm exact numerical counterexample and required independent selected-policy evaluation |
+| Backend fixes can alter the generator distribution | FP32 normalization can change sampled tokens and likelihood-based branch selection, not merely reported entropy | Require a new generator/backend manifest and stratified reporting; do not pool as one frozen-policy dataset |
+
+## Implemented experiment versus each proposition
+
+**Identification.** Phase 0 executes all three actions from a saved state with separate seeds and shuffled run order. That supports action comparisons on the recorded constructed-state distribution, assuming the verifier and restore mechanism behave as specified. No inverse propensity adjustment is required for complete arm coverage. However, six independent problems with two repeats per arm cannot identify reliable checkpoint-specific optimal actions. A single greedily resumed token check is useful instrumentation; it does not establish all stochastic replay properties.
+
+**Eligibility.** In the historical builder, a fixed initial block was generated before deciding which earlier paragraph to retain. Blocks with completion/answer markers were excluded. Hence “natural prefix at token 41” is not the appropriate description of a state selected using the entire 128-token block. Charging discarded work makes the implemented procedure well defined, but does not remove selection. The planned streaming-boundary update should use a separate source/configuration identifier; it changes the target distribution. All eligible and ineligible problems, plus fallback outcomes where full-episode value is claimed, must be retained.
+
+**Information value.** The current logs contain Jev features, local-judge features, and all-arm outcomes; they do not contain a deployed Jev policy comparison. Offline action prediction, local-validity scores, and API latency cannot establish positive decision value. On an independent test set, a frozen policy's selected-action replay mean can estimate one-intervention value; that remains conditional on the sampled eligible states and ignores acquisition-induced outcome changes unless they are part of the replay protocol.
+
+**Sequential guarantee.** Proposition 4 requires true baseline-continuation action values on every history the new policy reaches. Offline baseline-prefix data, Jev confidence, and calibrated probabilities do not supply the necessary simultaneous error bound. Judge purchase must be included as a pre-query action or as part of the complete intervention. A guarantee comparing policies that have both already queried does not justify spending on the query itself. Current one-checkpoint experiments establish none of the repeated-deployment prerequisites.
+
+**Inference.** Repeated continuations estimate stochastic behavior at one checkpoint. Independent problem sampling supports task-population inference; multiple checkpoints or seeds are not extra independent problems. The development budget run reuses earlier problems and partly reused seeds, so it is not an independent replication. For exploratory cross-fit results, report point estimates and resampling diagnostics with explicit lack of generic coverage. For a simple confirmatory claim, freeze the whole policy after development and evaluate new independent problems once. A new prompt, gate threshold, feature schema, or model chosen from the same test outcomes is test reuse even if the classifier's hyperparameters were untouched.
+
+**Pruning and transfer.** Neither proposition is empirically tested here. The pruning statement concerns an explicitly cost-adjusted replay target on a fixed proposed-pruning distribution. The transfer bound requires aligned actions/states, support overlap, and bounded action-value drift; observed semantic stability alone proves none of these. New quantization, generator, budget, or checkpoint capture changes the estimand and must be named in the transfer condition.
+
+## Falsifiable quantities to prioritize
+
+Freeze the precise task distribution, prefix construction, model/backend, selector, continuation policy, and budgets. Then separate these quantities:
+
+1. **Representation increment:** verified selected-action value of a cheap-plus-Jev policy minus the same learner trained with cheap inputs only, on fresh test problems. Compare cheap-plus-local under the same tuning/label allowance. This tests implemented learners, not an information-theoretic optimum.
+2. **Useful state dependence:** learned-policy value minus a constant action selected exclusively on development. A retrospectively best action at each test checkpoint is not a valid comparator value without independent outcome replications.
+3. **Purchase increment:** complete protocol utility with Jev acquisition minus the cheap protocol, including latency, failures, fallback, and opportunity costs. Do not infer deadline outcomes by subtracting average API latency from token-matched success.
+4. **Selective purchase:** selective acquisition versus always-query, never-query, and a query-rate-matched randomized policy whose rate was fixed on development. Report both resource and outcome differences. Avoid conditioning the evaluation population on successful API responses.
+5. **Specified transfer:** the same frozen or fixed-adaptation-budget policies on one named shift, with source and target data kept separate. A changed generator needs a new target action-value evaluation, even when the semantic schema is unchanged.
+
+These quantities are scientifically useful whether positive, zero, or negative. If an interval is too wide to distinguish useful improvement from harm, say the study is inconclusive. Failure to reject zero is not evidence of equivalence. If declaring futility for a practical benefit, use a justified upper confidence limit below a prespecified margin; a small developmental p-value or its absence is insufficient.
+
+## Defensible completion criteria when gates fail
+
+The project should not equate completion with a positive result or spend the $25 simply because it is available. The following is a proposed bounded decision contract to freeze before further development; it does not retroactively convert the existing exploratory runs into a preregistered test.
+
+**Feasibility completion.** After instrumentation is verified, allow at most two prespecified development revisions, each with 12 new problems balanced across the two families, two seeds, and uninterrupted/sham controls at a feasible fixed budget. Examine finite compute/time limits, verified-answer extraction, resume behavior, natural checkpoint coverage, and whether retained text contains actual computation/candidates. A development success range such as 20–80% is an engineering diagnostic, not a formal statistical test. If suitable data cannot be obtained within the chosen revisions and resource allowance, deliver a complete feasibility report, runnable harness, manifests, known failures, and exact scope of what remains untested. Conclude “this implementation/task/budget combination did not pass feasibility,” not “Jev has no value.”
+
+**Mechanism-screen completion.** Once the configuration is frozen, complete the 24-new-problem, three-action, four-repeat screen and its prespecified baselines. Use a fixed independent replication subset when assessing favorable arms; do not repeatedly allocate until a preferred effect appears and then analyze a conventional sample mean. If actions show little useful headroom or features are almost constant, document that regime and stop the Jev-centered scale-up. Small intervals are not guaranteed: a completed screen can be inconclusive. A negative/inconclusive screen remains a finished stage if the planned data, checks, accounting, and decision report are delivered.
+
+**Hypothesis-test completion.** If screening justifies a gated pilot, freeze policies and select test size from the practical margin and independent-problem variance. Complete that held-out test with all failures, strata, and costs included, report prespecified contrasts and uncertainty, and state any deviations. Positive, negative, and inconclusive results all satisfy completion of that declared study. Claims of a broadly effective method, robust OOD behavior, or publishability are separate aspirations and are not completion criteria that can be guaranteed in advance.
+
+**Stop-and-deliver conditions.** Stop the scientific expansion when a frozen gate fails, an allowed resource cap is reached, or required model/task properties cannot be achieved with the authorized setup. Preserve artifacts and give the most specific supported conclusion. Do not mark a promised main experiment complete when only its development stage ran; identify exactly which planned stage ended and whether the next stage was gated off, infeasible, or still requires resources. No negative gate authorizes inventing performance numbers or repackaging a simulation as empirical evidence.
+
+## Verification performed
+
+The source-level mathematical review checks each proof's conditioning, utility range, population, and policy dependence. The CPU script separately validates finite constructions; finite agreement is not a proof of a universal theorem. The updated checks include exact DR expectation, cost-sensitive feature purchase, 200 finite MDP performance-difference calculations, 500 bounded-error greedy examples, grouped-seed aggregation, adaptive-stopping bias, cross-fit dependence/interval failure, and realized-oracle optimism. Commands and actual results are recorded in the theory document and generated validation manifest.

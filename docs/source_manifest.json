@@ -1,0 +1,468 @@
+{
+  "audit_date": "2026-09-27",
+  "purpose": "Primary-source literature and selected implementation inspection; no benchmark reproduction or paid calls",
+  "repositories": [
+    {
+      "name": "RSD",
+      "repository": "https://github.com/BaohaoLiao/RSD",
+      "ref": "main",
+      "commit": "c9a37c28e25306a7cfe9f8f3e1da5fdbc172f818",
+      "github_root_license_id": "Apache-2.0",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/BaohaoLiao/RSD/c9a37c28e25306a7cfe9f8f3e1da5fdbc172f818/README.md",
+          "sha256": "e12daac2ef749e8d3785a6c8afd88100e1272b45992091ce10de48d4f859660b",
+          "bytes": 2824
+        },
+        {
+          "path": "main_online.py",
+          "url": "https://raw.githubusercontent.com/BaohaoLiao/RSD/c9a37c28e25306a7cfe9f8f3e1da5fdbc172f818/main_online.py",
+          "sha256": "7b17ceb87a006caf101868cce971c0e07929bdb41d9df26782c3de43f2d594b9",
+          "bytes": 22930
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "AVA",
+      "repository": "https://github.com/llmsresearch/AVA",
+      "ref": "main",
+      "commit": "c277ad827bdc35efef4063617f7c364c2d46359c",
+      "github_root_license_id": "MIT",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/llmsresearch/AVA/c277ad827bdc35efef4063617f7c364c2d46359c/README.md",
+          "sha256": "43be178a16c8fa849269b17d591bdf6c8182dbbd6db305805122da53d4c2be2f",
+          "bytes": 5934
+        },
+        {
+          "path": "ava/controllers/ava_controller.py",
+          "url": "https://raw.githubusercontent.com/llmsresearch/AVA/c277ad827bdc35efef4063617f7c364c2d46359c/ava/controllers/ava_controller.py",
+          "sha256": "af1f6241fabcfe3420d6b1bd6905a818761f241f3cdd4e04e5784eafaf804ff2",
+          "bytes": 6078
+        },
+        {
+          "path": "ava/search/adaptive.py",
+          "url": "https://raw.githubusercontent.com/llmsresearch/AVA/c277ad827bdc35efef4063617f7c364c2d46359c/ava/search/adaptive.py",
+          "sha256": "c02a46c06a5da868a53dec38cc9f8827dae0a5f0d871f0998595bfb3141ff601",
+          "bytes": 8615
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "SAT",
+      "repository": "https://github.com/byxw13/SAT_Code",
+      "ref": "main",
+      "commit": "88a6c3e864948099afe3097c4fa8c2c33eb60224",
+      "github_root_license_id": null,
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/byxw13/SAT_Code/88a6c3e864948099afe3097c4fa8c2c33eb60224/README.md",
+          "sha256": "1d2d1f2c5ec087d415766e333c81083d16a8f1bdaa4fb390e39d1df7894edaa5",
+          "bytes": 3690
+        },
+        {
+          "path": "run_think_control_V5_qwen3.py",
+          "url": "https://raw.githubusercontent.com/byxw13/SAT_Code/88a6c3e864948099afe3097c4fa8c2c33eb60224/run_think_control_V5_qwen3.py",
+          "sha256": "9e6596c6e498ad45c0e0e7e95ffba63892f873978ebe6c729fdffcb81b095709",
+          "bytes": 55295
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "ThinkPRM",
+      "repository": "https://github.com/mukhal/ThinkPRM",
+      "ref": "main",
+      "commit": "045b1aed5d72301690a8fc08e846c90b757672c8",
+      "github_root_license_id": "MIT",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/mukhal/ThinkPRM/045b1aed5d72301690a8fc08e846c90b757672c8/README.md",
+          "sha256": "25b5594c2886e72fb8bce84200d1098ff79c2994d2e54dbfa92125f1f0fade27",
+          "bytes": 10846
+        },
+        {
+          "path": "search-and-learn/src/sal/search/beam_search.py",
+          "url": "https://raw.githubusercontent.com/mukhal/ThinkPRM/045b1aed5d72301690a8fc08e846c90b757672c8/search-and-learn/src/sal/search/beam_search.py",
+          "sha256": "146b57dff114864b3ff61d25acbfd01c7b67dccb8a87d2ec8ff9424601175581",
+          "bytes": 8658
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "Dyve",
+      "repository": "https://github.com/staymylove/Dyve",
+      "ref": "main",
+      "commit": "d3697a2d2b64e34c4ab460181dc67b03957f036c",
+      "github_root_license_id": null,
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/staymylove/Dyve/d3697a2d2b64e34c4ab460181dc67b03957f036c/README.md",
+          "sha256": "2d273ce1f08aff05a497b8505356bbd359c027cc26a5e396f67c6bd47e065518",
+          "bytes": 1089
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "critic",
+      "repository": "https://github.com/shubhamrgandhi/critic-training",
+      "ref": "master",
+      "commit": "1c4aa0d3c28c522fe9e7541b14b86fe0c4a13e5c",
+      "github_root_license_id": null,
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/shubhamrgandhi/critic-training/1c4aa0d3c28c522fe9e7541b14b86fe0c4a13e5c/README.md",
+          "sha256": "ddc2d45d179b28e9f46c9665a3ab945e706004f42a156294219bed2c23df5820",
+          "bytes": 9533
+        },
+        {
+          "path": "mini-swe-agent/src/minisweagent/agents/default_prm.py",
+          "url": "https://raw.githubusercontent.com/shubhamrgandhi/critic-training/1c4aa0d3c28c522fe9e7541b14b86fe0c4a13e5c/mini-swe-agent/src/minisweagent/agents/default_prm.py",
+          "sha256": "6ac3af82488191dfe1c060eacd9ac7dbd965529202760b2ce557fa3cb9dbe56c",
+          "bytes": 25985
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "GUARD",
+      "repository": "https://github.com/ZHUWEI-hub/GUARD",
+      "ref": "main",
+      "commit": "8d2bc7afcb3d070543604c4cf7830156b30aa486",
+      "github_root_license_id": null,
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/ZHUWEI-hub/GUARD/8d2bc7afcb3d070543604c4cf7830156b30aa486/README.md",
+          "sha256": "9b8be1e3071f1f0a068b6076e720ffcf09ac0df8647e0a565068975bf5fb36be",
+          "bytes": 4559
+        },
+        {
+          "path": "eval/math_eval_guard.py",
+          "url": "https://raw.githubusercontent.com/ZHUWEI-hub/GUARD/8d2bc7afcb3d070543604c4cf7830156b30aa486/eval/math_eval_guard.py",
+          "sha256": "a3829c60bfca00b051bd004300fad0f10f5a6c4ccf207d6bd0a969490d58c149",
+          "bytes": 47775
+        },
+        {
+          "path": "eval/model_utils.py",
+          "url": "https://raw.githubusercontent.com/ZHUWEI-hub/GUARD/8d2bc7afcb3d070543604c4cf7830156b30aa486/eval/model_utils.py",
+          "sha256": "52e09d84a18f89715f19453466266c61d165098536c9018146c48647c32edb37",
+          "bytes": 10934
+        },
+        {
+          "path": "eval/trajectory.py",
+          "url": "https://raw.githubusercontent.com/ZHUWEI-hub/GUARD/8d2bc7afcb3d070543604c4cf7830156b30aa486/eval/trajectory.py",
+          "sha256": "18bb7fd90f29de0ab4718c63ae261387805f99896e90d15cc943706936b16b21",
+          "bytes": 6706
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "GSI",
+      "repository": "https://github.com/j-geuter/GSI",
+      "ref": "main",
+      "commit": "be4d17cda95036d235df7c0c9549e66b735e52a2",
+      "github_root_license_id": "Apache-2.0",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/j-geuter/GSI/be4d17cda95036d235df7c0c9549e66b735e52a2/README.md",
+          "sha256": "2e6cba617587c7eefc90f25c4498e06fbafdc6b4adcf9542cbd5521cf841aa9b",
+          "bytes": 2492
+        },
+        {
+          "path": "inference/speculative.py",
+          "url": "https://raw.githubusercontent.com/j-geuter/GSI/be4d17cda95036d235df7c0c9549e66b735e52a2/inference/speculative.py",
+          "sha256": "187605ded903ee93cf0a29c8ea60f2db7486c3dae437b982e2e4bdf84f7ac783",
+          "bytes": 18611
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "PURE",
+      "repository": "https://github.com/CJReinforce/PURE",
+      "ref": "verl",
+      "commit": "b174e508a4469663543cfcb366be78cf199d20bf",
+      "github_root_license_id": null,
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/CJReinforce/PURE/b174e508a4469663543cfcb366be78cf199d20bf/README.md",
+          "sha256": "f6c3edc397eab5d14dc13ecbaec41002f89dc93fd3d41041c5e8efedd1a50c1b",
+          "bytes": 8358
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "Jev-Mem",
+      "repository": "https://github.com/libingzheren/Jev-Mem",
+      "ref": "main",
+      "commit": "81574eb23f3fd8d1a6c4d54a1e7d6f2dd539e9bb",
+      "github_root_license_id": "MIT",
+      "retrieved_files": [
+        {
+          "path": "memory/jev_client.py",
+          "url": "https://raw.githubusercontent.com/libingzheren/Jev-Mem/81574eb23f3fd8d1a6c4d54a1e7d6f2dd539e9bb/memory/jev_client.py",
+          "sha256": "6e72ec6305ffb70931f5d9d18840001e1eaa1dd74b4f0d26c83bb837652149ea",
+          "bytes": 11958
+        },
+        {
+          "path": "memory/jev_mem_policies.py",
+          "url": "https://raw.githubusercontent.com/libingzheren/Jev-Mem/81574eb23f3fd8d1a6c4d54a1e7d6f2dd539e9bb/memory/jev_mem_policies.py",
+          "sha256": "c1cde01f332448eb733e721e48e265bf134dac7e9eb3e702639c397fe1dfed2b",
+          "bytes": 8950
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "RLCDAlignBench",
+      "repository": "https://github.com/sumleo/RLCDAlignBench",
+      "ref": "main",
+      "commit": "473b72f290234a49484c4d89c03aababcd74f758",
+      "github_root_license_id": "MIT",
+      "retrieved_files": [
+        {
+          "path": "README.md",
+          "url": "https://raw.githubusercontent.com/sumleo/RLCDAlignBench/473b72f290234a49484c4d89c03aababcd74f758/README.md",
+          "sha256": "143a1cb89faae72cd5fda8ef55d8a14c321ed03882bdea60e9c428b036e8f099",
+          "bytes": 9495
+        },
+        {
+          "path": "code/run_jev.py",
+          "url": "https://raw.githubusercontent.com/sumleo/RLCDAlignBench/473b72f290234a49484c4d89c03aababcd74f758/code/run_jev.py",
+          "sha256": "c46257e59c1c643350562ef5072bfdc1be48b64d258151823430c69a860245ba",
+          "bytes": 22757
+        }
+      ],
+      "executed": false
+    },
+    {
+      "name": "rStar",
+      "repository": "https://github.com/microsoft/rStar",
+      "ref": "rStar-math",
+      "commit": "b3c1846185f4af877e1e441a67c4c5fcfed9d442",
+      "github_root_license_id": "MIT",
+      "retrieved_files": [],
+      "executed": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "Calibration Is Not Control: Why LLM-Agent Oversight Needs Intervention",
+      "arxiv": "2606.21399v1",
+      "url": "https://arxiv.org/abs/2606.21399v1",
+      "inspection_depth": "methods_and_appendices",
+      "reproduced": false
+    },
+    {
+      "title": "Same Signal, Opposite Meaning: Direction-Informed Adaptive Learning for LLM Agents",
+      "arxiv": "2605.06908v1",
+      "url": "https://arxiv.org/abs/2605.06908v1",
+      "inspection_depth": "methods_and_selected_appendices",
+      "reproduced": false
+    },
+    {
+      "title": "AERA: Adaptive Evidence Residual Allocation for Efficient Test-Time Reasoning",
+      "arxiv": "2608.27964v1",
+      "url": "https://arxiv.org/abs/2608.27964v1",
+      "inspection_depth": "methods_and_limitations",
+      "reproduced": false
+    },
+    {
+      "title": "CausalFlow: Causal Attribution and Counterfactual Repair for LLM Agent Failures",
+      "arxiv": "2605.25338v1",
+      "url": "https://arxiv.org/abs/2605.25338v1",
+      "inspection_depth": "overview",
+      "reproduced": false
+    },
+    {
+      "title": "CoT2-Meta: Budgeted Metacognitive Control for Test-Time Reasoning",
+      "arxiv": "2603.28135v1",
+      "url": "https://arxiv.org/abs/2603.28135v1",
+      "inspection_depth": "methods_and_selected_appendices",
+      "reproduced": false
+    },
+    {
+      "title": "Dissecting Failure Dynamics in Large Language Model Reasoning",
+      "arxiv": "2604.14528v1",
+      "url": "https://arxiv.org/abs/2604.14528v1",
+      "inspection_depth": "methods",
+      "reproduced": false
+    },
+    {
+      "title": "SAT: Balancing Reasoning Accuracy and Efficiency with Stepwise Adaptive Thinking",
+      "arxiv": "2604.07922v1",
+      "url": "https://arxiv.org/abs/2604.07922v1",
+      "inspection_depth": "methods",
+      "reproduced": false
+    },
+    {
+      "title": "Adaptive Test-Time Compute Allocation for Reasoning LLMs via Constrained Policy Optimization",
+      "arxiv": "2604.14853v1",
+      "url": "https://arxiv.org/abs/2604.14853v1",
+      "inspection_depth": "methods",
+      "reproduced": false
+    },
+    {
+      "title": "Reward-Guided Speculative Decoding for Efficient LLM Reasoning",
+      "arxiv": "2501.19324",
+      "url": "https://arxiv.org/abs/2501.19324",
+      "inspection_depth": "paper_metadata_and_code",
+      "reproduced": false
+    },
+    {
+      "title": "Guided Speculative Inference for Efficient Test-Time Alignment of LLMs",
+      "arxiv": "2506.04118v3",
+      "url": "https://arxiv.org/abs/2506.04118v3",
+      "inspection_depth": "overview_and_code",
+      "reproduced": false
+    },
+    {
+      "title": "Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning",
+      "arxiv": "2410.08146v1",
+      "url": "https://arxiv.org/abs/2410.08146v1",
+      "inspection_depth": "methods",
+      "reproduced": false
+    },
+    {
+      "title": "Process Reward Models That Think",
+      "arxiv": "2504.16828v5",
+      "url": "https://arxiv.org/abs/2504.16828v5",
+      "inspection_depth": "overview_and_code",
+      "reproduced": false
+    },
+    {
+      "title": "Dyve: Thinking Fast and Slow for Dynamic Process Verification",
+      "arxiv": "2502.11157v1",
+      "url": "https://arxiv.org/abs/2502.11157v1",
+      "inspection_depth": "overview_and_readme",
+      "reproduced": false
+    },
+    {
+      "title": "Steer, Don't Solve: Training Small Critic Models for Large Code Agents",
+      "arxiv": "2606.21811v2",
+      "url": "https://arxiv.org/abs/2606.21811v2",
+      "inspection_depth": "overview_readme_and_agent_loop",
+      "reproduced": false
+    },
+    {
+      "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
+      "arxiv": "2609.26550v1",
+      "url": "https://arxiv.org/abs/2609.26550v1",
+      "inspection_depth": "methods_and_selected_appendices",
+      "reproduced": false
+    },
+    {
+      "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+      "arxiv": "2609.29429v1",
+      "url": "https://arxiv.org/abs/2609.29429v1",
+      "inspection_depth": "methods_and_calibration_appendix",
+      "reproduced": false
+    },
+    {
+      "title": "Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents",
+      "arxiv": "2609.23986v1",
+      "url": "https://arxiv.org/abs/2609.23986v1",
+      "inspection_depth": "methods",
+      "reproduced": false
+    },
+    {
+      "title": "Stop Summation: Min-Form Credit Assignment Is All Process Reward Model Needs for Reasoning",
+      "arxiv": "2504.15275v3",
+      "url": "https://arxiv.org/abs/2504.15275v3",
+      "inspection_depth": "methods_and_reward_hacking_analysis",
+      "reproduced": false
+    },
+    {
+      "title": "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation",
+      "arxiv": "2503.11926v1",
+      "url": "https://arxiv.org/abs/2503.11926v1",
+      "inspection_depth": "methods_overview",
+      "reproduced": false
+    },
+    {
+      "title": "Reasoning Is Not Free: Robust Adaptive Cost-Efficient Routing for LLM-as-a-Judge",
+      "arxiv": "2605.10805v1",
+      "url": "https://arxiv.org/abs/2605.10805v1",
+      "inspection_depth": "overview",
+      "reproduced": false
+    },
+    {
+      "title": "LLM-as-Judge on a Budget",
+      "arxiv": "2602.15481",
+      "url": "https://arxiv.org/abs/2602.15481",
+      "inspection_depth": "abstract",
+      "reproduced": false
+    },
+    {
+      "title": "Instance-Optimal Estimation with Multiple LLM Judges on a Budget",
+      "arxiv": "2605.23362",
+      "url": "https://arxiv.org/abs/2605.23362",
+      "inspection_depth": "abstract",
+      "reproduced": false
+    },
+    {
+      "title": "rStar-Math: Small LLMs Can Master Math Reasoning with Self-Evolved Deep Thinking",
+      "arxiv": "2501.04519",
+      "url": "https://arxiv.org/abs/2501.04519",
+      "inspection_depth": "abstract",
+      "reproduced": false
+    },
+    {
+      "title": "Amortizing intractable inference in large language models",
+      "arxiv": "2310.04363",
+      "url": "https://arxiv.org/abs/2310.04363",
+      "inspection_depth": "abstract",
+      "reproduced": false
+    },
+    {
+      "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+      "arxiv": "2506.13131",
+      "url": "https://arxiv.org/abs/2506.13131",
+      "inspection_depth": "abstract",
+      "reproduced": false
+    }
+  ],
+  "availability_caveats": [
+    {
+      "name": "AdaCompute-LLM",
+      "url": "https://github.com/zhiyuanZhai20/AdaCompute-LLM",
+      "status": "404 on GitHub page and repository API",
+      "claim": "Repository URL is advertised in arXiv:2604.14853v1"
+    },
+    {
+      "name": "AVA OpenReview",
+      "url": "https://openreview.net/forum?id=JMDCMf7mlF",
+      "status": "Browser-verification challenge; publication claim in repository README not independently confirmed"
+    },
+    {
+      "name": "GSI",
+      "status": "README states implementation predates current paper version"
+    },
+    {
+      "name": "CoT2-Meta, DIAL, Calibration Is Not Control, AERA",
+      "status": "No official public implementation verified; this is not proof of nonexistence"
+    }
+  ],
+  "other_primary_sources": [
+    {
+      "title": "Mathematical discoveries from program search with large language models",
+      "url": "https://www.nature.com/articles/s41586-023-06924-6",
+      "inspection_depth": "overview"
+    }
+  ]
+}

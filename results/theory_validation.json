@@ -1,0 +1,101 @@
+{
+  "status": "synthetic_validation_only",
+  "seed": 1729,
+  "warning": "No LLM/Jev outcome data; exact constructed values are not empirical predictions. Checks do not establish deployment error bounds or OOD assumptions.",
+  "checks": {
+    "dr_with_misspecified_outcome_model": true,
+    "sequential_nonnegative_advantage": true,
+    "sequential_nonnegative_value_improvement": true,
+    "performance_difference_identity": true,
+    "uniform_error_condition_actually_holds": true,
+    "greedy_regret_bound": true,
+    "free_information_monotonicity": true,
+    "selective_gate_outperforms_both_fixed_choices_in_constructed_example": true,
+    "cost_can_reverse_apparent_improvement": true,
+    "bootstrap_uses_problem_count": true,
+    "adaptive_stopping_can_bias_arm_mean": true,
+    "crossfitting_does_not_imply_independent_contributions": true,
+    "fixed_crossfit_contribution_bootstrap_can_fail": true,
+    "same_sample_oracle_is_optimistic": true
+  },
+  "all_checks_passed": true,
+  "finite_mdp": {
+    "trials": 200,
+    "horizon": 4,
+    "states": 3,
+    "actions": 3,
+    "smallest_value_improvement": 0.0,
+    "largest_value_improvement": 0.20218526463157296,
+    "largest_identity_error": 1.3010426069826053e-16,
+    "total_switched_state_actions": 233
+  },
+  "sensor_example_exact": {
+    "synthetic_only": true,
+    "sensor_accuracy_assumption": 0.9,
+    "query_cost_in_utility_units": 0.03,
+    "cheap_policy_value": 0.725,
+    "always_sensor_value_before_cost": 0.795,
+    "always_sensor_value_after_cost": 0.765,
+    "selective_sensor_value_after_cost": 0.78,
+    "acquisition_advantage_by_stratum": [
+      -0.03,
+      0.1100000000000001
+    ],
+    "optimal_query_gate_by_stratum": [
+      0,
+      1
+    ],
+    "ambiguous_stratum_sensor_value_before_cost": 0.7400000000000001
+  },
+  "dr_exact": {
+    "exact_target": 0.7999999999999999,
+    "dr_expectation": 0.7999999999999999,
+    "absolute_error": 0.0
+  },
+  "greedy_regret": {
+    "trials": 500,
+    "largest_excess_over_bound": 0.0,
+    "largest_observed_regret": 0.3201092335676301
+  },
+  "inference_counterexamples_exact": {
+    "adaptive_replay_stopping": {
+      "true_bernoulli_mean": 0.5,
+      "rule": "Stop after first success; otherwise take exactly one additional draw.",
+      "expected_stopped_sample_mean": 0.625,
+      "bias": 0.125
+    },
+    "crossfit_dependence": {
+      "independent_original_problems": 2,
+      "policy_rule": "Choose the positive-reward action iff the other problem's outcome was one.",
+      "mean_procedure_value": 0.25,
+      "cross_problem_contribution_covariance": 0.1875,
+      "actual_variance_of_mean": 0.1875,
+      "variance_if_incorrectly_independent": 0.09375,
+      "fixed_contribution_percentile_bootstrap_coverage": 0.0,
+      "scope": "Exact small-sample counterexample; no general nominal coverage follows from cross-fitting alone."
+    },
+    "noisy_oracle_selection": {
+      "equal_arm_true_success": 0.5,
+      "expected_maximum_of_two_single_rollout_outcomes": 0.75,
+      "fresh_rollout_value_of_selected_arm": 0.5
+    }
+  },
+  "acquisition_counterexample": {
+    "baseline_value_without_query": 0.5,
+    "post_query_best_action_value": 0.54,
+    "acquisition_cost": 0.1,
+    "query_policy_net_value": 0.44
+  },
+  "bootstrap_diagnostic": {
+    "independent_problems": 4,
+    "mean": 0.25,
+    "percentile_interval": [
+      -0.25,
+      0.75
+    ],
+    "repeats": 2000,
+    "seed": 2718
+  },
+  "hoeffding_radius_n3000_k1_alpha05": 0.044689538474188724,
+  "replays_for_uniform_01_error_M48_A3_delta05": 433
+}

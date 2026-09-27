@@ -1,0 +1,10 @@
+{
+  "kind": "upper_bound_token_scenario_not_measurement",
+  "continuations": 576,
+  "continuation_output_token_ceiling": 516096,
+  "shared_prefix_token_ceiling": 6144,
+  "decode_hours_at_input_throughput": 3.6266666666666665,
+  "unique_checkpoint_jev_queries": 48,
+  "jev_usd_at_input_token_assumption": 0.0024192000000000003,
+  "excludes": "Independent replication subset, test-policy episodes, local judge compute, model loading and any prefill overhead absent from input throughput"
+}

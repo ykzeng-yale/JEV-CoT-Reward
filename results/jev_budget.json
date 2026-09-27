@@ -1,0 +1,12 @@
+{
+  "hard_cap_usd": 25.0,
+  "stage_cap_usd": 0.25,
+  "accounted_usd": 0.000223734,
+  "groups": [
+    {
+      "status": "ok",
+      "attempts": 7,
+      "usd": 0.000223734
+    }
+  ]
+}

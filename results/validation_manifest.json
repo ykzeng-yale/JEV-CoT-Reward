@@ -1,0 +1,43 @@
+{
+  "date_utc": "2026-09-27T19:27:09.510173+00:00",
+  "unit_test_command": ".venv/bin/python -m pytest -q",
+  "unit_tests_passed": 48,
+  "theory_checks_passed": 10,
+  "real_counterfactual_continuations": 48,
+  "distinct_problems": 6,
+  "second_run_reuses_first_four_problems": true,
+  "local_judge_states": 6,
+  "billable_jev_calls": 7,
+  "learned_policy_evaluated": false,
+  "jev_budget": {
+    "hard_cap_usd": 25.0,
+    "stage_cap_usd": 0.25,
+    "accounted_usd": 0.000223734,
+    "groups": [
+      {
+        "status": "ok",
+        "attempts": 7,
+        "usd": 0.000223734
+      }
+    ]
+  },
+  "source_files_sha256": {
+    "src/jev_control/__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+    "src/jev_control/features.py": "e394c1572eb6e2645ef7fda86c99c444abdf92d0ce75ee389d0f07b3dd0fc876",
+    "src/jev_control/jev.py": "c63f373771ac08fec42b820c98c4b835c24a8b4d8bd7fe789c5fed372d9d1515",
+    "src/jev_control/mlx_backend.py": "dc385c453bc43ee1d196d961e8294df7207ef70a2c4d806de09dee2fd52ee7eb",
+    "src/jev_control/tasks.py": "999bc7957cd8e42bffb76d0c58b658184d94c6faad1ce4726677db8a86ec4fcd",
+    "scripts/analyze_screen.py": "021aff8f1d297f954b1c563e4ec50fc506da09bc2de111585f55327b91bc439c",
+    "scripts/collect_resources.py": "b8703966a5d89da005866c62fab218418d5a33531046596e9704bbc86b82833a",
+    "scripts/local_judge.py": "1bc635623c3bbe0201f4e88a0dbb52cb18dfe995c2e8e338d6e3830423c6c1ee",
+    "scripts/resource_estimator.py": "438fb8deb2a7921816af54e4f13104ef9c1d90473e379bf91801ccc5a88c97a6",
+    "scripts/run_screen.py": "ab0591940415515178ac8b701ac64f4e023be35e036ff913ecca160c49e2fb71",
+    "scripts/validate_theory.py": "6f46aebe783b4c118fa5f5260d07efb57d75d65ed16fc90c31ddadc1c00efe13",
+    "tests/test_backend.py": "5efe4a8a8a70bf4dbf30b17da3cb160e35a3ba69c8d43e45962c42346a5aa169",
+    "tests/test_jev.py": "46cdb8dad4235f678eae6a19ae55bed767f84378d6ce2fd4f0e59bfd0f8b1b96",
+    "tests/test_jev_review.py": "ceb6b345ed09948742ef2abc0070471d28ecfd681e96a78124a24715915bb9ff",
+    "tests/test_screen.py": "bf06a48e3b1303afa4d6c048a89399d095ce0f386c7aa75f9cd5a724efe37ee8",
+    "tests/test_tasks.py": "b339e46a58408910a6947419a22472002ad042c3323823775c61c9bda87bd216",
+    "tests/test_theory.py": "b6fc57f9db5ef1f11511b084d7401b40fb2718825f6a4bce31d2dafe3cedb2b6"
+  }
+}

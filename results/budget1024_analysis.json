@@ -1,0 +1,327 @@
+{
+  "analysis_version": 1,
+  "run_directory": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-budget1024-20260927",
+  "run_kind": "phase0_instrumentation",
+  "raw_data_sources": [
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-budget1024-20260927/manifest.json",
+      "sha256": "46027acdf91e1679e9b8d5f1695f7b1fc2b77279ca13dbb653e3ead5dafb1efa"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-budget1024-20260927/checkpoints.jsonl",
+      "sha256": "83d74a78e8072a5134efa9a3555aed51f1244d60b5878221cd2c623ea3d5d511"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-budget1024-20260927/outcomes.jsonl",
+      "sha256": "29fe9751f6fe0f4505182577e449d738b0ba6cd0bde89cbd4c25a2a809d9e10c"
+    },
+    {
+      "path": "/Users/yukangzengcmac/JEV-CoT-Reward/runs/phase0-budget1024-20260927/summary.json",
+      "sha256": "273e6057e97c360a96bb8a97d303169adc3305dcd4d35a78c3dbd0506309a473"
+    }
+  ],
+  "implementation": {
+    "version": "screen-v1-final-reserve-fix",
+    "source_snapshot_note": null,
+    "review_audit": {}
+  },
+  "classification": "descriptive_phase0_or_exploratory_screen_not_confirmatory",
+  "enrollment": {
+    "planned_attempted_problems": 4,
+    "recorded_problems": 4,
+    "not_yet_recorded_problems": 0,
+    "eligible_checkpoints": 4,
+    "skipped_problems": 0,
+    "skip_reasons": {},
+    "complete_all_arm_problems": 4,
+    "incomplete_checkpoints": [],
+    "observed_episodes": 12,
+    "expected_repeats_per_action": 1,
+    "complete_problem_families": {
+      "arithmetic_construction": 2,
+      "weighted_path": 2
+    },
+    "all_arm_enrollment_rule": "Contrasts and learned comparisons use complete scheduled arms only; incomplete cases and all incurred costs remain reported."
+  },
+  "per_problem": [
+    {
+      "problem_id": "arithmetic_construction-20260927-1",
+      "family": "arithmetic_construction",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 1328.0,
+          "deployment_service_seconds": 24.095366957597435
+        },
+        "repair": {
+          "successes": 1,
+          "n": 1,
+          "success_rate": 1.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 1350.0,
+          "deployment_service_seconds": 23.991882500238717
+        },
+        "branch": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 1750.0,
+          "deployment_service_seconds": 24.689044541679323
+        }
+      }
+    },
+    {
+      "problem_id": "arithmetic_construction-20260927-3",
+      "family": "arithmetic_construction",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 1345.0,
+          "deployment_service_seconds": 24.551731834188104
+        },
+        "repair": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 1353.0,
+          "deployment_service_seconds": 23.943784958682954
+        },
+        "branch": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 1783.0,
+          "deployment_service_seconds": 25.98971287533641
+        }
+      }
+    },
+    {
+      "problem_id": "weighted_path-20260927-0",
+      "family": "weighted_path",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 932.0,
+          "deployment_prompt_tokens_processed": 1533.0,
+          "deployment_service_seconds": 21.695954751223326
+        },
+        "repair": {
+          "successes": 1,
+          "n": 1,
+          "success_rate": 1.0,
+          "deployment_generated_tokens": 932.0,
+          "deployment_prompt_tokens_processed": 1481.0,
+          "deployment_service_seconds": 21.897593083791435
+        },
+        "branch": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 1024.0,
+          "deployment_prompt_tokens_processed": 2093.0,
+          "deployment_service_seconds": 24.3305185418576
+        }
+      }
+    },
+    {
+      "problem_id": "weighted_path-20260927-2",
+      "family": "weighted_path",
+      "actions": {
+        "continue": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 934.0,
+          "deployment_prompt_tokens_processed": 1444.0,
+          "deployment_service_seconds": 21.244729002006352
+        },
+        "repair": {
+          "successes": 0,
+          "n": 1,
+          "success_rate": 0.0,
+          "deployment_generated_tokens": 934.0,
+          "deployment_prompt_tokens_processed": 1472.0,
+          "deployment_service_seconds": 21.166594834066927
+        },
+        "branch": {
+          "successes": 1,
+          "n": 1,
+          "success_rate": 1.0,
+          "deployment_generated_tokens": 934.0,
+          "deployment_prompt_tokens_processed": 1890.0,
+          "deployment_service_seconds": 21.939237834885716
+        }
+      }
+    }
+  ],
+  "per_action_problem_weighted_success": {
+    "continue": {
+      "n_problems": 4,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ]
+    },
+    "repair": {
+      "n_problems": 4,
+      "mean": 0.5,
+      "bootstrap_percentile_95": [
+        0.0,
+        1.0
+      ]
+    },
+    "branch": {
+      "n_problems": 4,
+      "mean": 0.25,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.5
+      ]
+    }
+  },
+  "paired_action_differences": {
+    "repair_minus_continue": {
+      "n_problems": 4,
+      "mean": 0.5,
+      "bootstrap_percentile_95": [
+        0.0,
+        1.0
+      ]
+    },
+    "branch_minus_continue": {
+      "n_problems": 4,
+      "mean": 0.25,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.5
+      ]
+    },
+    "branch_minus_repair": {
+      "n_problems": 4,
+      "mean": -0.25,
+      "bootstrap_percentile_95": [
+        -1.0,
+        0.5
+      ]
+    }
+  },
+  "costs": {
+    "collection_prefix_generated_tokens_counted_once": 512.0,
+    "collection_continuation_generated_tokens_all_arms": 10298.0,
+    "collection_prompt_tokens_processed": 17782.0,
+    "collection_model_service_seconds": 256.07458729390055,
+    "discarded_prefix_tail_tokens_already_charged": 99.0,
+    "discarded_branch_tokens_already_charged_known": 256.0,
+    "unknown_discarded_branch_breakdown_episodes": 0,
+    "removed_repair_tokens_already_charged": 65.0,
+    "inserted_instruction_tokens_not_generation": 260.0,
+    "jev_new_calls_in_this_run": 0,
+    "jev_new_call_usd_in_this_run": 0,
+    "jev_new_call_service_seconds": 0,
+    "global_jev_budget_snapshot_if_present": {
+      "hard_cap_usd": 25.0,
+      "stage_cap_usd": 0.25,
+      "accounted_usd": 0.000223734,
+      "groups": [
+        {
+          "status": "ok",
+          "attempts": 7,
+          "usd": 0.000223734
+        }
+      ]
+    },
+    "ledger_issues": [],
+    "note": "Discard categories are subsets of charged work; do not add them again. Service sums exclude loading/orchestration and are not end-to-end wall-clock latency.",
+    "collection_total_generated_tokens": 10810.0,
+    "local_judge_acquisition": {
+      "records": 0,
+      "records_with_measured_generation": 0,
+      "generated_tokens": 0,
+      "prompt_tokens_processed": 0,
+      "model_service_seconds": 0,
+      "note": "Additional diagnostic acquisition; not included in the generator-only token envelope or earlier collection totals."
+    }
+  },
+  "crossfit": {
+    "status": "not_run",
+    "reason": "Requires --learned and at least 24 complete independent problems; six-problem Phase 0 cannot support policy superiority."
+  },
+  "feature_quality": {
+    "semantic_keys": [
+      "hypothesis",
+      "contradiction",
+      "unsupported",
+      "repeated_failure",
+      "localized_error",
+      "testable",
+      "locally_valid"
+    ],
+    "per_checkpoint": [
+      {
+        "problem_id": "arithmetic_construction-20260927-1",
+        "jev_observed_features": 7,
+        "local_observed_features": 0,
+        "retained_entropy_available": true,
+        "retained_logprob_available": true,
+        "discarded_future_tail_tokens": 7.0
+      },
+      {
+        "problem_id": "arithmetic_construction-20260927-3",
+        "jev_observed_features": 7,
+        "local_observed_features": 0,
+        "retained_entropy_available": true,
+        "retained_logprob_available": true,
+        "discarded_future_tail_tokens": 0.0
+      },
+      {
+        "problem_id": "weighted_path-20260927-0",
+        "jev_observed_features": 7,
+        "local_observed_features": 0,
+        "retained_entropy_available": true,
+        "retained_logprob_available": true,
+        "discarded_future_tail_tokens": 5.0
+      },
+      {
+        "problem_id": "weighted_path-20260927-2",
+        "jev_observed_features": 7,
+        "local_observed_features": 0,
+        "retained_entropy_available": true,
+        "retained_logprob_available": true,
+        "discarded_future_tail_tokens": 87.0
+      }
+    ],
+    "jev_complete_checkpoints": 4,
+    "local_complete_checkpoints": 0,
+    "retained_entropy_available_checkpoints": 4,
+    "local_records_outside_this_run": [],
+    "restriction": "Whole-generation entropy/logprob are excluded whenever the checkpoint discarded future tokens; explicit retained-only statistics must match the retained token count. Feature presence is not evidence of predictive value."
+  },
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 20260927,
+    "unit": "original problem",
+    "strata": "task family",
+    "interval": "pointwise percentile 95%; descriptive, no multiplicity adjustment",
+    "singleton_strata": []
+  },
+  "interpretation": [
+    "Phase 0 (especially n=6) checks instrumentation and headroom; it is inadequate for superiority or generalization claims.",
+    "Repeated continuations are clustered within problems and are not independent problem samples.",
+    "Results condition on observed eligible checkpoints; early-completed and boundary-ineligible problems are not silently treated as intervention failures.",
+    "All-arm data collection is not evidence that a Jev-guided sequential policy improves task outcomes.",
+    "Stratified bootstrap conditions on the observed family mix and cannot establish held-out-family generalization."
+  ],
+  "analysis_source_sha256": "021aff8f1d297f954b1c563e4ec50fc506da09bc2de111585f55327b91bc439c"
+}
