@@ -1,0 +1,1474 @@
+[
+  {
+    "id": "weighted_path-891027-0",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:5, B->C:3, B->H:1, C->D:9, C->F:1, D->E:5, E->F:5, F->G:8, G->H:8. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 8,
+      "edges": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          7,
+          1
+        ],
+        [
+          2,
+          3,
+          9
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          5
+        ],
+        [
+          5,
+          6,
+          8
+        ],
+        [
+          6,
+          7,
+          8
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-1",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [5, 5, 12, 11, 7, 3]. Build an arithmetic expression equal to 219. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        5,
+        5,
+        12,
+        11,
+        7,
+        3
+      ],
+      "target": 219
+    }
+  },
+  {
+    "id": "weighted_path-891027-2",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:5, A->C:7, A->G:7, A->I:15, B->C:9, B->E:14, B->H:9, B->J:4, C->D:7, C->F:11, C->G:13, C->H:6, D->E:8, D->G:7, D->H:12, D->I:9, D->J:11, E->F:2, E->G:15, E->J:1, F->G:4, F->J:2, G->H:6, G->I:9, G->J:12, H->I:2, I->J:5. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 10,
+      "edges": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          2,
+          7
+        ],
+        [
+          0,
+          6,
+          7
+        ],
+        [
+          0,
+          8,
+          15
+        ],
+        [
+          1,
+          2,
+          9
+        ],
+        [
+          1,
+          4,
+          14
+        ],
+        [
+          1,
+          7,
+          9
+        ],
+        [
+          1,
+          9,
+          4
+        ],
+        [
+          2,
+          3,
+          7
+        ],
+        [
+          2,
+          5,
+          11
+        ],
+        [
+          2,
+          6,
+          13
+        ],
+        [
+          2,
+          7,
+          6
+        ],
+        [
+          3,
+          4,
+          8
+        ],
+        [
+          3,
+          6,
+          7
+        ],
+        [
+          3,
+          7,
+          12
+        ],
+        [
+          3,
+          8,
+          9
+        ],
+        [
+          3,
+          9,
+          11
+        ],
+        [
+          4,
+          5,
+          2
+        ],
+        [
+          4,
+          6,
+          15
+        ],
+        [
+          4,
+          9,
+          1
+        ],
+        [
+          5,
+          6,
+          4
+        ],
+        [
+          5,
+          9,
+          2
+        ],
+        [
+          6,
+          7,
+          6
+        ],
+        [
+          6,
+          8,
+          9
+        ],
+        [
+          6,
+          9,
+          12
+        ],
+        [
+          7,
+          8,
+          2
+        ],
+        [
+          8,
+          9,
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-3",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [7, 11, 12, 12, 5, 11]. Build an arithmetic expression equal to 248. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        7,
+        11,
+        12,
+        12,
+        5,
+        11
+      ],
+      "target": 248
+    }
+  },
+  {
+    "id": "weighted_path-891027-4",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:7, A->H:12, B->C:4, B->D:2, C->D:3, C->G:7, C->I:1, D->E:6, D->H:14, E->F:8, E->G:13, E->H:10, E->I:11, F->G:8, F->I:8, G->H:8, H->I:4. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 9,
+      "edges": [
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          0,
+          7,
+          12
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          6,
+          7
+        ],
+        [
+          2,
+          8,
+          1
+        ],
+        [
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          7,
+          14
+        ],
+        [
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          6,
+          13
+        ],
+        [
+          4,
+          7,
+          10
+        ],
+        [
+          4,
+          8,
+          11
+        ],
+        [
+          5,
+          6,
+          8
+        ],
+        [
+          5,
+          8,
+          8
+        ],
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          7,
+          8,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-5",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [7, 9, 7, 5, 5, 10]. Build an arithmetic expression equal to 163. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        7,
+        9,
+        7,
+        5,
+        5,
+        10
+      ],
+      "target": 163
+    }
+  },
+  {
+    "id": "weighted_path-891027-6",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:2, A->C:7, A->F:2, A->G:6, B->C:2, B->H:7, C->D:8, D->E:7, D->F:7, E->F:6, E->G:9, F->G:7, F->H:2, G->H:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 8,
+      "edges": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          7
+        ],
+        [
+          0,
+          5,
+          2
+        ],
+        [
+          0,
+          6,
+          6
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          7,
+          7
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          5,
+          7
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          6,
+          9
+        ],
+        [
+          5,
+          6,
+          7
+        ],
+        [
+          5,
+          7,
+          2
+        ],
+        [
+          6,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-7",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [10, 11, 6, 7, 11, 3]. Build an arithmetic expression equal to 138. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        10,
+        11,
+        6,
+        7,
+        11,
+        3
+      ],
+      "target": 138
+    }
+  },
+  {
+    "id": "weighted_path-891027-8",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:5, A->C:13, A->D:15, A->F:7, A->G:5, A->J:4, B->C:5, B->D:1, B->E:15, B->H:3, C->D:4, C->F:10, C->I:4, D->E:5, E->F:8, E->H:1, E->I:10, F->G:5, G->H:7, G->J:11, H->I:5, I->J:9. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 10,
+      "edges": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          2,
+          13
+        ],
+        [
+          0,
+          3,
+          15
+        ],
+        [
+          0,
+          5,
+          7
+        ],
+        [
+          0,
+          6,
+          5
+        ],
+        [
+          0,
+          9,
+          4
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          15
+        ],
+        [
+          1,
+          7,
+          3
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          2,
+          5,
+          10
+        ],
+        [
+          2,
+          8,
+          4
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          4,
+          5,
+          8
+        ],
+        [
+          4,
+          7,
+          1
+        ],
+        [
+          4,
+          8,
+          10
+        ],
+        [
+          5,
+          6,
+          5
+        ],
+        [
+          6,
+          7,
+          7
+        ],
+        [
+          6,
+          9,
+          11
+        ],
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          8,
+          9,
+          9
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-9",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [3, 9, 6, 6, 6, 6]. Build an arithmetic expression equal to 93. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        3,
+        9,
+        6,
+        6,
+        6,
+        6
+      ],
+      "target": 93
+    }
+  },
+  {
+    "id": "weighted_path-891027-10",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:9, A->E:15, A->G:13, B->C:5, B->D:9, B->G:4, B->I:5, C->D:8, C->F:15, C->G:1, C->I:14, D->E:3, D->H:15, E->F:2, E->G:13, F->G:8, G->H:7, H->I:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 9,
+      "edges": [
+        [
+          0,
+          1,
+          9
+        ],
+        [
+          0,
+          4,
+          15
+        ],
+        [
+          0,
+          6,
+          13
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          3,
+          9
+        ],
+        [
+          1,
+          6,
+          4
+        ],
+        [
+          1,
+          8,
+          5
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          5,
+          15
+        ],
+        [
+          2,
+          6,
+          1
+        ],
+        [
+          2,
+          8,
+          14
+        ],
+        [
+          3,
+          4,
+          3
+        ],
+        [
+          3,
+          7,
+          15
+        ],
+        [
+          4,
+          5,
+          2
+        ],
+        [
+          4,
+          6,
+          13
+        ],
+        [
+          5,
+          6,
+          8
+        ],
+        [
+          6,
+          7,
+          7
+        ],
+        [
+          7,
+          8,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-11",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [2, 3, 4, 8, 5, 1]. Build an arithmetic expression equal to 62. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        2,
+        3,
+        4,
+        8,
+        5,
+        1
+      ],
+      "target": 62
+    }
+  },
+  {
+    "id": "weighted_path-891027-12",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:3, A->F:15, A->G:9, A->H:12, B->C:6, B->D:8, B->E:5, B->G:10, C->D:5, C->E:2, C->H:15, D->E:9, D->G:11, E->F:2, F->G:2, G->H:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 8,
+      "edges": [
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          5,
+          15
+        ],
+        [
+          0,
+          6,
+          9
+        ],
+        [
+          0,
+          7,
+          12
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          1,
+          3,
+          8
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          1,
+          6,
+          10
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          2,
+          7,
+          15
+        ],
+        [
+          3,
+          4,
+          9
+        ],
+        [
+          3,
+          6,
+          11
+        ],
+        [
+          4,
+          5,
+          2
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          6,
+          7,
+          7
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-13",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [11, 12, 11, 9, 4, 7]. Build an arithmetic expression equal to 236. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        11,
+        12,
+        11,
+        9,
+        4,
+        7
+      ],
+      "target": 236
+    }
+  },
+  {
+    "id": "weighted_path-891027-14",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:5, A->G:1, A->I:5, B->C:8, B->F:4, B->G:1, B->I:2, C->D:3, C->E:8, C->H:11, C->J:13, D->E:6, D->F:2, D->G:15, D->H:11, E->F:6, E->H:9, E->I:9, F->G:2, F->J:1, G->H:7, H->I:6, H->J:4, I->J:4. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 10,
+      "edges": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          6,
+          1
+        ],
+        [
+          0,
+          8,
+          5
+        ],
+        [
+          1,
+          2,
+          8
+        ],
+        [
+          1,
+          5,
+          4
+        ],
+        [
+          1,
+          6,
+          1
+        ],
+        [
+          1,
+          8,
+          2
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          4,
+          8
+        ],
+        [
+          2,
+          7,
+          11
+        ],
+        [
+          2,
+          9,
+          13
+        ],
+        [
+          3,
+          4,
+          6
+        ],
+        [
+          3,
+          5,
+          2
+        ],
+        [
+          3,
+          6,
+          15
+        ],
+        [
+          3,
+          7,
+          11
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          7,
+          9
+        ],
+        [
+          4,
+          8,
+          9
+        ],
+        [
+          5,
+          6,
+          2
+        ],
+        [
+          5,
+          9,
+          1
+        ],
+        [
+          6,
+          7,
+          7
+        ],
+        [
+          7,
+          8,
+          6
+        ],
+        [
+          7,
+          9,
+          4
+        ],
+        [
+          8,
+          9,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-15",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [11, 3, 5, 4, 10, 10]. Build an arithmetic expression equal to 95. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        11,
+        3,
+        5,
+        4,
+        10,
+        10
+      ],
+      "target": 95
+    }
+  },
+  {
+    "id": "weighted_path-891027-16",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:9, A->E:3, A->G:13, B->C:9, B->H:6, B->I:1, C->D:5, C->E:6, C->G:3, D->E:5, D->F:8, D->H:3, E->F:6, E->G:11, E->I:5, F->G:3, F->H:3, G->H:9, G->I:12, H->I:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 9,
+      "edges": [
+        [
+          0,
+          1,
+          9
+        ],
+        [
+          0,
+          4,
+          3
+        ],
+        [
+          0,
+          6,
+          13
+        ],
+        [
+          1,
+          2,
+          9
+        ],
+        [
+          1,
+          7,
+          6
+        ],
+        [
+          1,
+          8,
+          1
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          6,
+          3
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          3,
+          5,
+          8
+        ],
+        [
+          3,
+          7,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          6,
+          11
+        ],
+        [
+          4,
+          8,
+          5
+        ],
+        [
+          5,
+          6,
+          3
+        ],
+        [
+          5,
+          7,
+          3
+        ],
+        [
+          6,
+          7,
+          9
+        ],
+        [
+          6,
+          8,
+          12
+        ],
+        [
+          7,
+          8,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-17",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [8, 2, 2, 3, 5, 10]. Build an arithmetic expression equal to 97. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        8,
+        2,
+        2,
+        3,
+        5,
+        10
+      ],
+      "target": 97
+    }
+  },
+  {
+    "id": "weighted_path-891027-18",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:7, A->C:1, A->E:13, A->F:4, A->G:8, A->H:10, B->C:2, B->G:10, C->D:3, C->F:14, D->E:7, D->H:2, E->F:9, E->H:11, F->G:6, F->H:13, G->H:3. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 8,
+      "edges": [
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          0,
+          2,
+          1
+        ],
+        [
+          0,
+          4,
+          13
+        ],
+        [
+          0,
+          5,
+          4
+        ],
+        [
+          0,
+          6,
+          8
+        ],
+        [
+          0,
+          7,
+          10
+        ],
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          6,
+          10
+        ],
+        [
+          2,
+          3,
+          3
+        ],
+        [
+          2,
+          5,
+          14
+        ],
+        [
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          7,
+          2
+        ],
+        [
+          4,
+          5,
+          9
+        ],
+        [
+          4,
+          7,
+          11
+        ],
+        [
+          5,
+          6,
+          6
+        ],
+        [
+          5,
+          7,
+          13
+        ],
+        [
+          6,
+          7,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-19",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [9, 11, 11, 12, 2, 2]. Build an arithmetic expression equal to 251. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        9,
+        11,
+        11,
+        12,
+        2,
+        2
+      ],
+      "target": 251
+    }
+  },
+  {
+    "id": "weighted_path-891027-20",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:5, A->C:2, A->G:1, A->H:7, A->I:2, A->J:5, B->C:4, B->D:1, B->E:2, B->F:9, B->I:14, C->D:8, C->E:2, C->H:14, C->I:4, D->E:7, D->H:1, D->J:7, E->F:4, E->H:10, E->I:1, F->G:5, F->I:10, G->H:8, G->I:5, H->I:5, H->J:13, I->J:6. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 10,
+      "edges": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          2,
+          2
+        ],
+        [
+          0,
+          6,
+          1
+        ],
+        [
+          0,
+          7,
+          7
+        ],
+        [
+          0,
+          8,
+          2
+        ],
+        [
+          0,
+          9,
+          5
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          4,
+          2
+        ],
+        [
+          1,
+          5,
+          9
+        ],
+        [
+          1,
+          8,
+          14
+        ],
+        [
+          2,
+          3,
+          8
+        ],
+        [
+          2,
+          4,
+          2
+        ],
+        [
+          2,
+          7,
+          14
+        ],
+        [
+          2,
+          8,
+          4
+        ],
+        [
+          3,
+          4,
+          7
+        ],
+        [
+          3,
+          7,
+          1
+        ],
+        [
+          3,
+          9,
+          7
+        ],
+        [
+          4,
+          5,
+          4
+        ],
+        [
+          4,
+          7,
+          10
+        ],
+        [
+          4,
+          8,
+          1
+        ],
+        [
+          5,
+          6,
+          5
+        ],
+        [
+          5,
+          8,
+          10
+        ],
+        [
+          6,
+          7,
+          8
+        ],
+        [
+          6,
+          8,
+          5
+        ],
+        [
+          7,
+          8,
+          5
+        ],
+        [
+          7,
+          9,
+          13
+        ],
+        [
+          8,
+          9,
+          6
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-21",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [11, 4, 7, 11, 10, 11]. Build an arithmetic expression equal to 155. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        11,
+        4,
+        7,
+        11,
+        10,
+        11
+      ],
+      "target": 155
+    }
+  },
+  {
+    "id": "weighted_path-891027-22",
+    "family": "weighted_path",
+    "prompt": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:5, A->F:14, A->I:3, B->C:6, B->D:6, B->E:11, B->F:2, B->H:14, C->D:2, C->F:1, C->H:5, D->E:2, D->G:14, D->I:3, E->F:6, E->G:12, F->G:6, F->I:14, G->H:4, H->I:4. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "n": 9,
+      "edges": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          5,
+          14
+        ],
+        [
+          0,
+          8,
+          3
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          1,
+          3,
+          6
+        ],
+        [
+          1,
+          4,
+          11
+        ],
+        [
+          1,
+          5,
+          2
+        ],
+        [
+          1,
+          7,
+          14
+        ],
+        [
+          2,
+          3,
+          2
+        ],
+        [
+          2,
+          5,
+          1
+        ],
+        [
+          2,
+          7,
+          5
+        ],
+        [
+          3,
+          4,
+          2
+        ],
+        [
+          3,
+          6,
+          14
+        ],
+        [
+          3,
+          8,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          4,
+          6,
+          12
+        ],
+        [
+          5,
+          6,
+          6
+        ],
+        [
+          5,
+          8,
+          14
+        ],
+        [
+          6,
+          7,
+          4
+        ],
+        [
+          7,
+          8,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "id": "arithmetic_construction-891027-23",
+    "family": "arithmetic_construction",
+    "prompt": "Use each of these six numbers exactly once: [10, 10, 1, 11, 7, 12]. Build an arithmetic expression equal to 301. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+    "data": {
+      "numbers": [
+        10,
+        10,
+        1,
+        11,
+        7,
+        12
+      ],
+      "target": 301
+    }
+  }
+]

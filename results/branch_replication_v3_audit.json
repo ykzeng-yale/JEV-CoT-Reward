@@ -1,0 +1,30 @@
+{
+  "status": "passed_branch_qualification_audit",
+  "ready_for_analysis": true,
+  "problems": 24,
+  "eligible_problems": 24,
+  "outcomes": 384,
+  "candidates": 72,
+  "durable_calls": 677,
+  "outcome_disagreements": 0,
+  "input_sha256": {
+    "summary.json": "3f584cd59232ae080d8d7faf1a591e0d16b80ffca7de91aecf7997a54ef12aa9",
+    "jev_judge.jsonl": "bc1cecbbe134b05dc5c69aef26cd5f8c76f671fcbc5fdbcfe554c9eb073bbade",
+    "local_judge.jsonl": "347754c68b48ef36835ba01899ec2da1a3d8407482f812be9f94d797b49289d2",
+    "generation_started.jsonl": "843f79d6ab21016d68f60a71cd5b9bd89963621798aa09b6023622bef0eb4066",
+    "decisions.jsonl": "adda5a0716f43b4612df8245b4afd504c7fba77e2714bab62cd420777ccf2bc5",
+    "skipped.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "outcomes.jsonl": "ea64eb88d6772b2cb53256c3940340070bc03e1e55d85039c1b8016b26af766e",
+    "checkpoints.jsonl": "b9358532b840dfa3c6d35da224ddae80c0a73670ddcc368149250499ec07ab67",
+    "manifest.json": "0e0dec5b202110e1dfb096569635ae871048f0a1cfdd309531a799d323325527",
+    "schedule.json": "cddec8ffb30fd30512d33c2a4861d6630da3bd8498ce330ce22c9927d6cf44c6",
+    "candidates.jsonl": "31e05771168cc7a41bfe386dbd53249f6f9206efb5c6407871eed892af2f9e71",
+    "generation_events.jsonl": "6cba79597ae072d53fe53678e238a55abc07b8140c4ae9093e0ba6a324a6b91c"
+  },
+  "audit_source_sha256": "f466acf9cb33776077b11ece10e28d5e8c3a51d580fa7afbf105603dc42650ce",
+  "limitations": [
+    "Recorded-contract audit, not fresh inference replay or weight rehash.",
+    "Acquisition costs apply only to local_semantic; generator allowance is not total compute matching.",
+    "Entropy selector is a published-method component adaptation, not full GUARD."
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "status": "audited_development_branch_qualification",
+  "enrolled_problems": 24,
+  "eligible_problems": 24,
+  "unique_outcomes": 384,
+  "hypothetical_policy_episodes": 576,
+  "policies": {
+    "continue": {
+      "successes": 48,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 24,
+        "mean": 0.5,
+        "bootstrap_percentile_95": [
+          0.40625,
+          0.59375
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.1875,
+        "weighted_path": 0.8125
+      },
+      "mean_episode_generator_tokens": 1514.375,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 1336.4375,
+      "mean_total_model_service_seconds": 36.73677590628116,
+      "mean_jev_accounted_usd": 0.0,
+      "mean_jev_acquisition_seconds": 0.0,
+      "mean_jev_input_tokens_among_known": 0.0,
+      "jev_usage_missing_episodes": 0,
+      "mean_serial_service_plus_jev_seconds": 36.73677590628116
+    },
+    "uniform": {
+      "successes": 44,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.3645833333333333,
+          0.5520833333333334
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.14583333333333334,
+        "weighted_path": 0.7708333333333334
+      },
+      "mean_episode_generator_tokens": 1717.8020833333333,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 2963.03125,
+      "mean_total_model_service_seconds": 42.48154014329581,
+      "mean_jev_accounted_usd": 0.0,
+      "mean_jev_acquisition_seconds": 0.0,
+      "mean_jev_input_tokens_among_known": 0.0,
+      "jev_usage_missing_episodes": 0,
+      "mean_serial_service_plus_jev_seconds": 42.48154014329581
+    },
+    "likelihood": {
+      "successes": 43,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 24,
+        "mean": 0.4479166666666667,
+        "bootstrap_percentile_95": [
+          0.35390625000000026,
+          0.5416666666666666
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.125,
+        "weighted_path": 0.7708333333333334
+      },
+      "mean_episode_generator_tokens": 1686.6770833333333,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 2963.5208333333335,
+      "mean_total_model_service_seconds": 42.233100504459195,
+      "mean_jev_accounted_usd": 0.0,
+      "mean_jev_acquisition_seconds": 0.0,
+      "mean_jev_input_tokens_among_known": 0.0,
+      "jev_usage_missing_episodes": 0,
+      "mean_serial_service_plus_jev_seconds": 42.233100504459195
+    },
+    "entropy_reduction": {
+      "successes": 44,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 24,
+        "mean": 0.4583333333333333,
+        "bootstrap_percentile_95": [
+          0.3645833333333333,
+          0.5520833333333334
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.125,
+        "weighted_path": 0.7916666666666666
+      },
+      "mean_episode_generator_tokens": 1722.53125,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 3060.6979166666665,
+      "mean_total_model_service_seconds": 42.5536995192136,
+      "mean_jev_accounted_usd": 0.0,
+      "mean_jev_acquisition_seconds": 0.0,
+      "mean_jev_input_tokens_among_known": 0.0,
+      "jev_usage_missing_episodes": 0,
+      "mean_serial_service_plus_jev_seconds": 42.5536995192136
+    },
+    "local_semantic": {
+      "successes": 42,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 24,
+        "mean": 0.4375,
+        "bootstrap_percentile_95": [
+          0.34375,
+          0.53125
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.08333333333333333,
+        "weighted_path": 0.7916666666666666
+      },
+      "mean_episode_generator_tokens": 1687.2395833333333,
+      "mean_selector_generated_tokens": 7.0,
+      "mean_total_processed_prompt_tokens": 3910.53125,
+      "mean_total_model_service_seconds": 42.300314053485636,
+      "mean_jev_accounted_usd": 0.0,
+      "mean_jev_acquisition_seconds": 0.0,
+      "mean_jev_input_tokens_among_known": 0.0,
+      "jev_usage_missing_episodes": 0,
+      "mean_serial_service_plus_jev_seconds": 42.300314053485636
+    },
+    "jev_semantic": {
+      "successes": 42,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 24,
+        "mean": 0.4375,
+        "bootstrap_percentile_95": [
+          0.34375,
+          0.53125
+        ]
+      },
+      "family_success": {
+        "arithmetic_construction": 0.08333333333333333,
+        "weighted_path": 0.7916666666666666
+      },
+      "mean_episode_generator_tokens": 1703.3854166666667,
+      "mean_selector_generated_tokens": 0.0,
+      "mean_total_processed_prompt_tokens": 2943.96875,
+      "mean_total_model_service_seconds": 42.46046442942073,
+      "mean_jev_accounted_usd": 5.7176e-05,
+      "mean_jev_acquisition_seconds": 0.26813935084889334,
+      "mean_jev_input_tokens_among_known": 1361.3333333333333,
+      "jev_usage_missing_episodes": 0,
+      "mean_serial_service_plus_jev_seconds": 42.72860378026962
+    }
+  },
+  "paired_contrasts": {
+    "uniform_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.125,
+        0.03125
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "likelihood_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.13541666666666666,
+        0.03125
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "entropy_reduction_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.041666666666666664,
+      "bootstrap_percentile_95": [
+        -0.13541666666666666,
+        0.041666666666666664
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "local_semantic_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.0625,
+      "bootstrap_percentile_95": [
+        -0.14583333333333334,
+        0.020833333333333332
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "jev_semantic_minus_continue": {
+      "n_problems": 24,
+      "mean": -0.0625,
+      "bootstrap_percentile_95": [
+        -0.14583333333333334,
+        0.020833333333333332
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "likelihood_minus_uniform": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.03125,
+        0.0
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "entropy_reduction_minus_uniform": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.041666666666666664,
+        0.041666666666666664
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "local_semantic_minus_uniform": {
+      "n_problems": 24,
+      "mean": -0.020833333333333332,
+      "bootstrap_percentile_95": [
+        -0.0625,
+        0.020833333333333332
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "jev_semantic_minus_uniform": {
+      "n_problems": 24,
+      "mean": -0.020833333333333332,
+      "bootstrap_percentile_95": [
+        -0.0625,
+        0.020833333333333332
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "jev_semantic_minus_likelihood": {
+      "n_problems": 24,
+      "mean": -0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.052083333333333336,
+        0.03125
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    },
+    "jev_semantic_minus_local_semantic": {
+      "n_problems": 24,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "warning": "Exploratory development comparison; no nominal coverage or post-selection efficacy claim."
+    }
+  },
+  "agreement_with_uniform_by_problem": {
+    "uniform": 24,
+    "likelihood": 12,
+    "entropy_reduction": 8,
+    "local_semantic": 8,
+    "jev_semantic": 7
+  },
+  "jev_failure_count": 0,
+  "local_failure_count": 0,
+  "candidate_unique_text_counts": {
+    "weighted_path-891027-0": 3,
+    "arithmetic_construction-891027-1": 3,
+    "weighted_path-891027-2": 3,
+    "arithmetic_construction-891027-3": 3,
+    "weighted_path-891027-4": 3,
+    "arithmetic_construction-891027-5": 3,
+    "weighted_path-891027-6": 3,
+    "arithmetic_construction-891027-7": 3,
+    "weighted_path-891027-8": 3,
+    "arithmetic_construction-891027-9": 3,
+    "weighted_path-891027-10": 3,
+    "arithmetic_construction-891027-11": 3,
+    "weighted_path-891027-12": 3,
+    "arithmetic_construction-891027-13": 3,
+    "weighted_path-891027-14": 3,
+    "arithmetic_construction-891027-15": 3,
+    "weighted_path-891027-16": 3,
+    "arithmetic_construction-891027-17": 3,
+    "weighted_path-891027-18": 3,
+    "arithmetic_construction-891027-19": 3,
+    "weighted_path-891027-20": 3,
+    "arithmetic_construction-891027-21": 3,
+    "weighted_path-891027-22": 3,
+    "arithmetic_construction-891027-23": 3
+  },
+  "split_repeat_diagnostic": [
+    {
+      "selection_repeats": [
+        0,
+        1
+      ],
+      "evaluation_repeats": [
+        2,
+        3
+      ],
+      "selected_candidate_success": 0.4375,
+      "uniform_success": 0.4791666666666667,
+      "interpretation": "Noisy outcome-informed candidate selection; overlapping splits, not deployable and not an oracle bound."
+    },
+    {
+      "selection_repeats": [
+        2,
+        3
+      ],
+      "evaluation_repeats": [
+        0,
+        1
+      ],
+      "selected_candidate_success": 0.4375,
+      "uniform_success": 0.4375,
+      "interpretation": "Noisy outcome-informed candidate selection; overlapping splits, not deployable and not an oracle bound."
+    }
+  ],
+  "expected_uniform_secondary": {
+    "status": "secondary_added_before_v3_completion_without_partial_outcome_inspection",
+    "problem_weighted_success": {
+      "n_problems": 24,
+      "mean": 0.4583333333333333,
+      "bootstrap_percentile_95": [
+        0.375,
+        0.5451388888888888
+      ]
+    },
+    "contrasts": {
+      "continue_minus_expected_uniform": {
+        "n_problems": 24,
+        "mean": 0.041666666666666664,
+        "bootstrap_percentile_95": [
+          -0.03472222222222222,
+          0.12152777777777779
+        ]
+      },
+      "uniform_minus_expected_uniform": {
+        "n_problems": 24,
+        "mean": 2.3129646346357427e-18,
+        "bootstrap_percentile_95": [
+          -0.03472222222222222,
+          0.03819444444444445
+        ]
+      },
+      "likelihood_minus_expected_uniform": {
+        "n_problems": 24,
+        "mean": -0.010416666666666663,
+        "bootstrap_percentile_95": [
+          -0.041666666666666664,
+          0.027777777777777776
+        ]
+      },
+      "entropy_reduction_minus_expected_uniform": {
+        "n_problems": 24,
+        "mean": 2.3129646346357427e-18,
+        "bootstrap_percentile_95": [
+          -0.034722222222222224,
+          0.03819444444444445
+        ]
+      },
+      "local_semantic_minus_expected_uniform": {
+        "n_problems": 24,
+        "mean": -0.020833333333333332,
+        "bootstrap_percentile_95": [
+          -0.048611111111111105,
+          0.006944444444444441
+        ]
+      },
+      "jev_semantic_minus_expected_uniform": {
+        "n_problems": 24,
+        "mean": -0.020833333333333332,
+        "bootstrap_percentile_95": [
+          -0.048611111111111105,
+          0.006944444444444441
+        ]
+      }
+    },
+    "meaning": "Expected uniform choice over the same charged pool; not a best-candidate oracle. Frozen sampled-uniform results remain primary.",
+    "mean_episode_generator_tokens": 1705.3020833333333
+  },
+  "collection_generated_tokens": 438399,
+  "collection_service_seconds": 10702.010929665528,
+  "audit_sha256": "5856531a7eccd5434c7bff0e2724f0b0e656ec9397860e984757e20510820902",
+  "analysis_sha256": "b6e1bab8fb7ab7f6c691019f75ecd24804d78101e201a2d59ee9e54679101a95",
+  "limitations": [
+    "Shared candidate pool and continuations couple policies; independent unit is original problem.",
+    "Generator caps do not match total compute; local judge acquisition is separately charged.",
+    "Shadow continuations for unselected candidates are collection cost, not free deployed evidence.",
+    "The complete GUARD trigger, prompts and scheduling are not reproduced.",
+    "Direct selector development study; no confirmatory Jev efficacy, transfer, sequential control or training tested.",
+    "A degenerate empirical bootstrap does not establish equivalence."
+  ]
+}
