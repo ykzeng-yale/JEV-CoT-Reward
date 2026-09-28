@@ -35,3 +35,15 @@ def test_stale_outcomes_rejected(tmp_path):
     a=fixture(tmp_path)
     with (tmp_path/'outcomes.jsonl').open('a') as f:f.write('\n')
     with pytest.raises(ValueError,match='Stale audit'):analyze(tmp_path,a)
+
+
+def test_timeout_sensitivity_allows_unknown_completion(tmp_path):
+    a=fixture(tmp_path)
+    path=tmp_path/'generation_events.jsonl'
+    rows=[json.loads(x) for x in path.read_text().splitlines()]
+    rows[1]['generation']['finish_reason']='timeout'
+    path.write_text(''.join(json.dumps(r)+'\n' for r in rows))
+    audit=json.loads(a.read_text());audit['input_sha256'][path.name]=hashlib.sha256(path.read_bytes()).hexdigest();a.write_text(json.dumps(audit))
+    r=analyze(tmp_path,a)
+    assert r['policies']['continue']['episodes_with_timeout']==1
+    assert r['paired_contrasts']['segmented_sham_minus_continue']['timeout_completion_sensitivity']==[0.,1.]
