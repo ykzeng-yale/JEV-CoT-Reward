@@ -1,0 +1,109 @@
+{
+  "status": "audited_development_only",
+  "scheduled_problems": 4,
+  "eligible_problems": 4,
+  "skipped_problems": 0,
+  "policies": {
+    "continue": {
+      "success": {
+        "n_problems": 4,
+        "mean": 0.75,
+        "bootstrap_percentile_95": [
+          0.5,
+          1.0
+        ]
+      },
+      "successes": 3,
+      "episodes": 4,
+      "episode_generated_tokens": 5768,
+      "processed_prompt_tokens": 4533,
+      "service_seconds": 134.83783629070967,
+      "timeout_calls": 0,
+      "triggers": 0,
+      "eligible_boundaries": 0
+    },
+    "segmented_sham": {
+      "success": {
+        "n_problems": 4,
+        "mean": 0.75,
+        "bootstrap_percentile_95": [
+          0.5,
+          1.0
+        ]
+      },
+      "successes": 3,
+      "episodes": 4,
+      "episode_generated_tokens": 5200,
+      "processed_prompt_tokens": 64941,
+      "service_seconds": 164.5742315389216,
+      "timeout_calls": 0,
+      "triggers": 0,
+      "eligible_boundaries": 23
+    },
+    "guard_adaptation": {
+      "success": {
+        "n_problems": 4,
+        "mean": 0.75,
+        "bootstrap_percentile_95": [
+          0.5,
+          1.0
+        ]
+      },
+      "successes": 3,
+      "episodes": 4,
+      "episode_generated_tokens": 6129,
+      "processed_prompt_tokens": 80294,
+      "service_seconds": 197.84102404024452,
+      "timeout_calls": 0,
+      "triggers": 3,
+      "eligible_boundaries": 17
+    }
+  },
+  "paired_contrasts": {
+    "continue_minus_segmented_sham": {
+      "n_problems": 4,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0
+    },
+    "segmented_sham_minus_continue": {
+      "n_problems": 4,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0
+    },
+    "guard_adaptation_minus_continue": {
+      "n_problems": 4,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0
+    },
+    "guard_adaptation_minus_segmented_sham": {
+      "n_problems": 4,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0
+    }
+  },
+  "collection_generated_tokens": 14989,
+  "collection_service_seconds": 448.9420901220292,
+  "audit_sha256": "c2e7cafd3ebe03a9bac2ec505bc2b6eef6a55ba5bb97e0177d586f5d6a589a72",
+  "limitations": [
+    "Problem-stratified descriptive bootstrap; small samples and zero discordance cannot establish equivalence.",
+    "Per-policy costs include the shared initial prefix once; collection costs count each actual call once.",
+    "GPU allocation time and infrastructure preflight are separate from episode service time.",
+    "Opportunity-rate matching is not exact intervention-count, latency or compute matching."
+  ]
+}
