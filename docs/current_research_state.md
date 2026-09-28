@@ -67,3 +67,10 @@ At the user's explicit request, updated existing automation `jev-experiment-comp
 ## Latest Bouchet identity: September 27, approximately 21:43
 
 Monitor **27714861** and local worker 57951. Bouchet 27714091 is FAILED 132:0 after 1:42: download succeeded, then native tokenizer BPE deserialization raised SIGILL. The next attempt uses a Python Qwen2Tokenizer that passed six exact text/chat token fixtures on the login host before submission. Same pinned BF16 model, standard-tier account and 30-minute one-GPU envelope; no scientific rollout yet. Receipt: `runs/bouchet-cuda-qualification-v1c-control/submission.json`. Frozen fixtures accompany the job and are rechecked before GPU inference. The earlier failures remain preserved. Automation must discover this newest receipt rather than continue polling only 27714091. The user's instruction remains to continue after successful qualification into justified research jobs, not call infrastructure success project completion.
+
+
+## Latest state: CUDA research-loop submission
+
+Bouchet qualification **27714861 COMPLETED 0:0** on H200 in 3:35. Retrieved record audit passed (`results/bouchet_cuda_qualification_v1c_audit.json`): exact greedy resume, 8k context, batch generation; peak allocation 9.31 GiB, measured batch throughput 5.78 tokens/s. This establishes compatibility, not acceleration or scientific benefit.
+
+Submitted next job **27717762** (actual submission), receipt `runs/bouchet-cuda-guard-runtime-v1-control/submission.json`, remote `runs/cuda-guard-runtime-v1-20260927`. One GPU, pi_fl426 normal tier, 4 CPUs, 32 GiB, 2 hours; fresh two-problem CUDA continue/segmented-sham/GUARD-adaptation qualification. No Jev credential. Frozen protocol `docs/cuda_guard_runtime_v1_protocol.md`. All 371 CPU tests pass. On completion retrieve complete records and run the independent guard qualification auditor before analysis/scaling. Local worker 57951 remains the separate frozen MLX study; do not pool BF16 and MLX results. Monitor this newest job, not completed or failed qualification attempts.

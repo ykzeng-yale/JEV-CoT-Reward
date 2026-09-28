@@ -33,9 +33,10 @@ def run(args):
         task=make_task(index,config['task_seed']);task['prompt']+=PROMPT_SUFFIX
         schedule.append({'index':index,'task':task,'initial_seed':config['task_seed']+index})
     write_json(args.output/'schedule.json',schedule)
+    packages=('torch','numpy','transformers') if config.get('backend')=='cuda' else ('mlx','mlx-lm','numpy','transformers')
     manifest={'status':'initializing','config':config,'started_unix':time.time(),'source_sha256':source,
         'schedule_sha256':file_sha256(args.output/'schedule.json'),
-        'package_versions':{p:importlib.metadata.version(p) for p in ('mlx','mlx-lm','numpy','transformers')}}
+        'package_versions':{p:importlib.metadata.version(p) for p in packages}}
     write_json(args.output/'manifest.json',manifest)
     names=('checkpoints','outcomes','generation_started','generation_events','skipped','calls','decisions')
     for name in names:(args.output/(name+'.jsonl')).touch()
@@ -43,9 +44,24 @@ def run(args):
     completed=eligible=outcomes=0;status='failed'
     try:
         manifest['model_identity']=model_identity(args.model)
-        raw=MLXBackend(args.model,temperature=config['temperature'],top_p=config['top_p'],quantization_bits=4)
+        if config.get('backend')=='cuda':
+            from jev_control.cuda_backend import CUDABackend
+            raw=CUDABackend(args.model,temperature=config['temperature'],top_p=config['top_p'])
+        else:
+            raw=MLXBackend(args.model,temperature=config['temperature'],top_p=config['top_p'],quantization_bits=4)
         manifest['actual_quantization_config']=raw.quantization_config;manifest['status']='running'
         write_json(args.output/'manifest.json',manifest)
+        if config.get('backend')=='cuda':
+            original=raw._sampler;raw._sampler=0.
+            check_prompt=raw.encode_chat([{'role':'user','content':'Explain Dijkstra shortest path algorithm step by step.'}])
+            whole=raw.generate(check_prompt,32,9)
+            first=raw.generate(check_prompt,16,9)
+            rest=raw.generate(check_prompt+first.token_ids,16,9)
+            raw._sampler=original
+            preflight={'passed':whole.token_ids==first.token_ids+rest.token_ids,'calls':[g.to_dict() for g in (whole,first,rest)],
+                       'scope':'Infrastructure work, separate from research episodes but included in total allocated GPU time.'}
+            write_json(args.output/'cuda_preflight.json',preflight)
+            if not preflight['passed']:raise ValueError('CUDA adapter greedy resume failed')
         backend=LoggedBackend(raw,args.output,start+args.wall_seconds)
         for item in schedule:
             task=item['task'];index=item['index']

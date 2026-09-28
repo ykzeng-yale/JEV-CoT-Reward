@@ -252,6 +252,9 @@ To prove it, wrong-sign loss is $r|2\eta-1|\leq2r|\eta-q|$. For fixed $q$, the f
 \section{Theory validation and empirical boundaries}
 The repository records fourteen finite checks, including 200 finite-MDP performance-difference checks, 500 greedy-regret constructions, exact acquisition-value examples, adaptive-stopping bias, cross-fit dependence and noisy-oracle optimism. These support implementation consistency, not universal proofs or real Jev efficacy. The reviewed theory notes and baseline appendix supply the provenance for this manuscript integration. None of the untested sequential, transfer or pruning assumptions has been established experimentally.
 
+\section{CUDA infrastructure qualification}
+A separate pinned BF16 Qwen3-4B-Instruct-2507 run completed on an H200 with exact greedy prefix-resume agreement, an 8k-context check and batched generation. The saved-record audit passed. Peak allocated GPU memory was 9.31 GiB; batch throughput was 5.78 emitted tokens/s. These measurements establish backend compatibility, not a speedup or reasoning benefit. A separately frozen two-problem continue/segmented-sham/GUARD-adaptation runtime check has been submitted; its outcomes are pending and will not be pooled with MLX 4-bit evidence.
+
 \begin{thebibliography}{9}
 \bibitem{pav} \emph{Rewarding Progress: Scaling Automated Process Verifiers for LLM Reasoning}. arXiv:2410.08146.
 \bibitem{rsd} \emph{Reward-Guided Speculative Decoding for Efficient LLM Reasoning}. arXiv:2501.19324.

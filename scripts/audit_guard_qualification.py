@@ -40,11 +40,14 @@ def audit(run,tokenizer_dir):
     manifest=m.read_json(run/'manifest.json');summary=m.read_json(run/'summary.json')
     m.require(manifest['status']==summary['status']=='complete','Run incomplete')
     constants,tasks=checked_task_contracts(run,manifest);config=manifest['config']
-    m.require(config==m.read_json(run/'source/configs/guard_runtime_v1.json'),'Configuration mismatch')
+    cuda=config.get('backend')=='cuda'
+    config_file='cuda_guard_runtime_v1.json' if cuda else 'guard_runtime_v1.json'
+    m.require(config==m.read_json(run/'source/configs'/config_file),'Configuration mismatch')
     fixed={'protocol':'segment-guard-runtime-v1-development-only','problems':4,'task_seed':991027,'budget':2048,
            'checkpoint_target':256,'checkpoint_cap':384,'final_reserve':128,'segment_tokens':64,'branch_tokens':100,
            'temperature':.7,'top_p':.9,'repeats':1,'jev':False,
            'policies':['continue','segmented_sham','guard_adaptation']}
+    if cuda:fixed.update(protocol='cuda-segment-guard-runtime-v1-development-only',problems=2,task_seed=1091027)
     m.require(all(config[k]==v for k,v in fixed.items()),'Unsupported configuration')
     for name in ('src/jev_control/guard_adaptation.py','src/jev_control/guard_runtime.py','scripts/run_guard_qualification.py'):
         m.require(m.digest((ROOT/name).read_bytes())==manifest['source_sha256'][name],'Unreviewed runtime implementation')
@@ -56,13 +59,19 @@ def audit(run,tokenizer_dir):
         if name not in identity['weight_files_sha256']:
             m.require(m.digest((tokenizer_dir/name).read_bytes())==digest,'Tokenizer metadata mismatch')
     quant=manifest['actual_quantization_config']
-    m.require(quant.get('bits')==4 and quant.get('group_size')==64,'Quantization mismatch')
+    if cuda:
+        m.require(quant=={'bits':16,'mode':'unquantized_bfloat16'},'Precision mismatch')
+        name='src/jev_control/cuda_backend.py'
+        m.require(m.digest((ROOT/name).read_bytes())==manifest['source_sha256'][name],'Unreviewed CUDA adapter')
+        pre=m.read_json(run/'cuda_preflight.json');calls=pre['calls']
+        m.require(pre['passed'] is True and len(calls)==3 and calls[0]['token_ids']==calls[1]['token_ids']+calls[2]['token_ids'],'CUDA preflight mismatch')
+    else:m.require(quant.get('bits')==4 and quant.get('group_size')==64,'Quantization mismatch')
     from transformers import AutoTokenizer
     chat=AutoTokenizer.from_pretrained(str(tokenizer_dir),local_files_only=True,trust_remote_code=False)
     encode=lambda text:list(chat.encode(text,add_special_tokens=False))
     suffix=m.literal(ast.parse((run/'source/scripts/run_development.py').read_text()),'PROMPT_SUFFIX')
     schedule=m.read_json(run/'schedule.json')
-    m.require(len(schedule)==4 and m.digest((run/'schedule.json').read_bytes())==manifest['schedule_sha256'],'Schedule mismatch')
+    m.require(len(schedule)==config['problems'] and m.digest((run/'schedule.json').read_bytes())==manifest['schedule_sha256'],'Schedule mismatch')
     cps=m.indexed(m.read_jsonl(run/'checkpoints.jsonl'),'checkpoints');skips=m.indexed(m.read_jsonl(run/'skipped.jsonl'),'skipped')
     outcomes={};durable={};decisions={}
     for r in m.read_jsonl(run/'outcomes.jsonl'):
@@ -109,7 +118,7 @@ def audit(run,tokenizer_dir):
     m.require(set(durable)==expected_segmented and set(decisions)<=expected_segmented,'Extra durable records')
     m.require(seen==set(outcomes) and ledger.cursor==len(ledger.events),'Extra outcomes/calls')
     m.require(set(cps)|set(skips)=={s['task']['id'] for s in schedule},'Extra enrollment')
-    m.require(summary['completed_problems']==4 and summary['eligible_problems']==len(cps) and summary['outcomes']==len(outcomes),'Summary mismatch')
+    m.require(summary['completed_problems']==config['problems'] and summary['eligible_problems']==len(cps) and summary['outcomes']==len(outcomes),'Summary mismatch')
     return {'status':'passed_guard_runtime_audit','ready_for_analysis':True,'eligible_problems':len(cps),'outcomes':len(outcomes),
             'durable_calls':len(ledger.events),'natural_triggers':triggers,'outcome_disagreements':0,
             'input_sha256':{p.name:m.digest(p.read_bytes()) for p in run.iterdir() if p.is_file() and p.suffix in ('.json','.jsonl')},
