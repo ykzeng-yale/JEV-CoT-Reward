@@ -130,3 +130,7 @@ Launched fresh repair replication **PID79898,start Mon Sep28 12:34:41 2026**, re
 ## September28,14:10 repair analysis preparation
 
 PID79898 verified live with original12:34:41 start,elapsed1:36:18. No partial outcome rates read. Prepared frozen-protocol segment-repair-minus-sham analysis and disjoint two-repeat action selection/evaluation diagnostics. Tests prove evaluation outcomes cannot select the action, including ties (frozen action order). This is an outcome-informed diagnostic,not deployable controller or oracle bound; reversed splits overlap. No extra API or model work. Cluster precision run remains terminal. Analyze only after complete audit; next decision depends on repeatable action usefulness.
+
+## September28,16:11 bounded-run progress and recovery preparation
+
+PID79898 still matches MonSep28 12:34:41 start,elapsed3:37:19. Inventory420/480 outcomes,21problems with records; no partial success inspected. Keep original4h cooperative/14550s external bound. Prepared `docs/action_replication_v3_recovery.md`: complete auditor must reject incomplete data, preserve unmatched-call costs, missing-arm recovery needs exact checkpoint/action/seed and independent merge audit; never silently promote complete cases or restart live worker. Next check terminal receipt before any recovery. No new Jev expense or concurrent model job.
