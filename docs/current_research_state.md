@@ -119,3 +119,10 @@ Actual submitted job **27727778**, receipt `runs/bouchet-cuda-guard-precision-v4
 ## September28,01:56 uncertainty safeguard
 
 27727778 remains RUNNING on B200,1:26:09 elapsed; no interim outcomes inspected. Added simultaneous two-sided Hoeffding intervals across reported contrasts to supplement potentially degenerate small-sample bootstrap intervals. Assumptions and conditional enrollment target are explicit; original primary contrast remains unchanged. Five analyzer tests pass, including zero-discordance uncertainty. No new model job is justified before the current precision-stage result; existing theory/provenance/cost preparation is complete for its next decision.
+
+
+## September28,12:34 completed precision study and repair replication
+
+27727778 COMPLETED0:0 in1:33:37 (1.5603GPUh). Retrieved `runs/bouchet-cuda-guard-precision-v4-retrieved`; audit passed96eligible/384outcomes/4583calls/zero label disagreements. Continue54/96,sham66/96,GUARD61/96,random59/96. GUARD-minus-random+2.08pp (descriptive−6.25 to+10.42);GUARD-minus-sham−5.21pp (−12.5 to+2.08). GUARD37branches,random14; not realized-rate matched. One continuation timeout. Reports `results/cuda_guard_precision_v4_{audit,analysis}.json`. No semantic efficacy, no equivalence, no positive branching claim. Stop scaling this exact timing policy unchanged.
+
+Launched fresh repair replication **PID79898,start Mon Sep28 12:34:41 2026**, receipt `runs/action-replication-v3-control/process.json`, output `runs/action-replication-v3-20260928`. Config `action_replication_v3.json`,protocol `docs/action_replication_v3_protocol.md`:24freshproblems,4repeats,5qualifiedactions,up to480outcomes,4h local bound,no Jev. Primary segment-repair-vs-sham and disjoint-repeat action preference diagnostic. No cluster job remains live. 380tests passed before launch. Auditor extended to the new frozen design; never modify generation source in the run directory. Next terminal audit then action replicability, not noisy winner training.

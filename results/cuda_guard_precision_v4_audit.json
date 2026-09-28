@@ -1,0 +1,30 @@
+{
+  "status": "passed_guard_runtime_audit",
+  "ready_for_analysis": true,
+  "eligible_problems": 96,
+  "outcomes": 384,
+  "durable_calls": 4583,
+  "natural_triggers": 51,
+  "outcome_disagreements": 0,
+  "input_sha256": {
+    "summary.json": "1b8c1b2fbeb64a7ddb774e2f2d0bb3404e76886ed4b0f1ce962ad3144a447cea",
+    "cuda_preflight.json": "26faccc4d566dee10f929db3409b98484b9d1f5bfc5b30901af04cf29e00f50b",
+    "generation_started.jsonl": "567e5fcae69ac96a0c85f52c9bf04ca436f103ef4c2d2a36d4748d20197a0e0f",
+    "decisions.jsonl": "0620379ad781bf0ebd2fea29b47f17d252f6c664cf34d115d5e6fab474ad99ee",
+    "skipped.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "outcomes.jsonl": "cb1e383efe54048afa6b97b6bee40353f33bb2741fbebd6d3a96a31f117286c9",
+    "checkpoints.jsonl": "e544fc00cf2c03c60793e725113103c6f95cd346f78a3835494c72b263c882bf",
+    "manifest.json": "6e1f4a359c642c19c470e137f98add4c6199a434392a834beff98f8db1e09ef3",
+    "schedule.json": "5ca6fd3979c662a9fc5c1c24f7536feba3a12a1e42602190050450e2e5787609",
+    "calls.jsonl": "be85ba4b80984b9356561b3039eb4ac1a42488579f718fe0ed6afacf61259448",
+    "generation_events.jsonl": "f099f1d50827a6d67006ad2792b42b0558b9f768bf1d39f886e11fc25abc8879"
+  },
+  "audit_source_sha256": "39cd6cbc17a7ee49d66881ea83361fa9dc59c9da760e4d24ed4afddd2a1e00d5",
+  "audit_dependency_sha256": {
+    "audit_guard_qualification.py": "39cd6cbc17a7ee49d66881ea83361fa9dc59c9da760e4d24ed4afddd2a1e00d5",
+    "audit_guard_episode.py": "c506de6e43065a7e915d2f986b1194bd88e6bb220a0871d4d1ccf5239e741919",
+    "audit_mechanism.py": "d02bb3b183b5e27f9310b0b9f96011ae9c037d73879027cb932d20eb01c317fb",
+    "prospective_replay.py": "6a8c3acf6e2c5ff74f02317bf5b94e75778d26305f6aea27fe19fc7e57b7a4c4"
+  },
+  "scope": "Recorded runtime qualification, not efficacy or original GUARD reproduction; zero triggers does not qualify real-model branch execution."
+}

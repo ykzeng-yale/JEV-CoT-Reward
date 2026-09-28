@@ -1,0 +1,254 @@
+{
+  "status": "audited_development_only",
+  "scheduled_problems": 96,
+  "eligible_problems": 96,
+  "skipped_problems": 0,
+  "policies": {
+    "continue": {
+      "success": {
+        "n_problems": 96,
+        "mean": 0.5625,
+        "bootstrap_percentile_95": [
+          0.4791666666666667,
+          0.6458333333333334
+        ]
+      },
+      "successes": 54,
+      "episodes": 96,
+      "episode_generated_tokens": 121059,
+      "processed_prompt_tokens": 100997,
+      "service_seconds": 1641.4458298496902,
+      "episodes_with_timeout": 1,
+      "timeout_calls": 1,
+      "triggers": 0,
+      "eligible_boundaries": 0
+    },
+    "segmented_sham": {
+      "success": {
+        "n_problems": 96,
+        "mean": 0.6875,
+        "bootstrap_percentile_95": [
+          0.6145833333333334,
+          0.7604166666666666
+        ]
+      },
+      "successes": 66,
+      "episodes": 96,
+      "episode_generated_tokens": 113786,
+      "processed_prompt_tokens": 1386641,
+      "service_seconds": 1654.8017502706498,
+      "episodes_with_timeout": 0,
+      "timeout_calls": 0,
+      "triggers": 0,
+      "eligible_boundaries": 359
+    },
+    "guard_adaptation": {
+      "success": {
+        "n_problems": 96,
+        "mean": 0.6354166666666666,
+        "bootstrap_percentile_95": [
+          0.5729166666666666,
+          0.7083333333333334
+        ]
+      },
+      "successes": 61,
+      "episodes": 96,
+      "episode_generated_tokens": 123938,
+      "processed_prompt_tokens": 1526607,
+      "service_seconds": 1530.0401491923258,
+      "episodes_with_timeout": 0,
+      "timeout_calls": 0,
+      "triggers": 37,
+      "eligible_boundaries": 343
+    },
+    "random_branch": {
+      "success": {
+        "n_problems": 96,
+        "mean": 0.6145833333333334,
+        "bootstrap_percentile_95": [
+          0.53125,
+          0.6875
+        ]
+      },
+      "successes": 59,
+      "episodes": 96,
+      "episode_generated_tokens": 119469,
+      "processed_prompt_tokens": 1482395,
+      "service_seconds": 1425.7040890990756,
+      "episodes_with_timeout": 0,
+      "timeout_calls": 0,
+      "triggers": 14,
+      "eligible_boundaries": 371
+    }
+  },
+  "paired_contrasts": {
+    "continue_minus_segmented_sham": {
+      "n_problems": 96,
+      "mean": -0.125,
+      "bootstrap_percentile_95": [
+        -0.21875,
+        -0.03125
+      ],
+      "discordant_problems": 22,
+      "timeout_completion_sensitivity": [
+        -0.125,
+        -0.11458333333333337
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.4751816204798279,
+        0.22518162047982793
+      ]
+    },
+    "continue_minus_random_branch": {
+      "n_problems": 96,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.15625,
+        0.052083333333333336
+      ],
+      "discordant_problems": 27,
+      "timeout_completion_sensitivity": [
+        -0.05208333333333337,
+        -0.04166666666666674
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.40226495381316124,
+        0.2980982871464946
+      ]
+    },
+    "segmented_sham_minus_continue": {
+      "n_problems": 96,
+      "mean": 0.125,
+      "bootstrap_percentile_95": [
+        0.03125,
+        0.21875
+      ],
+      "discordant_problems": 22,
+      "timeout_completion_sensitivity": [
+        0.11458333333333333,
+        0.125
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.22518162047982793,
+        0.4751816204798279
+      ]
+    },
+    "segmented_sham_minus_random_branch": {
+      "n_problems": 96,
+      "mean": 0.07291666666666667,
+      "bootstrap_percentile_95": [
+        -0.010416666666666666,
+        0.15625
+      ],
+      "discordant_problems": 17,
+      "timeout_completion_sensitivity": [
+        0.07291666666666663,
+        0.07291666666666663
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.27726495381316124,
+        0.4230982871464946
+      ]
+    },
+    "guard_adaptation_minus_continue": {
+      "n_problems": 96,
+      "mean": 0.07291666666666667,
+      "bootstrap_percentile_95": [
+        -0.020833333333333332,
+        0.16666666666666666
+      ],
+      "discordant_problems": 21,
+      "timeout_completion_sensitivity": [
+        0.062499999999999965,
+        0.07291666666666663
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.27726495381316124,
+        0.4230982871464946
+      ]
+    },
+    "guard_adaptation_minus_segmented_sham": {
+      "n_problems": 96,
+      "mean": -0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.125,
+        0.020833333333333332
+      ],
+      "discordant_problems": 13,
+      "timeout_completion_sensitivity": [
+        -0.05208333333333337,
+        -0.05208333333333337
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.40226495381316124,
+        0.2980982871464946
+      ]
+    },
+    "guard_adaptation_minus_random_branch": {
+      "n_problems": 96,
+      "mean": 0.020833333333333332,
+      "bootstrap_percentile_95": [
+        -0.0625,
+        0.10416666666666667
+      ],
+      "discordant_problems": 16,
+      "timeout_completion_sensitivity": [
+        0.02083333333333326,
+        0.02083333333333326
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.3293482871464946,
+        0.37101495381316124
+      ]
+    },
+    "random_branch_minus_continue": {
+      "n_problems": 96,
+      "mean": 0.052083333333333336,
+      "bootstrap_percentile_95": [
+        -0.052083333333333336,
+        0.15625
+      ],
+      "discordant_problems": 27,
+      "timeout_completion_sensitivity": [
+        0.041666666666666706,
+        0.05208333333333337
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.2980982871464946,
+        0.40226495381316124
+      ]
+    },
+    "random_branch_minus_segmented_sham": {
+      "n_problems": 96,
+      "mean": -0.07291666666666667,
+      "bootstrap_percentile_95": [
+        -0.15625,
+        0.010416666666666666
+      ],
+      "discordant_problems": 17,
+      "timeout_completion_sensitivity": [
+        -0.07291666666666663,
+        -0.07291666666666663
+      ],
+      "simultaneous_hoeffding_95": [
+        -0.4230982871464946,
+        0.27726495381316124
+      ]
+    }
+  },
+  "collection_generated_tokens": 399961,
+  "collection_service_seconds": 5180.746723401127,
+  "audit_sha256": "2be087aad3c0fa94bf44058892d51392fdd6dead085cce67426cb32fa58c4b15",
+  "analysis_dependency_sha256": {
+    "analyze_guard_qualification.py": "fcbb3a4f8ea7638e3f77f8132199961c8ca4c94d43615d26e6085984e1197b5c",
+    "analyze_screen.py": "7034d88acdaacf025b6be1c756306b9123a613b95463c745d358fda8894aa205"
+  },
+  "limitations": [
+    "Problem-stratified descriptive bootstrap; small samples and zero discordance cannot establish equivalence.",
+    "Hoeffding intervals assume independent original problems and frozen policies; simultaneous over reported contrasts, conservative and conditional on the task-generation/enrollment design, not an OOD guarantee.",
+    "Per-policy costs include the shared initial prefix once; collection costs count each actual call once.",
+    "GPU allocation time and infrastructure preflight are separate from episode service time.",
+    "Opportunity-rate matching is not exact intervention-count, latency or compute matching.",
+    "Timeout-completion sensitivity is a finite-sample worst-case envelope, not a confidence interval; it assumes non-timeout outcomes would stay unchanged under the hypothetical completion regime."
+  ]
+}

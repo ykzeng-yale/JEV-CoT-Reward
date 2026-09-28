@@ -20,12 +20,13 @@ CONFIG=ROOT/'configs/action_qualification_v2.json'
 
 
 def run(args):
-    config=json.loads(CONFIG.read_text())
+    config_path=Path(getattr(args,'config',CONFIG)).resolve()
+    config=json.loads(config_path.read_text())
     if tuple(config['actions'])!=ACTIONS: raise ValueError('Action contract mismatch')
     args.output.mkdir(parents=True,exist_ok=False)
     start=time.monotonic();manifest={'config':config,'status':'initializing','started_unix':time.time()}
     source={}
-    for p in list((ROOT/'scripts').glob('*.py'))+list((ROOT/'src/jev_control').glob('*.py'))+[CONFIG,ROOT/'requirements.lock.txt']:
+    for p in list((ROOT/'scripts').glob('*.py'))+list((ROOT/'src/jev_control').glob('*.py'))+[config_path,ROOT/'requirements.lock.txt']:
         relative=p.relative_to(ROOT);target=args.output/'source'/relative
         target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(p.read_bytes());source[str(relative)]=file_sha256(target)
     manifest['source_sha256']=source
@@ -80,6 +81,6 @@ def run(args):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--model',required=True);p.add_argument('--output',type=Path,required=True)
-    p.add_argument('--wall-seconds',type=float,default=7200);a=p.parse_args()
+    p.add_argument('--config',type=Path,default=CONFIG);p.add_argument('--wall-seconds',type=float,default=7200);a=p.parse_args()
     if not math.isfinite(a.wall_seconds) or a.wall_seconds<=0:p.error('Positive wall limit required')
     run(a)

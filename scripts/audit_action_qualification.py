@@ -44,9 +44,12 @@ def audit(run,tokenizer_dir):
     m.require(manifest['status']==summary['status']=='complete','Run not complete')
     constants,tasks=checked_task_contracts(run,manifest)
     config=manifest['config']
-    m.require(config==m.read_json(run/'source/configs/action_qualification_v2.json'),'Config changed')
-    m.require(config['protocol']=='repair-action-qualification-v2-development-only','Wrong protocol')
+    v3=config['protocol']=='repair-action-replication-v3-development-only'
+    config_name='action_replication_v3.json' if v3 else 'action_qualification_v2.json'
+    m.require(config==m.read_json(run/'source/configs'/config_name),'Config changed')
+    m.require(v3 or config['protocol']=='repair-action-qualification-v2-development-only','Wrong protocol')
     fixed={'problems':8,'repeats':2,'task_seed':691027,'budget':2048,'checkpoint_target':256,'checkpoint_cap':384,'final_reserve':128,'jev':False}
+    if v3:fixed.update(problems=24,repeats=4,task_seed=1491028)
     m.require(all(config[k]==v for k,v in fixed.items()),'Unsupported settings')
     m.require(manifest['actual_quantization_config']['bits']==4,'Wrong quantization')
     identity=manifest['model_identity']
@@ -61,7 +64,7 @@ def audit(run,tokenizer_dir):
     actions=m.literal(treatment_tree,'ACTIONS');m.require(list(actions)==config['actions'],'Actions changed')
     instructions={k:m.literal(treatment_tree,k) for k in ('RECHECK','SHAM','SEGMENT')}
     suffix=m.literal(ast.parse((run/'source/scripts/run_development.py').read_text()),'PROMPT_SUFFIX')
-    schedule=m.read_json(run/'schedule.json');m.require(len(schedule)==8,'Enrollment changed')
+    schedule=m.read_json(run/'schedule.json');m.require(len(schedule)==config['problems'],'Enrollment changed')
     m.require(m.digest((run/'schedule.json').read_bytes())==manifest['schedule_sha256'],'Schedule changed')
     cps=m.indexed(m.read_jsonl(run/'checkpoints.jsonl'),'checkpoints')
     skipped=m.indexed(m.read_jsonl(run/'skipped.jsonl'),'skipped')
@@ -75,7 +78,7 @@ def audit(run,tokenizer_dir):
         task=tasks['make_task'](i,config['task_seed']);task['prompt']+=suffix
         m.require(item['index']==i and item['task']==task,'Task mismatch')
         m.require(item['initial_seed']==config['task_seed']+i,'Initial seed mismatch')
-        arms=[{'action':a,'repeat':r,'seed':config['task_seed']+i*10000+r*100} for a in actions for r in range(2)]
+        arms=[{'action':a,'repeat':r,'seed':config['task_seed']+i*10000+r*100} for a in actions for r in range(config['repeats'])]
         random.Random(config['task_seed']+i).shuffle(arms)
         m.require(item['arms']==arms,'Arm schedule changed')
         pid=task['id'];m.require(pid in cps or pid in skipped,'Missing enrollment')
@@ -108,7 +111,7 @@ def audit(run,tokenizer_dir):
     m.require(ledger.cursor==len(ledger.events),'Unknown or unconsumed calls')
     m.require(summary['recorded_outcomes']==len(outcomes) and summary['skipped_problems']==len(skipped),'Summary counts mismatch')
     return {'status':'passed_action_qualification_audit','ready_for_analysis':True,
-        'problems':8,'eligible_problems':len(cps),'outcomes':len(outcomes),'durable_calls':len(ledger.events),
+        'problems':config['problems'],'eligible_problems':len(cps),'outcomes':len(outcomes),'durable_calls':len(ledger.events),
         'outcome_disagreements':0,'initial_tokens':initial_tokens,
         'input_sha256':{p.name:m.digest(p.read_bytes()) for p in run.iterdir() if p.is_file() and p.suffix in ('.json','.jsonl')},
         'audit_source_sha256':m.digest(Path(__file__).read_bytes()),

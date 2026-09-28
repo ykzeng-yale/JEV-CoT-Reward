@@ -1,0 +1,25 @@
+{
+  "protocol": "repair-action-replication-v3-development-only",
+  "task_seed": 1491028,
+  "problems": 24,
+  "repeats": 4,
+  "actions": [
+    "continue",
+    "sham",
+    "suffix_repair",
+    "recheck",
+    "segment_repair"
+  ],
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "quantization_bits": 4,
+  "jev": false,
+  "interpretation": "Fresh action-value replication; retain individual outcomes, no noisy winner labels.",
+  "enrollment": "24 fresh problems, no replacement.",
+  "continuation": "Same seed per problem/repeat across actions; shared RNG number is not a variance reduction guarantee. Randomized execution order.",
+  "gate": "Inspect complete enrollment, treatment integrity, total costs, task difficulty and informative failure modes before a separately specified replication. No automatic best-action promotion."
+}
