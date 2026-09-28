@@ -1,0 +1,220 @@
+{
+  "status": "exploratory_cross_fitted_development_diagnostic",
+  "records": [
+    {
+      "problem_id": "weighted_path-1491028-0",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-1",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.0,
+      "static_success": 0.0,
+      "continue_success": 0.0
+    },
+    {
+      "problem_id": "weighted_path-1491028-2",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-3",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "weighted_path-1491028-4",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-5",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.0,
+      "static_success": 0.0,
+      "continue_success": 0.25
+    },
+    {
+      "problem_id": "weighted_path-1491028-6",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.75,
+      "static_success": 0.75,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-7",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.75,
+      "static_success": 0.75,
+      "continue_success": 0.25
+    },
+    {
+      "problem_id": "weighted_path-1491028-8",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.75,
+      "static_success": 0.75,
+      "continue_success": 0.5
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-9",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 0.5
+    },
+    {
+      "problem_id": "weighted_path-1491028-10",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 0.75
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-11",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 0.25
+    },
+    {
+      "problem_id": "weighted_path-1491028-12",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-13",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.75,
+      "static_success": 0.75,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "weighted_path-1491028-14",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-15",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.25,
+      "static_success": 0.25,
+      "continue_success": 0.0
+    },
+    {
+      "problem_id": "weighted_path-1491028-16",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-17",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.25,
+      "static_success": 0.25,
+      "continue_success": 0.5
+    },
+    {
+      "problem_id": "weighted_path-1491028-18",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-19",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.25,
+      "static_success": 0.25,
+      "continue_success": 0.0
+    },
+    {
+      "problem_id": "weighted_path-1491028-20",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.75,
+      "static_success": 0.75,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-21",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.5,
+      "static_success": 0.5,
+      "continue_success": 0.75
+    },
+    {
+      "problem_id": "weighted_path-1491028-22",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 1.0,
+      "static_success": 1.0,
+      "continue_success": 1.0
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-23",
+      "cheap_action": "sham",
+      "training_best_static": "sham",
+      "cheap_success": 0.0,
+      "static_success": 0.0,
+      "continue_success": 0.0
+    }
+  ],
+  "cheap_minus_training_best_static": {
+    "n_problems": 24,
+    "mean": 0.0,
+    "bootstrap_percentile_95": [
+      0.0,
+      0.0
+    ]
+  },
+  "cheap_minus_continue": {
+    "n_problems": 24,
+    "mean": 0.052083333333333336,
+    "bootstrap_percentile_95": [
+      -0.041666666666666664,
+      0.15625
+    ]
+  },
+  "audit_sha256": "6fe8b1b6b10c247b5ffe4f743f0295f404bc7460cce9eeb11a7ee96b6573d4ee",
+  "source_sha256": "79e538b765515d67b5b6c6ba3246337538d97d99c132fc40a1907a37127b68be",
+  "limitations": [
+    "Fixed TF-IDF4000/unigram-bigram/Ridge alpha10; no hyperparameter selection. All vocabulary/model/static choices fit without held-out problem.",
+    "Overlapping training folds induce dependence; descriptive bootstrap is not a valid independent prospective confidence guarantee.",
+    "Small development sample, no fresh deployment or Jev attribution; not a final test or generalization claim."
+  ]
+}
