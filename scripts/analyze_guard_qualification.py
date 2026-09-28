@@ -46,6 +46,7 @@ def analyze(run,audit_path):
         'collection_generated_tokens':sum(e['generation']['generated_tokens'] for e in events),
         'collection_service_seconds':sum(e['generation']['elapsed_seconds'] for e in events),
         'audit_sha256':hashlib.sha256(audit_path.read_bytes()).hexdigest(),
+        'analysis_dependency_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ('analyze_guard_qualification.py','analyze_screen.py')},
         'limitations':['Problem-stratified descriptive bootstrap; small samples and zero discordance cannot establish equivalence.',
             'Per-policy costs include the shared initial prefix once; collection costs count each actual call once.',
             'GPU allocation time and infrastructure preflight are separate from episode service time.',

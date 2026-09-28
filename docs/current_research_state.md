@@ -111,3 +111,7 @@ Actual submitted job **27727778**, receipt `runs/bouchet-cuda-guard-precision-v4
 ## September28,00:56 independent analysis/theory work
 
 27727778 verified RUNNING on B200,26:09 elapsed; no interim outcomes inspected. Local model workers remain terminal. Added tested episode-level timeout flags and worst-case completion-sensitivity envelopes to the guard analyzer. The envelope assumes non-timeout outcomes unchanged under hypothetical completion; it is not a confidence interval or a correction for unequal deadlines. Applied only to completed audited v3 as a separately named secondary report; original reports preserved. Added proof and assumption boundary to paper/main.tex. This does not change v4 primary endpoint/design; apply as secondary diagnostic after terminal audit.
+
+## September28,01:26 provenance hardening
+
+27727778 still RUNNING on B200,56:08 elapsed. No partial success rates read, no duplicate jobs or local inference started. Added audit/analysis dependency hashes so imported helper changes (including the prior floating-point checker correction) are identifiable, rather than hashing only the entry script. Sixteen targeted tests passed. Added `docs/guard_result_acceptance.md` for terminal source/receipt/accounting checks and frozen-primary versus secondary sensitivity reporting. Existing reports/remote sources remain unchanged; use fresh reports at completion.

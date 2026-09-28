@@ -1,0 +1,11 @@
+# Terminal acceptance for the frozen timing study
+
+1. Resolve the job from its receipt and obtain terminal sacct state, exit code, elapsed time, GPU type and allocated resources. A completed shell does not replace scientific summary checks. Preserve logs and remote source/config/submission with the complete outputs directory.
+2. Verify receipt hashes against retrieved source/config, and manifest hashes against every frozen source file. Recover transport omissions byte-for-byte; never delete a manifest entry to make the audit pass. Mac metadata sidecars must remain if the frozen manifest included them.
+3. Run the independent full guard auditor. It must validate enrollment, exact prefixes, seeds, all generated/discarded work, decisions and timestamps, model/tokenizer identity, and independent final labels. Preserve any failed audit and its diagnosis. Do not mutate original records to fit a checker.
+4. Write a new audit report. Current reports include hashes of the top-level auditor AND imported audit helpers. Older reports lack this expanded provenance and are not retroactively rewritten. Record the Git revision used for execution when publishing/retrieving results.
+5. Run the audit-bound analyzer into a fresh path. Its dependency hashes identify both analysis and bootstrap helper implementations. It rejects changed audited inputs. Report problem counts, realized interventions, discordance, descriptive intervals, runtime timeouts, processed prompts, generation and service costs. Separate actual collection totals from hypothetical per-policy costs and Slurm allocation. Include preflight overhead in total allocation accounting.
+6. For v4, GUARD-minus-random remains the frozen primary descriptive contrast; timeout-completion envelopes are secondary sensitivity diagnostics. No post-hoc reassignment of primary comparison. Zero-width bootstrap intervals do not certify equivalence. Backend/hardware differences limit pooled claims.
+7. Update the evidence checklist and record the scientific decision before collecting a new study. Keep v1 test closed. Do not call the full paper complete because the timing study ended.
+
+Current live source must not be copied over a running job. All analysis improvements here operate on retrieved immutable records after termination.

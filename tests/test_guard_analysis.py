@@ -47,3 +47,10 @@ def test_timeout_sensitivity_allows_unknown_completion(tmp_path):
     r=analyze(tmp_path,a)
     assert r['policies']['continue']['episodes_with_timeout']==1
     assert r['paired_contrasts']['segmented_sham_minus_continue']['timeout_completion_sensitivity']==[0.,1.]
+
+
+def test_report_identifies_executed_analysis_dependencies(tmp_path):
+    a=fixture(tmp_path);r=analyze(tmp_path,a)
+    assert set(r['analysis_dependency_sha256'])=={'analyze_guard_qualification.py','analyze_screen.py'}
+    for name,digest in r['analysis_dependency_sha256'].items():
+        assert digest==hashlib.sha256((Path(__file__).parents[1]/'scripts'/name).read_bytes()).hexdigest()

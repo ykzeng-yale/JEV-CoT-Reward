@@ -133,6 +133,7 @@ def audit(run,tokenizer_dir):
             'durable_calls':len(ledger.events),'natural_triggers':triggers,'outcome_disagreements':0,
             'input_sha256':{p.name:m.digest(p.read_bytes()) for p in run.iterdir() if p.is_file() and p.suffix in ('.json','.jsonl')},
             'audit_source_sha256':m.digest(Path(__file__).read_bytes()),
+            'audit_dependency_sha256':{name:m.digest((ROOT/'scripts'/name).read_bytes()) for name in ('audit_guard_qualification.py','audit_guard_episode.py','audit_mechanism.py','prospective_replay.py')},
             'scope':'Recorded runtime qualification, not efficacy or original GUARD reproduction; zero triggers does not qualify real-model branch execution.'}
 
 if __name__=='__main__':
