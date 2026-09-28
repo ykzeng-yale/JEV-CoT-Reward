@@ -8,7 +8,8 @@ import subprocess
 import time
 import torch
 from transformers import AutoModelForCausalLM,AutoTokenizer
-from huggingface_hub import snapshot_download
+from huggingface_hub import snapshot_download,constants
+assert constants.HF_HUB_DISABLE_XET, "Use standard HTTP: Xet crashed on this cluster"
 
 MODEL='Qwen/Qwen3-4B-Instruct-2507'
 REVISION='cdbee75f17c01a7cc42f958dc650907174af0554'
@@ -16,7 +17,7 @@ OUT=Path('outputs');OUT.mkdir(exist_ok=False)
 metadata={'model':MODEL,'revision':REVISION,'dtype':'bfloat16','quantization':None,
           'purpose':'CUDA/runtime qualification only; not interchangeable with MLX 4-bit results',
           'job_id':os.environ.get('SLURM_JOB_ID'),'versions':{p:importlib.metadata.version(p) for p in ('torch','transformers','huggingface-hub')},
-          'cuda':torch.version.cuda,'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+          'download_backend':'HTTP (HF_HUB_DISABLE_XET=1)','cuda':torch.version.cuda,'script_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 def save(name,value):(OUT/name).write_text(json.dumps(value,indent=2)+'\n')
 save('manifest.json',metadata)
 assert torch.cuda.is_available(),'Allocated CUDA GPU unavailable'

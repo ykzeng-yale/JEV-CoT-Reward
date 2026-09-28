@@ -19,3 +19,11 @@ The job records hardware/runtime/model identity, exact-token greedy continuation
 After termination, retrieve every output, stdout/stderr, the submission receipt and `sacct` accounting. Check model revision, actual GPU, outputs and all assertions. Do not combine BF16 outcomes with the existing 4-bit study. The next justified step is a CUDA backend implementation and fresh runtime/action qualification with separately frozen configuration. Only then distribute counterfactual rollouts across independent GPU workers. Larger B200 allocations must be justified by observed memory/throughput and task size; a 4B pilot does not require an eight-GPU node.
 
 The original Mac worker continues unchanged. Monitor both identities on recurring research turns, without duplicate submissions or another local inference process. The two jobs are independent and use distinct hardware.
+
+## Failure diagnosis and bounded retry
+
+Job 27713897 actually received an NVIDIA B200 (driver 580.178.04, CUDA 12.8 visible) and failed after 23 seconds with exit 132 during `hf_xet` model download. The retrieved trace identifies SIGILL in the native Xet download client; inference had not begun. Logs and manifest are preserved locally under `runs/bouchet-cuda-qualification-v1-retrieved`. This is an infrastructure failure, not a failed model experiment.
+
+Changed retry **27714091** uses a new immutable `cuda-qualification-v1b-20260927` directory, the same resources/model/precision, and `HF_HUB_DISABLE_XET=1` with a startup assertion. This documented [Hugging Face setting](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfhubdisablexet) disables the native transfer library; ordinary HTTP download is used. Core dumps are disabled for the retry. Its receipt is `runs/bouchet-cuda-qualification-v1b-control/submission.json`; initial scheduler state is PENDING. Do not restart the original job.
+
+The saved-output checker `scripts/audit_cuda_qualification.py` requires successful Slurm accounting and verifies IDs, pinned model/runtime, exact resume tokens, context/batch counts and throughput arithmetic. Eight CPU tests cover valid and tampered evidence. This check is infrastructure consistency, not independent model inference or research efficacy.
