@@ -134,3 +134,10 @@ PID79898 verified live with original12:34:41 start,elapsed1:36:18. No partial ou
 ## September28,16:11 bounded-run progress and recovery preparation
 
 PID79898 still matches MonSep28 12:34:41 start,elapsed3:37:19. Inventory420/480 outcomes,21problems with records; no partial success inspected. Keep original4h cooperative/14550s external bound. Prepared `docs/action_replication_v3_recovery.md`: complete auditor must reject incomplete data, preserve unmatched-call costs, missing-arm recovery needs exact checkpoint/action/seed and independent merge audit; never silently promote complete cases or restart live worker. Next check terminal receipt before any recovery. No new Jev expense or concurrent model job.
+
+
+## Repair v3 terminal and static control replication
+
+PID79898 absent; supervisor receipt remains stale running,so exit code not confirmed. Scientific manifest/summary complete480outcomes;independent audit passed631calls/24eligible/zero label disagreements. Last segment-repair outcome has timeout at4h bound;retain operational result and disclose. Continue63/96,sham68/96,suffix57/96,recheck56/96,segment54/96. Segment-minus-sham−14.58pp (descriptive−27.08 to−2.08). Split diagnostics selected68.75% versus continue64.58/66.67%,not evidence of beating best static sham. Reports results/action_replication_v3_{audit,analysis}.json.
+
+New local worker21169,startMon Sep 28 18:13:31 2026,receipt runs/sham-replication-v4-control/process.json,outputs runs/sham-replication-v4-20260928.48fresh tasks,two repeats,continue/sham only,192outcomes,7200scooperative/7350external,8GiB sampledRSS,no Jev. Protocol docs/sham_replication_v4_protocol.md.382tests passed. No cluster job active. Next full audit and static-comparator estimate before adaptive controller claim.

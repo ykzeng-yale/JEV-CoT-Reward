@@ -22,7 +22,8 @@ CONFIG=ROOT/'configs/action_qualification_v2.json'
 def run(args):
     config_path=Path(getattr(args,'config',CONFIG)).resolve()
     config=json.loads(config_path.read_text())
-    if tuple(config['actions'])!=ACTIONS: raise ValueError('Action contract mismatch')
+    actions=tuple(config['actions'])
+    if actions not in (ACTIONS,('continue','sham')): raise ValueError('Action contract mismatch')
     args.output.mkdir(parents=True,exist_ok=False)
     start=time.monotonic();manifest={'config':config,'status':'initializing','started_unix':time.time()}
     source={}
@@ -34,7 +35,7 @@ def run(args):
     schedule=[]
     for i in range(config['problems']):
         task=make_task(i,config['task_seed']);task['prompt']+=PROMPT_SUFFIX
-        arms=[{'action':a,'repeat':r,'seed':config['task_seed']+i*10000+r*100} for a in ACTIONS for r in range(config['repeats'])]
+        arms=[{'action':a,'repeat':r,'seed':config['task_seed']+i*10000+r*100} for a in actions for r in range(config['repeats'])]
         random.Random(config['task_seed']+i).shuffle(arms)
         schedule.append({'index':i,'task':task,'initial_seed':config['task_seed']+i,'arms':arms})
     write_json(args.output/'schedule.json',schedule);manifest['schedule_sha256']=file_sha256(args.output/'schedule.json')
@@ -75,7 +76,7 @@ def run(args):
     finally:
         manifest.update(status=status,finished_unix=time.time());write_json(args.output/'manifest.json',manifest)
         write_json(args.output/'summary.json',{'status':status,'planned_problems':config['problems'],'skipped_problems':len(skipped),
-            'recorded_outcomes':len(rows),'planned_max_outcomes':config['problems']*len(ACTIONS)*config['repeats'],
+            'recorded_outcomes':len(rows),'planned_max_outcomes':config['problems']*len(actions)*config['repeats'],
             'wall_seconds':time.monotonic()-start,'analysis_status':'Requires independent audit before interpretation'})
 
 

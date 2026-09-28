@@ -1,0 +1,7 @@
+# Static sham replication v4
+
+Frozen after complete repair-v3 audit. Repair-v3 sham68/96 vscontinue63/96;segmentrepair54/96. The modest observed sham difference requires fresh checking before attributing gains to adaptive supervision. This development study enrolls48fresh problems,seed1591028,two repeats per continue/sham,192outcomes maximum. Same pinned MLX4bit receiver,checkpoint256/cap384,total2048 tokens,reserve128,randomized arm order. No Jev,gold injection,new model or closed-test reuse. All skipped tasks and timeouts retained.
+
+Primary sham-minus-continue problem-level mean difference and descriptive stratified interval. No selection of subgroups or early stopping based on outcomes.48independent problems offers only coarse precision, not proof of a small effect. Compare actual prompt/generation/service costs. This does not establish an adaptive policy benefit. Future learned controllers must beat best static selected on development, not only continue.
+
+Bound5400s cooperative/5550external,8GiB sampledRSS. Previous repair480episodes took4h;192episodes roughly1.6h is possible, so this limit may truncate; choose7200cooperative/7350external instead to allow completion. This final2h bound is frozen before launch. Original repair record remains untouched; its stale supervisor receipt is not an exit-code confirmation. Scientific complete manifest and631matched calls independently audited;last repair timeout remains an observed operational result.

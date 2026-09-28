@@ -44,11 +44,13 @@ def audit(run,tokenizer_dir):
     m.require(manifest['status']==summary['status']=='complete','Run not complete')
     constants,tasks=checked_task_contracts(run,manifest)
     config=manifest['config']
+    v4=config['protocol']=='sham-replication-v4-development-only'
     v3=config['protocol']=='repair-action-replication-v3-development-only'
-    config_name='action_replication_v3.json' if v3 else 'action_qualification_v2.json'
+    config_name='sham_replication_v4.json' if v4 else 'action_replication_v3.json' if v3 else 'action_qualification_v2.json'
     m.require(config==m.read_json(run/'source/configs'/config_name),'Config changed')
-    m.require(v3 or config['protocol']=='repair-action-qualification-v2-development-only','Wrong protocol')
+    m.require(v4 or v3 or config['protocol']=='repair-action-qualification-v2-development-only','Wrong protocol')
     fixed={'problems':8,'repeats':2,'task_seed':691027,'budget':2048,'checkpoint_target':256,'checkpoint_cap':384,'final_reserve':128,'jev':False}
+    if v4:fixed.update(problems=48,repeats=2,task_seed=1591028)
     if v3:fixed.update(problems=24,repeats=4,task_seed=1491028)
     m.require(all(config[k]==v for k,v in fixed.items()),'Unsupported settings')
     m.require(manifest['actual_quantization_config']['bits']==4,'Wrong quantization')
@@ -61,7 +63,9 @@ def audit(run,tokenizer_dir):
     from transformers import AutoTokenizer
     chat=AutoTokenizer.from_pretrained(str(tokenizer_dir),local_files_only=True,trust_remote_code=False)
     treatment_tree=ast.parse((run/'source/src/jev_control/repair_actions.py').read_text())
-    actions=m.literal(treatment_tree,'ACTIONS');m.require(list(actions)==config['actions'],'Actions changed')
+    all_actions=m.literal(treatment_tree,'ACTIONS')
+    actions=('continue','sham') if v4 else all_actions
+    m.require(list(actions)==config['actions'],'Actions changed')
     instructions={k:m.literal(treatment_tree,k) for k in ('RECHECK','SHAM','SEGMENT')}
     suffix=m.literal(ast.parse((run/'source/scripts/run_development.py').read_text()),'PROMPT_SUFFIX')
     schedule=m.read_json(run/'schedule.json');m.require(len(schedule)==config['problems'],'Enrollment changed')

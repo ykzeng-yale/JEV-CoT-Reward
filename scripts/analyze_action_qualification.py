@@ -64,6 +64,7 @@ def analyze(run,audit_path):
             'mean_episode_model_service_seconds':float(np.mean([r['elapsed_seconds']+initial[r['problem_id']]['elapsed_seconds'] for r in selected]))}
     contrasts={}
     for left,right in [(a,'continue') for a in config['actions'] if a!='continue']+[('suffix_repair','recheck'),('segment_repair','suffix_repair'),('recheck','sham'),('segment_repair','sham')]:
+        if left not in values or right not in values:continue
         d=values[left]-values[right]
         contrasts[left+'_minus_'+right]={**estimate(d,indices),
             'warning':'Descriptive problem-clustered comparison; exploratory multiplicity, no automatic winner selection.'}

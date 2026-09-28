@@ -1,0 +1,22 @@
+{
+  "protocol": "sham-replication-v4-development-only",
+  "task_seed": 1591028,
+  "problems": 48,
+  "repeats": 2,
+  "actions": [
+    "continue",
+    "sham"
+  ],
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "quantization_bits": 4,
+  "jev": false,
+  "interpretation": "Fresh static sham comparison; no semantic/controller efficacy.",
+  "enrollment": "48 fresh scheduled tasks without replacement",
+  "continuation": "Same seed per problem/repeat across actions; shared RNG number is not a variance reduction guarantee. Randomized execution order.",
+  "gate": "Inspect complete enrollment, treatment integrity, total costs, task difficulty and informative failure modes before a separately specified replication. No automatic best-action promotion."
+}
