@@ -15,3 +15,14 @@ The adaptation uses last-emitted-token entropy, a current-inclusive 0.90 quantil
 CPU tests check trigger opportunity, temperature restoration, ineligible preservation, exact token-prefix reconstruction, discarded-work charging and rejection of altered seeds/budgets/choices. `scripts/audit_guard_episode.py` reconstructs segmented episodes independently from their saved calls. The complete run additionally needs source/tokenizer identity checks, initial checkpoint audit, association with durable generation events, original final-verifier recomputation and timestamp ordering across calls/decisions. Do not label the full run audited based solely on the episode checker.
 
 Report all scheduled tasks, actual trigger counts, failures, cap utilization, service time and memory. A run with zero triggers can qualify some runtime paths but cannot qualify real-model branch execution; add a separately labeled forced-trigger instrumentation test if needed, never report it as naturally selected efficacy. Freeze that qualification before execution. Only after runtime and complete-record audit pass should the adaptation enter a fresh outcome study. No pending v3 result is used to tune these settings.
+
+## Complete-run auditor prepared
+
+`scripts/audit_guard_qualification.py` now composes the episode checker with frozen task/rollout source contracts, tokenizer metadata identity, checkpoint reconstruction, durable call matching, selector decision chronology and independent outcome labels. It refuses incomplete runs, missing/extra calls and duplicate outcomes. The weights' saved revision digest is checked; this is not fresh inference or a fresh weight-file rehash. After the future runtime job ends, write a new report and retain the original evidence:
+
+```sh
+.venv/bin/python scripts/audit_guard_qualification.py RUN_DIRECTORY \
+  --tokenizer PINNED_LOCAL_SNAPSHOT --output results/guard_runtime_v1_audit.json
+```
+
+This auditor has CPU component tests; its first complete real-run exercise is still pending. Do not claim the runtime qualified until that audit succeeds.

@@ -19,7 +19,7 @@ def test_shared_policy_accounting_charges_local_only_and_clusters_repeats(tmp_pa
             for j in (None,0,1,2):
                 rows.append({'problem_id':str(i),'repeat':repeat,'candidate':j,
                     'selectors':['continue'] if j is None else selectors if j==0 else [],
-                    'outcome':{'success':i%2==0},'episode_generated_tokens':100,'episode_prompt_tokens':200,
+                    'outcome':{'success':i%2==0 and j in (None,0)},'episode_generated_tokens':100,'episode_prompt_tokens':200,
                     'episode_service_seconds':2.,'selector_generated_tokens':10,'selector_prompt_tokens':20,'selector_service_seconds':.5,'jev_accounted_usd':.001,'jev_input_tokens':100,'jev_acquisition_seconds':.2})
     records={'outcomes':rows,'checkpoints':cps,
         'decisions':[{'problem_id':str(i),'choices':{p:0 for p in selectors},'failures':{}} for i in range(8)],
@@ -44,3 +44,10 @@ def test_shared_policy_accounting_charges_local_only_and_clusters_repeats(tmp_pa
         assert result["split_repeat_diagnostic"][0]["selection_repeats"]==[0,1]
         assert result["split_repeat_diagnostic"][0]["evaluation_repeats"]==[2,3]
         assert "jev_semantic_minus_likelihood" in result["paired_contrasts"]
+
+    assert result['expected_uniform_secondary']['problem_weighted_success']['n_problems']==8
+    assert result['expected_uniform_secondary']['mean_episode_generator_tokens']==100
+    assert 'continue_minus_expected_uniform' in result['expected_uniform_secondary']['contrasts']
+
+    assert result['expected_uniform_secondary']['problem_weighted_success']['mean']==pytest.approx(1/6)
+    assert result['policies']['uniform']['problem_weighted_success']['mean']==.5

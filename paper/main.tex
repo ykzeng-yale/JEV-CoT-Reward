@@ -220,6 +220,14 @@ Condition the utility $\eta(W)U_J+(1-\eta(W))U_0$ on $W$ to obtain the value ide
 \end{proof}
 The component policies must be frozen before independent acquisition-effect labeling, or fitted through an appropriately nested procedure. Already-paid responses identify information value rather than purchase value. Subtracting average latency from a token-matched run generally cannot reconstruct deadline-constrained outcomes.
 
+\section{Uniform selection in a shared candidate pool}
+This secondary analysis was specified during v3 collection without inspecting partial success rates; it does not replace the frozen sampled-uniform baseline. For a fixed checkpoint and candidate pool of size $K$, let $p_j$ be candidate $j$'s continuation success probability and let $\bar Y_j$ average its recorded continuations. A uniformly randomized selector has conditional value
+\[
+V_{\mathrm{unif}}=K^{-1}\sum_{j=1}^{K}p_j,\qquad
+\widehat V_{\mathrm{unif}}=K^{-1}\sum_{j=1}^{K}\bar Y_j.
+\]
+Linearity of expectation proves unbiasedness conditional on the checkpoint and pool when each continuation average is unbiased. Independence across candidates is unnecessary. This is an average, not an outcome-informed maximum. For a hypothetical uniform index $U$ independent of the complete recorded outcome table $\mathcal T$, $\mathbb E[\bar Y_U\mid\mathcal T]=\widehat V_{\mathrm{unif}}$; the law of total variance gives $\operatorname{Var}(\widehat V_{\mathrm{unif}})\leq\operatorname{Var}(\bar Y_U)$. This is standard conditional averaging, not a new theorem or evidence of semantic benefit. Problem-level clustering remains necessary, and one pool per problem does not identify within-problem variation over newly generated pools. Expected deployment cost charges the full candidate pool plus the average selected-continuation cost; all-arm collection cost is separate.
+
 \section{Binary intervention gates and ties}
 For any coupling of binary outcomes $(Y_c,Y_a)$ conditional on cheap features $W=w$, let $p_+=P(Y_a=1,Y_c=0\mid w)$ and $p_-=P(Y_a=0,Y_c=1\mid w)$. Define $r=p_++p_-$ and $\eta=p_+/r$ when $r>0$, with $\eta=.5$ otherwise. Enumerating the four outcome pairs gives
 \[

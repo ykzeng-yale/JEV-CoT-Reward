@@ -65,6 +65,15 @@ def analyze(run,audit_path):
     agreement={p:sum(d['choices'][p]==d['choices']['uniform'] for d in decisions) for p in config['selectors']}
     split=[]
     by_candidate={(r['problem_id'],r['repeat'],r['candidate']):r for r in rows if r['candidate'] is not None}
+    # Secondary: integrate random selection, never maximize outcome labels.
+    uniform_expected=np.asarray([np.mean([by_candidate[pid,r,j]['outcome']['success']
+        for r in range(config['repeats']) for j in range(config['candidate_count'])]) for pid in ids])
+    uniform_diagnostic={
+        'status':'secondary_added_before_v3_completion_without_partial_outcome_inspection',
+        'problem_weighted_success':estimate(uniform_expected,indices),
+        'contrasts':{p+'_minus_expected_uniform':estimate(values[p]-uniform_expected,indices) for p in policies},
+        'meaning':'Expected uniform choice over the same charged pool; not a best-candidate oracle. Frozen sampled-uniform results remain primary.',
+        'mean_episode_generator_tokens':float(np.mean([r['episode_generated_tokens'] for r in by_candidate.values()]))}
     # This is explicitly an outcome-informed development diagnostic, not a policy.
     half=config['repeats']//2
     splits=[(list(range(half)),list(range(half,config['repeats']))),
@@ -85,7 +94,7 @@ def analyze(run,audit_path):
         'jev_failure_count':sum('jev_semantic' in d['failures'] for d in decisions),
         'local_failure_count':sum('local_semantic' in d['failures'] for d in decisions),
         'candidate_unique_text_counts':{pid:len({c['generation']['text'] for c in candidates if c['problem_id']==pid}) for pid in ids},
-        'split_repeat_diagnostic':split,
+        'split_repeat_diagnostic':split,'expected_uniform_secondary':uniform_diagnostic,
         'collection_generated_tokens':sum(e['generation']['generated_tokens'] for e in events if e['status']=='complete'),
         'collection_service_seconds':sum(e['generation']['elapsed_seconds'] for e in events if e['status']=='complete'),
         'audit_sha256':hashlib.sha256(audit_path.read_bytes()).hexdigest(),
