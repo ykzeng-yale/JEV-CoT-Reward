@@ -20,6 +20,9 @@ def audit(run,accounting):
     require(manifest['job_id']==receipt['job_id'],'Job ID mismatch')
     require(manifest['model']==receipt['model'] and manifest['revision']==receipt['revision'],'Model identity mismatch')
     require(manifest['script_sha256']==receipt['source_sha256']['qualify_cuda.py'],'Script digest mismatch')
+    if 'tokenizer_fixture.json' in receipt['source_sha256']:
+        require(manifest.get('tokenizer_class')=='Qwen2Tokenizer' and manifest.get('tokenizer_fixture_count')==6,'Python tokenizer qualification missing')
+        require(manifest.get('tokenizer_fixture_sha256')==receipt['source_sha256']['tokenizer_fixture.json'],'Tokenizer fixture identity mismatch')
     require(manifest['dtype']=='bfloat16' and manifest['quantization'] is None,'Precision mismatch')
     require(manifest['versions']['torch']=='2.9.1' and manifest['versions']['transformers']=='4.55.2' and manifest['cuda']=='12.8','Runtime mismatch')
     require(manifest['gpu']==summary['gpu'] and any(g in manifest['gpu'] for g in ('H100','H200','B200')),'Unexpected GPU')

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=jev-cuda-qual-v1b
+#SBATCH --job-name=jev-cuda-qual-v1c
 #SBATCH --account=pi_fl426
 #SBATCH --partition=gpu_h100,gpu_b200,gpu_h200
 #SBATCH --gres=gpu:1

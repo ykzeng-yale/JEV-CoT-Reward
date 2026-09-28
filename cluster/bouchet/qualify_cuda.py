@@ -32,7 +32,15 @@ metadata['snapshot_bytes']=footprint
 metadata['download_seconds']=time.monotonic()-start
 metadata['file_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in Path(snapshot).iterdir() if p.is_file() and p.suffix!='.safetensors'}
 save('manifest.json',metadata)
-tokenizer=AutoTokenizer.from_pretrained(snapshot,local_files_only=True,trust_remote_code=False,padding_side='left')
+tokenizer=AutoTokenizer.from_pretrained(snapshot,local_files_only=True,trust_remote_code=False,padding_side='left',use_fast=False)
+fixtures=json.loads(Path('tokenizer_fixture.json').read_text())
+for r in fixtures:
+    assert tokenizer.encode(r['text'],add_special_tokens=False)==r['ids']
+    assert tokenizer.apply_chat_template([{'role':'user','content':r['text']}],tokenize=True,add_generation_prompt=True,return_dict=False)==r['chat_ids']
+metadata['tokenizer_class']=type(tokenizer).__name__
+metadata['tokenizer_fixture_count']=len(fixtures)
+metadata['tokenizer_fixture_sha256']=hashlib.sha256(Path('tokenizer_fixture.json').read_bytes()).hexdigest()
+save('manifest.json',metadata)
 model=AutoModelForCausalLM.from_pretrained(snapshot,local_files_only=True,trust_remote_code=False,torch_dtype=torch.bfloat16,attn_implementation='sdpa').to('cuda').eval()
 if tokenizer.pad_token_id is None:tokenizer.pad_token_id=tokenizer.eos_token_id
 
@@ -44,7 +52,7 @@ def greedy(ids,n):
                            min_new_tokens=n)
     return out[0,x.shape[1]:].tolist()
 
-prompt=tokenizer.apply_chat_template([{'role':'user','content':'Explain how to find a shortest path in a graph with nonnegative edge weights.'}],tokenize=True,add_generation_prompt=True)
+prompt=tokenizer.apply_chat_template([{'role':'user','content':'Explain how to find a shortest path in a graph with nonnegative edge weights.'}],tokenize=True,add_generation_prompt=True,return_dict=False)
 torch.cuda.synchronize();start=time.monotonic()
 whole=greedy(prompt,64);first=greedy(prompt,32);rest=greedy(prompt+first,32)
 torch.cuda.synchronize()
