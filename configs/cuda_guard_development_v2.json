@@ -1,0 +1,23 @@
+{
+  "protocol": "cuda-segment-guard-development-v2",
+  "problems": 12,
+  "task_seed": 1191027,
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "segment_tokens": 64,
+  "branch_tokens": 100,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "policies": [
+    "continue",
+    "segmented_sham",
+    "guard_adaptation"
+  ],
+  "repeats": 1,
+  "purpose": "Fresh development comparison after audited runtime qualification; not confirmatory efficacy.",
+  "enrollment": "Twelve fresh scheduled development tasks; preserve every ineligible task without replacement.",
+  "jev": false,
+  "backend": "cuda"
+}

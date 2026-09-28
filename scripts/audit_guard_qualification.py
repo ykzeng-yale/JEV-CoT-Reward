@@ -41,13 +41,17 @@ def audit(run,tokenizer_dir):
     m.require(manifest['status']==summary['status']=='complete','Run incomplete')
     constants,tasks=checked_task_contracts(run,manifest);config=manifest['config']
     cuda=config.get('backend')=='cuda'
-    config_file='cuda_guard_runtime_v1.json' if cuda else 'guard_runtime_v1.json'
+    v2=config.get('protocol')=='cuda-segment-guard-development-v2'
+    config_file='cuda_guard_development_v2.json' if v2 else 'cuda_guard_runtime_v1.json' if cuda else 'guard_runtime_v1.json'
     m.require(config==m.read_json(run/'source/configs'/config_file),'Configuration mismatch')
     fixed={'protocol':'segment-guard-runtime-v1-development-only','problems':4,'task_seed':991027,'budget':2048,
            'checkpoint_target':256,'checkpoint_cap':384,'final_reserve':128,'segment_tokens':64,'branch_tokens':100,
            'temperature':.7,'top_p':.9,'repeats':1,'jev':False,
            'policies':['continue','segmented_sham','guard_adaptation']}
     if cuda:fixed.update(protocol='cuda-segment-guard-runtime-v1-development-only',problems=2,task_seed=1091027)
+    if v2:
+        m.require(cuda,'Development v2 requires CUDA')
+        fixed.update(protocol='cuda-segment-guard-development-v2',problems=12,task_seed=1191027)
     m.require(all(config[k]==v for k,v in fixed.items()),'Unsupported configuration')
     for name in ('src/jev_control/guard_adaptation.py','src/jev_control/guard_runtime.py','scripts/run_guard_qualification.py'):
         m.require(m.digest((ROOT/name).read_bytes())==manifest['source_sha256'][name],'Unreviewed runtime implementation')
