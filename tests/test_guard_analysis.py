@@ -54,3 +54,10 @@ def test_report_identifies_executed_analysis_dependencies(tmp_path):
     assert set(r['analysis_dependency_sha256'])=={'analyze_guard_qualification.py','analyze_screen.py'}
     for name,digest in r['analysis_dependency_sha256'].items():
         assert digest==hashlib.sha256((Path(__file__).parents[1]/'scripts'/name).read_bytes()).hexdigest()
+
+
+def test_zero_discordance_is_not_certified_equivalence(tmp_path):
+    a=fixture(tmp_path);r=analyze(tmp_path,a)
+    c=r['paired_contrasts']['segmented_sham_minus_continue']
+    assert c['bootstrap_percentile_95']==[0.,0.]
+    assert c['simultaneous_hoeffding_95']==[-1.,1.]

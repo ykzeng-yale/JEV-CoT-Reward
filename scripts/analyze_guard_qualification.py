@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 import numpy as np
 from analyze_screen import estimate, stratified_bootstrap_indices
@@ -41,6 +42,12 @@ def analyze(run,audit_path):
                 if len(ids):
                     known_p=float(np.mean(values[p]*(~censored[p])));known_b=float(np.mean(values[baseline]*(~censored[baseline])))
                     contrasts[p+'_minus_'+baseline]['timeout_completion_sensitivity']=[known_p-known_b-float(censored[baseline].mean()),known_p+float(censored[p].mean())-known_b]
+    # Simultaneous bounded-difference intervals remain nondegenerate when
+    # the observed paired bootstrap has zero variance. Independent problems required.
+    for c in contrasts.values():
+        if c['n_problems']:
+            radius=math.sqrt(2*math.log(2*len(contrasts)/.05)/c['n_problems'])
+            c['simultaneous_hoeffding_95']=[max(-1.,c['mean']-radius),min(1.,c['mean']+radius)]
     return {'status':'audited_development_only','scheduled_problems':cfg['problems'],'eligible_problems':len(ids),
         'skipped_problems':len(lines(run/'skipped.jsonl')),'policies':policies,'paired_contrasts':contrasts,
         'collection_generated_tokens':sum(e['generation']['generated_tokens'] for e in events),
@@ -48,6 +55,7 @@ def analyze(run,audit_path):
         'audit_sha256':hashlib.sha256(audit_path.read_bytes()).hexdigest(),
         'analysis_dependency_sha256':{name:hashlib.sha256((Path(__file__).parent/name).read_bytes()).hexdigest() for name in ('analyze_guard_qualification.py','analyze_screen.py')},
         'limitations':['Problem-stratified descriptive bootstrap; small samples and zero discordance cannot establish equivalence.',
+            'Hoeffding intervals assume independent original problems and frozen policies; simultaneous over reported contrasts, conservative and conditional on the task-generation/enrollment design, not an OOD guarantee.',
             'Per-policy costs include the shared initial prefix once; collection costs count each actual call once.',
             'GPU allocation time and infrastructure preflight are separate from episode service time.',
             'Opportunity-rate matching is not exact intervention-count, latency or compute matching.',

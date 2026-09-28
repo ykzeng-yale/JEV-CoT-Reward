@@ -115,3 +115,7 @@ Actual submitted job **27727778**, receipt `runs/bouchet-cuda-guard-precision-v4
 ## September28,01:26 provenance hardening
 
 27727778 still RUNNING on B200,56:08 elapsed. No partial success rates read, no duplicate jobs or local inference started. Added audit/analysis dependency hashes so imported helper changes (including the prior floating-point checker correction) are identifiable, rather than hashing only the entry script. Sixteen targeted tests passed. Added `docs/guard_result_acceptance.md` for terminal source/receipt/accounting checks and frozen-primary versus secondary sensitivity reporting. Existing reports/remote sources remain unchanged; use fresh reports at completion.
+
+## September28,01:56 uncertainty safeguard
+
+27727778 remains RUNNING on B200,1:26:09 elapsed; no interim outcomes inspected. Added simultaneous two-sided Hoeffding intervals across reported contrasts to supplement potentially degenerate small-sample bootstrap intervals. Assumptions and conditional enrollment target are explicit; original primary contrast remains unchanged. Five analyzer tests pass, including zero-discordance uncertainty. No new model job is justified before the current precision-stage result; existing theory/provenance/cost preparation is complete for its next decision.

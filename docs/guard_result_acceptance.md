@@ -9,3 +9,5 @@
 7. Update the evidence checklist and record the scientific decision before collecting a new study. Keep v1 test closed. Do not call the full paper complete because the timing study ended.
 
 Current live source must not be copied over a running job. All analysis improvements here operate on retrieved immutable records after termination.
+
+The analyzer also supplies a conservative two-sided Hoeffding interval, simultaneous over all reported contrasts: radius sqrt(2 log(2K/0.05)/n), clipped to [-1,1]. It assumes independent original problems and policies fixed before these outcomes. This is deliberately nondegenerate when every observed paired difference is zero; a zero-width bootstrap cannot establish equivalence. These intervals concern the specified enrolled-task experiment, not unseen domains. They are secondary uncertainty safeguards, not a replacement for the frozen descriptive primary contrast or a claim that the study is confirmatory.
