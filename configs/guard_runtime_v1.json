@@ -1,0 +1,18 @@
+{
+  "protocol": "segment-guard-runtime-v1-development-only",
+  "problems": 4,
+  "task_seed": 991027,
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "segment_tokens": 64,
+  "branch_tokens": 100,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "policies": ["continue", "segmented_sham", "guard_adaptation"],
+  "repeats": 1,
+  "purpose": "Runtime, token-chain, trigger and all-work accounting qualification; not an efficacy study.",
+  "enrollment": "Four fresh scheduled development tasks; preserve all ineligible cases without replacement.",
+  "jev": false
+}

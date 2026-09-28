@@ -39,3 +39,9 @@ The existing 30-minute `jev-experiment-completion-check` heartbeat authorizes ac
 Verified worker 57951 with unchanged start time; still live. Without inspecting partial success rates, strengthened the independent hosted-record auditor with malformed/tampered-record tests (request leakage, temporal ordering, usage, distributions, cached accounting, failure fallback). Added missing-usage reporting so failed API usage is not silently treated as zero. Public releases may include usage/cost/time scalars but never raw hosted responses.
 
 Implemented and CPU-tested `guard_adaptation.py`: a separately labeled segment-boundary variant, not the original GUARD method. It requires a backend/runtime qualification and independent call-ledger audit before deployment comparisons. Do not add it retroactively to v3 or compete with the live model job. Next qualification can begin after the current worker terminates and its result is audited.
+
+## September 27, 20:26 heartbeat work
+
+Worker 57951 still matched its recorded start time; progress reached seven completed problems without examining partial success rates. Added a frozen four-task runtime qualification config/runner (`guard_runtime_v1.json`, `run_guard_qualification.py`) with continue, segmented sham and GUARD adaptation. Do not launch concurrently with v3a. The sampler bridge restores state on failure; an independent segmented-episode auditor reconstructs prefixes, decisions and all-work costs. Full-run provenance/event/checkpoint/label auditing remains required beyond that helper. Protocol: `docs/guard_runtime_v1_protocol.md`.
+
+Fixed the prospective adaptation's premature stopping on an unfinished FINAL: marker before any real-model qualification; this does not alter the running v3 code. Added regression tests for that case, changed call metadata to preserve exact requests and temperatures, and tested the complete runner with CPU fixtures. No real-model baseline outcome is claimed.

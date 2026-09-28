@@ -9,7 +9,7 @@ from .guard_contract import entropy_trigger,BRANCH_TEMPERATURES
 
 
 def run(task_prefix,retained,initial_tokens,generate,encode,record,*,budget=2048,
-        reserve=128,segment_tokens=64,branch_tokens=100,seed=1):
+        reserve=128,segment_tokens=64,branch_tokens=100,seed=1,branching=True):
     """generate(prefix, cap, seed, temperature) -> Generation.
 
     record(kind, row) must durably save calls/decisions. No task answer or verifier
@@ -28,20 +28,21 @@ def run(task_prefix,retained,initial_tokens,generate,encode,record,*,budget=2048
         if result.generated_tokens!=len(result.token_ids) or not 0<=result.generated_tokens<=cap:
             raise ValueError('Backend violated token allowance')
         spent+=result.generated_tokens
-        row={'context':context,'generation':result.to_dict(),'spent_generated_tokens':spent}
+        row={'context':context,'generation':result.to_dict(),'spent_generated_tokens':spent,
+             'prefix_ids':prefix+history+suffix,'requested_tokens':cap,'seed':seed+len(calls),'temperature':temperature}
         record('calls',row);calls.append(row)
         return result
     while spent<budget-reserve and not terminal:
         g=call('segment',[],min(segment_tokens,budget-reserve-spent),.7)
         history+=g.token_ids
-        terminal=g.finish_reason in ('stop','timeout') or 'FINAL:' in g.text
+        terminal=g.finish_reason in ('stop','timeout')
         if terminal or not g.token_ids:break
         if not g.token_entropies:raise ValueError('Predictive entropy statistics required')
         entropies.append(g.token_entropies[-1])
         remaining=budget-spent
         # Require full pool and at least one continuation token beyond reserve.
         capacity=remaining>=3*branch_tokens+reserve+1
-        trigger=entropy_trigger(entropies,remaining) and capacity
+        trigger=branching and entropy_trigger(entropies,remaining) and capacity
         decision={'boundary':len(entropies),'trigger':trigger,'pool_capacity':capacity,
                   'spent_before_pool':spent,'remaining_before_pool':remaining,'selected':None}
         if trigger:
@@ -58,7 +59,7 @@ def run(task_prefix,retained,initial_tokens,generate,encode,record,*,budget=2048
                             spent_after_pool=spent)
             record('decisions',decision);decisions.append(decision)
             history+=inserted+selected.token_ids
-            terminal=selected.finish_reason in ('stop','timeout') or 'FINAL:' in selected.text
+            terminal=selected.finish_reason in ('stop','timeout')
         else:
             record('decisions',decision);decisions.append(decision)
     if not terminal and spent<budget:

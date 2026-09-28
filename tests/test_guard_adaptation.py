@@ -27,3 +27,14 @@ def test_terminal_segment_no_forced_resume_or_branch():
         return Generation([65],'FINAL: 1',len(prefix),1,-1.,1.,.1,'stop',0.,'fixture',seed,[-1.],[1.])
     result=run([1],[],0,generate,lambda s:[],lambda k,r:None)
     assert len(result['calls'])==1 and result['generated_tokens']==1 and result['decisions']==[]
+
+
+def test_answer_marker_does_not_truncate_unfinished_segment():
+    count=0
+    def generate(prefix,cap,seed,temp):
+        nonlocal count
+        count+=1
+        return Generation([65],'FINAL:' if count==1 else '42',len(prefix),1,-1.,1.,.1,
+                          'length' if count==1 else 'stop',0.,'fixture',seed,[-1.],[1.])
+    result=run([1],[],0,generate,lambda s:[],lambda k,r:None,branching=False)
+    assert count==2 and result['generated_tokens']==2
