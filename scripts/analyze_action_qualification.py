@@ -9,6 +9,25 @@ import numpy as np
 from analyze_screen import stratified_bootstrap_indices, estimate
 
 
+def split_repeat_diagnostic(lookup, ids, actions, repeats):
+    """Outcome-informed diagnostic only; disjoint labels select/evaluate."""
+    if repeats != 4:return []
+    reports=[]
+    for train,test in [([0,1],[2,3]),([2,3],[0,1])]:
+        selected=[];baseline=[];chosen=[]
+        for pid in ids:
+            best=max(actions,key=lambda a:sum(lookup[pid,a,r]['outcome']['success'] for r in train))
+            chosen.append(best)
+            selected.append(float(np.mean([lookup[pid,best,r]['outcome']['success'] for r in test])))
+            baseline.append(float(np.mean([lookup[pid,'continue',r]['outcome']['success'] for r in test])))
+        reports.append({'selection_repeats':train,'evaluation_repeats':test,
+            'selected_success':float(np.mean(selected)),'continue_success':float(np.mean(baseline)),
+            'paired_difference':float(np.mean(np.asarray(selected)-baseline)),
+            'selected_action_counts':dict(Counter(chosen)),
+            'scope':'Outcome-informed diagnostic, not deployable policy or oracle bound; reversed splits overlap and are not independent.'})
+    return reports
+
+
 def analyze(run,audit_path):
     audit=json.loads(audit_path.read_text())
     if audit.get('status')!='passed_action_qualification_audit' or audit.get('ready_for_analysis') is not True:
@@ -44,16 +63,17 @@ def analyze(run,audit_path):
             'outcome_reason_counts':dict(Counter(r['outcome']['reason'] for r in selected)),
             'mean_episode_model_service_seconds':float(np.mean([r['elapsed_seconds']+initial[r['problem_id']]['elapsed_seconds'] for r in selected]))}
     contrasts={}
-    for left,right in [(a,'continue') for a in config['actions'] if a!='continue']+[('suffix_repair','recheck'),('segment_repair','suffix_repair'),('recheck','sham')]:
+    for left,right in [(a,'continue') for a in config['actions'] if a!='continue']+[('suffix_repair','recheck'),('segment_repair','suffix_repair'),('recheck','sham'),('segment_repair','sham')]:
         d=values[left]-values[right]
         contrasts[left+'_minus_'+right]={**estimate(d,indices),
-            'warning':'Descriptive only; eight clusters, exploratory multiple comparisons, no automatic winner selection.'}
+            'warning':'Descriptive problem-clustered comparison; exploratory multiplicity, no automatic winner selection.'}
     return {'status':'audited_development_action_qualification','enrolled_problems':config['problems'],
         'eligible_problems':len(ids),'episodes':len(rows),'actions':actions,'paired_contrasts':contrasts,
+        'split_repeat_diagnostic':split_repeat_diagnostic(lookup,ids,config['actions'],config['repeats']),
         'audit_sha256':hashlib.sha256(audit_path.read_bytes()).hexdigest(),
         'analysis_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'limitations':['Conditional on online checkpoint eligibility; no full-policy deployment claim.',
-            'Two repeats per action cannot establish stable state-specific effects.',
+            'Few repeats per action give noisy state-specific effects; selection/evaluation splitting does not remove all uncertainty.',
             'Generator-token allowances matched; prefill, actual length and runtime differ.',
             'No Jev acquisition, fitted controller, novel task-family transfer or scientific discovery tested.',
             'Historical v1 is not a randomized budget comparator; do not pool.',
