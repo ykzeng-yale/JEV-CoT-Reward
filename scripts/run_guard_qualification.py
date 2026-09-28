@@ -86,7 +86,8 @@ def run(args):
                         result=guard_run(prompt,cp['retained_ids'],initial.generated_tokens,
                             lambda p,c,s,t:scoped_generate(backend,p,c,s,t),backend.encode_text,save,
                             budget=config['budget'],reserve=config['final_reserve'],segment_tokens=config['segment_tokens'],
-                            branch_tokens=config['branch_tokens'],seed=seed,branching=policy=='guard_adaptation')
+                            branch_tokens=config['branch_tokens'],seed=seed,branching=policy in ('guard_adaptation','random_branch'),
+                            random_rate=config['random_rate'] if policy=='random_branch' else None)
                         text=backend.decode(result['retained_ids'])
                         row={'text':text,'outcome':verify(task,text),'episode_generated_tokens':result['generated_tokens'],
                              'retained_ids':result['retained_ids'],'calls':result['calls'],'decisions':result['decisions']}

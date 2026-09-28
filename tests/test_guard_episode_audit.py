@@ -33,3 +33,28 @@ def test_call_tampering_fails(field,value):
 def test_winner_tampering_fails():
     result,encode=fixture();next(d for d in result['decisions'] if d['trigger'])['selected']=2
     with pytest.raises(ValueError):audit_episode(result,[1],[2]*256,256,encode)
+
+@pytest.mark.parametrize('rate',[0.,1.,3/55])
+def test_random_timing_is_independently_reconstructed(rate):
+    import inspect
+    # Reuse the fixture backend with a narrowly changed invocation.
+    namespace=dict(globals())
+    source=inspect.getsource(fixture).replace('def fixture(', 'def randomized_fixture(').replace('branching=branching)', 'branching=branching,random_rate=rate)')
+    namespace['rate']=rate
+    exec(source,namespace)
+    result,encode=namespace['randomized_fixture']()
+    audit_episode(result,[1],[2]*256,256,encode,random_rate=rate)
+    if rate==0:assert not any(d['trigger'] for d in result['decisions'])
+    if rate==1:assert any(d['trigger'] for d in result['decisions'])
+
+
+def test_reduction_roundoff_preserves_valid_recorded_selection():
+    result,encode=fixture()
+    for c in result['calls']:
+        if c['context'].startswith('candidate_'):
+            c['generation']['mean_entropy']+=1e-9
+    for d in result['decisions']:
+        if d['trigger']:d['scores']=[s-1e-9 for s in d['scores']]
+    audit_episode(result,[1],[2]*256,256,encode)
+    next(c for c in result['calls'] if c['context'].startswith('candidate_'))['generation']['mean_entropy']+=1
+    with pytest.raises(ValueError):audit_episode(result,[1],[2]*256,256,encode)

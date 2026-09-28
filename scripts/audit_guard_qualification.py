@@ -41,8 +41,9 @@ def audit(run,tokenizer_dir):
     m.require(manifest['status']==summary['status']=='complete','Run incomplete')
     constants,tasks=checked_task_contracts(run,manifest);config=manifest['config']
     cuda=config.get('backend')=='cuda'
+    v3=config.get('protocol')=='cuda-segment-guard-random-v3'
     v2=config.get('protocol')=='cuda-segment-guard-development-v2'
-    config_file='cuda_guard_development_v2.json' if v2 else 'cuda_guard_runtime_v1.json' if cuda else 'guard_runtime_v1.json'
+    config_file='cuda_guard_random_v3.json' if v3 else 'cuda_guard_development_v2.json' if v2 else 'cuda_guard_runtime_v1.json' if cuda else 'guard_runtime_v1.json'
     m.require(config==m.read_json(run/'source/configs'/config_file),'Configuration mismatch')
     fixed={'protocol':'segment-guard-runtime-v1-development-only','problems':4,'task_seed':991027,'budget':2048,
            'checkpoint_target':256,'checkpoint_cap':384,'final_reserve':128,'segment_tokens':64,'branch_tokens':100,
@@ -52,6 +53,9 @@ def audit(run,tokenizer_dir):
     if v2:
         m.require(cuda,'Development v2 requires CUDA')
         fixed.update(protocol='cuda-segment-guard-development-v2',problems=12,task_seed=1191027)
+    if v3:
+        m.require(cuda,'Random v3 requires CUDA')
+        fixed.update(protocol='cuda-segment-guard-random-v3',problems=12,task_seed=1291027,random_rate=3/55,policies=['continue','segmented_sham','guard_adaptation','random_branch'])
     m.require(all(config[k]==v for k,v in fixed.items()),'Unsupported configuration')
     for name in ('src/jev_control/guard_adaptation.py','src/jev_control/guard_runtime.py','scripts/run_guard_qualification.py'):
         m.require(m.digest((ROOT/name).read_bytes())==manifest['source_sha256'][name],'Unreviewed runtime implementation')
@@ -109,7 +113,7 @@ def audit(run,tokenizer_dir):
                 m.audit_rollout(enriched,{**item,'scheduled':{'action':'continue','repeat':0,'seed':seed}},cp,config,tokenizer,constants,ContextLedger(ledger,context))
                 m.require(r['episode_generated_tokens']==initial['generated_tokens']+r['generated_tokens'],'Continue accounting mismatch')
             else:
-                audit_episode({**r,'generated_tokens':r['episode_generated_tokens']},prompt,cp['retained_ids'],initial['generated_tokens'],encode,seed=seed,branching=policy=='guard_adaptation')
+                audit_episode({**r,'generated_tokens':r['episode_generated_tokens']},prompt,cp['retained_ids'],initial['generated_tokens'],encode,seed=seed,branching=policy in ('guard_adaptation','random_branch'),random_rate=config['random_rate'] if policy=='random_branch' else None)
                 starts=[]
                 for c in r['calls']:
                     starts.append(ledger.events[ledger.cursor]['started_unix'])

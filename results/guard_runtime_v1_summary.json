@@ -1,0 +1,21 @@
+{
+  "policies": {
+    "continue": {
+      "successes": 3,
+      "episodes": 4,
+      "total_episode_generated_tokens": 5768
+    },
+    "segmented_sham": {
+      "successes": 3,
+      "episodes": 4,
+      "total_episode_generated_tokens": 5200
+    },
+    "guard_adaptation": {
+      "successes": 3,
+      "episodes": 4,
+      "total_episode_generated_tokens": 6129
+    }
+  },
+  "audit_sha256": "c2e7cafd3ebe03a9bac2ec505bc2b6eef6a55ba5bb97e0177d586f5d6a589a72",
+  "scope": "Audited development totals; no efficacy or equivalence claim."
+}

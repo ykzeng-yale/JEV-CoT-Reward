@@ -9,7 +9,7 @@ from .guard_contract import entropy_trigger,BRANCH_TEMPERATURES
 
 
 def run(task_prefix,retained,initial_tokens,generate,encode,record,*,budget=2048,
-        reserve=128,segment_tokens=64,branch_tokens=100,seed=1,branching=True):
+        reserve=128,segment_tokens=64,branch_tokens=100,seed=1,branching=True,random_rate=None):
     """generate(prefix, cap, seed, temperature) -> Generation.
 
     record(kind, row) must durably save calls/decisions. No task answer or verifier
@@ -18,6 +18,7 @@ def run(task_prefix,retained,initial_tokens,generate,encode,record,*,budget=2048
     """
     if min(budget,reserve,segment_tokens,branch_tokens)<=0 or initial_tokens<0 or initial_tokens>budget-reserve:
         raise ValueError('Invalid allowance')
+    if random_rate is not None and not 0 <= random_rate <= 1:raise ValueError('Invalid random rate')
     prefix=list(task_prefix);history=list(retained);spent=initial_tokens;calls=[];entropies=[];decisions=[]
     terminal=False
     def call(context,suffix,cap,temperature):
@@ -43,6 +44,10 @@ def run(task_prefix,retained,initial_tokens,generate,encode,record,*,budget=2048
         # Require full pool and at least one continuation token beyond reserve.
         capacity=remaining>=3*branch_tokens+reserve+1
         trigger=branching and entropy_trigger(entropies,remaining) and capacity
+        if random_rate is not None:
+            import hashlib
+            u=int.from_bytes(hashlib.sha256(f'{seed}:{len(entropies)}'.encode()).digest()[:8],'big')/2**64
+            trigger=branching and len(entropies)>=11 and capacity and u<random_rate
         decision={'boundary':len(entropies),'trigger':trigger,'pool_capacity':capacity,
                   'spent_before_pool':spent,'remaining_before_pool':remaining,'selected':None}
         if trigger:
