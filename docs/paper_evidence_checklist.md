@@ -6,7 +6,7 @@ Updated September 27, 23:56. Development findings are not confirmatory evidence.
 |---|---|---|
 | Exact-prefix and budget instrumentation | Audited MLX and CUDA runs | Keep immutable source and call audits for every changed controller |
 | Semantic selector increment | V3 Jev42/96 vs likelihood43/96, continue48/96 | No demonstrated increment; do not scale unchanged selector |
-| Adaptive branching beyond interruption | CUDA GUARD6/12 vs sham6/12 | Running randomized-timing baseline27724738; full paired/cost audit |
+| Adaptive branching beyond interruption | CUDA GUARD6/12 vs sham6/12 | Randomized baseline audited:GUARD/random/sham8/12, two discordant GUARD/random tasks; fixed96-problem precision study27727778 submitted |
 | Fair interruption and runtime envelope | Continue had one180s call timeout; segmented policies none | Label historical comparison runtime-censored; any prospective comparison must freeze an equal episode deadline and compatible call caps, or explicitly target those operational policies |
 | Static and randomized policies | Static continuation and segmented sham; random timing now running | Random opportunity rate does not guarantee matched intervention counts or cost |
 | Learned intervention value | V1 exploratory models showed no gain | Establish useful actions and fresh outcome supervision before expensive controller training |

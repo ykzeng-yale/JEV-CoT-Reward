@@ -1,0 +1,25 @@
+{
+  "protocol": "cuda-segment-guard-precision-v4",
+  "problems": 96,
+  "task_seed": 1391027,
+  "budget": 2048,
+  "checkpoint_target": 256,
+  "checkpoint_cap": 384,
+  "final_reserve": 128,
+  "segment_tokens": 64,
+  "branch_tokens": 100,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "policies": [
+    "continue",
+    "segmented_sham",
+    "guard_adaptation",
+    "random_branch"
+  ],
+  "repeats": 1,
+  "purpose": "Fixed-sample development precision study; primary GUARD versus random, same segmented contract.",
+  "enrollment": "Ninety-six fresh scheduled tasks, all retained without replacement.",
+  "jev": false,
+  "backend": "cuda",
+  "random_rate": 0.05454545454545454
+}

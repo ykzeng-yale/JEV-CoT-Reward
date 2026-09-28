@@ -1,0 +1,172 @@
+{
+  "status": "audited_development_only",
+  "scheduled_problems": 12,
+  "eligible_problems": 12,
+  "skipped_problems": 0,
+  "policies": {
+    "continue": {
+      "success": {
+        "n_problems": 12,
+        "mean": 0.8333333333333334,
+        "bootstrap_percentile_95": [
+          0.6666666666666666,
+          1.0
+        ]
+      },
+      "successes": 10,
+      "episodes": 12,
+      "episode_generated_tokens": 12461,
+      "processed_prompt_tokens": 9510,
+      "service_seconds": 594.1345770978369,
+      "timeout_calls": 1,
+      "triggers": 0,
+      "eligible_boundaries": 0
+    },
+    "segmented_sham": {
+      "success": {
+        "n_problems": 12,
+        "mean": 0.6666666666666666,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.8333333333333334
+        ]
+      },
+      "successes": 8,
+      "episodes": 12,
+      "episode_generated_tokens": 14593,
+      "processed_prompt_tokens": 181673,
+      "service_seconds": 432.98718706541695,
+      "timeout_calls": 0,
+      "triggers": 0,
+      "eligible_boundaries": 45
+    },
+    "guard_adaptation": {
+      "success": {
+        "n_problems": 12,
+        "mean": 0.6666666666666666,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.8333333333333334
+        ]
+      },
+      "successes": 8,
+      "episodes": 12,
+      "episode_generated_tokens": 14656,
+      "processed_prompt_tokens": 178728,
+      "service_seconds": 459.58335380640347,
+      "timeout_calls": 0,
+      "triggers": 2,
+      "eligible_boundaries": 39
+    },
+    "random_branch": {
+      "success": {
+        "n_problems": 12,
+        "mean": 0.6666666666666666,
+        "bootstrap_percentile_95": [
+          0.5,
+          0.8333333333333334
+        ]
+      },
+      "successes": 8,
+      "episodes": 12,
+      "episode_generated_tokens": 15035,
+      "processed_prompt_tokens": 187399,
+      "service_seconds": 435.7291129233781,
+      "timeout_calls": 0,
+      "triggers": 2,
+      "eligible_boundaries": 42
+    }
+  },
+  "paired_contrasts": {
+    "continue_minus_segmented_sham": {
+      "n_problems": 12,
+      "mean": 0.16666666666666666,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.3333333333333333
+      ],
+      "discordant_problems": 2
+    },
+    "continue_minus_random_branch": {
+      "n_problems": 12,
+      "mean": 0.16666666666666666,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.3333333333333333
+      ],
+      "discordant_problems": 2
+    },
+    "segmented_sham_minus_continue": {
+      "n_problems": 12,
+      "mean": -0.16666666666666666,
+      "bootstrap_percentile_95": [
+        -0.3333333333333333,
+        0.0
+      ],
+      "discordant_problems": 2
+    },
+    "segmented_sham_minus_random_branch": {
+      "n_problems": 12,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.25,
+        0.25
+      ],
+      "discordant_problems": 2
+    },
+    "guard_adaptation_minus_continue": {
+      "n_problems": 12,
+      "mean": -0.16666666666666666,
+      "bootstrap_percentile_95": [
+        -0.3333333333333333,
+        0.0
+      ],
+      "discordant_problems": 2
+    },
+    "guard_adaptation_minus_segmented_sham": {
+      "n_problems": 12,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        0.0,
+        0.0
+      ],
+      "discordant_problems": 0
+    },
+    "guard_adaptation_minus_random_branch": {
+      "n_problems": 12,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.25,
+        0.25
+      ],
+      "discordant_problems": 2
+    },
+    "random_branch_minus_continue": {
+      "n_problems": 12,
+      "mean": -0.16666666666666666,
+      "bootstrap_percentile_95": [
+        -0.3333333333333333,
+        0.0
+      ],
+      "discordant_problems": 2
+    },
+    "random_branch_minus_segmented_sham": {
+      "n_problems": 12,
+      "mean": 0.0,
+      "bootstrap_percentile_95": [
+        -0.25,
+        0.25
+      ],
+      "discordant_problems": 2
+    }
+  },
+  "collection_generated_tokens": 46893,
+  "collection_service_seconds": 1462.0151923701633,
+  "audit_sha256": "97eccfb442365ad3c5c3621b5cdc3351b2d0667eadd7b15930705495e92c3e6d",
+  "limitations": [
+    "Problem-stratified descriptive bootstrap; small samples and zero discordance cannot establish equivalence.",
+    "Per-policy costs include the shared initial prefix once; collection costs count each actual call once.",
+    "GPU allocation time and infrastructure preflight are separate from episode service time.",
+    "Opportunity-rate matching is not exact intervention-count, latency or compute matching."
+  ]
+}

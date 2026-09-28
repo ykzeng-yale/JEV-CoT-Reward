@@ -99,3 +99,10 @@ New actual job **27724738**, receipt `runs/bouchet-cuda-guard-random-v3-control/
 ## September 27, 23:56 analysis preparation
 
 Job27724738 verified RUNNING on H100 (24:29 elapsed); no partial outcomes examined or duplicate submitted. No local model worker is live. Added audit-bound `analyze_guard_qualification.py`, tested stale-audit rejection and shared-prefix accounting. Completed v2 analysis records one continuation timeout versus none for sham/GUARD; the latter both6/12. GUARD processed227210 prompt tokens vs sham209329. A continuation advantage is not a branching benefit and is confounded by different per-call timeout exposure. Retain historical records; freeze a uniform episode/runtime contract before prospective efficacy claims. Running random-vs-GUARD shares segmentation and remains useful. See `docs/paper_evidence_checklist.md` for missing paper evidence and conditional next decision. After terminal audit, run the new analyzer with a fresh report path.
+
+
+## September28,00:26 randomized result and precision stage
+
+Job27724738 completed0 in26:17 (0.4381GPUh). Retrieved `runs/bouchet-cuda-guard-random-v3-retrieved`; full audit passed48outcomes/567calls,zero disagreements. Audit field natural_triggers totals both policies:2GUARD and2random. GUARD/random/sham each8/12;continue10/12 with one call timeout. GUARD-minus-random0pp,descriptive paired interval−25 to+25pp,two discordant problems. Reports `results/cuda_guard_random_v3_{audit,analysis}.json`. No efficacy/equivalence.
+
+Actual submitted job **27727778**, receipt `runs/bouchet-cuda-guard-precision-v4-control/submission.json`, remote `runs/cuda-guard-precision-v4-20260928`:96fresh tasks/384 potential policy episodes, unchanged actions,random3/55,primaryGUARD-vs-random. Protocol `docs/cuda_guard_precision_v4_protocol.md` frozen before generation. Planning halfwidth8.2pp under observed discordance,not3pp power. Measured linear cost3.50GPUh; bounded1GPU/4CPU/32GiB/8h,pi_fl426 normal. 377tests passed. No local model live. Audit and analyze on terminal; do not adapt from partial rates. This is substantive precision development,not another backend qualification or final test.
