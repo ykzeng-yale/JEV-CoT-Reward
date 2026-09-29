@@ -1,0 +1,24 @@
+{
+  "actual_gpu_hours": 0.0,
+  "audit_status": "PASS",
+  "claim_boundary": "Source-pinned no-model split and one-action deterministic-replay feasibility only; no intervention efficacy or OOD claim.",
+  "jev_calls": 0,
+  "model_inference_calls": 0,
+  "protocol_sha256": "2a5ac5012d14cfe67f044f81fcab2c8d66d74eb59e2c590c85f089d6b3be53d4",
+  "replay_count": 9,
+  "replay_matches": 9,
+  "result_sha256": "e6be4db8250ef6fe4f7380e1d3a77926611dd5ba8b1aa738d0d28bc8b12f24f1",
+  "slurm_accounting": {
+    "account": "pi_fl426",
+    "cpu_count": 4,
+    "elapsed_seconds": 87,
+    "exit_code": "0:0",
+    "gpu_count": 0,
+    "memory_gib": 16,
+    "partition": "day",
+    "qos": "normal",
+    "state": "COMPLETED"
+  },
+  "task_count": 30,
+  "variation_count": 7207
+}

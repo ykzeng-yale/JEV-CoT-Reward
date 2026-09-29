@@ -1,5 +1,17 @@
 # Paper evidence and next decisions
 
+## ScienceWorld qualification and live model job — September 29, 19:31 EDT
+
+- [x] Source-pinned ScienceWorld 1.3.0 CPU preflight, Slurm `27913546`: full 30-task / 7,207-variation inventory and split partition integrity; 9/9 selected held-out-variation reset/one-action digests match; 199 output hashes verified; 4 CPU/16 GiB/87s/0 GPUh; zero model/Jev/network/gold-path calls. Independent auditor and focused tests pass. This is reproducibility feasibility, **not** action usefulness or OOD evidence.
+- [ ] Full DiscoveryWorld ReCoMA baseline `27880628` is still pending under `pi_fl426`/normal with no allocated GPU-hours. Current start estimate: September 30, 20:44 EDT; 2,386/2,386 frozen input hashes pass. Do not duplicate it.
+- [ ] ScienceWorld's train/dev-only checkpoint contract and an agent-level controller comparison are not yet frozen or run. Its 345 candidate test variations span only three task templates; no unseen-family, innovation, or small-effect claim follows from those counts.
+- [ ] Fresh held-out action/controller experiment remains gated on baseline characterization, common-prefix protocol, cost-matched cheap/local controller, train/dev-only selection, preserved test split, and TypeSafe written clarification before any Jev use.
+- [x] Source-level endpoint audit found that unknown melting, conductivity, and Mendel task measurement/experiment actions are optional score goals while main success requires the target answer action; official aggregate `score/reward` is exposed by the Python API. A future study must make independently audited final classification the primary endpoint, aggregate score secondary/decomposed, and equalize score visibility across arms. See `docs/scienceworld_task_objective_audit_2026-09-29.md`.
+
+## Live execution checkpoint — September 29, 19:04 EDT
+
+No scientific outcomes since the prior audited development result. ReCoMA full-panel job **27880628** is still pending under `pi_fl426`/normal; 0 GPU-hours, exact input hashes PASS 2,386/2,386, estimated start Oct 1 20:44 EDT. A single same-account array test-only now estimates Oct 2 03:22 EDT, so no replacement was made. Full visible-ReAct trajectory and operational-cost audit still depends on allocation and terminal completion. The local Macs remain occupied or unsuitable for competing generation. See the exact queue receipt and dated state record.
+
 ## Live execution checkpoint — September 29, 17:04 EDT
 
 No new outcome data since the audited repair replication. ReCoMA full-panel baseline **27880628** remains pending (`Priority`), zero GPU-hours, with an estimated start September 30, 14:01 EDT. Its 2,386-entry checksum gate passes. A test-only four-by-two-GPU alternative forecast an array element later than the existing request, so the current submission remains intact. This is only a queue decision; no baseline or efficacy result has completed.

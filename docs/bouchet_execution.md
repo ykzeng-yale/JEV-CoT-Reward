@@ -1,5 +1,15 @@
 # Bouchet execution track
 
+## September 29, 19:31 EDT — no-model ScienceWorld qualification completed; GPU baseline pending
+
+The separately frozen CPU-only ScienceWorld preflight ran once as Slurm **27913546** under `pi_fl426`/normal on `day`; `sacct` reports `COMPLETED`, `0:0`, 87 seconds, 4 CPU, 16 GiB, no GPU (0 GPU-hours). The pinned Java/Python/py4j runtime executed the 30-task / 7,207-variation split check and nine held-out-variation, one-legal-action deterministic replay pairs. The result reports 9/9 matching state digests, with no model, Jev, network, raw-content, score, or gold-path outputs. All 199 run-manifest files verify; the local independent audit is `results/scienceworld_transfer_preflight_27913546_audit.json`. This is only environment/replay feasibility; it does not indicate controller performance or OOD transfer.
+
+Main job **27880628** remains `PENDING/Priority`, `AllocTRES=(null)`, 0 GPU-hours. Latest `scontrol StartTime=2026-09-30T20:44:04` is an estimate only. Its exact submitted input gate remains 2,386/2,386; the 2-GPU-array `--test-only` estimate (element Oct 2 03:22 EDT) is later, so keep the current full-node request. Next decision depends on that baseline's actual startup, terminal trace audit, and costs. No Jev call has been made.
+
+## September 29, 19:04 EDT — refreshed queue comparison
+
+Job **27880628** remains `PENDING/Priority` under `pi_fl426`/normal, with no allocated TRES and 0 GPU-hours. The mutable `scontrol StartTime` is **October 1, 20:44 EDT**. The remote frozen input manifest again passed **2,386/2,386** checks. Since the estimate moved later, one current `--test-only` comparison of the previously considered four-element 2-GPU array estimated a single element at **October 2, 03:22 EDT**. This is later than the existing estimate and is not an array completion forecast. No replacement or duplicate was submitted. Two unrelated user jobs were observed by their `scontrol` working directories and left untouched. Keep the existing job and recheck its authoritative receipt/scheduler identity next time.
+
 ## September 29, 17:04 EDT — latest queue reconciliation and bounded alternative check
 
 Authenticated scheduler state for task-owned job **27880628**: `PENDING`, reason `Priority`, `AllocTRES=(null)`, `sacct` elapsed zero, and **0 GPU-hours**. The mutable start estimate remains **September 30, 14:01:23 EDT**; it is not a reservation. `inputs/SHA256SUMS` was checked again at the path used by the submitted script: 2,386/2,386 files pass. No outcomes or inference process exist yet.

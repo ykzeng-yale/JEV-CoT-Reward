@@ -1,5 +1,17 @@
 # Remaining experiment program, version 1
 
+## Evidence/queue update — September 29, 19:31 EDT
+
+The no-model ScienceWorld runtime/replay preflight is complete and independently audited: Slurm **27913546**, `0:0`, 87 seconds on 4 CPU / 16 GiB / 0 GPU, all 199 output-manifest files verified. ScienceWorld 1.3.0 exposes the frozen 30-task / 7,207-variation inventory and the 9 selected independent single-action replays match. This is simulator feasibility only; it supplies no action-efficacy or OOD evidence. Exact hash-only output and audit: `results/scienceworld_transfer_preflight_27913546.json` and `results/scienceworld_transfer_preflight_27913546_audit.json`.
+
+The highest-priority model evidence remains ReCoMA full-panel baseline **27880628**, still `PENDING/Priority`, `AllocTRES=(null)`, 0 GPU-hours. Current start estimate is September 30, 20:44 EDT, mutable/nonbinding; its exact 2,386-file input gate passes. A same-account array test-only forecast remained later, so keep the existing request. ScienceWorld agent evaluation remains unlaunched: first freeze only train/dev checkpoint selection and a matched-prefix controller protocol; reserve official test variations for fresh held-out evaluation and keep Jev behind written terms clarification.
+
+The source-level objective audit adds a further gate: in all three selected unknown-property tasks the main goal is ultimately choosing/focusing or placing the answer object; the measurement/circuit/growing actions contribute optional progress subgoals. The API can expose aggregate score/reward. Therefore final classification correctness must be independently scored as the primary endpoint, aggregate score is secondary/decomposed, and all arms must receive the same score visibility. See `docs/scienceworld_task_objective_audit_2026-09-29.md`. This avoids mistaking optional-goal harvesting for useful exploration.
+
+## Live queue decision — September 29, 19:04 EDT
+
+Job **27880628** remains `PENDING/Priority`, with zero allocated GPUs/GPU-hours; mutable start estimate **October 1, 20:44 EDT**. Its exact remote manifest passes 2,386/2,386 files. One same-account `--test-only` comparison for a four-element 2-GPU array estimated an element October 2, 03:22 EDT, so the existing whole-node request remains the better observed option. The array was not submitted. Two other user jobs are pending under `pi_gt353` and were left untouched. No outcomes or JEV API calls occurred this update. Exact observation is appended in `runs/bouchet-recoma-discoveryworld-full-v2-control/submission.json`.
+
 **Date:** September 29, 2026
 **Purpose:** one end-to-end decision plan for the remaining JEV-CoT-Reward research. This is a preregistration scaffold and execution queue, not a claim that the proposed studies are already valid or that any controller works.
 

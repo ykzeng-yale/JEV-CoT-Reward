@@ -1,0 +1,293 @@
+{
+  "gold_paths_requested": false,
+  "jev_calls": 0,
+  "manifest_sha256": "9c088d4e17839c2df156f8eb07e2a5aa0591b9dea31249e2ec228c87ff067ea0",
+  "model_inference_calls": 0,
+  "network_calls": 0,
+  "partition_summary": {
+    "boil": {
+      "dev": 7,
+      "test": 9,
+      "train": 14,
+      "variation_count": 30
+    },
+    "change-the-state-of-matter-of": {
+      "dev": 7,
+      "test": 9,
+      "train": 14,
+      "variation_count": 30
+    },
+    "chemistry-mix": {
+      "dev": 8,
+      "test": 8,
+      "train": 16,
+      "variation_count": 32
+    },
+    "chemistry-mix-paint-secondary-color": {
+      "dev": 9,
+      "test": 9,
+      "train": 18,
+      "variation_count": 36
+    },
+    "chemistry-mix-paint-tertiary-color": {
+      "dev": 9,
+      "test": 9,
+      "train": 18,
+      "variation_count": 36
+    },
+    "find-animal": {
+      "dev": 75,
+      "test": 75,
+      "train": 150,
+      "variation_count": 300
+    },
+    "find-living-thing": {
+      "dev": 75,
+      "test": 75,
+      "train": 150,
+      "variation_count": 300
+    },
+    "find-non-living-thing": {
+      "dev": 75,
+      "test": 75,
+      "train": 150,
+      "variation_count": 300
+    },
+    "find-plant": {
+      "dev": 75,
+      "test": 75,
+      "train": 150,
+      "variation_count": 300
+    },
+    "freeze": {
+      "dev": 7,
+      "test": 9,
+      "train": 14,
+      "variation_count": 30
+    },
+    "grow-fruit": {
+      "dev": 31,
+      "test": 33,
+      "train": 62,
+      "variation_count": 126
+    },
+    "grow-plant": {
+      "dev": 31,
+      "test": 33,
+      "train": 62,
+      "variation_count": 126
+    },
+    "identify-life-stages-1": {
+      "dev": 3,
+      "test": 5,
+      "train": 6,
+      "variation_count": 14
+    },
+    "identify-life-stages-2": {
+      "dev": 2,
+      "test": 4,
+      "train": 4,
+      "variation_count": 10
+    },
+    "inclined-plane-determine-angle": {
+      "dev": 42,
+      "test": 42,
+      "train": 84,
+      "variation_count": 168
+    },
+    "inclined-plane-friction-named-surfaces": {
+      "dev": 346,
+      "test": 348,
+      "train": 692,
+      "variation_count": 1386
+    },
+    "inclined-plane-friction-unnamed-surfaces": {
+      "dev": 40,
+      "test": 42,
+      "train": 80,
+      "variation_count": 162
+    },
+    "lifespan-longest-lived": {
+      "dev": 31,
+      "test": 32,
+      "train": 62,
+      "variation_count": 125
+    },
+    "lifespan-longest-lived-then-shortest-lived": {
+      "dev": 31,
+      "test": 32,
+      "train": 62,
+      "variation_count": 125
+    },
+    "lifespan-shortest-lived": {
+      "dev": 31,
+      "test": 32,
+      "train": 62,
+      "variation_count": 125
+    },
+    "measure-melting-point-known-substance": {
+      "dev": 109,
+      "test": 109,
+      "train": 218,
+      "variation_count": 436
+    },
+    "measure-melting-point-unknown-substance": {
+      "dev": 75,
+      "test": 75,
+      "train": 150,
+      "variation_count": 300
+    },
+    "melt": {
+      "dev": 7,
+      "test": 9,
+      "train": 14,
+      "variation_count": 30
+    },
+    "mendelian-genetics-known-plant": {
+      "dev": 30,
+      "test": 30,
+      "train": 60,
+      "variation_count": 120
+    },
+    "mendelian-genetics-unknown-plant": {
+      "dev": 120,
+      "test": 120,
+      "train": 240,
+      "variation_count": 480
+    },
+    "power-component": {
+      "dev": 5,
+      "test": 5,
+      "train": 10,
+      "variation_count": 20
+    },
+    "power-component-renewable-vs-nonrenewable-energy": {
+      "dev": 5,
+      "test": 5,
+      "train": 10,
+      "variation_count": 20
+    },
+    "test-conductivity": {
+      "dev": 225,
+      "test": 225,
+      "train": 450,
+      "variation_count": 900
+    },
+    "test-conductivity-of-unknown-substances": {
+      "dev": 150,
+      "test": 150,
+      "train": 300,
+      "variation_count": 600
+    },
+    "use-thermometer": {
+      "dev": 135,
+      "test": 135,
+      "train": 270,
+      "variation_count": 540
+    }
+  },
+  "protocol": "scienceworld_transfer_preflight_v1",
+  "python_version": "3.12.3",
+  "raw_action_strings_written": false,
+  "raw_observations_written": false,
+  "replay_count": 9,
+  "replay_records": [
+    {
+      "action_sha256": "a9eb6141789061f68e164b7f2d84d12b75c0cd60170ecb2e4687b15e0ebe3356",
+      "initial_equal": true,
+      "initial_state_sha256": "d2fc2f898bf40214249801d9fdc5180f847a66a0af1e3c6c13d12a61b9652e8f",
+      "legal_action_count": 939,
+      "post_action_equal": true,
+      "post_action_state_sha256": "81ea8a6131c239c5f56080377e3971cfd53b9a530c28b22bf22f22fe7e47dd99",
+      "task": "measure-melting-point-unknown-substance",
+      "variation": 225
+    },
+    {
+      "action_sha256": "63ca65f222cf7103af91c08c9e7dc608d7e8b25e3b2541192d8bf2edb59b4969",
+      "initial_equal": true,
+      "initial_state_sha256": "4d19965b5b44992ece926fa8d941f36e4911780b4e227b05fdd5de04daa78502",
+      "legal_action_count": 556,
+      "post_action_equal": true,
+      "post_action_state_sha256": "0827ba6ff6c67301d4fdeca0618497eb9a6bf9c1886f674a297d0d4f7a9493f2",
+      "task": "measure-melting-point-unknown-substance",
+      "variation": 262
+    },
+    {
+      "action_sha256": "a9eb6141789061f68e164b7f2d84d12b75c0cd60170ecb2e4687b15e0ebe3356",
+      "initial_equal": true,
+      "initial_state_sha256": "b9e90b339610900b1570a4cdeede97e7ac0b6f681a605c44ad5240f0159de459",
+      "legal_action_count": 939,
+      "post_action_equal": true,
+      "post_action_state_sha256": "7701a4d4f4d1e33ad5b2a08c21545f7e0961bf01f4090aa6a950f9444045736c",
+      "task": "measure-melting-point-unknown-substance",
+      "variation": 299
+    },
+    {
+      "action_sha256": "a9eb6141789061f68e164b7f2d84d12b75c0cd60170ecb2e4687b15e0ebe3356",
+      "initial_equal": true,
+      "initial_state_sha256": "83f8cb7b26d2e6f04bc4451e60c0677e9f2db20c42e0aab9a8c8275a1ccd6373",
+      "legal_action_count": 383,
+      "post_action_equal": true,
+      "post_action_state_sha256": "be94d47fc0e097d02cb6d4f0dd3f4dabd21b41f6074a2e8f3a13a5a85b5bbafd",
+      "task": "test-conductivity-of-unknown-substances",
+      "variation": 450
+    },
+    {
+      "action_sha256": "48ebd0cfc8d94fa306a5aaec3a1396e6a83ef5dd620760b8d001406fa2acd3ee",
+      "initial_equal": true,
+      "initial_state_sha256": "ae0335024d04d4123c6321bbce762e67551e02ddd3806af52c880c8a91b8be19",
+      "legal_action_count": 2724,
+      "post_action_equal": true,
+      "post_action_state_sha256": "654d645e8d08c19260c9780e15dcab5e21fd04e7a633f0039f403dca6e20cb1f",
+      "task": "test-conductivity-of-unknown-substances",
+      "variation": 525
+    },
+    {
+      "action_sha256": "a9eb6141789061f68e164b7f2d84d12b75c0cd60170ecb2e4687b15e0ebe3356",
+      "initial_equal": true,
+      "initial_state_sha256": "30afcb49c2eda0ce858800a01c46d47c76beb9b79d5d74849b654d1a970d7250",
+      "legal_action_count": 417,
+      "post_action_equal": true,
+      "post_action_state_sha256": "50633a4dd49f44b1b414a849d2c61273ee031a0961910283ff86a2f1287f7fed",
+      "task": "test-conductivity-of-unknown-substances",
+      "variation": 599
+    },
+    {
+      "action_sha256": "a9eb6141789061f68e164b7f2d84d12b75c0cd60170ecb2e4687b15e0ebe3356",
+      "initial_equal": true,
+      "initial_state_sha256": "352aa06ccde6cab7a4651b179cbd8504b1b83e566186effa75a65a49ac99ee30",
+      "legal_action_count": 342,
+      "post_action_equal": true,
+      "post_action_state_sha256": "e6a42fb26dfc685bf336d36bb8ab9d8b4f432d0f8eaa34d0a45ba29db3bf41cc",
+      "task": "mendelian-genetics-unknown-plant",
+      "variation": 360
+    },
+    {
+      "action_sha256": "48ebd0cfc8d94fa306a5aaec3a1396e6a83ef5dd620760b8d001406fa2acd3ee",
+      "initial_equal": true,
+      "initial_state_sha256": "ce70c08c9215e77aa4c766933331fc3027c5dd80ba0c92acd1c3d2b032e5e2c4",
+      "legal_action_count": 2724,
+      "post_action_equal": true,
+      "post_action_state_sha256": "5fc2e0eb4e28bc985974d1c3d125ab82443070767e00893559526e8661ef69fb",
+      "task": "mendelian-genetics-unknown-plant",
+      "variation": 420
+    },
+    {
+      "action_sha256": "4b6f0efb0e4ec194abae30772571f5e039fa32264cfdf9933c15dbc3bc2708fe",
+      "initial_equal": true,
+      "initial_state_sha256": "65a7eb730ea20fe0e73ef4c3fde724d8952a47a98cf480c99181fdf6106e8601",
+      "legal_action_count": 415,
+      "post_action_equal": true,
+      "post_action_state_sha256": "d7abbda06435bd82b053c2796b0f813864820536c0ece950aae42f9b72d62ddb",
+      "task": "mendelian-genetics-unknown-plant",
+      "variation": 479
+    }
+  ],
+  "scienceworld_version": "1.3.0",
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "split_integrity": "PASS: disjoint train/dev/test sets cover every supported variation",
+  "status": "PASS_NO_MODEL",
+  "task_count": 30,
+  "task_score_or_reward_values_written": false,
+  "variation_count": 7207
+}
