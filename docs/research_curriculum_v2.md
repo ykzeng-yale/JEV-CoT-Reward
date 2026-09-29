@@ -49,6 +49,19 @@ RSD-style model routing requires a draft/target distinction; it is not a fair pr
 
 A failed branch triggers a recorded choice between replication for precision, changing a scientifically motivated mechanism, or narrowing a claim. It does not automatically close the active broad goal. Conversely, broad scope is not authorization to run a large grid without a defensible question.
 
+## September 29, 2026 — queued published-baseline qualification
+
+The failed task/action opportunity gate remains in force. In parallel, a bounded
+runtime and development-outcome qualification is now submitted for the published
+InterWhen K-stable Game24 early-stop comparator: 96 frozen public training tasks,
+continuation versus `k=2` stopping, and independent AST/Fraction terminal
+evaluation. See `docs/interwhen_kstable_game24_v1_protocol.md` and Bouchet job
+27857096. The receiver checkpoint differs from InterWhen's original model, so
+this is an adaptation. Its outcomes cannot establish a Jev benefit, a new method,
+or a surviving application gap; that still requires natural opportunities in a
+held-out task family, a stronger compatible control, and TypeSafe's written
+terms clarification before Jev-dependent work.
+
 ## First executed diagnostic
 
 `results/curriculum_action_replicability_v1.json` uses only the 24-problem mechanism development release. For every fixed split of four repeats into two selection and two evaluation repeats, select the best observed action per checkpoint (ties favor continue), then evaluate it on the other two repeats. Across six overlapping splits the average paired advantage over continue is −4.51 percentage points; no split is positive. These splits are correlated and provide no confidence interval. The selector sees development outcomes and is not deployable; with two selection repeats it is noisy and cannot rule out true heterogeneity.

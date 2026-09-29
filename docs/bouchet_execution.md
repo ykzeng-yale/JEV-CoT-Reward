@@ -20,6 +20,12 @@ After termination, retrieve every output, stdout/stderr, the submission receipt 
 
 The original Mac worker continues unchanged. Monitor both identities on recurring research turns, without duplicate submissions or another local inference process. The two jobs are independent and use distinct hardware.
 
+## September 29, 11:26 EDT — InterWhen K-stable baseline adaptation
+
+The first runtime/outcome qualification of the published InterWhen K-stable Game24 stopping baseline is queued as **job 27857096**. Submission receipt: `runs/bouchet-interwhen-kstable-game24-v1-control/submission.json`; source commit `06dc08aeab5ad538b11bca5a26e7065232f479db`; remote code checkout `/home/yz2324/project_pi_fl426/yz2324/JEV-CoT-Reward-kstable-06dc08a`. It uses the existing cached Qwen3-4B-Instruct-2507 snapshot, one standard-tier GPU, 4 CPUs, 32 GiB and six hours. Frozen 96-task public sample, task hash, independent solvability audit, paired arms and outcome/cost auditor are in `docs/interwhen_kstable_game24_v1_protocol.md`.
+
+Actual scheduler check: `squeue -j 27857096` reports **PD** (pending); `scontrol` reports `JobState=PENDING`, `StartTime=Unknown`, and no allocated TRES. The nonbinding `sbatch --test-only` estimate was September 30 at 02:54:58 on H100. There is no GPU usage until allocation. Do not resubmit. Once running, continue monitoring this exact job; after terminal state retrieve its outputs and logs, then run the independent audit before analysis. This is a Qwen3-4B adaptation of the public InterWhen comparator, not a reproduction of its larger thinking model, a Jev comparison, or evidence that our main task/action gate passes.
+
 ## Failure diagnosis and bounded retry
 
 Job 27713897 actually received an NVIDIA B200 (driver 580.178.04, CUDA 12.8 visible) and failed after 23 seconds with exit 132 during `hf_xet` model download. The retrieved trace identifies SIGILL in the native Xet download client; inference had not begun. Logs and manifest are preserved locally under `runs/bouchet-cuda-qualification-v1-retrieved`. This is an infrastructure failure, not a failed model experiment.
