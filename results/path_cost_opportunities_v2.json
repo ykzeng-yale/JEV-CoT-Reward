@@ -1,0 +1,36 @@
+{
+  "status": "development_checkpoint_availability_audit",
+  "runs": [
+    {
+      "run": "action-replication-v3-20260928",
+      "checkpoint_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81",
+      "weighted_path_problems": 12,
+      "explicit_path_sum_claims": 8,
+      "claims_with_checkable_error": 3,
+      "arithmetic_sum_errors": 1,
+      "graph_or_edge_weight_mismatches": 2
+    },
+    {
+      "run": "sham-replication-v4-20260928",
+      "checkpoint_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1",
+      "weighted_path_problems": 24,
+      "explicit_path_sum_claims": 11,
+      "claims_with_checkable_error": 1,
+      "arithmetic_sum_errors": 0,
+      "graph_or_edge_weight_mismatches": 1
+    }
+  ],
+  "limitations": [
+    "Regex detects only explicit path-plus-sum equations in latest_segment.",
+    "These counts do not establish that correcting the claim improves task success.",
+    "Development checkpoints are selected by prior experiment eligibility.",
+    "A path may be invalid because of an incorrect edge weight or edge transition."
+  ],
+  "simple_sum_across_runs": {
+    "weighted_path_problems": 36,
+    "explicit_path_sum_claims": 19,
+    "claims_with_checkable_error": 4,
+    "arithmetic_sum_errors": 1,
+    "graph_or_edge_weight_mismatches": 3
+  }
+}
