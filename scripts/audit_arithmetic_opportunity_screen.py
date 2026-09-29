@@ -70,7 +70,10 @@ def audit(run, tokenizer_path):
             require(cp['task'] == {**task, 'prompt': task['prompt'] + runner.PROMPT_SUFFIX}, 'Task data mismatch')
             require(cp['prompt_ids'] == event['prefix_ids'] and cp['initial'] == gen, 'Checkpoint does not match generated prefix')
             text = tokenizer.decode(cp['retained_ids'])
-            require(text.rstrip().endswith('\n\n'), 'Checkpoint not at frozen paragraph boundary')
+            # The protocol uses a single newline as a semantic checkpoint
+            # boundary; rstrip() below is used only to reconstruct the segment.
+            require(text.endswith('\n') and 'FINAL:' not in text,
+                    'Checkpoint does not match frozen newline stop rule')
             segment = cp['state']['latest_segment']
             expected = text.rstrip().rsplit('\n\n', 1)[-1]
             require(segment == expected, 'Claim segment differs from exact retained token prefix')
@@ -100,6 +103,8 @@ def audit(run, tokenizer_path):
             'explicit_addition': correct + incorrect, 'correct': correct, 'incorrect': incorrect,
             'no_explicit_addition': absent, 'incorrect_rate_among_explicit': incorrect/(correct+incorrect) if correct+incorrect else None,
             'incorrect_rate_wilson95_among_explicit': wilson(incorrect, correct+incorrect),
+            'incorrect_rate_among_eligible': incorrect/len(cps) if cps else None,
+            'incorrect_rate_wilson95_among_eligible': wilson(incorrect, len(cps)),
             'incorrect_count_over_all_attempts': incorrect,
             'event_rate_bounds_over_all_attempts': [incorrect/120, (incorrect+len(skipped))/120],
             'generation_calls': len(events), 'outcome_evaluations': 0, 'jev_calls': 0,

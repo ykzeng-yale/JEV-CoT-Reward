@@ -1,0 +1,42 @@
+{
+  "status": "passed_arithmetic_opportunity_audit",
+  "attempted": 120,
+  "eligible": 120,
+  "ineligible": 0,
+  "explicit_addition": 60,
+  "correct": 50,
+  "incorrect": 10,
+  "no_explicit_addition": 60,
+  "incorrect_rate_among_explicit": 0.16666666666666666,
+  "incorrect_rate_wilson95_among_explicit": [
+    0.0931317697919145,
+    0.2803161316361453
+  ],
+  "incorrect_rate_among_eligible": 0.08333333333333333,
+  "incorrect_rate_wilson95_among_eligible": [
+    0.045893650374929706,
+    0.14662232164065653
+  ],
+  "incorrect_count_over_all_attempts": 10,
+  "event_rate_bounds_over_all_attempts": [
+    0.08333333333333333,
+    0.08333333333333333
+  ],
+  "generation_calls": 120,
+  "outcome_evaluations": 0,
+  "jev_calls": 0,
+  "input_sha256": {
+    "summary.json": "30055a4ce194270826e9cfa7c2ff6a4a1ecb76a2418a6b0d1688c7af115e4236",
+    "generation_started.jsonl": "99fe262a610c8109246af99dcc95a954f36a8467e1dde34746f9190048459d4f",
+    "skipped.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "checkpoints.jsonl": "987b1760359a6d62603cae45d19046f56ef23e0163af8977612d57a5bd4a0464",
+    "manifest.json": "3922921c355ba1ade6a476a70de7eb30fc54070181aa3d57bc1f033a4eb2357d",
+    "schedule.json": "add2d052dd80d04f0405f61a8b90f6cd4267ef22a5a599778e59dd541f54ccea",
+    "generation_events.jsonl": "ca239b9301ca1465654364cd22f6ee9c0064690453d921779dcb25ef4f79c767"
+  },
+  "limitations": [
+    "Conditional on one pinned generator, prompt, task family and checkpoint rule.",
+    "Parser only detects the first explicit integer addition equality in the latest segment.",
+    "This is event availability, not judge accuracy or intervention efficacy."
+  ]
+}

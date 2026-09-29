@@ -1,0 +1,19 @@
+{
+  "protocol": "docs/arithmetic_horizon_opportunity_v1_protocol.md",
+  "task_seed": 93027119,
+  "indices": "0..119 inclusive",
+  "attempted_tasks": 120,
+  "task_family": "arithmetic_construction_h8",
+  "operands": 8,
+  "checkpoint_target_tokens": 256,
+  "checkpoint_cap_tokens": 384,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "quantization_bits": 4,
+  "max_wall_seconds": 7200,
+  "max_rss_mib_sampled": 8192,
+  "max_combined_log_mib": 32,
+  "jev_calls": 0,
+  "advance_gate_incorrect_equations": 20,
+  "analysis_scope": "fresh horizon-shifted event-prevalence screen only"
+}

@@ -1,5 +1,9 @@
 # Paper evidence and next decisions
 
+## September 29, 02:20 local update
+
+The six-number opportunity screen audited 120/120 fresh checkpoints and found ten incorrect first-addition claims (8.3% of eligible checkpoints; Wilson 95% interval 4.6–14.7%). Its frozen gate for action rollouts was 20, so that study correctly stopped before outcomes. A fresh eight-operand horizon screen (PID 56403) tests whether more complex, longer arithmetic construction yields enough natural intermediate errors. If it meets the gate, the next study must still compare correction, matched neutral feedback and continuation with all arm costs; the feasibility screen itself cannot support efficacy or Jev value. If it misses, abandon this simple equality-correction route and move to another independently checkable obligation/task family.
+
 ## September 28, 22:15 local evidence update
 
 The 25-checkpoint, 50-continuation verified arithmetic-correction development test is terminal and independently audited (53 calls, zero outcome disagreements, zero timeouts). Correction 42/50 versus prior matched sham 40/50; problem-weighted difference +4 points, descriptive interval [-6,+16]. Five paired episodes favored correction, three favored sham. It changes the next decision: a detectable explicit arithmetic error does not yet justify spending computation on this correction action. The arm processed 3,347 additional prompt tokens, while measured service time was 16 seconds lower in this nonconcurrent comparison; neither is a complete compute-cost improvement claim. Do not scale the same action or fit a controller to its 25 selected checkpoints. The next scientific bottleneck is to qualify a treatment with repeatable terminal usefulness on fresh states, then test whether Jev semantic features add value beyond executable checks, cheap text and local judges.

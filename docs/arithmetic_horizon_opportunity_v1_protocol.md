@@ -1,0 +1,9 @@
+# Eight-number arithmetic horizon opportunity screen v1
+
+Frozen September 29, 2026, as a development-only benchmark redesign following the six-number opportunity screen. In 120 fresh procedurally generated tasks, sample one observable 256-token paragraph checkpoint from pinned Qwen3-4B-Instruct-2507 using MLX 4-bit, temperature .7 and top-p .9. Each task uses eight positive integers and a target constructed by an eight-operand expression; an independent exact AST/Fraction verifier checks any final expression, although this screen does not generate or score final answers. The target expression is stored only as a private audit witness and is never included in the model prompt.
+
+At each eligible checkpoint, inspect only the latest retained paragraph and classify its first explicit integer addition equality `a+b=c` with Python integer arithmetic. Save all eligible and ineligible task records. No Jev calls, downstream continuations, outcome-based enrollment, or task-success inspection. This stage asks whether longer-horizon tasks produce enough observable, independently checkable intermediate errors to make a matched correction experiment feasible.
+
+The task seed is 93027119; task indices are 0–119. Prefix target/cap are 256/384 tokens. Advance only if at least 20 incorrect explicit equations are found among eligible checkpoints and the independent audit confirms task witnesses and exact prefixes. Otherwise abandon this particular arithmetic-error route or redesign again based on the audited event mechanism. Counts are conditional on this generator, prompt and checkpoint rule, not general prevalence estimates.
+
+Resource bound: one local MLX model process, 7,200-second cooperative limit, 7,350-second external wall, 8 GiB sampled RSS ceiling, 32 MiB combined logs, no model downloads, no hosted API calls. This is not efficacy, calibration, OOD-transfer or innovation evidence.
