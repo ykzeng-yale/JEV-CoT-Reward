@@ -8,6 +8,8 @@ The eight-operand arithmetic screen did not pass its frozen event-count gate (15
 
 The TypeSafe Master Customer Agreement current §2.3(b) may constrain training a controller from Jev outputs or developing a similar/competing service. Hold that Jev-dependent step pending written clarification. Continue local-only baseline, action-value and theory work without spending the Jev ledger.
 
+**September 29 direct-Jev update:** *REFLEX with Jev* (arXiv:2609.26532v1) already evaluates Jev as an in-trajectory bounded-action layer with confidence-gated fallback and a cheap generative cascade comparator. *Jev vs. LLMs as Rubric Judges* (arXiv:2609.29769v1) studies judge-label agreement and correlated errors. These findings close off broad “first Jev supervisor,” confidence-routing, or judge-quality claims; neither evaluates counterfactual interventions on visible reasoning prefixes with terminal outcome utility. Any remaining candidate is a narrow empirical comparison in that setting, and must survive *Calibration Is Not Control*/*CausalFlow* overlap, a compatible baseline audit, and contract clarification. Full dated details are in `docs/prior_art_gap_audit_2026-09-29.md`.
+
 User authorized September 27, 2026. The original broad research question remains open. The completed v1 branch is a small negative/inconclusive diagnostic, not completion of the whole program. Preserve its records and test designation. The broad research objective supersedes the previous branch-completion framing; scheduled authorization continues work even while app goal mode is paused.
 
 ## First baseline/design audit

@@ -1,5 +1,11 @@
 # Paper evidence and next decisions
 
+## September 29, 06:16 EDT prior-art update
+
+Add *REFLEX with Jev* (arXiv:2609.26532v1) to the required direct-JeV comparison set. It already demonstrates Jev as an in-trajectory bounded-action layer with confidence-based fallback, cross-fallback tests, and a cheap generative cascade comparator. Our distinct empirical question cannot be “does Jev supervise an agent?” It would have to isolate exposed reasoning-prefix repair/branch decisions and independently measured terminal outcomes under complete matched costs, with a compatible published baseline. *Jev vs. LLMs as Rubric Judges* (arXiv:2609.29769v1) adds evidence about label agreement and correlated judge errors but does not answer action utility. See the dated prior-art audit for exact overlap and limits. Neither paper supplies a new positive result for this project.
+
+Current prerequisites remain unresolved: the arithmetic feasibility gate failed; the audited repair/branch pilots do not show a reliable benefit; the official interwhen runner is not runtime-qualified; and written TypeSafe clarification is needed for the proposed Jev-output-conditioned academic controller and any derived release. Do not convert the completed prior-art review into an efficacy claim or restart the closed studies.
+
 ## September 29 update: horizon feasibility and novelty boundary
 
 The frozen 120-task eight-operand arithmetic screen ended normally and its independent audit passed. It yielded 15 incorrect first-addition claims among 41 explicit claims, below the preregistered 20-error gate; it collected no terminal outcomes and made no Jev calls. A secondary equation parser is exploratory and does not change the gate. Do not claim an arithmetic correction benefit or continue this intervention lane under the same checkpoint rule.
