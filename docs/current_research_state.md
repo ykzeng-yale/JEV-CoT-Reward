@@ -1,5 +1,13 @@
 # Research continuation state
 
+## September 29, 11:46 EDT — InterWhen adaptation failed; cause-specific retry prepared
+
+Slurm **27857096** left the queue and is terminal `FAILED`, exit `1:0`, H200, one GPU/four CPUs/32 GiB, elapsed 00:02:46, batch MaxRSS 9,445,280 KiB; allocated GPU time is 0.0461 h. The model loaded and the program wrote two of 192 planned episodes (one task pair) before a logging bug: `flush=True` was accidentally passed to `json.dumps`, which raises `TypeError: JSONEncoder.__init__() got an unexpected keyword argument 'flush'`. This is an implementation failure, not model/runtime incompatibility and not evidence about KStable performance.
+
+Preserved Slurm logs and partial records under `runs/bouchet-interwhen-kstable-game24-v1-failed-27857096/`, with `failure_receipt.json` and per-file SHA-256 digests. The independent complete-run auditor rejected the data as incomplete, as required; partial outcomes are excluded from any analysis and from retry data, though the failed allocation remains in cumulative resource cost. The exact cause, v1b delta, and analysis gate are in `docs/interwhen_kstable_game24_v1b_protocol.md`.
+
+The only code change serializes the progress record before calling `print(..., flush=True)`; task, policies, model, generation and terminal evaluator remain frozen. Added a regression test and a new versioned Slurm script/run path. Targeted baseline tests passed 7/7; the full repository suite passed **407 tests**; shell syntax, Python compilation, and `git diff --check` passed. Before retry, commit/push this fixed source, verify Bouchet association/quota/queue, create a new immutable source checkout and run directory, and submit only one bounded job. If that same logging defect recurs, stop after that retry.
+
 ## September 29, 11:32 EDT — consolidated remaining-experiment program
 
 **Scientific bottleneck:** the remaining program was being executed in overly small, disconnected increments. I consolidated the evidence and remaining questions into `docs/remaining_experiment_program_v1.md`: an eight-stage ledger (queued baseline, task/action qualification, action utility, source/controller comparison, transfer/horizon, training, discovery), explicit arm and evaluator contracts, legal/cost gates, sample-size planning, and go/no-go rules. This prevents the queued baseline from being mistaken for Jev evidence and prevents repeatedly scaling already-tested unchanged controllers.

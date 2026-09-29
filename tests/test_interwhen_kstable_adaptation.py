@@ -4,7 +4,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-from run_interwhen_kstable_adaptation import KStableDetector, extract_final_boxed, prompt
+from run_interwhen_kstable_adaptation import KStableDetector, extract_final_boxed, prompt, progress_record
 from audit_interwhen_kstable_taskset import is_solvable
 from jev_control.game24_exact import check_game24
 
@@ -37,6 +37,11 @@ def test_prompt_contains_numbers_and_empty_box_only():
     text = prompt([2, 3, 4, 5])
     assert "2, 3, 4, 5" in text
     assert r"\boxed{}" in text
+
+
+def test_progress_record_serializes_counts_for_flush_print():
+    import json
+    assert json.loads(progress_record(2)) == {"completed_episodes": 2, "completed_tasks": 1}
 
 
 def test_exact_task_solver_uses_no_floating_point_heuristic():

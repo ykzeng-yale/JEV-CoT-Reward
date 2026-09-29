@@ -159,6 +159,12 @@ def prompt(numbers: list[int]) -> str:
     return PROMPT_TEMPLATE.format(numbers=", ".join(map(str, numbers)))
 
 
+def progress_record(completed_episodes: int) -> str:
+    """Serialize progress separately from print's stream-control arguments."""
+    return json.dumps({"completed_episodes": completed_episodes,
+                       "completed_tasks": completed_episodes // 2})
+
+
 def run(args):
     config = json.loads(CONFIG.read_text())
     tasks_meta = json.loads(TASKS.read_text())
@@ -298,7 +304,7 @@ def run(args):
                         "finish_reason": call["finish_reason"],
                     })
                 row_count += 1
-            print(json.dumps({"completed_episodes": row_count, "completed_tasks": (row_count // 2)}, flush=True))
+            print(progress_record(row_count), flush=True)
         manifest["status"] = "complete"
     except BaseException as exc:
         manifest.update(status="failed", error_type=type(exc).__name__, error=str(exc))
