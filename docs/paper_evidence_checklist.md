@@ -1,5 +1,19 @@
 # Paper evidence and next decisions
 
+## Execution and audit update — September 29, 15:10 EDT
+
+The latest full-panel ReCoMA baseline, Slurm **27880628**, is still pending with no allocated GPUs or GPU-hours; no outcomes exist yet. Its submitted input tree's exact checksum gate is now verified at the correct remote path: 2,386/2,386 entries passed after byte-exact `.pyc` restoration. Do not count infrastructure success as reasoning/controller evidence.
+
+The local repair-action replication previously had a stale `running` process receipt. Its full saved data now pass a fresh audit and reanalysis (24 problems, 480 outcomes, 631 calls, zero label disagreements). Continue 63/96, sham 68/96, suffix repair 57/96, recheck 56/96, and segment repair 54/96. Segment repair vs sham is −14.58 pp (unadjusted descriptive clustered interval −27.08 to −2.08); due to multiple exploratory contrasts, two families, and repeated outcomes per problem, treat this as development evidence only. The exact tested repairs do not merit scale-up; Jev's incremental value, transfer, and discovery remain untested. See the dated run reconciliation in `docs/current_research_state.md`.
+
+## Current evidence status — September 29, 2026, 14:48 EDT
+
+- [x] DiscoveryWorld patched structural feasibility: all 120 configurations, 24 strata, initial/post-action exact replay, endpoint separation and source hashes independently passed (`results/discoveryworld_e1a_runtime_patch2_lead_audit.json`). Scope is reproducibility under a disclosed patch only; no LLM or Jev outcomes.
+- [ ] Full official-panel published ReCoMA-ReAct baseline: Slurm `27880628` is PENDING, `AllocTRES=(null)`, 0 GPU-hours. Receipt `runs/bouchet-recoma-discoveryworld-full-v2-control/submission.json`. It is Qwen3-4B-Instruct-2507 BF16 and requests externalized per-action `thought`; it does not expose hidden/internal thinking-mode CoT. No duplicate while pending; full terminal trace/resource audit required before analysis.
+- [ ] Natural action usefulness and a common-prefix intervention/sham/randomized comparison remain untested. The 120-episode official panel is finite and underpowered for small effects. Preserve a fresh evaluation set.
+- [ ] Jev incremental value versus strong cheap/local and compatible published controls remains untested and Jev API use remains gated by written terms clarification; current Jev spend for this run is zero.
+- [x] InterWhen/K-stable published-baseline adaptation independently audited: 54/96 versus continuation 60/96; −6.25 pp (descriptive interval −14.58 to +2.08). Negative/imprecise; no Jev inference.
+
 ## September 29 consolidated experiment program
 
 The full remaining study sequence and gate dependencies are in
@@ -37,7 +51,7 @@ Current prerequisites remain unresolved: the arithmetic feasibility gate failed;
 
 The frozen 120-task eight-operand arithmetic screen ended normally and its independent audit passed. It yielded 15 incorrect first-addition claims among 41 explicit claims, below the preregistered 20-error gate; it collected no terminal outcomes and made no Jev calls. A secondary equation parser is exploratory and does not change the gate. Do not claim an arithmetic correction benefit or continue this intervention lane under the same checkpoint rule.
 
-The prior-art audit finds direct duplication of the previously proposed action-value estimand and same-prefix branching protocol in *Calibration Is Not Control*; *CausalFlow* also covers step-level counterfactual repair. *interwhen* and categorical verifier-budget allocation are additional direct precedents. No methods-level novelty gap is currently established. At most, a transparent Jev-versus-local judgment-source study in a fresh transfer regime may remain; this requires systematic search and service-term clarification. The public *interwhen* implementation is not yet a qualified comparator: its runner depends on vLLM and benchmark data not installed/cached locally. Exact source commit, data paths and comparisons are in `docs/prior_art_gap_audit_2026-09-29.md`.
+The prior-art audit finds direct duplication of the previously proposed action-value estimand and same-prefix branching protocol in *Calibration Is Not Control*; *CausalFlow* covers step-level counterfactual repair; *interwhen* covers trace monitoring and verifier-guided steering; and the newly audited *Learning What to Skip* (LW2S, arXiv:2609.30734v1) directly covers action-specific counterfactual skip safety, calibration, guards, and sequential fall-through across math, QA, and code. No methods-level novelty gap is established. The only plausible residual is Jev's incremental value as a judgment source against an LW2S-style local safety model on the same task/action/prefix and fully matched cost, contingent on fresh task/action qualification and written TypeSafe terms. LW2S's arXiv source archive lacks runnable scripts/data although its paper mentions separate supplements; inspect and hash these artifacts before claiming a replication. Exact notes: `docs/lw2s_prior_art_audit_2026-09-29.md` and `docs/prior_art_gap_audit_2026-09-29.md`.
 
 Jev-output-conditioned controller training is paused pending TypeSafe clarification of current MCA §2.3(b). No Jev request was made in this update. Local-only baseline qualification and independent outcome studies remain available.
 

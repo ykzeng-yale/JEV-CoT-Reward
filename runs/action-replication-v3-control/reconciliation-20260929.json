@@ -1,0 +1,16 @@
+{
+  "receipt_preserved": "runs/action-replication-v3-control/process.json",
+  "recorded_pid": 79898,
+  "recorded_process_group": 79898,
+  "recorded_os_process_start": "Mon Sep 28 12:34:41 2026",
+  "observation_time_local": "2026-09-29T15:04:33-04:00",
+  "identity_check": "ps showed neither recorded PID/process group present; process start identity therefore matches the stale receipt but no exit status is recoverable from this host snapshot",
+  "artifact_status": "summary.json reports complete with 480/480 planned outcomes; fresh exact reconstruction audit passed 24/24 eligible problems, 631 durable calls, zero outcome-label disagreements",
+  "fresh_audit": "results/action_replication_v3_reaudit_20260929.json",
+  "fresh_analysis": "results/action_replication_v3_reanalysis_20260929.json",
+  "audit_source_sha256": "914abc181aff82480745c3dbd4f9af01fa8a04be30c5ea3e16241d7731c838b8",
+  "summary_sha256": "5d1a2463f2bb26ee51ed408bb1f1cfb38fb6881f8b31366f1d025f4d0c450748",
+  "outcomes_sha256": "43e9f09e7781d87c94adbbeab82f1ff6a33c6aa6bb3afdf94beaa3c9443836d1",
+  "exit_code": null,
+  "rerun_or_recovery": false
+}
