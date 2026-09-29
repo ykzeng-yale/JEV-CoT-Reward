@@ -7,6 +7,10 @@
 - [ ] Do not claim first Jev use in intervention studies or downstream population outcomes; distinguish [KITE](https://arxiv.org/abs/2609.27535), whose intervention target is simulated human behavior.
 - [ ] Candidate study remains narrow: visible LLM prefix + explicit intervention + independent terminal validator + full cost + cheap/local/published controls + fresh transfer. This empirical boundary is not a novelty claim already established.
 - [ ] No Jev-dependent sampling/training until provider terms are clarified in writing.
+- [ ] Treat interwhen TTS Game24 as direct monitor/repair/early-stop prior art, not a merely adjacent baseline.
+- [ ] Charge interwhen's same-model expression-extraction side stream; compare to a matched extraction/no-feedback arm because it can itself generate a solution.
+- [ ] Independently re-score terminal answers; do not reuse interwhen's monitor `verify_expression` as the sole outcome evaluator. Reject Python operators beyond the task grammar.
+- [ ] Before any Game24 run, decide direct-reproduction versus adaptation, pin model/runtime/task split, audit answer extraction, and resolve the lack of a Bouchet vLLM module with a bounded runtime plan.
 
 ## September 29, 06:16 EDT prior-art update
 
