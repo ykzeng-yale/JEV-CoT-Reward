@@ -1,0 +1,56 @@
+{
+  "status": "audited_exploratory_development_analysis",
+  "problems": 25,
+  "paired_episodes": 50,
+  "counts": {
+    "correction_success": 42,
+    "sham_success": 40,
+    "correction_only": 5,
+    "sham_only": 3
+  },
+  "correction_minus_prior_sham": {
+    "problem_weighted_mean": 0.04,
+    "descriptive_cluster_bootstrap_95": [
+      -0.06,
+      0.16
+    ],
+    "by_source_mean": {
+      "runs/action-replication-v3-20260928": 0.0,
+      "runs/sham-replication-v4-20260928": 0.07142857142857142
+    },
+    "by_source_n": {
+      "runs/action-replication-v3-20260928": 11,
+      "runs/sham-replication-v4-20260928": 14
+    }
+  },
+  "correction_arm_costs": {
+    "generated_tokens": 50653,
+    "processed_prompt_tokens": 32534,
+    "model_service_seconds": 1205.7794607952237,
+    "inserted_instruction_tokens": 1934
+  },
+  "prior_sham_arm_costs": {
+    "generated_tokens": 50379,
+    "processed_prompt_tokens": 29187,
+    "model_service_seconds": 1221.7000295426697,
+    "inserted_instruction_tokens": 32
+  },
+  "by_family": {
+    "weighted_path": {
+      "problems": 20,
+      "mean_difference": 0.075
+    },
+    "arithmetic_construction": {
+      "problems": 5,
+      "mean_difference": -0.1
+    }
+  },
+  "limitations": [
+    "Selected checkpoints have explicit false additions and are not representative of all reasoning states.",
+    "The correction arm receives checked arithmetic information absent from the sham arm.",
+    "The sham comparator was saved earlier, so arms were not concurrent despite matched prefixes and seeds.",
+    "This experiment tests actionable correction, not Jev-based intervention selection or a complete controller.",
+    "Bootstrap interval is descriptive for this development study and does not correct selection or multiplicity.",
+    "Correction acquisition and source sham costs must be included in deployment comparisons."
+  ]
+}

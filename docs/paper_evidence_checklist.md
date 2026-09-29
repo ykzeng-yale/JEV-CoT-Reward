@@ -1,5 +1,11 @@
 # Paper evidence and next decisions
 
+## September 28, 22:15 local evidence update
+
+The 25-checkpoint, 50-continuation verified arithmetic-correction development test is terminal and independently audited (53 calls, zero outcome disagreements, zero timeouts). Correction 42/50 versus prior matched sham 40/50; problem-weighted difference +4 points, descriptive interval [-6,+16]. Five paired episodes favored correction, three favored sham. It changes the next decision: a detectable explicit arithmetic error does not yet justify spending computation on this correction action. The arm processed 3,347 additional prompt tokens, while measured service time was 16 seconds lower in this nonconcurrent comparison; neither is a complete compute-cost improvement claim. Do not scale the same action or fit a controller to its 25 selected checkpoints. The next scientific bottleneck is to qualify a treatment with repeatable terminal usefulness on fresh states, then test whether Jev semantic features add value beyond executable checks, cheap text and local judges.
+
+Earlier static-sham replication and Jev narrow arithmetic-sensor findings are in `docs/current_research_state.md` and `paper/main.tex`. The sensor's poor 0.5-threshold specificity (1/25 natural false claims) narrows its viable role; it does not establish failure on contradiction, uncertainty or exploration-role judgments. Closed v1 data remain excluded from adaptation.
+
 Updated September 27, 23:56. Development findings are not confirmatory evidence. Closed v1 test remains closed.
 
 | Claim or prerequisite | Evidence | Remaining requirement |

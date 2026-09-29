@@ -23,8 +23,13 @@ def analyze(run, audit_path):
     counts = {'correction_success': 0, 'sham_success': 0, 'correction_only': 0, 'sham_only': 0}
     costs = {'generated_tokens': 0, 'processed_prompt_tokens': 0, 'model_service_seconds': 0.0,
              'inserted_instruction_tokens': 0}
+    sham_costs = {'generated_tokens': 0, 'processed_prompt_tokens': 0, 'model_service_seconds': 0.0,
+                  'inserted_instruction_tokens': 0}
+    by_family = {}
     for item in schedule:
         pid = item['problem_id']
+        source_rows = {(r['problem_id'], r['repeat']): r for r in
+                       read_jsonl(Path(item['source_run']) / 'outcomes.jsonl') if r['action'] == 'sham'}
         ds = []
         for arm in item['arms']:
             row = rows[pid, arm['repeat']]
@@ -39,9 +44,15 @@ def analyze(run, audit_path):
             costs['processed_prompt_tokens'] += row['prompt_tokens_processed']
             costs['model_service_seconds'] += row['elapsed_seconds']
             costs['inserted_instruction_tokens'] += row['inserted_tokens']
+            source = source_rows[pid, arm['repeat']]
+            sham_costs['generated_tokens'] += source['generated_tokens']
+            sham_costs['processed_prompt_tokens'] += source['prompt_tokens_processed']
+            sham_costs['model_service_seconds'] += source['elapsed_seconds']
+            sham_costs['inserted_instruction_tokens'] += sum(v.get('tokens', 0) for v in source['overhead'])
         d = statistics.mean(ds)
         differences.append(d)
         by_source.setdefault(item['source_run'], []).append(d)
+        by_family.setdefault(item['task']['family'], []).append(d)
     rng = random.Random(20260928)
     samples = [statistics.mean(rng.choices(differences, k=len(differences))) for _ in range(20000)]
     samples.sort()
@@ -56,6 +67,9 @@ def analyze(run, audit_path):
             'by_source_n': {k: len(v) for k, v in by_source.items()},
         },
         'correction_arm_costs': costs,
+        'prior_sham_arm_costs': sham_costs,
+        'by_family': {k: {'problems': len(v), 'mean_difference': statistics.mean(v)}
+                      for k, v in by_family.items()},
         'limitations': [
             'Selected checkpoints have explicit false additions and are not representative of all reasoning states.',
             'The correction arm receives checked arithmetic information absent from the sham arm.',

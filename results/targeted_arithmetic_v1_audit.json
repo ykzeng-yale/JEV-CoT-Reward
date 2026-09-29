@@ -1,0 +1,18 @@
+{
+  "status": "passed_targeted_arithmetic_audit",
+  "eligible_checkpoints": 25,
+  "outcomes": 50,
+  "calls": 53,
+  "timeout_episodes": 0,
+  "outcome_disagreements": 0,
+  "input_sha256": {
+    "summary.json": "449979bb85d9951de0fd735a99c926fa76ad83a0bd9c13f35eeaf6bb8006e225",
+    "generation_started.jsonl": "e716c4a7f2567bae15c2cfe0e3ed6a9926a8f8d0e3f2f5214567d150a7ca8e57",
+    "outcomes.jsonl": "9334b14e1ea8cabb0170c9c610e5ab91871a3428eeaf3e324eb7ee70dcf0f70b",
+    "manifest.json": "fae48fccca97549a6dc8f904d6b7456ca3710c9e7b1546c0dd85f0e1f329df95",
+    "schedule.json": "59935ca753d1e2d8d5bd78733330f4d8e18dc62d613bd237b33f9fd7b9819717",
+    "generation_events.jsonl": "345404e4de6738335db4b97115044c88dca37212f35c45bfae74728682c663c7"
+  },
+  "audit_source_sha256": "57ca1a4cb268ffa83af1e0162463e550d291ab1b801faa2b3a91fc80e22687e1",
+  "scope": "Matched prior sham comparator, nonconcurrent development continuation; exact arithmetic feedback only, not Jev-controlled inference."
+}
