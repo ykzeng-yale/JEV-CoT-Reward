@@ -1,5 +1,13 @@
 # Paper evidence and next decisions
 
+## September 29 prior-art boundary additions
+
+- [ ] Do not claim first Jev use for scientific semantic decisions; compare with [Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965).
+- [ ] Do not claim first Jev long-horizon agent control; distinguish [JEV-Star](https://arxiv.org/abs/2609.27331), including the preprint's limited/confounded evidence, from reasoning-prefix interventions.
+- [ ] Do not claim first Jev use in intervention studies or downstream population outcomes; distinguish [KITE](https://arxiv.org/abs/2609.27535), whose intervention target is simulated human behavior.
+- [ ] Candidate study remains narrow: visible LLM prefix + explicit intervention + independent terminal validator + full cost + cheap/local/published controls + fresh transfer. This empirical boundary is not a novelty claim already established.
+- [ ] No Jev-dependent sampling/training until provider terms are clarified in writing.
+
 ## September 29, 06:16 EDT prior-art update
 
 Add *REFLEX with Jev* (arXiv:2609.26532v1) to the required direct-JeV comparison set. It already demonstrates Jev as an in-trajectory bounded-action layer with confidence-based fallback, cross-fallback tests, and a cheap generative cascade comparator. Our distinct empirical question cannot be “does Jev supervise an agent?” It would have to isolate exposed reasoning-prefix repair/branch decisions and independently measured terminal outcomes under complete matched costs, with a compatible published baseline. *Jev vs. LLMs as Rubric Judges* (arXiv:2609.29769v1) adds evidence about label agreement and correlated judge errors but does not answer action utility. See the dated prior-art audit for exact overlap and limits. Neither paper supplies a new positive result for this project.
