@@ -185,7 +185,7 @@ def run(args):
     source_files = [CONFIG, TASKS, Path(__file__), ROOT / "data/interwhen_kstable_game24_v1/README.md",
                     ROOT / "scripts/audit_interwhen_kstable_taskset.py",
                     ROOT / "docs/interwhen_kstable_game24_v1_protocol.md",
-                    ROOT / "cluster/bouchet/interwhen_kstable_game24.sbatch",
+                    ROOT / "cluster/bouchet/interwhen_kstable_game24_v1b.sbatch",
                     ROOT / "src/jev_control/cuda_backend.py", ROOT / "src/jev_control/game24_exact.py",
                     ROOT / "src/jev_control/prospective.py"]
     source_hashes = {str(p.relative_to(ROOT)): sha256_file(p) for p in source_files}
