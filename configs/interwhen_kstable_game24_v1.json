@@ -1,0 +1,41 @@
+{
+  "protocol": "interwhen-kstable-game24-adaptation-v1",
+  "upstream": {
+    "repository": "https://github.com/microsoft/interwhen",
+    "commit": "2bc515f0c13a7a81b3f72a93958280c60231573c",
+    "baseline": "KstableAnswerGame24Monitor",
+    "upstream_example": "examples/EarlyStopping/game24_example.py",
+    "monitor_source_sha256": "07cbe6bba0d68a281233164fd5b759a1a485a5ea90592ff9d1dc97667183c199",
+    "example_source_sha256": "e041907d3ebc215dd660daf5dceeeb94d7838f677262a4a1230e0f7133b89909",
+    "k": 2,
+    "license": "MIT"
+  },
+  "dataset": {
+    "name": "nlile/24-game",
+    "revision": "0106b176e4648061d60c32ddb85ac0816699652d",
+    "split": "train",
+    "tasks_file": "data/interwhen_kstable_game24_v1/tasks.json",
+    "tasks_sha256": "f20fea0807ad1b56acfaee276bd752df95fff9a760156c6f86bd0ebb0632d3a0",
+    "sample_size": 96,
+    "sampling": "upstream linspace index rule; fixed task rows committed before model generation"
+  },
+  "model": {
+    "id": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "dtype": "bfloat16",
+    "backend": "repository CUDA adapter; Transformers 4.55.2 / PyTorch 2.9.1 CUDA 12.8",
+    "note": "Model differs from the upstream 30B-A3B-Thinking checkpoint; this is an adaptation."
+  },
+  "generation": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "max_new_tokens": 1536,
+    "call_timeout_seconds": 900,
+    "seed_rule": "42 + dataset row index; paired policies share the same initial seed; post-trigger continuation uses initial seed + 1000003",
+    "repeats": 1
+  },
+  "policies": ["continue", "interwhen_kstable_k2"],
+  "terminal_evaluator": "independent exact AST/Fraction evaluator; only +, -, *, /; use every input integer once",
+  "jev_calls": 0,
+  "purpose": "Published-baseline execution and outcome/cost qualification on a fixed public development sample; not a confirmatory or Jev efficacy study."
+}
