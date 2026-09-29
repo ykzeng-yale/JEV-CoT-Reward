@@ -10,6 +10,11 @@ await written terms clarification; InterWhen adaptation job 27857096 is
 pending and must be audited before any outcome interpretation. Do not describe
 that baseline adaptation as Jev evidence.
 
+Terminal-Bench v4.0.0 source audit found 66 heterogeneous tasks, not a powered
+population for a 3-pp confirmatory comparison; `freight-dispatch-shift` is at
+most a one-task mechanism case study. See
+`docs/terminal_bench_v4_task_manifest_audit_2026-09-29.md`.
+
 ## September 29 prior-art boundary additions
 
 - [ ] Do not claim first Jev use for scientific semantic decisions; compare with [Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965).
