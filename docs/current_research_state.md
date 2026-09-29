@@ -1,5 +1,17 @@
 # Research continuation state
 
+## September 29, 14:18 EDT — counterfactual-credit prior art and task/action gate
+
+**Highest-impact bottleneck:** the research program still lacks a task/action setting that is simultaneously useful, independently verifiable, fairly comparable, and beyond direct prior art. A primary-source review of PCCC/CVT-RL (arXiv:2606.05263) found explicit deletion/semantic/evidence/tool-output interventions, terminal verified outcomes under frozen continuation, and counterfactual credit used for long-horizon agent training. This directly preempts our generic intervention-value estimand and training proposal. *Verify, Repair, Repeat, or Stop?* (arXiv:2607.17641) further preempts broad noisy-verifier repair/stop theory. These are author-reported preprints; their efficacy results were not reproduced here. The full mapping and claim consequences are in `docs/prior_art_gap_audit_2026-09-29.md` and `docs/task_action_candidate_matrix_2026-09-29.md`.
+
+**Scientific decision:** zero candidate task families currently passes every gate. Arithmetic/Game24 is not advanced: two arithmetic-construction opportunity screens failed the frozen 20-error threshold (10/120 and 15/120 incorrect first-addition checkpoints), exact validators already exist, and interwhen's public Game24 code performs trace extraction, feedback and stopping. Long-context QA/web tasks overlap with PCCC's intervention families and reported domains. CLI coding remains only a conditional candidate: the released 1,794-run annotation package omits raw traces, so it cannot directly furnish controller-visible prefixes. Fresh open-model trajectories, an executable action definition, tamper-resistant terminal tests, and a qualified published baseline are prerequisites. Scientific discovery has no acceptable independent short-horizon evaluator yet.
+
+**Independent run reconciliation:** PID 57951 from `runs/branch-replication-v3a-control/process.json` completed 2026-09-28 02:33:59 UTC, exit 0; its original start identity was Sun Sep 27 19:35:23 local. I reran `scripts/audit_branch_qualification.py` to `/tmp/branch_replication_v3a_reaudit_20260929.json`: audit passed 24/24 eligible problems, 384 outcomes, 677 durable calls, and zero outcome-label disagreements. Recorded development rates were continue 48/96, uniform 44/96, likelihood 43/96, entropy 44/96, local semantic 42/96, and Jev semantic 42/96. Jev-minus-local semantic was 0 points; Jev-minus-likelihood was -1.04 points (descriptive problem-bootstrap range -5.21 to +3.13). This is not equivalence or confirmatory evidence. The exact-token/backend run did not establish Jev increment or a useful controller; the prior artifact limitations about cost matching and published-method adaptation remain.
+
+At this activation, no JEV-CoT-Reward model process was present on lead, mini or aux Macs; no new inference or API request was made. Current filesystem snapshots show 41 GiB free on lead, 14 GiB on mini, and 23 GiB on aux. `memory_pressure` reports 80%, 71%, and 67% system-wide free memory respectively; swap used is 15.2 GiB on lead, 0.2 GiB on mini, and 9.4 GiB on aux. These are resource snapshots, not evidence of an active JEV workload. Bouchet access succeeded via authenticated mac-aux SSH: `squeue -u yz2324` was empty. Receipt-backed `sacct` reconfirmed jobs 27713897 and 27714091 FAILED with exit 132 during download/tokenizer initialization and jobs 27714861, 27717762, 27719471, 27724738, and 27727778 COMPLETED with exit 0. Combined allocation remains 2.7333 GPU-hours, including failed infrastructure attempts. No allocation is active or held.
+
+**Next action:** qualify the conditional CLI candidate from actual public task/environment files and pin the evaluator/baseline before any model run; meanwhile retain the no-launch gate and Jev contract hold. This activation makes no positive efficacy or novelty claim. The manuscript was updated to cite and delimit the new preprints and trajectory-data limitation; the built-in editor compilation succeeded.
+
 ## September 29, 08:16 EDT — direct interwhen trace-monitor audit and independent verifier
 
 **Scientific bottleneck:** the previous residual boundary, “Jev acts on an observable reasoning prefix with terminal outcome evaluation,” was too loose. The pinned MIT `interwhen` source already implements precisely a Game24 thinking-trace monitor: periodic same-model side-stream extraction of an intermediate expression, executable validity/dead-end checks, corrective feedback, and early stopping on a complete expression. The source also exposes two fair-evaluation issues: side-stream extraction is extra model generation that may itself propose a solution, and the published runner scores the final answer using the same `verify_expression` function used by the monitor. This means an independent terminal verifier and generation-matched sham are essential; it is a direct method overlap, not a mere nearby baseline. Full audit: `docs/interwhen_game24_baseline_audit_2026-09-29.md`.
@@ -82,13 +94,9 @@ Updated September 27, 2026, after launching v3a. Broad curriculum remains open; 
 
 ## Authoritative live dependency
 
-`runs/branch-replication-v3a-20260927` is the active 24-problem/four-repeat development replication. Receipt: `runs/branch-replication-v3a-control/process.json`. Worker PID **57951**, start **Sun Sep 27 19:35:23 2026** local. Supervisor session 18896. Verify PID AND start time against the receipt; never infer termination from a stale log or restart a live job. Cooperative limit 14,400 seconds, external 14,550, sampled RSS 8 GiB. One local MLX model job only.
+There is **no active local model worker and no active Bouchet job**. The latest process receipt, `runs/branch-replication-v3a-control/process.json`, is terminal (`status=completed`, `exit_code=0`) and its outputs independently passed the record/outcome audit summarized above. The later `runs/action-replication-v3-control/process.json` still says `running`, but its recorded PID 79898/start Mon Sep 28 12:34:41 2026 is absent; preserve the receipt unchanged and do not infer an exit code. Its full saved outputs have their own previously recorded audit/analysis. The two arithmetic opportunity receipts are terminal. All receipt-backed Bouchet jobs are terminal per current `squeue`/`sacct`.
 
-The first launch (`runs/branch-replication-v3-20260927`, control without `a`, PID 57919) failed before task scheduling/model inference/API dispatch because a relative config path was not resolved before source freezing. Exit 1 was verified. Preserve that failed directory/receipt. The tested path fix is commit 1dbfb8a. v3a uses the same frozen scientific config; it is not a replacement for observed outcomes.
-
-Protocol: `docs/branch_replication_v3_protocol.md`; config: `configs/branch_replication_v3.json`. Same pools and downstream outcomes compare continue, uniform, likelihood, entropy, local semantic and Jev semantic. At most 24 hosted calls, central $1 cumulative development cap/$25 project hard cap. First call succeeded; last observed ledger: 56 successful requests total, $0.002324574. Query ledger for current spend; do not print responses or credentials. All selector decisions precede downstream continuations. Do not inspect partial success rates to alter the run.
-
-At launch memory pressure reported 55% free and 44 GiB disk available. Hardware is sufficient for this bounded worker. Current limitations are evidence precision, causal intervention/controller qualification and complete published-baseline compatibility—not a missing theory proof or more memory.
+No inference is authorized until an independently reviewed task/action contract, outcome evaluator, compatible published baseline, frozen cost/sample-size plan, and TypeSafe-use clarification are in place. Continue public-source and code/runtime qualification without consuming Jev budget or competing GPU work.
 
 ## Completed evidence
 
@@ -98,11 +106,11 @@ Manuscript `paper/main.tex` includes both v2 diagnostics, standard conditional t
 
 ## Terminal-run procedure
 
-1. Check the recorded v3a process identity and terminal receipt/manifest. Do not restart a live or merely quiet run.
-2. Run `scripts/audit_branch_qualification.py` with the pinned local tokenizer and a NEW `results/branch_replication_v3_audit.json`. It supports v2 and v3; hosted prompt hashes, choice parsing, chronology, labels and cost fields are checked. Raw hosted records remain private.
-3. Only after audit passes, run `scripts/analyze_branch_qualification.py` with that report and a NEW `results/branch_replication_v3_analysis.json`. The analyzer adds Jev-vs-likelihood/local contrasts, acquisition cost and disjoint two-repeat half diagnostics. It was updated during collection without looking at partial outcomes, following the frozen protocol.
-4. Independently review all outcome counts, failed/ineligible cases and selector disagreement. Reconcile actual ledger charges versus conservative per-episode acquisition costs. Publish an allowlisted release, update the paper, compile and push.
-5. Advance the curriculum based on complete evidence; no automatic broad-project closure from either a small positive or negative result.
+1. For every subsequent experiment, verify its exact PID plus start identity or exact Slurm receipt; never reuse historical IDs.
+2. Preserve the frozen generation outputs; run the appropriate record and independent outcome auditors before interpreting scores.
+3. Independently review eligible and failed cases, paired task-level outcomes, full costs, timeouts and all intervention counts. Keep development results out of closed v1 tests.
+4. Advance only when the preregistered opportunity/action/baseline gates pass; do not start another generic small pilot merely because compute is available.
+5. Keep the broad objective open and continue no-cost prior-art, task-data and baseline qualification; do not claim positive efficacy or methods novelty from current results.
 
 ## Independent work completed / next qualification
 
@@ -110,7 +118,7 @@ The v2 terminal export reproduces all labels. Choice API validation and ordering
 
 ## Recurring authorization
 
-The existing 30-minute `jev-experiment-completion-check` heartbeat authorizes active research, not monitor-only work. Keep it enabled. Notify on meaningful findings/failure/resource needs. Goal mode is paused and cannot be programmatically reactivated; do not edit internal goal state. This does not block authorized research. While the run is live, avoid competing inference, changing its code/config, or making adaptive decisions from partial results.
+The active two-hour `jev-experiment-completion-check` heartbeat authorizes sustained research, not monitor-only work. The user requests concise bilingual Chinese-English progress reports on each activation. Maintain the user's broad research objective; do not make a narrow stage the completion event. Goal-mode reactivation is not controlled by this state file. A heartbeat should continue productive, independently justified work even when no model job is live; use queued/running jobs as a reason to wait only after useful independent work is exhausted.
 
 ## September 27, 19:56 heartbeat work
 

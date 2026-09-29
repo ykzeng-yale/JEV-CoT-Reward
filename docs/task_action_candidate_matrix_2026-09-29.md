@@ -1,0 +1,37 @@
+# Task/action candidate screen, September 29, 2026
+
+## Decision purpose
+
+This screen asks whether any task family is ready for the next outcome-grounded source-comparison experiment. It does not treat model confidence, trace plausibility, or judge agreement as terminal success. A candidate must have (a) natural, externally observable checkpoints; (b) a predeclared intervention that can change downstream state; (c) independently audited terminal outcomes; (d) an applicable published baseline; (e) affordable and fully countable replay; and (f) a residual contribution not already claimed by direct prior art. A failure on any one gate means no efficacy run yet.
+
+## Candidate matrix
+
+| Candidate family | Natural checkpoint / intervention opportunity | Independent outcome | Closest overlap found | Decision |
+|---|---|---|---|---|
+| Arithmetic construction / Game24 | Explicit equations or partial expressions; repair, branch, or stop | Exact AST/rational verifier is feasible | *interwhen* already extracts and verifies Game24 trace states, feeds back, and stops; arithmetic opportunity screens produced 10/120 and 15/120 incorrect first-addition claims, below the frozen 20-error gate | **Reject current route.** More samples do not fix the narrow contribution: the signal is executable and the monitor/action overlaps directly. Keep the independent exact checker for sound evaluation. |
+| Long-context evidence QA | Claims/evidence/tool calls; delete, substitute evidence, verify, or continue | Answer key plus independent evidence/support audit is possible | *PCCC/CVT-RL* explicitly uses deletion, semantic/evidence substitution and tool-output perturbations, frozen-policy continuations, and terminal verified outcomes across long-context QA and web/tool families | **Do not lead with this.** It has dense opportunities and measurable outcomes but direct estimand, action-family, training, and benchmark overlap. A Jev-versus-local source ablation could only be considered after exact split/code and terms review. |
+| Web / embodied / scientific tool tasks | Repeated observation/action decisions | Environment success or structured task goal | PCCC reports web, ALFWorld, ScienceWorld and tool tasks; Jev prior art includes REFLEX, JEV-Star, KITE, and scientific typed decisions | **Defer.** Strong outcome signal, but heavy method/application overlap, environment-runtime burden, and no isolated new intervention contract. |
+| CLI coding agents / Terminal-Bench | Early plan, interpretation, test-selection, and recovery checkpoints | Hidden task tests plus separately logged environment integrity checks | PCCC covers counterfactual process credit generally; *VRR-Stop* covers repair/stop under noisy verification; *Failure as a Process* supplies annotated trajectories, but its release README says raw traces are not included | **Leading conditional candidate, not selected.** It may support a useful Jev-vs-local study only after fresh open-model trajectories are collected, a test/inspect/continue action is operationally defined, and a matched executable-verifier baseline is qualified. Annotation labels alone cannot train/run a prefix controller. |
+| Scientific hypothesis / discovery | Candidate hypothesis, discriminating experiment, revise/branch/stop | Requires execution, external datasets, or expert/independent adjudication | Jev-for-scientific-decisions, KITE, JEV-Star and broad counterfactual long-horizon work preempt generic science/intervention/control claims | **Not a near-term efficacy endpoint.** Novelty and correctness lack a cheap independent evaluator; “Jev says innovative” is circular. Keep discovery as a later extension requiring artifact-level objective checks and prior-art comparison. |
+
+## Candidate causal contrast if CLI work survives further review
+
+This is a protocol sketch, not a frozen experiment. Start from a public task split and independently sampled natural checkpoints before looking at Jev judgments or terminal outcomes. At each eligible checkpoint compare a frozen base continuation with one operational alternative chosen before collection (for example, run a specified diagnostic test before editing). For each prefix clone the repository/environment and allocate a common total generation, tool, and wall-clock budget. A neutral extra-model-call control must match any extraction/query cost. Record every test and tool call, discarded token, prefill token, elapsed time, interruption, timeout, environment mutation, and hidden-test result. The terminal evaluator must run outside the controller process and verify that task tests and harness were not changed. Use task-level grouping for every split and interval.
+
+This contrast estimates one action's value under a named post-checkpoint policy; it does not establish broad reasoning quality. Only after action usefulness is replicated should policies cross the same action set: static best, continuation, rate-matched random, cheap text/logit, a genuinely independent local semantic judge, and an exact compatible published control. Jev requires prior written terms clarification. Fresh task instances, a frozen model/runtime, and an untouched test set are mandatory. The current records do not yet establish that this contrast is novel, that naturally occurring checkpoints provide sufficient action opportunity, or that the source comparison is allowed.
+
+## Explicit no-launch gates
+
+Do not submit a GPU job until all items are resolved and recorded:
+
+1. Exact task repository/dataset revision, license, splits, and data availability.
+2. Natural checkpoint sampling and eligibility rules fixed without judge scores.
+3. One action whose intervention is executable and whose causal contrast is not the same as an existing baseline.
+4. Independent, tamper-resistant terminal verifier and independent unit of analysis.
+5. Frozen model, prompt, runtime, generation and timeout contract.
+6. Compatible public baseline pinned and its implementation/runtime qualified.
+7. Matched full-cost ledger, candidate counts, sample-size target from development variance, and continuation policy.
+8. Jev use explicitly permitted for the exact academic evaluation, data retention, analysis and release.
+9. Fresh development/test partitions and a holdout that remains unseen during design.
+
+**Current result:** zero candidates pass all gates. The next useful step is further qualification of the conditional CLI candidate and a narrow literature/code audit, not an unmotivated scale-up. No performance claim or positive result follows from this screen.
