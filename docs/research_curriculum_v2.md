@@ -1,5 +1,13 @@
 # Research curriculum v2: reopen the scientific program
 
+## September 29 design boundary
+
+The prior-art audit in `docs/prior_art_gap_audit_2026-09-29.md` finds direct overlap with our core prior proposal: *Calibration Is Not Control* already defines intervention advantage, performs same-prefix branching, and evaluates action-conditioned controllers; *CausalFlow* already performs step-level counterfactual repair. *interwhen* and adaptive verifier-call allocation add further overlap. **No methods-level novelty gap is currently established.** Do not proceed with a generic “Jev judge controls CoT” or “learn action value by branching” claim. Only a source-comparison empirical study (Jev versus cheap/local judges on a genuinely new transfer or horizon setting) might remain, and this is not yet a validated contribution.
+
+The eight-operand arithmetic screen did not pass its frozen event-count gate (15 errors versus 20 required), so do not run correction rollouts or repeat arithmetic screens with the same checkpoint mechanism. Next, qualify a compatible published baseline and a fresh action/domain contract. *interwhen* is a strong candidate, but its official path uses vLLM and public Maze/Game24 datasets not currently cached; the local MLX runtime is not a faithful upstream reproduction. Name any port an adaptation, independently test the validator, and set the budget/sample-size before inference. A cluster model download requires a fresh quota/path check and actual runtime qualification.
+
+The TypeSafe Master Customer Agreement current §2.3(b) may constrain training a controller from Jev outputs or developing a similar/competing service. Hold that Jev-dependent step pending written clarification. Continue local-only baseline, action-value and theory work without spending the Jev ledger.
+
 User authorized September 27, 2026. The original broad research question remains open. The completed v1 branch is a small negative/inconclusive diagnostic, not completion of the whole program. Preserve its records and test designation. The broad research objective supersedes the previous branch-completion framing; scheduled authorization continues work even while app goal mode is paused.
 
 ## First baseline/design audit

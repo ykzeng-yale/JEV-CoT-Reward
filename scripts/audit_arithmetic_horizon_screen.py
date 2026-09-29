@@ -18,6 +18,17 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def wilson(k, n):
+    if not n:
+        return None
+    z = 1.959963984540054
+    p = k / n
+    den = 1 + z*z/n
+    mid = (p + z*z/(2*n))/den
+    half = z * ((p*(1-p)/n + z*z/(4*n*n))**.5) / den
+    return [max(0., mid-half), min(1., mid+half)]
+
+
 def audit(run, tokenizer_path):
     m = json.loads((run / 'manifest.json').read_text())
     s = json.loads((run / 'summary.json').read_text())
@@ -85,6 +96,9 @@ def audit(run, tokenizer_path):
             'eligible': len(cps), 'ineligible': len(skipped), 'with_explicit_addition': n,
             'correct': correct, 'incorrect': incorrect, 'without_explicit_addition': absent,
             'incorrect_rate_among_explicit': rate, 'advance_gate': 20,
+            'incorrect_rate_wilson95_among_explicit': wilson(incorrect, correct+incorrect),
+            'incorrect_rate_among_eligible': incorrect/len(cps) if cps else None,
+            'incorrect_rate_wilson95_among_eligible': wilson(incorrect, len(cps)),
             'gate_passed': incorrect >= 20, 'calls': len(events), 'task_outcomes': 0, 'jev_calls': 0,
             'limitations': ['One pinned model, prompt and sampled checkpoint rule; not a population-wide event rate.',
                             'First explicit integer addition only; no adjudication of other reasoning claims.',

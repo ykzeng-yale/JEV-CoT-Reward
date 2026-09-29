@@ -1,0 +1,30 @@
+{
+  "status": "passed_arithmetic_horizon_audit",
+  "attempted": 120,
+  "eligible": 120,
+  "ineligible": 0,
+  "with_explicit_addition": 41,
+  "correct": 26,
+  "incorrect": 15,
+  "without_explicit_addition": 79,
+  "incorrect_rate_among_explicit": 0.36585365853658536,
+  "advance_gate": 20,
+  "incorrect_rate_wilson95_among_explicit": [
+    0.23589831019689447,
+    0.5187929891208799
+  ],
+  "incorrect_rate_among_eligible": 0.125,
+  "incorrect_rate_wilson95_among_eligible": [
+    0.07723497273395374,
+    0.1960294020800739
+  ],
+  "gate_passed": false,
+  "calls": 120,
+  "task_outcomes": 0,
+  "jev_calls": 0,
+  "limitations": [
+    "One pinned model, prompt and sampled checkpoint rule; not a population-wide event rate.",
+    "First explicit integer addition only; no adjudication of other reasoning claims.",
+    "Feasibility screen does not test judge accuracy or correction efficacy."
+  ]
+}

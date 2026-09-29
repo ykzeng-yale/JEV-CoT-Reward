@@ -1,6 +1,14 @@
 # Paper evidence and next decisions
 
-## September 29, 02:20 local update
+## September 29 update: horizon feasibility and novelty boundary
+
+The frozen 120-task eight-operand arithmetic screen ended normally and its independent audit passed. It yielded 15 incorrect first-addition claims among 41 explicit claims, below the preregistered 20-error gate; it collected no terminal outcomes and made no Jev calls. A secondary equation parser is exploratory and does not change the gate. Do not claim an arithmetic correction benefit or continue this intervention lane under the same checkpoint rule.
+
+The prior-art audit finds direct duplication of the previously proposed action-value estimand and same-prefix branching protocol in *Calibration Is Not Control*; *CausalFlow* also covers step-level counterfactual repair. *interwhen* and categorical verifier-budget allocation are additional direct precedents. No methods-level novelty gap is currently established. At most, a transparent Jev-versus-local judgment-source study in a fresh transfer regime may remain; this requires systematic search and service-term clarification. The public *interwhen* implementation is not yet a qualified comparator: its runner depends on vLLM and benchmark data not installed/cached locally. Exact source commit, data paths and comparisons are in `docs/prior_art_gap_audit_2026-09-29.md`.
+
+Jev-output-conditioned controller training is paused pending TypeSafe clarification of current MCA §2.3(b). No Jev request was made in this update. Local-only baseline qualification and independent outcome studies remain available.
+
+## September 29, 02:20 local launch note — superseded by the 04:28 handoff above
 
 The six-number opportunity screen audited 120/120 fresh checkpoints and found ten incorrect first-addition claims (8.3% of eligible checkpoints; Wilson 95% interval 4.6–14.7%). Its frozen gate for action rollouts was 20, so that study correctly stopped before outcomes. A fresh eight-operand horizon screen (PID 56403) tests whether more complex, longer arithmetic construction yields enough natural intermediate errors. If it meets the gate, the next study must still compare correction, matched neutral feedback and continuation with all arm costs; the feasibility screen itself cannot support efficacy or Jev value. If it misses, abandon this simple equality-correction route and move to another independently checkable obligation/task family.
 

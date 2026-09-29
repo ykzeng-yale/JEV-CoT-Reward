@@ -1,0 +1,25 @@
+{
+  "status": "exploratory_secondary_parser_sensitivity",
+  "primary_study_audit_status": "passed_arithmetic_horizon_audit",
+  "eligible_checkpoints": 120,
+  "standalone_binary_equation_claims": 143,
+  "claims_by_operator": {
+    "\u00d7": 42,
+    "-": 8,
+    "+": 50,
+    "*": 39,
+    "\u2212": 4
+  },
+  "incorrect_claims_by_operator": {
+    "+": 11,
+    "-": 1
+  },
+  "checkpoints_with_at_least_one_detected_incorrect_claim": 11,
+  "primary_frozen_rule_incorrect_first_addition": 15,
+  "limitations": [
+    "Post-hoc parser sensitivity analysis; it does not change the frozen primary gate.",
+    "Only standalone binary integer equations are parsed; chained and compound equations are omitted.",
+    "This analysis does not evaluate Jev, correction effects, final task success, or intervention value.",
+    "Claims within a checkpoint are dependent; counts are descriptive, not independent-sample inference."
+  ]
+}
