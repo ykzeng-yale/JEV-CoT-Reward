@@ -1,0 +1,25 @@
+{
+  "status": "audited_natural_addition_sensor",
+  "run_status": "complete",
+  "planned": 48,
+  "observed": 48,
+  "labels_observed": {
+    "true": 23,
+    "false": 25
+  },
+  "labels_missing": {
+    "true": 0,
+    "false": 0
+  },
+  "auroc": 0.6391304347826087,
+  "sensitivity_at_0_5": 1.0,
+  "specificity_at_0_5": 0.04,
+  "mean_true": 0.883478260869565,
+  "mean_false": 0.8344000000000001,
+  "cached_requests": 14,
+  "measured_request_cost_usd": 0.001583526,
+  "ledger_accounted_usd": 0.015710698000000002,
+  "config_sha256": "3b70c25baf3ce9a4238626fc084d401ad8d1923c615218daba0f08a1082f1d87",
+  "measurements_sha256": "2d46cc176d706c698ab3eee0ea96400fce621dcc7c62e44fbe92ef1216a764a0",
+  "scope": "Natural explicit additions in public development prefixes; no downstream intervention outcome or controller value identified."
+}

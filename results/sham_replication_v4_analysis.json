@@ -1,0 +1,94 @@
+{
+  "status": "audited_development_action_qualification",
+  "enrolled_problems": 48,
+  "eligible_problems": 48,
+  "episodes": 192,
+  "actions": {
+    "continue": {
+      "successes": 46,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 48,
+        "mean": 0.4791666666666667,
+        "bootstrap_percentile_95": [
+          0.375,
+          0.5729166666666666
+        ]
+      },
+      "family_success": {
+        "weighted_path": 0.7708333333333334,
+        "arithmetic_construction": 0.1875
+      },
+      "mean_episode_generated_tokens": 1444.6875,
+      "mean_episode_processed_prompt_tokens": 1215.2604166666667,
+      "mean_removed_tokens": 0.0,
+      "mean_inserted_instruction_tokens": 0.0,
+      "last_finish_reason_counts": {
+        "stop": 77,
+        "length": 19
+      },
+      "outcome_reason_counts": {
+        "invalid_path_format": 8,
+        "checked_path": 40,
+        "invalid_answer": 24,
+        "checked_expression": 22,
+        "missing_final": 2
+      },
+      "mean_episode_model_service_seconds": 33.612422616715776
+    },
+    "sham": {
+      "successes": 47,
+      "episodes": 96,
+      "problem_weighted_success": {
+        "n_problems": 48,
+        "mean": 0.4895833333333333,
+        "bootstrap_percentile_95": [
+          0.40625,
+          0.5729166666666666
+        ]
+      },
+      "family_success": {
+        "weighted_path": 0.7916666666666666,
+        "arithmetic_construction": 0.1875
+      },
+      "mean_episode_generated_tokens": 1452.5833333333333,
+      "mean_episode_processed_prompt_tokens": 1280.0,
+      "mean_removed_tokens": 0.0,
+      "mean_inserted_instruction_tokens": 17.0,
+      "last_finish_reason_counts": {
+        "stop": 73,
+        "length": 23
+      },
+      "outcome_reason_counts": {
+        "checked_path": 39,
+        "invalid_path_format": 6,
+        "invalid_answer": 30,
+        "checked_expression": 16,
+        "missing_final": 5
+      },
+      "mean_episode_model_service_seconds": 33.81328633549856
+    }
+  },
+  "paired_contrasts": {
+    "sham_minus_continue": {
+      "n_problems": 48,
+      "mean": 0.010416666666666666,
+      "bootstrap_percentile_95": [
+        -0.07291666666666667,
+        0.09375
+      ],
+      "warning": "Descriptive problem-clustered comparison; exploratory multiplicity, no automatic winner selection."
+    }
+  },
+  "split_repeat_diagnostic": [],
+  "audit_sha256": "33a1d7427e61527cc268b4abf69c4ff6e153154c664794a0848b7e760f3b1ed8",
+  "analysis_sha256": "e7d894e7812554bef06dfd2ef6c02b61c26217364fc2b3e2f3b49aea94f622b1",
+  "limitations": [
+    "Conditional on online checkpoint eligibility; no full-policy deployment claim.",
+    "Few repeats per action give noisy state-specific effects; selection/evaluation splitting does not remove all uncertainty.",
+    "Generator-token allowances matched; prefill, actual length and runtime differ.",
+    "No Jev acquisition, fitted controller, novel task-family transfer or scientific discovery tested.",
+    "Historical v1 is not a randomized budget comparator; do not pool.",
+    "A degenerate empirical bootstrap does not establish zero uncertainty."
+  ]
+}

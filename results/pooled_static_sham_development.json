@@ -1,0 +1,37 @@
+{
+  "status": "descriptive_audit_bound_two_study_synthesis",
+  "n_problems": 72,
+  "paired_mean": 0.024305555555555556,
+  "stratified_problem_bootstrap_95": [
+    -0.041666666666666664,
+    0.09027777777777778
+  ],
+  "studies": [
+    {
+      "name": "repair_v3",
+      "n_problems": 24,
+      "paired_mean": 0.052083333333333336,
+      "discordant_problems": 13,
+      "continue_mean": 0.65625,
+      "sham_mean": 0.7083333333333334
+    },
+    {
+      "name": "sham_v4",
+      "n_problems": 48,
+      "paired_mean": 0.010416666666666666,
+      "discordant_problems": 17,
+      "continue_mean": 0.4791666666666667,
+      "sham_mean": 0.4895833333333333
+    }
+  ],
+  "audit_sha256": {
+    "repair_v3": "6fe8b1b6b10c247b5ffe4f743f0295f404bc7460cce9eeb11a7ee96b6573d4ee",
+    "sham_v4": "33a1d7427e61527cc268b4abf69c4ff6e153154c664794a0848b7e760f3b1ed8"
+  },
+  "limitations": [
+    "Exploratory development synthesis, not a new randomized prospective study or preregistered pooled test.",
+    "48 and 24 original problems have unequal repeats; each problem receives equal weight.",
+    "Problem bootstrap assumes study samples represent target problems; no arbitrary family/OOD guarantee.",
+    "Semantic judge and adaptive controller absent. A small static effect need not justify further compute."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "passed_action_qualification_audit",
+  "ready_for_analysis": true,
+  "problems": 48,
+  "eligible_problems": 48,
+  "outcomes": 192,
+  "durable_calls": 296,
+  "outcome_disagreements": 0,
+  "initial_tokens": 13081,
+  "input_sha256": {
+    "summary.json": "f459d25b4ea2ba74f799092824425c3d621b9a4e1587e1e2290d982dc03966f6",
+    "generation_started.jsonl": "7d3714cdc354d5a06ea36ed249b3afbb592460d3139cfa52fba7f2266c241c7c",
+    "skipped.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "outcomes.jsonl": "e08352d55df9e40f4b43eca1d8d54f3a55eb859a817187521b2973f225c25c53",
+    "checkpoints.jsonl": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1",
+    "manifest.json": "c976fdb8f403deb1f8234617ebbbceab5b16293d8340c5a6e365d5b4a6b07968",
+    "schedule.json": "c38dbef11370c091442e4c7e81336b5b4fd8c46e13f7aa11aa3533be21e50453",
+    "generation_events.jsonl": "236253985db390202af9edb6743644e65e5681fcc50de7b292ff66ba85b979f2"
+  },
+  "audit_source_sha256": "914abc181aff82480745c3dbd4f9af01fa8a04be30c5ea3e16241d7731c838b8",
+  "scope": "Exact recorded treatment/token/call/outcome reconstruction; not fresh inference replay, model weight rehash or efficacy evidence."
+}

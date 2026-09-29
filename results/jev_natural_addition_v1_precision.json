@@ -1,0 +1,16 @@
+{
+  "status": "descriptive_complete_sensor_precision",
+  "n": 48,
+  "auroc": 0.6391304347826087,
+  "auroc_stratified_bootstrap_95": [
+    0.47304347826086957,
+    0.7904347826086956
+  ],
+  "specificity_at_0_5": 0.04,
+  "specificity_stratified_bootstrap_95": [
+    0.0,
+    0.12
+  ],
+  "audit_sha256": "381818cbd73551d8a84c386db8622fee3fa81bbdab00a9c48eb9a5e06f8b919e",
+  "limitations": "Exploratory public development sample; class-stratified bootstrap does not certify OOD or deployment calibration."
+}

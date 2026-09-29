@@ -1,5 +1,15 @@
 # Research continuation state
 
+## September 28, 20:21 local handoff (current)
+
+The active local targeted-arithmetic worker is PID **36977**, start **Mon Sep 28 20:19:07 2026**, receipt `runs/targeted-arithmetic-v1-control/process.json`, output `runs/targeted-arithmetic-v1-20260928`. It was verified live with matching PID and start. Its frozen schedule selects 25 naturally erroneous explicit addition checkpoints from completed development runs; 50 new continuations compare against saved same-seed sham outcomes. Do not inspect partial outcomes or launch a competing local model. On terminal status, independently audit all records with `scripts/audit_targeted_arithmetic.py`, then analyze with `scripts/analyze_targeted_arithmetic.py`. A verified arithmetic correction is extra information and this design does not test Jev routing.
+
+The fresh 48-problem sham replication completed and passed independent audit: 192 outcomes, 296 calls, zero label disagreement. Sham 47/96 versus continue 46/96; paired difference +1.04 percentage points, descriptive problem-bootstrap interval [-7.29,+9.38]. Exploratory equal-problem synthesis with repair v3 gives +2.43 points over 72 problems, interval [-4.17,+9.03]. No reliable sham benefit established. Reports `results/sham_replication_v4_{audit,analysis}.json`, `results/pooled_static_sham_development.json`.
+
+The narrow Jev natural-addition sensor study completed 48/48 judgments on 23 correct and 25 incorrect natural claims, with 14 cache hits. Independent audit AUROC 0.639; at 0.5 threshold sensitivity 23/23, specificity 1/25. Source `results/jev_natural_addition_v1_audit.json`; descriptive bootstrap `results/jev_natural_addition_v1_precision.json`. This favors executable arithmetic checks but does not answer broader semantic intervention value. A separate paired c-to-c+1 probe has only 14/16 complete pairs after HTTP503; 13/14 pair score differences positive, but all corrupted claims scored above 0.5. Do not treat partial probe as completed study or retry blindly. Cumulative accounted Jev ledger $0.015710698 includes $0.01 unresolved reservation, under the $25 cap. Paper updated with these narrow findings and built-in compiler passed.
+
+The next decision is whether actionable local arithmetic correction improves final verified outcomes versus sham after all 50 new episodes pass audit, including timeouts and total costs. If it does, separately test whether a Jev feature can select checkpoints/actions beyond executable checks and strong cheap/local controls. If it does not, redesign treatment or move to another well-defined failure mode rather than scale the same action.
+
 Updated September 27, 2026, after launching v3a. Broad curriculum remains open; no duplicate goal or automatic completion.
 
 ## Authoritative live dependency

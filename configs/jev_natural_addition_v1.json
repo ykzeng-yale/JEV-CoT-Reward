@@ -1,0 +1,733 @@
+{
+  "protocol": "jev-natural-addition-v1-development-only",
+  "model": "jev-1.13.0",
+  "count": 48,
+  "rows": [
+    {
+      "problem_id": "arithmetic_construction-1491028-5",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [11, 6, 8, 7, 7, 8]. Build an arithmetic expression equal to 156. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping high numbers: 8, 8, 7, 7 → maybe multiply two 8s? 8*8 = 64. 7+7 = 14. 64+14 = 78. Too low.\n\nTry 8*7 = 56. 8*7 = 56. 56+56 = 112. 112 + 11 = 123. 123 + 6 = 129. Still low.\n\nTry 11 * 8 = 88. 88 + 7 = 95. 95 + 6 = 101. 101 + 7 = 108. 108 + 8 = 116. No.\n\nWhat if (8 * 7) + (8 * 7) = 56 + 56 = 112. 112 + 11 = 123. 123 + 6 = 129. Still low.",
+        "latest_segment": "Try 11 * 6 = 66. 8 * 7 = 56. 66 + 56 = 122. 122 + 7 = 129. +8 = 137. No."
+      },
+      "claim": [
+        66,
+        56,
+        122
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-35",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [11, 8, 9, 5, 8, 6]. Build an arithmetic expression equal to 167. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping to reach 167. Target is high — likely involves multiplication.\n\nNote: 11 × 9 = 99  \n8 × 9 = 72  \n8 × 6 = 48  \n9 × 8 = 72  \n11 × 6 = 66  \nTry 11 × 9 = 99, 8 × 8 = 64 → 99 + 64 = 163, close to 167 → need +4.\n\nLeft: 5, 6 → 6 – 5 = 1 → not helpful.\n\nTry 11 × 8 = 88  \n8 × 9 = 72  \n88 + 72 = 160 → need +7 → left: 5, 6 → 6 + 5 = 11 → too big; 6 – 5 = 1 → no.",
+        "latest_segment": "Try 11 × 8 = 88  \n9 × 6 = 54 → 88 + 54 = 142 → need 25 → left: 8,5 → 8+5=13, 8×5=40 — no."
+      },
+      "claim": [
+        88,
+        54,
+        142
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-16",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:9, A->F:9, A->G:3, A->H:9, A->I:5, B->C:4, B->D:2, B->F:15, B->H:5, C->D:6, C->F:14, C->G:7, C->H:12, C->I:10, D->E:5, D->F:11, D->H:13, D->I:7, E->F:2, F->G:7, F->H:10, G->H:7, H->I:8. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA->B:9, A->F:9, A->G:3, A->H:9, A->I:5  \n\nA->G:3 is low. Try G.  \nG->H:7 → H->I:8 → total: 3+7+8 = 18  \n\nA->H:9 → H->I:8 → total: 17 → better than 18  \n\nA->I:5 → direct → 5 → best so far  \n\nBut is there a better path? Try A->B:9  \nB->C:4 → C->I:10 → total: 9+4+10 = 23 → worse  \n\nB->D:2 → D->E:5 → E->F:2 → F->G:7 → G->H:7 → H->I:8 → total: 9+2+5+2+7+7+8 = 40 → worse  \n\nB->F:15 → too high  ",
+        "latest_segment": "B->H:5 → H->I:8 → total: 9+5+8 = 6+9=15 → worse than A->H→I (17)"
+      },
+      "claim": [
+        5,
+        8,
+        6
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-43",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [9, 12, 7, 1, 8, 8]. Build an arithmetic expression equal to 115. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping large numbers to reach 115.\n\nNote: 12 * 9 = 108 → 115 – 108 = 7 → we have a 7!  \nSo 12 * 9 = 108, plus 7 = 115.  \nWe used: 12, 9, 7 → left with: 8, 8, 1\n\nCan we make 0 from 8, 8, 1? 8 – 8 = 0, and 0 * 1 = 0 → useful for adding zero.\n\nSo: (12 * 9) + 7 + (8 – 8) * 1 = 108 + 7 + 0 = 115\n\nCheck: all numbers used exactly once: 12, 9, 7, 8, 8, 1 — yes.  \nOperations: +, *, –, * — all allowed.  \nNo concatenation, no powers, no extra constants.",
+        "latest_segment": "Try alternative: could we do (8 * 12) + (8 / 8) + 1? 96 + 1 + 1 = 98 → too low."
+      },
+      "claim": [
+        1,
+        1,
+        98
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-15",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [4, 3, 1, 2, 12, 11]. Build an arithmetic expression equal to 57. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try to build 57 from [4, 3, 1, 2, 12, 11]\n\nNote: 12 * 4 = 48 → 57 - 48 = 9 → need 9 from others: 3, 1, 2, 11\n\nTry 11 + 3 + 2 + 1 = 17 → too big  \nTry 11 + 2 + 3 + 1 = 17 again  \nTry 12 + 3 + 1 + 2 = 18 → 12 + 11 = 23, 23 + 4 = 27, not helping\n\nTry: 12 * 3 = 36 → 57 - 36 = 21 → need 21 from [4,1,2,11]",
+        "latest_segment": "11 + 4 + 2 + 1 = 18 → too small  \n11 + 4 + 2 = 17  \n11 * 2 = 22 → too big  \n(11 + 4) * 1 = 15  \n(11 + 2) * 1 = 13"
+      },
+      "claim": [
+        2,
+        1,
+        18
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1491028-8",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:5, A->C:13, A->F:6, A->H:9, A->J:12, B->C:5, B->G:8, C->D:5, C->F:2, C->G:13, D->E:7, D->G:9, E->F:6, F->G:9, F->I:7, F->J:15, G->H:6, G->I:2, G->J:14, H->I:3, I->J:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A; goal: min-weight path to J.\n\nA options:  \nA→B:5, A→C:13, A→F:6, A→H:9, A→J:12\n\nTry A→F:6  \nF→G:9 → G→J:14 → total: 6+9+14=29  \nF→I:7 → I→J:7 → total: 6+7+7=20 → better  \nF→I:7, I→J:7 → 20",
+        "latest_segment": "Try A→B:5  \nB→C:5 → C→F:2 → F→I:7 → I→J:7 → total: 5+5+2+7+7=26  \nB→G:8 → G→I:2 → I→J:7 → 5+8+2+7=22  \nB→G:8 → G→H:6 → H→I:3 → I→J:7 → 5+8+6+3+7=29  \nB→C→D:5+7=12 → D→E:7 → E→F:6 → F→I:7 → I→J:7 → 5+5+7+7+6+7=37 → worse"
+      },
+      "claim": [
+        7,
+        7,
+        26
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-23",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [4, 1, 3, 4, 10, 3]. Build an arithmetic expression equal to 56. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "We are given: [4, 1, 3, 4,  10, 3] — use each exactly once. Target: 56.\n\nFirst, observe: 10 × 5 = 50, close to 56. 10 × 4 = 40, 10 × 3 = 30. Try multiplying larger numbers.\n\nTry: 10 × 4 = 40, then 40 + 3 + 3 = 46, +1 = 47, +1 = 48 — too low.\n\nTry: 10 × (4 + 3) = 10 × 7 = 70 → too high.\n\nTry: (10 + 4) × 3 = 14 × 3 = 42 → 42 + 4 = 46, +1 = 47 → still low.\n\nWhat if we do (10 + 4) × 3 = 42, then 42 + 4 = 46, +1 = 47 — no.",
+        "latest_segment": "Try: 4 × (10 + 3) = 4 × 13 = 52 → 52 + 4 = 56 → that’s promising."
+      },
+      "claim": [
+        52,
+        4,
+        56
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-42",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:7, A->D:5, B->C:4, B->D:12, B->E:3, B->F:9, B->G:11, B->H:4, C->D:3, C->G:8, C->H:8, D->E:9, E->F:4, E->G:8, F->G:5, G->H:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A → B (7).  \nFrom B: B→H (4) → total: 7+4=11.  \nBut check if better path via B→E→F→G→H or others.\n\nTry A→D (5).  \nD→E (9) → 5+9=14 → E→F (4) → 18 → F→G (5) → 23 → G→H (7) → 30 → too high.\n\nTry A→B→C→H: 7+4+3=14? B→C=4, C→H=8 → 7+4+8=19.\n\nA→B→E→F→G→H:  \nB→E=3, E→F=4, F→G=5, G→H=7  \nSum: 7+3+4+5+7 = 26 → worse than 11.\n\nA→B→F→G→H: 7+9+5+7=28 → worse.",
+        "latest_segment": "A→B→C→G→H: 7+4+8+7=26 → worse."
+      },
+      "claim": [
+        8,
+        7,
+        26
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-14",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:5, A->G:4, A->J:2, B->C:5, B->E:7, B->I:6, B->J:2, C->D:9, C->E:13, C->H:7, C->J:11, D->E:9, D->F:7, D->G:5, D->J:5, E->F:2, F->G:6, F->H:2, G->H:6, G->I:13, H->I:3, I->J:3. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with shortest known direct edge: A->J = 2 → candidate path: A→J (weight 2)\n\nBut explore paths via A→G (4), then G→H (6), H→I (3), I→J (3):  \nA→G→H→I→J = 4+6+3+3 = 16 → worse than 2.\n\nTry A→B (5):  \nB→C (5): total 10  \nC→D (9): 19  \nD→F (7): 26  \nF→G (6): 32  \nG→H (6): 38  \nH→I (3): 41  \nI→J (3): 44 → too long.\n\nTry A→B→E (5+7=12)  \nE→F (2): 14  \nF→H (2): 16  \nH→I (3): 19  \nI→J (3): 22 → worse than A→J.",
+        "latest_segment": "Try A→B→I (5+6=11) → B→I:6 → total 11  \nI→J:3 → total 14 → worse."
+      },
+      "claim": [
+        5,
+        6,
+        11
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-3",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [1, 2, 4, 10, 9, 9]. Build an arithmetic expression equal to 123. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try to build 123 from [1, 2, 4, 10, 9, 9].\n\nNote: 123 is not divisible by small numbers easily. Try grouping to make larger components.\n\nIdea: 10 * 12 = 120 → 123 – 120 = 3 → need to make 3 from remaining numbers.\n\nAvailable: 1, 2, 4, 9, 9 → can we make 12?\n\nTry: 9 + 4 = 13 → too big. 9 + 2 = 11 → close.\n\nTry: 9 + 9 = 18 → 18 / (something) → maybe (9 + 9 + 4) = 22 → 22 – 1 = 21 → not helpful.\n\nAlternative: 9 * 10 = 90 → 123 – 90 = 33 → need 33 from [1,2,4,9]",
+        "latest_segment": "Try: 9 * 4 = 36 → too big. 9 + 4 = 13 → 13 + 2 + 1 = 16 → no."
+      },
+      "claim": [
+        9,
+        4,
+        13
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-24",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:6, A->C:4, A->D:9, B->C:4, C->D:8, C->F:9, D->E:4, D->F:13, D->H:12, E->F:3, E->G:13, E->H:6, F->G:9, G->H:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:6, A→C:4, A→D:9  \n\nTry A→C:4 (cheap)  \nC→D:8 → total: 12  \nD→H:12 → total: 24  \n\nTry A→B:6  \nB→C:4 → total: 10  \nC→D:8 → total: 18  \nD→H:12 → total: 30 → worse than above  \n\nTry A→D:9  \nD→E:4 → total:13  \nE→F:3 → total:16  \nF→G:9 → total:25  \nG→H:2 → total:27 → worse  \n\nA→C→D→H: 4+8+12 = 24  \n\nNow check if better path exists via E or F:  \nCan we get lower than 24?  \n\nTry A→C→F: 4+9=13 → F→G:9 → 22 → G→H:2 → 24 → same  ",
+        "latest_segment": "A→C→D→E: 4+8+4=16 → E→F:3 → 19 → F→G:9 → 28 → G→H:2 → 30 → worse"
+      },
+      "claim": [
+        8,
+        4,
+        16
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-45",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [8, 9, 1, 5, 8, 11]. Build an arithmetic expression equal to 168. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping large numbers: 11, 9, 8, 8, 5, 1.\n\nNotice: 11 * 8 = 88  \n8 * 9 = 72  \n88 + 72 = 160 → close to 168 → need +8 more.\n\nWe have 1, 5, and another 8. Try 8 * 2 = 16, too much.\n\nTry: 11 * 9 = 99  \n8 * 5 = 40  \n99 + 40 = 139 → 168 - 139 = 29 → not matching.\n\nTry: 8 * 8 = 64  \n11 + 9 = 20  \n64 + 20 = 84 → too low.\n\nTry: (8 + 1) * 11 = 9 * 11 = 99  \nStill low.",
+        "latest_segment": "Try multiplication of two large numbers:  \n8 * 9 = 72  \n11 * 5 = 55  \n72 + 55 = 127 → 168 - 127 = 41 → not matching."
+      },
+      "claim": [
+        72,
+        55,
+        127
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-29",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [5, 7, 12, 9, 10, 10]. Build an arithmetic expression equal to 258. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "We need to form 258 from: 5, 7, 12, 9, 10, 0 (note: two 10s)\n\nTry grouping large numbers to reach ~258.\n\n258 is even; 10+10=20, 12+9=21, 7+5=12 → total sum: 5+7+12+9+10+10 = 53 → too small.\n\nSo multiplication is needed.\n\nTry: 12 * 21 = 252 → close to 258. 258 - 252 = 6 → need to build 6 from remaining numbers.\n\nAvailable: 5,7,9,10,10 — but 12 used.\n\nTry: 10 + 10 = 20, 9+5=14, 7+12=19 — not useful.\n\nTry: 10 * 25 = 250 → 258 - 250 = 8 → need 8 from others.",
+        "latest_segment": "Try: (10 + 10) * 12 = 240 → 258 - 240 = 18 → need 18 from 5,7,9 → 9+7+5=21 → too big, 9*2=18 → can we get 2?"
+      },
+      "claim": [
+        7,
+        5,
+        21
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-2",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:8, A->D:7, A->G:13, B->C:2, B->F:13, B->H:8, B->I:8, B->J:11, C->D:6, C->E:5, C->F:7, C->I:7, D->E:8, D->H:10, D->I:14, D->J:1, E->F:6, F->G:3, F->H:4, F->I:4, G->H:8, G->I:4, G->J:7, H->I:5, H->J:1, I->J:3. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:8, A→D:7, A→G:13  \nTry A→D:7 (cheap)  \nD→E:8, D→H:10, D→I:14, D→J:1 → D→J:1 is best from D  \nSo A→D→J: 7+1 = 8  \n\nTry A→B:8  \nB→C:2, B→F:13, B→H:8, B→I:8, B→J:11  \nBest from B: B→C:2  \nC→D:6, C→E:5, C→F:7, C→I:7  \nBest: C→E:5  \nE→F:6  \nF→H:4, F→I:4, F→J? No  \nF→H:4 → H→J:1 → total: A→B→C→E→F→H→J  \nCost: 8+2+5+6+4+1 = 36 → worse than 8  ",
+        "latest_segment": "Try A→B→C→D: 8+2+6=16 → D→J:1 → total 17 → worse than A→D→J=8"
+      },
+      "claim": [
+        2,
+        6,
+        16
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-9",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [4, 6, 7, 4, 9, 8]. Build an arithmetic expression equal to 130. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping large numbers to reach 130.\n\nNote: 8 * 9 = 72  \n7 * 4 = 28  \nTry 8 * 9 = 72, 7 * 4 = 28 → 72 + 28 = 100 → need 30 more. Left: 6, 4.\n\n6 * 4 = 24 → too big. 6 + 4 = 10 → 100 + 6 + 4 = 110 → too low.\n\nTry 9 * 8 = 72, 7 * 6 = 42 → 72 + 42 = 114 → left: 4,4 → 4+4=8 → 122 → too low.\n\nTry 9 * 6 = 54, 8 * 4 = 32 → 54+32=86 → 7+4=11 → 86+11=97 → not close.",
+        "latest_segment": "Try 8 * (9 + 4) = 8 * 13 = 104 → left: 7,6,4 → 7+6+4=17 → 104+17=121 → still low."
+      },
+      "claim": [
+        6,
+        4,
+        17
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1491028-14",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:6, A->F:14, A->G:4, A->H:2, A->I:8, A->J:12, B->C:6, B->D:1, B->E:5, B->F:1, B->I:9, C->D:9, C->E:1, C->H:13, D->E:4, E->F:2, E->H:7, E->I:13, F->G:7, F->H:2, G->H:9, G->J:1, H->I:8, H->J:6, I->J:5. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→H:2 (good, low)  \nA→G:4  \nA→F:14 (high)  \nA→I:8  \nA→J:12  \n\nTry A→H:2  \nH→J:6 → total 8  \nH→I:8 → I→J:5 → 2+8+5=15 → worse than H→J  \n\nA→H→J: 2+6=8  \n\nTry A→G:4  \nG→H:9 → H→J:6 → 4+9+6=19 → worse  \nG→J:1 → 4+1=5 → better than 8  \n\nA→G→J: 4+1=5  \n\nTry A→I:8  \nI→J:5 → 13 → worse  ",
+        "latest_segment": "Try A→B:6  \nB→D:1 → D→E:4 → E→F:2 → F→H:2 → H→J:6 → total: 6+1+4+2+2+6 = 21  \nB→C:6 → C→E:1 → E→F:2 → F→H:2 → H→J:6 → 6+6+1+2+2+6 = 23"
+      },
+      "claim": [
+        2,
+        6,
+        21
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1491028-12",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:9, A->C:6, A->D:9, B->C:5, B->H:11, C->D:5, D->E:6, D->G:4, D->H:6, E->F:3, E->G:11, F->G:5, G->H:5. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:9, A→C:6, A→D:9  ",
+        "latest_segment": "Try A→C (6) → C→D (5) → D→H (6): total = 6+5+6 = 17  \nTry A→C→D→G→H: 6+5+4+5 = 20 → worse  \nTry A→B (9) → B→C (5) → C→D (5) → D→H (6): 9+5+5+6 = 25 → worse  \nTry A→D (9) → D→E (6) → E→F (3) → F→G (5) → G→H (5): 9+6+3+5+5 = 30 → worse  \nTry A→D→E→F→G→H: 9+6+3+5+5 = 30  \nTry A→D→E→G→H: 9+6+11+5 = 31 → worse  \nTry A→B→H: 9+11 = 20 → better than 17? No, 17 is better"
+      },
+      "claim": [
+        5,
+        6,
+        17
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-12",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:4, A->C:7, A->E:12, B->C:2, B->D:1, B->G:4, C->D:6, C->E:4, D->E:5, D->G:13, E->F:7, E->G:10, F->G:8, G->H:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B (4), A→C (7), A→E (12)\n\nTry A→B (4):  \nB→C (2), B→D (1), B→G (4)\n\nTry B→D (1):  \nD→E (5), D→G (13)\n\nD→E (5): E→F (7), E→G (10)\n\nE→F (7): F→G (8)\n\nNow, B→D→E→F→G→H (7)  \nPath: A→B→D→E→F→G→H  \nCost: 4+1+5+7+8+7 = 32\n\nTry B→C (2):  \nC→D (6), C→E (4)\n\nC→D (6): D→E (5), D→G (13)  \nD→E→F→G→H: 6+5+7+8+7 = 33 → worse",
+        "latest_segment": "C→E (4): E→F (7), E→G (10), then G→H (7)  \nCost: 4+7+10+7 = 28 (from A→B→C→E→F→G→H)"
+      },
+      "claim": [
+        10,
+        7,
+        28
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-46",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:4, A->C:13, A->E:1, A->I:11, B->C:8, B->D:1, B->I:3, C->D:8, C->F:4, C->H:12, C->I:7, D->E:6, E->F:4, E->I:6, F->G:5, F->H:10, G->H:2, H->I:9. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first steps:  \nA->B (4), A->C (13), A->E (1), A->I (11)\n\nA->E (1) is cheap. From E:  \nE->F (4), E->I (6) → E->I = 1+6 = 7\n\nA->E->I: total = 1+6 = 7\n\nNow check other paths.\n\nTry A->B:  \nB->C (8): A->B->C = 4+8=12  \nC->D (8): 12+8=20  \nD->E (6): 20+6=26  \nE->F (4): 30  \nF->G (5): 35  \nG->H (2): 37  \nH->I (9): 46 → too high",
+        "latest_segment": "A->B->D: B->D (1) → 4+1=5  \nD->E (6): 11  \nE->F (4): 15  \nF->H (10): 25  \nH->I (9): 34 → worse"
+      },
+      "claim": [
+        4,
+        1,
+        5
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-18",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:7, A->C:1, A->H:4, B->C:3, B->H:14, C->D:9, C->G:14, C->H:11, D->E:4, D->F:14, D->G:7, E->F:5, E->H:4, F->G:8, F->H:2, G->H:6. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A. From A, cheapest edges: A->C:1, A->H:4, A->B:7.\n\nTry A->C:1  \nC->H:11 → total 12  \nC->G:14 → 1+14=15  \nC->D:9 → 1+9=10 → D  \n\nD->E:4 → 1+9+4=14  \nD->F:14 → 1+9+14=24  \nD->G:7 → 1+9+7=17  \n\nE->F:5 → 1+9+4+5=19  \nE->H:4 → 1+9+4+4=18  \n\nF->H:2 → 1+9+4+4+2=20  \nF->G:8 → 1+9+4+4+8=26  \n\nG->H:6 → check G path:  \nC->G:14 → total 1+14=15, then G->H:6 → 21  ",
+        "latest_segment": "Now, D->E:4 → E->H:4 → total from A: A->C->D->E->H: 1+9+4+4 = 18"
+      },
+      "claim": [
+        4,
+        4,
+        18
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-38",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:6, A->E:14, A->G:12, A->I:2, B->C:2, B->D:12, B->F:3, B->G:15, B->H:12, B->I:1, B->J:13, C->D:3, C->E:6, C->F:2, C->I:12, D->E:7, D->G:11, D->H:11, E->F:8, E->H:4, F->G:5, F->I:7, G->H:6, H->I:3, H->J:4, I->J:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A, consider low-weight edges:  \nA->I:2 is strong. I->J:7 → total 9.  \nA->B:6 → B has low edges: B->I:1 → I->J:7 → total 6+1+7=14 → worse than above.  \nA->G:12 → G->H:6 → H->J:4 → total 12+6+4=22 → worse.  \nA->E:14 → E->F:8 → F->I:7 → I->J:7 → 14+8+7+7=36 → worse.  \n\nTry A->B:6 → B->C:2 → C->D:3 → D->E:7 → E->H:4 → H->J:4 → total: 6+2+3+7+4+4 = 30 → worse than A->I->J.  \n\nA->B:6 → B->F:3 → F->G:5 → G->H:6 → H->J:4 → 6+3+5+6+4=24 → worse.  ",
+        "latest_segment": "A->B:6 → B->H:12 → H->J:4 → 6+12+4=22 → worse."
+      },
+      "claim": [
+        12,
+        4,
+        22
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-7",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [12, 4, 4, 10, 1, 5]. Build an arithmetic expression equal to 101. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try to build 101 from [12, 4, 4, 10, 1, 5].\n\nNote: 101 is just above 100. Can we make 100 and add 1? Or 90 + 11?\n\nTry: 12 * 8 = 96 → 96 + 5 = 101 → need to make 8 from others.\n\nAvailable: 4, 4, 10, 1, 0? No 8.\n\nTry: 10 * 10 = 100 → need 1 more → have 1 → so 10 * 10 + 1 = 101.\n\nCan we make 10 from two numbers? We have 10 already.\n\nCan we make 10 again? We have 12, 4, 4, 1, 5.\n\nTry: (12 - 4) = 8; (5 - 1) = 4; 8 * 4 = 32 → too low.",
+        "latest_segment": "Try: 12 * 5 = 60; 10 * 4 = 40; 60 + 40 = 100 → +1 = 101."
+      },
+      "claim": [
+        60,
+        40,
+        100
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-1",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [11, 5, 10, 2, 6, 9]. Build an arithmetic expression equal to 197. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try to build 197 from: 11, 5, 10, 2, 6, 9.\n\nFirst, note 197 is odd. Likely a combination of even and odd numbers, possibly with multiplication to reach magnitude.\n\nTry pairing large numbers: 11 and 9 → 11×9 = 99  \nThen 10×6 = 60  \nThen 5×2 = 10  \nNow: 99 + 60 = 159; 159 + 10 = 169 → too low.\n\nTry 11×10 = 110  \nThen 9×6 = 54 → 110 + 54 = 164  \n164 + 5 = 169; +2 = 171 → still low.",
+        "latest_segment": "Try 11×9 = 99  \nThen 10×6 = 60 → 99+60=159  \nNow 159 + 5 = 164; +2 = 166; +10 = 176 — no."
+      },
+      "claim": [
+        99,
+        60,
+        159
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-6",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:9, A->C:3, A->H:3, B->C:9, B->E:9, B->F:8, C->D:8, C->E:11, D->E:6, D->F:9, D->G:9, D->H:15, E->F:8, F->G:6, G->H:5. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A: options are A→B(9), A→C(3), A→H(3).  \nA→H directly: 3. But is there a better path?\n\nTry A→C(3):  \nC→D(8): total 11  \nD→E(6): 17  \nE→F(8): 25  \nF→G(6): 31  \nG→H(5): 36 → worse than direct.\n\nA→C→D→G→H: 3+8+9+5 = 25  \nA→C→D→E→F→G→H: 3+8+6+8+6+5 = 36 → worse.",
+        "latest_segment": "A→B(9):  \nB→C(9): 18 → worse than A→C  \nB→E(9): 18  \nE→F(8): 26 → F→G(6): 32 → G→H(5): 37 → worse  \nB→F(8): 9+8=17 → F→G(6): 23 → G→H(5): 28 → worse"
+      },
+      "claim": [
+        9,
+        8,
+        17
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-31",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [9, 7, 10, 12, 1, 3]. Build an arithmetic expression equal to 62. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try combining large numbers: 12 + 10 = 22, 22 * 3 = 66 → 66 - 9 = 57, 57 + 7 = 64, 64 - 1 = 63 → too high.\n\nTry 12 * 5 = 60 → we don’t have 5. Can we make 5? 10 / 2 = 5 → no 2. 7 - 1 = 6 → not helpful.\n\nTry 10 * 7 = 70 → 70 - 9 = 61 → 61 + 1 = 62 → need 1 more. We have 1, 3, 12. 12 / (3) = 4 → no.",
+        "latest_segment": "Try 12 * 3 = 36 → 36 + 10 = 46 → 46 + 9 = 55 → 55 + 7 = 62 → 62! So 12*3 = 36, +10=46, +9=55, +7=62 → but we used 12,3,10,9,7 — missing 1."
+      },
+      "claim": [
+        36,
+        10,
+        46
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-4",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:5, A->F:12, A->H:11, B->C:2, B->E:3, B->G:9, C->D:2, C->G:4, C->H:11, C->I:14, D->E:6, D->G:4, E->F:8, F->G:8, F->H:7, G->H:4, H->I:3. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A: possible first moves  \nA→B:5, A→F:12, A→H:11  \n\nTry A→B (5):  \nB→C:2 → total 7  \nC→D:2 → 9  \nD→E:6 → 15  \nE→F:8 → 23  \nF→G:8 → 31  \nG→H:4 → 35  \nH→I:3 → 38  \n\nTry A→B→C→D→E→F→G→H→I:  \nB→C:2, C→D:2, D→E:6, E→F:8, F→G:8, G→H:4, H→I:3  \nSum: 5+2+2+6+8+8+4+3 = 48  ",
+        "latest_segment": "Wait: better path? Try A→B→C→I?  \nB→C:2, C→I:14 → total A→B→C→I: 5+2+14 = 21 → worse than 48? No, 21 < 48? Wait: 5+2+14 = 21 → better?"
+      },
+      "claim": [
+        2,
+        14,
+        21
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-32",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:2, A->D:15, A->I:8, B->C:2, B->D:2, B->G:4, B->H:11, B->J:9, C->D:8, C->F:14, C->J:1, D->E:3, D->I:11, D->J:15, E->F:7, E->G:1, F->G:6, F->I:4, G->H:9, G->J:6, H->I:9, H->J:2, I->J:9. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA->B:2, A->D:15, A->I:8  ",
+        "latest_segment": "A->D:15 is expensive early.  \nA->I:8 → I->J:9 → total 17  \nA->B:2 → B->C:2 → C->J:1 → total 2+2+1=5  \nA->B:2 → B->D:2 → D->J:15 → total 2+2+15=19  \nA->B:2 → B->G:4 → G->J:6 → total 2+4+6=12  \nA->B:2 → B->H:11 → H->J:2 → total 2+11+2=15  \nA->B:2 → B->J:9 → total 9 → already better than above  \nA->B:2 → B->C:2 → C->F:14 → F->I:4 → I->J:9 → 2+2+14+4+9=31 → worse  \nA->B:2 → B->C:2 → C->D:8 → D->E:3 → E->F:7 → F->G:6 → G->J:6 → 2+2+8+3+7+6+6 = 34 → worse"
+      },
+      "claim": [
+        2,
+        1,
+        5
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-22",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:4, A->D:7, A->E:7, A->I:3, B->C:9, B->D:7, B->F:4, B->G:9, B->H:4, B->I:6, C->D:4, C->E:4, C->F:4, D->E:5, D->F:4, D->I:10, E->F:3, E->H:11, E->I:10, F->G:8, F->H:9, G->H:4, H->I:9. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A: can go directly to I (3), or explore paths.\n\nA→B (4): B offers B→I (6), so A→B→I = 4+6 = 10 > 3 → worse than direct.\n\nA→D (7): D→I = 10 → total 17 → worse.\n\nA→E (7): E→I = 10 → 17 → worse.\n\nA→I = 3 → best so far.\n\nBut check if any path to I via others is better.\n\nTry A→B→F (4+4=8): F→H=9 → H→I=9 → total 8+9+9=26 → bad.\n\nA→B→G (4+9=13): G→H=4 → H→I=9 → 13+4+9=26 → worse.\n\nA→B→C (4+9=13): C→F=4 → F→H=9 → H→I=9 → 13+4+9+9=35 → worse.",
+        "latest_segment": "A→D→E (7+5=12): E→F=3 → F→H=9 → H→I=9 → 12+3+9+9=33 → worse."
+      },
+      "claim": [
+        7,
+        5,
+        12
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-41",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [6, 5, 8, 4, 7, 10]. Build an arithmetic expression equal to 152. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "",
+        "latest_segment": "Try grouping to reach 152.  \n152 is even; possible to build from multiplication of two numbers near 10–15.  \nTry 8 * 10 = 80 → 152 – 80 = 72 → need 72 from [6,5,4,7,1] (remaining)  \nTry 7 * 10 = 70 → 152 – 70 = 82 → too far  \nTry 8 * 7 = 56 → 152 – 56 = 96 → 96 from [6,5,4,10]  \nTry 10 * 6 = 60 → 96 – 60 = 36 → 36 from [5,4] → 5*4=20 → too low  \nTry (10 + 4) * 6 = 14*6 = 84 → 152 – 84 = 68 → left with [5,7,8] → 8*7=56, 56+5=61 → no  \nTry 8 * 10 = 80 → 152 – 80 = 72"
+      },
+      "claim": [
+        56,
+        5,
+        61
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-19",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [3, 11, 4, 7, 10, 2]. Build an arithmetic expression equal to 161. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping to form a large product or sum near 161.\n\nNote: 161 = 7 × 23 → can we make 23 from others?\n\nTry: 11 + 4 + 7 = 22 → close. 11 + 4 + 10 = 25. 11 + 10 = 21, +4 = 25.\n\nTry: 10 × 11 = 110 → 161 - 0 = 161 → need 51 from rest.\n\nTry: 11 × 10 = 110; 161 - 110 = 51. Can we make 51 from [3,4,7,2]?\n\n4 × 7 = 28; 28 + 3 = 31; 31 + 2 = 33 → too small.\n\nTry 7 × (something): 7 × 23 = 161 → can we make 23?",
+        "latest_segment": "Try: 11 + 4 + 3 + 2 = 20; +7 = 27 → too big."
+      },
+      "claim": [
+        3,
+        2,
+        20
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-18",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:3, A->D:4, A->E:6, A->H:7, B->C:3, B->E:11, C->D:7, C->F:13, C->H:10, D->E:4, D->H:4, E->F:8, E->G:1, F->G:6, G->H:9. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first steps: A→B(3), A→D(4), A→E(6), A→H(7)\n\nTry A→B→C: cost 3+3=6  \nThen B→C→D: 6+7=13  \nThen D→H: 13+4=17  \nPath: A→B→C→D→H = 3+3+7+4 = 17\n\nTry A→B→E: 3+11=14  \nE→F: 14+8=22  \nF→G: 22+6=28  \nG→H: 28+9=37 → worse\n\nTry A→D→E: 4+4=8  \nE→F: 8+8=16  \nF→G: 6 → 22  \nG→H: 31 → worse\n\nTry A→D→H: 4+4=8 → better than above? 8 vs 17 → better",
+        "latest_segment": "Try A→E→G: 6+1=7  \nG→H: 7+9=16 → better than 8? 16 > 8 → worse"
+      },
+      "claim": [
+        6,
+        1,
+        7
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-39",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [3, 11, 9, 10, 1, 11]. Build an arithmetic expression equal to 101. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "We have numbers: [3, 11, 9, 10, 1, 11]  \nTarget: 101  \nUse each exactly once. Operations: +, −, *, /, parentheses. No concatenation, powers, unary minus.\n\nStep 1: Try to reach 101.  \n101 is close to 100, so maybe build 100 + 1?  \nWe have two 11s — 11 * 9 = 99 → 99 + 1 = 100 → 100 + 1 = 101.  \nThat’s promising.\n\nSo: 11 * 9 = 99  \n99 + 1 = 100  \n100 + 1 = 101 → but we only have one 1.\n\nWe have two 11s, one 9, one 10, one 3, one 1.",
+        "latest_segment": "Alternative: 11 * 9 = 99  \nThen 10 + 3 = 13 → 13 - 1 = 12 → 99 + 12 = 111 → too big."
+      },
+      "claim": [
+        10,
+        3,
+        13
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-30",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:7, A->E:13, A->F:11, A->G:3, B->C:8, B->G:10, C->D:9, C->G:8, D->E:6, D->F:8, E->F:8, F->G:8, G->H:7. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:7, A→E:13, A→F:11, A→G:3  \n\nA→G:3 is cheap. Try G→H:7 → total: 3+7 = 10  \n\nCheck if better path via other nodes:  \nA→G:3 → H:7 → total 10  \n\nNow, try A→F:11 → F→G:8 → G→H:7 → total: 11+8+7 = 26 → worse  \n\nA→E:13 → E→F:8 → F→G:8 → G→H:7 → 13+8+8+7 = 36 → worse  \n\nA→B:7 → B→C:8 → C→D:9 → D→E:6 → E→F:8 → F→G:8 → G→H:7 → 7+8+9+6+8+8+7 = 53 → worse  ",
+        "latest_segment": "A→B:7 → B→G:10 → G→H:7 → 7+10+7 = 24 → worse than 10"
+      },
+      "claim": [
+        10,
+        7,
+        24
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-2",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:7, A->C:13, A->D:9, A->F:3, A->H:15, B->C:3, B->D:11, B->F:8, B->H:11, B->J:12, C->D:4, C->G:14, C->I:7, D->E:8, D->G:14, D->H:11, E->F:8, E->G:4, E->I:4, E->J:10, F->G:4, G->H:6, H->I:5, H->J:5, I->J:4. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A, explore paths to J.\n\nA → F (3) is early, low cost.\n\nF → G (4): total 7  \nG → H (6): total 13  \nH → J (5): total 18  \n→ A→F→G→H→J = 3+4+6+5 = 18\n\nCheck A→B→J:  \nA→B (7), B→J (12): total 19 → worse\n\nA→B→F→G→H→J:  \n7+8+4+6+5 = 30 → worse\n\nA→D→E→J:  \nA→D (9), D→E (8), E→J (10): 9+8+10=27 → worse\n\nA→C→I→J:  \nA→C (13), C→I (7), I→J (4): 24 → worse\n\nA→D→G→H→J:  \n9+14+6+5=34 → worse",
+        "latest_segment": "A→B→C→D→E→J:  \n7+3+4+8+10=32 → worse"
+      },
+      "claim": [
+        8,
+        10,
+        32
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-0",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:5, A->C:12, A->D:9, B->C:9, B->E:10, C->D:8, C->F:6, D->E:3, D->G:15, E->F:8, E->G:15, F->G:8, G->H:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:5  \nA→C:12  \nA→D:9  \n\nTry A→B→C: 5+9 = 14  \nThen B→E:10 → total 5+10=15  \nE→F:8 → 15+8=23  \nF→G:8 → 31  \nG→H:2 → 33  \n\nTry A→B→E→F→G→H:  \nA→B:5, B→E:10, E→F:8, F→G:8, G→H:2 → 5+10+8+8+2 = 33  \n\nTry A→D→E→F→G→H:  \nA→D:9, D→E:3, E→F:8, F→G:8, G→H:2 → 9+3+8+8+2 = 30 — better!  ",
+        "latest_segment": "Try A→D→G→H:  \nA→D:9, D→G:15 → 24, +2 = 26 → too short? D→G:15, G→H:2 → 17, total 9+15+2=26 — valid, but is it better?"
+      },
+      "claim": [
+        15,
+        2,
+        26
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-26",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:6, A->E:12, A->I:4, A->J:6, B->C:3, B->D:10, B->H:11, C->D:6, D->E:7, D->F:13, D->H:5, D->I:1, E->F:9, E->J:13, F->G:3, F->I:10, G->H:5, G->I:3, H->I:8, I->J:4. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:6, A→E:12, A→I:4, A→J:6  \n\nTry A→I:4 (cheap), then I→J:4 → total 8  \nCheck: A→I→J = 4+4 = 8  \n\nTry A→B:6  \nB→C:3 → total 9  \nC→D:6 → 15  \nD→I:1 → 16, then I→J:4 → 20 → worse  \n\nA→B→H:6+11=17, H→I:8 → 25, I→J:4 → 29 → worse  \n\nA→E:12  \nE→F:9 → 21  \nF→G:3 → 24  \nG→I:3 → 27, I→J:4 → 31 → worse  \n\nA→E→J:12+13=25 → worse than 8  ",
+        "latest_segment": "A→B→C→D:6+3+6=15, D→E:7 → 22, E→J:13 → 35 → worse"
+      },
+      "claim": [
+        3,
+        6,
+        15
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-6",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:6, A->E:8, B->C:4, B->E:12, B->G:11, B->H:11, C->D:3, C->F:4, D->E:4, D->F:7, E->F:7, E->G:1, F->G:2, G->H:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves: A→B (6), A→E (8).  \nTry A→B: cost 6  \nFrom B: B→C (4), B→E (12), B→G (11), B→H (11)  \nBest: B→C (4), total 10  \nFrom C: C→D (3), C→F (4)  \nBest: C→D (3), total 13  \nFrom D: D→E (4), D→F (7)  \nTry D→E (4): total 17  \nE→F (7), E→G (1)  \nE→G (1) better → E→G (1), total 18  \nG→H (2): total 20  \n\nNow, try alternative: A→E (8)  \nE→F (7): 15  \nF→G (2): 17  \nG→H (2): 19 → worse than 20? Wait: 8+7+2+2 = 19  \nBetter than previous 20? 19 < 20 → better.  ",
+        "latest_segment": "Now, from E: E→G (1) → E→G (1), total 8+1=9"
+      },
+      "claim": [
+        8,
+        1,
+        9
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "weighted_path-1591028-20",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:8, A->C:7, A->D:14, A->E:13, A->G:4, A->I:10, B->C:8, B->D:14, B->G:10, B->H:8, B->J:12, C->D:4, C->H:5, C->I:7, D->E:2, D->F:4, D->J:2, E->F:2, F->G:9, F->J:1, G->H:9, H->I:2, H->J:13, I->J:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA->B:8, A->C:7, A->D:14, A->E:13, A->G:4, A->I:10  \n\nBest first edge: A->G:4 (lowest weight)  \n\nFrom G:  \nG->H:9 → H  \nH->I:2 → I  \nI->J:2 → J  \n\nPath: A->G->H->I->J  \nWeight: 4 + 9 + 2 + 2 = 17  \n\nCheck alternatives:  \nA->B:8  \nB->H:8 → H  \nH->I:2 → I  \nI->J:2 → J  \nTotal: 8+8+2+2 = 20 > 17  \n\nA->C:7  \nC->H:5 → H  \nH->I:2 → I  \nI->J:2 → J  \nTotal: 7+5+2+2 = 16 → better!  \n\nUpdate: A->C->H->I->J: 7+5+2+2 = 16  ",
+        "latest_segment": "Check C->I:7 → I->J:2 → total 7+7+2 = 16 (same)"
+      },
+      "claim": [
+        7,
+        2,
+        16
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-7",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [4, 11, 2, 7, 8, 1]. Build an arithmetic expression equal to 37. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping large numbers to reach 37.\n\nNote: 11 + 8 = 19, 7 + 4 = 11 → 19 + 11 = 30 → need +7 → not matching.\n\nTry: 11 * 4 = 44 → too high. 11 * 2 = 22 → 22 + 8 = 30 → 30 + 7 = 37 → that’s promising.\n\nSo: 11 * 2 = 22  \n22 + 8 = 30  \n30 + 7 = 37 → need to use 4 and 1? But 4 and 1 unused.\n\nWe have: 4, 11, 2, 7, 8, 1.",
+        "latest_segment": "Try: 8 * 4 = 32 → 32 + 7 = 39 → 39 - 1 = 38 → too high.  \n39 - 2 = 37 → yes! 8*4 = 32, +7 = 39, -2 = 37 → used 8,4,7,2 → left with 11 and 1."
+      },
+      "claim": [
+        32,
+        7,
+        39
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-34",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:3, A->C:12, A->G:13, A->H:13, A->I:14, B->C:3, B->E:13, B->G:13, C->D:7, C->G:13, C->H:9, C->I:8, D->E:2, D->G:4, E->F:7, E->G:4, E->H:4, F->G:9, F->H:9, G->H:4, H->I:2. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A → I: 14 (direct)\n\nCheck A → B → C → I: 3+3+8 = 14  \nA → B → E → F → G → H → I: 3+13+7+9+4+2 = 38 → too high  \nA → C → D → E → F → G → H → I: 12+7+2+7+9+4+2 = 41 → worse  \n\nTry A → B → C → D → E → F → G → H → I: 3+3+7+2+7+9+4+2 = 38 → worse  \n\nA → C → D → E → H → I: 12+7+2+4+2 = 25 → worse than 14  \n\nA → B → C → H → I: 3+3+9+2 = 17 → worse  \n\nA → C → G → H → I: 12+13+4+2 = 31 → worse  ",
+        "latest_segment": "A → B → E → G → H → I: 3+13+4+4+2 = 26 → worse"
+      },
+      "claim": [
+        4,
+        2,
+        26
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1491028-20",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to J. The graph has only the following directed edges with positive weights: A->B:8, A->D:1, A->F:11, A->H:9, B->C:9, B->D:1, B->E:3, B->J:15, C->D:8, C->E:9, C->F:1, C->G:14, C->H:8, C->I:14, C->J:15, D->E:6, D->H:3, E->F:5, E->H:12, F->G:6, F->I:11, F->J:4, G->H:4, G->J:7, H->I:7, H->J:3, I->J:8. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->J.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A. From A, best immediate edges:  \nA→D:1, A→F:11, A→H:9, A→B:8  \n\nTry A→D:1  \nD→E:6, D→H:3  \nE→F:5, E→H:12  \nF→J:4 → F→J=4  \nBut F:11 from A, so A→F→J = 11+4=15  \n\nA→D→E→F→J = 1+6+5+4 = 16  \n\nA→D→H→J = 1+3+3 = 7 → better  \n\nA→D→H→J = 7?  \nD→H:3, H→J:3 → 1+3+3=7  \n\nNow check A→B:8  \nB→D:1, B→E:3, B→J:15  \nB→D→H→J = 8+1+3+3 = 15 → worse than 7  ",
+        "latest_segment": "B→E→F→J = 8+3+5+4=20 → worse"
+      },
+      "claim": [
+        5,
+        4,
+        20
+      ],
+      "label": false,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-15",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [11, 11, 6, 6, 8, 12]. Build an arithmetic expression equal to 199. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try to reach 199 with: 11, 11, 6, 6, 8, 12.\n\n199 is close to 200 — maybe build 200 and subtract 1?\n\nTry: 11 * 11 = 121  \n12 * 8 = 96  \n121 + 96 = 217 → too high  \nTry: 12 * 6 = 72  \n11 * 6 = 66  \n72 + 66 = 138  \n138 + 6 = 144, +11 = 155, +8 = 163 — too low\n\nTry multiplication of large pairs:  \n11 * 11 = 121  \n12 * 8 = 96  \n121 + 96 = 217 → 217 - 18 = 199 → need 18 from remaining: 6,6",
+        "latest_segment": "6 + 6 = 12 → too low  \n6 * 3 = 18 — no 3  \n(6+6) * 1.5 = 18 — no 1.5"
+      },
+      "claim": [
+        6,
+        6,
+        12
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "arithmetic_construction-1491028-13",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [6, 9, 8, 11, 9, 6]. Build an arithmetic expression equal to 181. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "We have numbers: [6, 9, 8, 11,  9, 6]  \nTarget: 181  \nUse each number exactly once. Operations: +, −, *, /, parentheses. No concatenation, powers, unary minus.\n\nFirst, note that 181 is odd.  \nSum of all numbers:  \n6 + 9 + 8 + 11 + 9 + 6 = 49  \nToo low.  \n181 − 49 = 132 → we need to add 132 via multiplication or combination.\n\nTry building large values via multiplication.\n\nTry pairing 11 and 9: 11 * 9 = 99  \nThen 99 + 9 = 108 → 108 + 8 = 116 → 116 + 6 = 122 → 122 + 6 = 128 → too low.",
+        "latest_segment": "Try larger multiplication: 11 * 9 = 99  \n9 * 8 = 72 → 99 + 72 = 171 → 181 − 171 = 10 → need to make 10 from remaining: 6, 6 → 6 + 6 = 12 → too big. 6 / 6 = 1 → not useful."
+      },
+      "claim": [
+        99,
+        72,
+        171
+      ],
+      "label": true,
+      "source_sha256": "0ca498090e1c32d14f84aa9ecfad2756a620cb7f5c8f19aaa48721be840b4d81"
+    },
+    {
+      "problem_id": "arithmetic_construction-1591028-19",
+      "state": {
+        "task": "Use each of these six numbers exactly once: [7, 2, 5, 12, 6, 3]. Build an arithmetic expression equal to 112. Allowed operations are +, -, *, / and parentheses; no concatenation, powers, extra constants, or unary minus. Explain intermediate reasoning briefly, checking alternatives. End with FINAL: followed by only the expression.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Try grouping to reach 112. Note: 112 is divisible by 8, 14, 7, etc.  \nWe have: 7, 2, 5, 12, 6, 3\n\nTry multiplying large numbers: 12 * 6 = 72  \n72 + 5 = 77; 77 + 3 = 80; 80 + 7 = 87 — too low  \nTry 12 * 7 = 84  \n84 + 6 = 90; 90 + 5 = 95; 95 + 3 = 98; 98 + 2 = 100 — still low\n\nTry 12 * 6 = 72; 72 + 5 = 77; 77 + 3 = 80; 80 + 7 = 87; 87 + 2 = 89 — no",
+        "latest_segment": "Try (12 + 5) * something? 17 * 6 = 102 → 102 + 7 = 109; +2 = 111; +3 = 114 — too high"
+      },
+      "claim": [
+        102,
+        7,
+        109
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-40",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:4, A->C:9, A->H:12, A->I:9, B->C:8, B->E:13, B->F:13, B->G:10, B->H:10, B->I:4, C->D:2, C->E:8, C->F:11, C->G:9, D->E:7, D->F:9, D->G:7, D->H:6, D->I:10, E->F:4, E->G:15, E->H:2, F->G:3, F->H:1, G->H:8, H->I:5. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start with A → I directly: 9  \nCheck A → B → I: 4 + 4 = 8 → better  \nA → B → G → H → I: 4 + 10 + 8 + 5 = 27 → worse  \nA → B → C → D → I: 4 + 8 + 2 + 10 = 24 → worse  \nA → B → C → E → F → G → H → I: too long, likely worse  \n\nTry A → B → C → D → H → I: 4 + 8 + 2 + 6 + 5 = 25 → worse  \n\nTry A → B → C → D → E → F → H → I: 4+8+2+7+4+1+5 = 33 → worse  \n\nTry A → C → D → H → I: 9 + 2 + 6 + 5 = 23 → worse than A→B→I  \n\nTry A → H → I: 12 + 5 = 17 → worse than 8  ",
+        "latest_segment": "Try A → B → F → H → I: 4 + 13 + 3 + 1 + 5 = 26 → worse"
+      },
+      "claim": [
+        1,
+        5,
+        26
+      ],
+      "label": false,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-0",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to H. The graph has only the following directed edges with positive weights: A->B:4, A->D:13, A->E:2, A->F:13, A->H:9, B->C:6, B->D:13, B->H:1, C->D:5, C->E:8, C->F:12, D->E:7, D->F:9, D->G:9, D->H:6, E->F:4, F->G:8, G->H:6. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->H.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:4, A→D:13, A→E:2, A→F:13, A→H:9  \n\nTry A→E:2 (low)  \nE→F:4 → F→G:8 → G→H:6  \nPath: A→E→F→G→H = 2+4+8+6 = 20  \n\nTry A→B:4  \nB→C:6 → C→D:5 → D→H:6 → total: 4+6+5+6 = 21 → worse  \n\nTry A→B→C→E: 4+6+8=18 → E→F:4 → F→G:8 → G→H:6 → total: 4+6+8+4+8+6 = 36 → worse  \n\nTry A→D:13 → D→E:7 → E→F:4 → F→G:8 → G→H:6 → 13+7+4+8+6 = 38 → worse  ",
+        "latest_segment": "Try A→B→D:4+13=17 → D→H:6 → total 23 → worse than 20"
+      },
+      "claim": [
+        4,
+        13,
+        17
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-28",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:7, A->E:15, A->H:13, B->C:7, B->E:2, B->F:9, B->G:10, C->D:7, C->E:12, C->F:7, C->H:14, C->I:10, D->E:4, D->F:15, D->H:15, D->I:4, E->F:4, E->H:6, F->G:9, G->H:6, H->I:6. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:7, A→E:15, A→H:13\n\nTry A→B (7):  \nB→C:7 → total 14  \nC→I:10 → total 24  \n\nTry A→B→C→I: 7+7+10 = 24\n\nTry A→B→C→D→I: 7+7+4+4 = 22 → better  \nC→D:7, D→I:4 → 7+7+4 = 18? Wait: A→B→C→D→I: 7+7+7+4 = 25 → worse than 24\n\nTry A→B→C→F:7+7=14, F→G:9 → 23, G→H:6 → 29, H→I:6 → 35 → too high",
+        "latest_segment": "Try A→B→E:7+2=9 → E→F:4 → F→G:9 → G→H:6 → H→I:6 → 9+4+9+6+6=34 → worse"
+      },
+      "claim": [
+        7,
+        2,
+        9
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    },
+    {
+      "problem_id": "weighted_path-1591028-10",
+      "state": {
+        "task": "Find a minimum-total-weight directed path from A to I. The graph has only the following directed edges with positive weights: A->B:7, A->D:12, A->E:14, A->H:13, B->C:9, B->D:3, B->H:2, C->D:4, C->I:10, D->E:4, D->F:5, D->G:5, D->I:1, E->F:9, E->G:13, E->I:7, F->G:2, G->H:5, G->I:10, H->I:9. Explain intermediate reasoning briefly, checking alternatives. End with exactly FINAL: A->...->I.\nWork concisely: start with an actual calculation or candidate, not a restatement of the input. Use short lines for calculations and checks. Keep intermediate work under 600 words. Follow the specified FINAL: format.",
+        "history": "Start from A. Possible first moves:  \nA→B:7, A→D:12, A→E:14, A→H:13  \n\nTry A→B (7):  \nB→C:9 → total 16  \nC→D:4 → 20  \nD→I:1 → 21  \n\nTry A→B→D: 7+3=10 → D→I:1 → total 11  \nBetter than above.\n\nA→B→H:7+2=9 → H→I:9 → 18 → worse.\n\nA→B→C→D→I: 7+9+4+1=21  \nA→B→D→I: 7+3+1=11 → better.\n\nTry A→D:12  \nD→E:4 → 16  \nE→I:7 → 23 → worse than 11.\n\nA→D→F:12+5=17 → F→G:2 → 19 → G→I:10 → 29 → worse.",
+        "latest_segment": "A→D→G:12+5=17 → G→I:10 → 27 → worse."
+      },
+      "claim": [
+        12,
+        5,
+        17
+      ],
+      "label": true,
+      "source_sha256": "6158bc7c2b637d8fbcc396ad9fcb3452d7c7ce78e4bd108ed3351ab895f6ada1"
+    }
+  ],
+  "question": {
+    "type": "noul",
+    "instructions": "Is the first explicit addition equality of the form number + number = number in latest_segment arithmetically true? Judge only that equality, even if the broader plan is tentative or another claim is wrong."
+  },
+  "cumulative_stage_cap_usd": 1.0,
+  "purpose": "Natural-prefix arithmetic validity discrimination; no intervention outcomes or controller benefit claim."
+}
