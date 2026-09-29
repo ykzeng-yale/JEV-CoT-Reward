@@ -2,6 +2,13 @@
 
 ## September 29 design boundary
 
+The full remaining-stage ledger, arm definitions, stop/go rules, cost contract,
+and power plan now live in `docs/remaining_experiment_program_v1.md`. Use it as
+the operational source of truth for the remaining experiments; it is not a
+claim that every conditional stage is currently eligible to run. Its paired
+binary planning calculation is implemented in `scripts/paired_binary_power.py`
+and checked by `tests/test_paired_binary_power.py`.
+
 The prior-art audit in `docs/prior_art_gap_audit_2026-09-29.md` finds direct overlap with our core prior proposal: *Calibration Is Not Control* already defines intervention advantage, performs same-prefix branching, and evaluates action-conditioned controllers; *CausalFlow* already performs step-level counterfactual repair. *interwhen* and adaptive verifier-call allocation add further overlap. **No methods-level novelty gap is currently established.** Do not proceed with a generic “Jev judge controls CoT” or “learn action value by branching” claim. Only a source-comparison empirical study (Jev versus cheap/local judges on a genuinely new transfer or horizon setting) might remain, and this is not yet a validated contribution.
 
 The eight-operand arithmetic screen did not pass its frozen event-count gate (15 errors versus 20 required), so do not run correction rollouts or repeat arithmetic screens with the same checkpoint mechanism. Next, qualify a compatible published baseline and a fresh action/domain contract. *interwhen* is a strong candidate, but its official path uses vLLM and public Maze/Game24 datasets not currently cached; the local MLX runtime is not a faithful upstream reproduction. Name any port an adaptation, independently test the validator, and set the budget/sample-size before inference. A cluster model download requires a fresh quota/path check and actual runtime qualification.
@@ -11,6 +18,8 @@ The TypeSafe Master Customer Agreement current §2.3(b) may constrain training a
 **September 29 counterfactual-credit update:** primary-source review of *Policy-Conditioned Counterfactual Credit for Verifiable RL* (PCCC; arXiv:2606.05263) shows direct overlap with counterfactual deletion/substitution/tool perturbations, terminal verified outcomes under frozen continuation, and training from action-specific credit. *Verify, Repair, Repeat, or Stop?* (arXiv:2607.17641) further preempts broad noisy-verifier repair/stop theory. The new dated comparison is in `docs/prior_art_gap_audit_2026-09-29.md`. Do not describe our general intervention-value estimand, counterfactual training, or repair/stop propositions as new.
 
 The task/action screen in `docs/task_action_candidate_matrix_2026-09-29.md` leaves CLI coding as a conditional candidate only: the available failure corpus is annotation-only, without raw traces, and interventions have not been specified. Math/Game24, long-context QA, web/tool work, and scientific discovery either fail the event/independence gates or have direct method/application overlap. **No candidate currently passes all gates; do not launch another inference or GPU task.** Next work is to qualify a fresh-trajectory CLI action contract and independently pin its test evaluator/baselines. Jev remains held pending written terms clarification.
+
+The September 29 Terminal-Bench source check improves only evaluator feasibility: official materials describe task-specific test scripts and a continuous tagged dataset registry. Pinning a release and auditing its tests, checkpoint visibility, action semantics, and prior-art overlap are still required. This check does not promote CLI work to an efficacy study.
 
 **September 29 direct-Jev update:** *REFLEX with Jev* (arXiv:2609.26532v1) already evaluates Jev as an in-trajectory bounded-action layer with confidence-gated fallback and a cheap generative cascade comparator. *Jev vs. LLMs as Rubric Judges* (arXiv:2609.29769v1) studies judge-label agreement and correlated errors. These findings close off broad “first Jev supervisor,” confidence-routing, or judge-quality claims; neither evaluates counterfactual interventions on visible reasoning prefixes with terminal outcome utility. Any remaining candidate is a narrow empirical comparison in that setting, and must survive *Calibration Is Not Control*/*CausalFlow* overlap, a compatible baseline audit, and contract clarification. Full dated details are in `docs/prior_art_gap_audit_2026-09-29.md`.
 

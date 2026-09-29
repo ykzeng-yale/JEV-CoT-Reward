@@ -1,5 +1,15 @@
 # Paper evidence and next decisions
 
+## September 29 consolidated experiment program
+
+The full remaining study sequence and gate dependencies are in
+`docs/remaining_experiment_program_v1.md`. Use its task-level power calculator
+(`scripts/paired_binary_power.py`) before freezing any fresh efficacy sample.
+Current status: no candidate task/action passes all gates; Jev-dependent runs
+await written terms clarification; InterWhen adaptation job 27857096 is
+pending and must be audited before any outcome interpretation. Do not describe
+that baseline adaptation as Jev evidence.
+
 ## September 29 prior-art boundary additions
 
 - [ ] Do not claim first Jev use for scientific semantic decisions; compare with [Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965).
