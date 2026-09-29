@@ -1,5 +1,13 @@
 # Bouchet execution track
 
+## September 29, 20:02 EDT — task-owned jobs reconciled
+
+- **27916067 `scienceworld-prefix`**: `PENDING/Priority`, `pi_fl426`/normal `day`, 4 CPU/16 GiB/45 min/0 GPUs, `AllocTRES=(null)`, `StartTime=Unknown`; no allocation yet. Test-only pseudo-ID `27916064` estimated Sep 30 11:04:41 but is not a reservation. The six-file input integrity gate passed remotely. Receipt: `runs/scienceworld-prefix-replay-v1-control/submission.json`.
+- **27880628 `recoma-dw-full-v2`**: still pending, 8 GPU/32 CPU/256 GiB, `AllocTRES=(null)`, 0 GPU-hours, `StartTime=2026-09-30T20:44:04` estimate. Exact 2,386-file gate passes. No task-owned GPU inference has started.
+- **27913546 `scienceworld-preflight`**: terminal `COMPLETED 0:0`, 87 seconds, CPU-only; the result and 199-file output manifest independently pass. It is infrastructure evidence only.
+
+The two new CPU study artifacts live in separate immutable roots. The prefix job was submitted with `WorkDir=/home/yz2324`; its script has been verified to change to the absolute input root before checksum validation and uses absolute run/log output paths. This submit-directory detail is recorded, does not alter input provenance, and is not a reason to cancel/restart it.
+
 ## September 29, 19:31 EDT — no-model ScienceWorld qualification completed; GPU baseline pending
 
 The separately frozen CPU-only ScienceWorld preflight ran once as Slurm **27913546** under `pi_fl426`/normal on `day`; `sacct` reports `COMPLETED`, `0:0`, 87 seconds, 4 CPU, 16 GiB, no GPU (0 GPU-hours). The pinned Java/Python/py4j runtime executed the 30-task / 7,207-variation split check and nine held-out-variation, one-legal-action deterministic replay pairs. The result reports 9/9 matching state digests, with no model, Jev, network, raw-content, score, or gold-path outputs. All 199 run-manifest files verify; the local independent audit is `results/scienceworld_transfer_preflight_27913546_audit.json`. This is only environment/replay feasibility; it does not indicate controller performance or OOD transfer.

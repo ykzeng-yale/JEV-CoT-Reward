@@ -1,5 +1,11 @@
 # Paper evidence and next decisions
 
+## Live jobs — September 29, 20:02 EDT
+
+- [ ] Common-prefix technical prerequisite: Slurm **27916067** is pending, zero allocated TRES. Frozen protocol tests deterministic random-legal-action prefixes up to 25 steps on paired replicas of nine held-out variations. This decides whether exact-prefix counterfactual branches are technically defensible; it does not test agent/action efficacy.
+- [ ] Main ReCoMA baseline **27880628** remains pending, 8 GPU request, no allocation, current start estimate Sep 30 20:44 EDT. Maintain its immutable input tree; do not duplicate.
+- [x] One-step simulator feasibility `27913546` completed and independently audited; no-model, 9/9 reset-plus-one-action replay matches. See dated status below.
+
 ## ScienceWorld qualification and live model job — September 29, 19:31 EDT
 
 - [x] Source-pinned ScienceWorld 1.3.0 CPU preflight, Slurm `27913546`: full 30-task / 7,207-variation inventory and split partition integrity; 9/9 selected held-out-variation reset/one-action digests match; 199 output hashes verified; 4 CPU/16 GiB/87s/0 GPUh; zero model/Jev/network/gold-path calls. Independent auditor and focused tests pass. This is reproducibility feasibility, **not** action usefulness or OOD evidence.

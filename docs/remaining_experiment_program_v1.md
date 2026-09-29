@@ -1,5 +1,9 @@
 # Remaining experiment program, version 1
 
+## Exact-prefix reproducibility gate queued — September 29, 20:02 EDT
+
+No-model Slurm job **27916067** is pending on `day` to compare deterministic ≤25-step legal-action prefixes across paired fresh ScienceWorld 1.3.0 environments for nine frozen held-out variations. It is an offline feasibility prerequisite for a shared-prefix intervention design, not an efficacy study. No allocation/ETA yet; input gate passed 6/6. If it passes, common-prefix replay may be considered for future matched comparisons; if it fails, the protocol must randomize at episode level. No raw actions/scores, model, Jev, network, or gold-path access is configured. The main DiscoveryWorld ReCoMA job `27880628` is still separately pending; current estimate Sep 30 20:44 EDT, no GPU allocation.
+
 ## Evidence/queue update — September 29, 19:31 EDT
 
 The no-model ScienceWorld runtime/replay preflight is complete and independently audited: Slurm **27913546**, `0:0`, 87 seconds on 4 CPU / 16 GiB / 0 GPU, all 199 output-manifest files verified. ScienceWorld 1.3.0 exposes the frozen 30-task / 7,207-variation inventory and the 9 selected independent single-action replays match. This is simulator feasibility only; it supplies no action-efficacy or OOD evidence. Exact hash-only output and audit: `results/scienceworld_transfer_preflight_27913546.json` and `results/scienceworld_transfer_preflight_27913546_audit.json`.

@@ -1,0 +1,20 @@
+{
+  "protocol": "scienceworld_prefix_replay_v1",
+  "source_repository": "https://github.com/allenai/ScienceWorld",
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "expected_scienceworld_version": "1.3.0",
+  "heldout_variation_tasks": {
+    "measure-melting-point-unknown-substance": [225, 262, 299],
+    "test-conductivity-of-unknown-substances": [450, 525, 599],
+    "mendelian-genetics-unknown-plant": [360, 420, 479]
+  },
+  "max_steps_per_prefix": 25,
+  "action_policy": "fixed-seed random selection from sorted simulator-reported legal actions; identical selected action replayed in two fresh independent environments",
+  "base_seed": 20260929,
+  "model_inference": false,
+  "jev_calls": 0,
+  "network_calls": 0,
+  "gold_paths": false,
+  "limits": {"wall_minutes": 45, "cpus": 4, "memory_gib": 16, "gpus": 0},
+  "output_policy": "task/variation identifiers, step counts, legal-action counts, hashes, equality/termination booleans and source/runtime identity only; no raw observations, action strings, task score/reward values, gold paths, or model text"
+}
