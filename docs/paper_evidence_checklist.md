@@ -1,5 +1,9 @@
 # Paper evidence and next decisions
 
+## Live execution checkpoint — September 29, 17:04 EDT
+
+No new outcome data since the audited repair replication. ReCoMA full-panel baseline **27880628** remains pending (`Priority`), zero GPU-hours, with an estimated start September 30, 14:01 EDT. Its 2,386-entry checksum gate passes. A test-only four-by-two-GPU alternative forecast an array element later than the existing request, so the current submission remains intact. This is only a queue decision; no baseline or efficacy result has completed.
+
 ## Execution and audit update — September 29, 15:10 EDT
 
 The latest full-panel ReCoMA baseline, Slurm **27880628**, is still pending with no allocated GPUs or GPU-hours; no outcomes exist yet. Its submitted input tree's exact checksum gate is now verified at the correct remote path: 2,386/2,386 entries passed after byte-exact `.pyc` restoration. Do not count infrastructure success as reasoning/controller evidence.

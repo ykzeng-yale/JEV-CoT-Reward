@@ -3,6 +3,10 @@
 **Date:** September 29, 2026
 **Purpose:** one end-to-end decision plan for the remaining JEV-CoT-Reward research. This is a preregistration scaffold and execution queue, not a claim that the proposed studies are already valid or that any controller works.
 
+## Live queue decision — September 29, 17:04 EDT
+
+The only live JEV project job is **27880628**, still `PENDING` on `pi_fl426`/normal with reason `Priority`, no allocation, and zero GPU-hours. The latest start estimate remains September 30, 14:01 EDT. The exact 2,386-file input manifest passes. One same-account/standard-tier four-element 2-GPU array `--test-only` forecast an element no earlier than October 1, 15:11 EDT; it is a nonbinding estimate, and no array job exists. Keep the current submission; do not split, cancel, duplicate, or switch accounts based on this comparison. There are no new scientific outcomes this turn.
+
 ## Execution and evidence delta — September 29, 15:10 EDT
 
 This dated update supersedes stale live-job statements below. DiscoveryWorld ReCoMA full-panel baseline **27880628** is `PENDING` in Bouchet `pi_fl426`/normal, `AllocTRES=(null)`, zero elapsed/GPU-hours; `StartTime=2026-09-30T14:01:23` is a mutable estimate only. Its actual `inputs/SHA256SUMS` now passes **2,386/2,386** after byte-exact restoration of regenerated `.pyc` files from the already-hashed source archive. Do not duplicate or edit the submitted job. Full trace/outcome work still depends on allocation and completion.

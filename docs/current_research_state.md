@@ -1,5 +1,11 @@
 # Current JEV-CoT-Reward research state
 
+## September 29, 17:04 EDT — queue strategy compared; preserve the faster pending job
+
+At 17:00–17:04 EDT, the authenticated `mac-aux` route confirmed Slurm **27880628** is still `PENDING` under `pi_fl426`/normal, now with reason `Priority`; `sacct` still shows elapsed `00:00:00`, no allocated TRES and **0 GPU-hours**. Current `StartTime=2026-09-30T14:01:23` is only an estimate. The exact remote `inputs/SHA256SUMS` check still passes **2,386/2,386** entries. The complete job record is refreshed in `runs/bouchet-recoma-discoveryworld-full-v2-control/submission.json`.
+
+To see whether the whole-node request was needlessly delaying the study, I ran one **test-only** scheduler estimate for four 2-GPU array elements (same account, tier and compatible partitions; aggregate request still eight GPUs). The estimate placed an array element at **October 1, 15:11 EDT**, later than the existing full-node job, and is not a reservation or a whole-array completion forecast. Therefore the evidence favors keeping job 27880628 intact. No array or duplicate was submitted, and no account switch was used. The Mac resource snapshot remains unfavorable for another local generation process; no JEV-owned local model is active. Next decision still depends on allocation and completion of 27880628.
+
 ## September 29, 15:10 EDT — stale local receipt reconciled; action replication freshly re-audited
 
 The highest-impact newly resolved uncertainty was not a missing inference run but a stale process record. PID **79898**, recorded start `Mon Sep 28 12:34:41 2026`, and its process group are absent; the original `process.json` still says `running`, so **no exit code is inferred**. Its immutable output summary is complete at 480/480 planned outcomes. Running the current independent audit and analyzer again passed **24/24 eligible problems, 480 outcomes, 631 durable calls, zero label disagreements**. The refreshed audit/analysis are `results/action_replication_v3_reaudit_20260929.json` and `results/action_replication_v3_reanalysis_20260929.json`; process-state reconciliation is `runs/action-replication-v3-control/reconciliation-20260929.json`. The original receipt and raw data are unchanged.

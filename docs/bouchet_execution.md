@@ -1,5 +1,11 @@
 # Bouchet execution track
 
+## September 29, 17:04 EDT — latest queue reconciliation and bounded alternative check
+
+Authenticated scheduler state for task-owned job **27880628**: `PENDING`, reason `Priority`, `AllocTRES=(null)`, `sacct` elapsed zero, and **0 GPU-hours**. The mutable start estimate remains **September 30, 14:01:23 EDT**; it is not a reservation. `inputs/SHA256SUMS` was checked again at the path used by the submitted script: 2,386/2,386 files pass. No outcomes or inference process exist yet.
+
+One scheduler-only comparison tested a potential four-element 2-GPU array using the same account (`pi_fl426`), normal QOS and compatible H200/B200 partitions. `sbatch --test-only` estimated an element at October 1, 15:11 EDT, later than the existing 8-GPU request's estimate. It is not a real job and does not reserve resources; it also does not estimate when all array elements would finish. The result does not justify canceling/replacing the current job. No second submission, account switch, or allocation occurred. See the current local receipt for the exact test-only response and decision.
+
 ## September 29, 15:05 EDT — checksum gate reverified after exact-byte repair
 
 The final verification used the directory the submitted script actually checks, `.../discoveryworld-recoma-react-full-v2/inputs`, rather than the run root. Remote `sha256sum -c SHA256SUMS` returned **2,386/2,386 OK, zero failures** after all 61 regenerated CPython bytecode files were restored from the bundle whose SHA-256 is recorded in the receipt. The scheduler still reports job **27880628 PENDING**, `ReqNodeNotAvail,_May_be_reserved_for_other_job`, no allocated TRES, elapsed `00:00:00`, and zero GPU-hours; its current estimated start is September 30 14:01:23 EDT, not a reservation. No duplicate was submitted. The script hash, panel hash and v2 protocol hash remain unchanged.
