@@ -1,0 +1,46 @@
+{
+  "audit": "aggregate_only_training_corpus_provenance_screen",
+  "candidate_term_occurrences": {
+    "dominant": 4,
+    "genetic": 0,
+    "inherit": 0,
+    "mendel": 0,
+    "offspring": 0,
+    "plant": 1610,
+    "recessive": 4,
+    "seed": 1620,
+    "trait": 6
+  },
+  "candidate_term_record_counts": {
+    "dominant": 2,
+    "genetic": 0,
+    "inherit": 0,
+    "mendel": 0,
+    "offspring": 0,
+    "plant": 786,
+    "recessive": 2,
+    "seed": 532,
+    "trait": 2
+  },
+  "dataset": {
+    "bytes": 17731424,
+    "file": "sciworld_preference.json",
+    "repo": "Heaplax/ARMAP-RM-SciWorld",
+    "revision": "2ad18b4816346d251857dbd5685a80292219fc2d",
+    "sha256": "0fa73e44655c383ec5c85dcf81fed041f7ca3c87877329a680c7f5c28a8db883"
+  },
+  "explicit_heldout_variation_field_records": 0,
+  "identifier_key_names": [
+    "id"
+  ],
+  "record_count": 4064,
+  "record_schema_keys": [
+    "conversations",
+    "id",
+    "image",
+    "output_1",
+    "output_2",
+    "preference"
+  ],
+  "rows_with_explicit_heldout_variation_ids": 0
+}

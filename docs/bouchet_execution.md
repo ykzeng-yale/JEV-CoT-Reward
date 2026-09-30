@@ -1,5 +1,39 @@
 # Bouchet execution track
 
+## September 30, 03:16 EDT — ARMAP data-provenance gate; primary job still queued
+
+The ARMAP code/checkpoint audit shows the released ScienceWorld reward model scores complete transcripts and triggers retry/reflection; it cannot be called a same-prefix action selector. Its pinned 4,064-row public training corpus contains two records with both “dominant” and “recessive” terms but exposes no task/variation IDs. Exact held-out sample disjointness is therefore unverified, not proven false. The saved scanner writes only aggregate term/schema counts and pinned hashes; three focused tests pass. It emitted no raw rows, task labels, preference values, or trajectories; no model inference, Jev calls, or project-held-out outcomes were used. Keep this checkpoint out of the primary independent comparison pending a provenance gate; consider only a separately frozen train-only adaptation if justified. See `docs/scienceworld_published_baseline_screen_2026-09-30.md`.
+
+Authenticated `squeue`/`sacct` at 03:06 EDT show full-panel DiscoveryWorld ReCoMA job **27880628** `PENDING/Priority`, zero allocated GPUs/GPU-hours. `scontrol` at 03:13 EDT confirms account `pi_fl426`, normal QOS, 8 GPUs/32 CPUs/256 GiB, and the same immutable workdir `/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2`. Preserve the job; `StartTime=2026-10-01T10:36:58` is only an estimate. No competing model job was submitted. Local lead PID 83281 still belongs to the unrelated WDSM worker at its receipt-recorded start time; mini/aux are not qualified for this project model. The outcome-dependent next decision waits on actual allocation and independent full-panel audit.
+
+## September 30, 00:10 EDT — pending GPU job reconfirmed; published baseline screen completed
+
+Authenticated `squeue`, `scontrol`, and `sacct` reconfirm job **27880628** is `PENDING/Priority`, `AllocTRES=(null)`, zero elapsed time and zero GPU-hours under `pi_fl426`/normal. Its 8-GPU H200/B200, 32-CPU, 256-GiB request and immutable workdir are unchanged; `StartTime=2026-10-01T10:36:58` remains only an estimate. Do not duplicate or switch accounts.
+
+Independent ScienceWorld source/literature work is now complete for this round. The no-model firewall remains locally audited 18/18. Published baseline screen finds ARMAP's official ScienceWorld runner uses full-trajectory scoring plus reflection/restarts (not a same-prefix action selector), Llama 3.1 8B, a 10-step config, and a custom JAR. It is a possible separately labeled end-to-end comparison or a substantial port, not a directly compatible comparator. Exact source review: `docs/scienceworld_published_baseline_screen_2026-09-30.md`. No additional cluster job was submitted while the full-panel GPU job remains pending.
+
+## September 30, 00:05 EDT — CPU firewall run audited; GPU baseline remains queued
+
+The authenticated `mac-aux -> bouchet` route verified full-panel job **27880628** remains `PENDING/Priority`, with no allocated TRES or GPU-hours. It remains under `pi_fl426`/normal, requests eight H200/B200 GPUs plus 32 CPUs and 256 GiB, and has immutable workdir `/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2`. Latest mutable `StartTime=2026-10-01T10:36:58` is not a reservation. Keep this existing request; do not duplicate or switch accounts.
+
+Separate no-model ScienceWorld firewall job **27927761** is terminal `FAILED 1:0`, elapsed 2m22s, 2 CPUs/8 GiB, peak RSS 3,834,128 KiB, zero GPU-hours. The runner completed all 360 train/dev cases; failure was only the remote independent audit hashing reserialized rather than exact protocol bytes. Retrieved files/checksums are preserved under `runs/bouchet-scienceworld-mendelian-firewall-v1-control/retrieved/`; corrected local independent audit passes 18/18 checks. No retry is warranted. This verifies direct `info`-metadata exclusion by the adapter, not semantic leakage or efficacy. See `docs/current_research_state.md` and the result/resource JSON for the exact audit trail.
+
+## September 29, 23:48 EDT — CPU job audited; separate GPU job is genuinely queued
+
+The `mac-aux -> bouchet` authenticated route is working. CPU job **27868803** is receipt-backed and terminal (`COMPLETED 0:0`, `pi_fl426`/normal `day`, 1 CPU/8 GiB, 00:05:03, 690,208 KiB peak RSS, 0 GPU-hours). Full remote output checksums and the seven retrieved result/environment artifacts pass; the independent cluster and local structural audits both pass 120/120 instances and 24 strata, with no model, outcome-rate, or Jev data. Complete retrieval receipt and scheduler evidence: `runs/bouchet-discoveryworld-e1a-v2-retrieved-27868803/retrieval-receipt.json`.
+
+Separately, job **27880628** remains `PENDING/Priority`, with no allocated TRES or GPU-hours. It asks for one eight-GPU H200/B200 node plus 32 CPUs/256 GiB for 48 hours under `pi_fl426`/normal; current mutable estimated start is Oct 1 06:06:56 EDT. This is a scheduling wait, not a credential or resource-discovery failure. Keep the existing request; do not duplicate or switch account. The CPU job completion clears only the Linux replay gate; it cannot replace the queued model-based natural-checkpoint/cost census. Continue the independent action/evaluator/baseline audit while it waits.
+
+## September 29, 23:06 EDT — eight-GPU study remains queued
+
+Fresh scheduler records over the authenticated `mac-aux` route: job **27880628** is `PENDING/Priority`; `AllocTRES=(null)`, elapsed `00:00:00`, and 0 allocated GPU-hours. Account/QOS are `pi_fl426`/normal. Request is still 8 GPUs, 32 CPUs, 256 GiB, 48 h; immutable `WorkDir` is `/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2`. Mutable `StartTime=2026-09-30T22:36:50` is not a reservation. The frozen task receipt remains `runs/bouchet-recoma-discoveryworld-full-v2-control/submission.json`; last exact input-tree verification was 2,386/2,386. Preserve this job and wait for actual allocation. No new model workload was submitted because local lead/mini/aux workloads remain in use.
+
+## September 29, 21:18 EDT — authoritative status refresh
+
+Authenticated `squeue`, `scontrol`, and `sacct` over the trusted `mac-aux` route agree that task-owned job **27880628** remains `PENDING/Priority` under `pi_fl426`/normal: `AllocTRES=(null)`, elapsed `00:00:00`, and **0 GPU-hours**. The request remains 8 GPUs, 32 CPUs, 256 GiB, 48 hours; `WorkDir=/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2`. Slurm's current `StartTime=2026-09-30T23:12:53` is mutable and nonbinding. Preserve this one job; no duplicate or account/QOS changes. The manifest was previously verified 2,386/2,386, and its frozen receipt is `runs/bouchet-recoma-discoveryworld-full-v2-control/submission.json`.
+
+The independent ScienceWorld Mendelian source audit now has corrected, archive-verified member hashes and explicit endpoint/precision limits (`docs/scienceworld_mendelian_candidate_audit_2026-09-30.md`). The audit does not consume the queued GPU baseline or establish outcomes. The next cluster-side action remains waiting for actual allocation; on transition, inspect scheduler allocation, run logs and the independent panel auditor before interpreting any outcome.
+
 ## September 29, 20:10 EDT — prefix replay result audited
 
 Slurm **27916067** is terminal `COMPLETED 0:0`: standard `day`, `pi_fl426`, 4 CPU/16 GiB, 126 seconds, no GPUs. The independent result auditor confirms 9 frozen test-variation episodes / **195 of 195** one-step transitions matched across the paired runtime copies; all 199 run-manifest files passed. This is technical prefix replay only under the pinned version and fixed random-legal-action sequences; it does not show that action branches improve outcomes or that all generated prefixes replay. Conservatively exclude those nine variation IDs from any future untouched confirmatory endpoint.

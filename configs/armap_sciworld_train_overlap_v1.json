@@ -1,0 +1,47 @@
+{
+  "experiment": "armap_sciworld_train_overlap_v1",
+  "purpose": "Structure-only provenance screen of the published ARMAP ScienceWorld reward-model training corpus; no controller outcomes are evaluated.",
+  "dataset": {
+    "repo": "Heaplax/ARMAP-RM-SciWorld",
+    "revision": "2ad18b4816346d251857dbd5685a80292219fc2d",
+    "file": "sciworld_preference.json",
+    "bytes": 17731424,
+    "sha256": "0fa73e44655c383ec5c85dcf81fed041f7ca3c87877329a680c7f5c28a8db883"
+  },
+  "model": {
+    "repo": "Heaplax/ARMAP-RM-LoRA",
+    "revision": "74749604af69a8f67668622610351de9ed79ba23",
+    "checkpoint": "RM-sciworld/checkpoint-120"
+  },
+  "candidate": {
+    "task": "mendelian-genetics-unknown-plant",
+    "heldout_variation_range": [360, 479],
+    "already_structurally_inspected_ids": [
+      360,
+      420,
+      479
+    ]
+  },
+  "scan": {
+    "candidate_terms": [
+      "plant",
+      "dominant",
+      "recessive",
+      "offspring",
+      "inherit",
+      "mendel",
+      "genetic",
+      "trait",
+      "seed"
+    ],
+    "identifier_key_fragments": [
+      "task",
+      "variation",
+      "seed",
+      "index",
+      "id"
+    ],
+    "output_policy": "Aggregate counts, schema keys, pinned input identity, and explicit held-out-ID field cardinality only. Never emit raw strings, labels, preferences, trajectories, task names from records, or matching variation IDs.",
+    "interpretation_limit": "Absence of explicit identifier metadata does not establish sample disjointness; term hits indicate topical overlap risk only, not exact task or variation overlap."
+  }
+}
