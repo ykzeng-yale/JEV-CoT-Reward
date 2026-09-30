@@ -1,4 +1,34 @@
+## September 30, 05:53 EDT — semantic source gate and main baseline
+
+- [x] Frozen-source contract audit: Mendelian fixed phenotype cue (16 pairs) and melting point fixed letter map (26 entries), each a conditional direct-answer path if the description is visible. Conductivity remains only a seed-reconstruction risk; visibility sufficiency is untested. Result: `results/scienceworld_candidate_source_leak_v1.json`.
+- [x] Preserve dynamic audit failures `27937039` and `27937234`: both terminated `FAILED 1:0` before variation import; second run selected the old v1 tree. Stop after two same-cause attempts; no dynamic observation result exists.
+- [ ] ReCoMA DiscoveryWorld full-panel `27880628` remains PENDING/Priority with 0 allocated GPU-hours. No duplicate. Complete independent output, accounting, record, and outcome audits on terminal completion.
+- [ ] Before any new ScienceWorld efficacy study, freeze a randomized mapping that removes fixed-source/task-text answer paths and verify description/observation firewalls on fresh train/dev data.
+
 # Paper evidence and next decisions
+
+## September 30, 05:31 EDT — new action audit and semantic-cue gate
+
+- [x] Fresh independent audit of action-replication v3: 24/24 eligible problems, 480 outcomes, 631 durable calls, zero outcome disagreements. Continue/sham/suffix/recheck/segment successes are 63/96, 68/96, 57/96, 56/96, and 54/96. Segment−sham −14.58 pp (descriptive problem-cluster interval [−27.08, −2.08]); recheck−sham −12.50 pp ([−21.88, −4.17]). Repair costs more generation/service resources. Development-only, two families, exploratory/multiple comparisons, and eligibility-conditioned; do not claim confirmation or general harm, and do not scale the unchanged repairs.
+- [ ] Mendelian candidate semantic-source-cue audit `27937039` is RUNNING on CPU only; static source indicates a potential visible rule, pending dynamic prompt verification. No test, model, outcome, or Jev use. Reject or redesign if confirmed across the frozen train/dev panel.
+- [ ] Main DiscoveryWorld ReCoMA baseline `27880628` remains pending with zero allocated GPU-hours.
+- [x] InterWhen adaptation job `27858691` is audited: 54/96 vs continuation 60/96 (−6.25 pp), +40.20 generated tokens/task, 0.9039 GPU-hours. It is an adaptation, not a reproduction or a general-method refutation.
+
+## September 30, 05:38 EDT — semantic-cue runner retry
+
+- [x] Preserve failure `27937039`: failed before environment import because the source package's `version.py` is generated from the JAR manifest; no variation or question was loaded (70 s, 2 CPU/8 GiB, 120,500 KiB MaxRSS, 0 GPU-hours).
+- [ ] Corrected single retry `27937234` is PENDING, 2 CPU/8 GiB, 45-minute cap, 0 GPU-hours. It adds the established version-file generation step and verifies the official split before the frozen train/dev scan. `sbatch --test-only` estimated a later start; do not treat that as reservation or submit duplicate.
+
+## ScienceWorld metadata firewall — September 30, 00:05 EDT
+
+- [x] Direct API metadata channel is excluded from the controller adapter on all 360 official train/dev variations: `variationIdx`, `score`, and `reward` are observed in evaluator-side `info`, while controller input is observation text only. Corrected independent audit passes 18/18 checks. This is a data-flow firewall check, not proof against semantic inference of variation/label or agent efficacy. Original remote audit failure and corrected local result are both preserved (`runs/bouchet-scienceworld-mendelian-firewall-v1-control/retrieved/`).
+- [ ] Semantic observation sufficiency, natural information-action prevalence, and compatible published-baseline review remain before any ScienceWorld agent comparison.
+- [ ] Full DiscoveryWorld ReCoMA baseline `27880628` remains PENDING/Priority, no allocation/GPU-hours; current estimated start Oct 1 10:36:58 EDT is nonbinding. Preserve it.
+
+## ScienceWorld published controller overlap — September 30, 00:10 EDT
+
+- [x] Primary-source screen confirms direct ScienceWorld interactive-agent evaluations for DGAP (ICLR 2025), ARMAP (ICLR 2025), and CGI (NeurIPS 2025); all use stepwise guidance, learned action/trajectory scoring, or iterative critique. This narrows any viable question to a matched-prefix, fixed-action, independently verified terminal-outcome comparison and rules out a broad “new agent-control method” claim.
+- [ ] ARMAP public ScienceWorld scripts and Apache-2.0 reward-model LoRA are verified, but the reference config uses Llama 3.1 8B, `max_steps=10`, and a custom JAR path; it is not yet compatible with our pinned 1.3.0 Mendelian horizon. Resolve/record an honest adaptation before any comparison. DGAP has no runnable official implementation verified in this screen; the author-linked CGI repository currently lacks usable code. Do not substitute a source-level citation for a measured baseline.
 
 ## Live jobs and prefix-gate result — September 29, 20:10 EDT
 
@@ -102,6 +132,14 @@ Updated September 27, 23:56. Development findings are not confirmatory evidence.
 | Sequential, horizon and generator transfer | Not established | Fresh studies only after a useful frozen controller; no pooling BF16/MLX |
 | Theory | Conditional identification/regret/acquisition statements in draft | Verify assumptions match deployed estimand; no arbitrary OOD guarantee |
 | Reproducibility | Frozen records, safe releases, audit-bound analyses | Complete final release and dependency/model/accounting manifests |
+
+## ScienceWorld candidate update — September 29, 2026
+
+- [x] Source-only task-contract audit identifies `mendelian-genetics-unknown-plant` as the leading development candidate: randomized task variation, terminal classification, and optional offspring evidence path. Exact hashes and limitations: `docs/scienceworld_mendelian_candidate_audit_2026-09-30.md`.
+- [ ] Before any model run: prove the API variation ID and hidden evaluator fields are withheld from every agent prompt; measure natural informative-action prevalence on train/dev; qualify a model-generated-prefix replay and independently implemented classification evaluator.
+- [ ] Use continuation, a single predeclared information action, a work/call-matched sham, rate-matched random, and a strong task-specific local baseline with equal visible score/reward fields and full token/tool/time costs.
+- [ ] Preserve the 117 outcome-unseen test variations after excluding structural-only IDs 360, 420, and 479. They form one template and have an optimistic 14.04-pp MDE under 30% discordance; do not claim a 3–5-pp Jev increment or task-family OOD from this panel.
+- [ ] Jev comparison remains gated on written TypeSafe terms; do not use its outputs for controller training or publication pending clarification.
 
 Next decision depends on the complete randomized timing experiment. If GUARD and random/sham remain indistinguishable with sparse intervention, do not repeatedly enlarge tiny timing pilots. Diagnose action opportunity and continuation budget, then specify a substantive fresh action-value study with a uniform runtime contract and a sample-size calculation. If an effect appears, use it only for design and power planning; reserve fresh data for confirmation. Neither outcome justifies claiming Jev efficacy.
 
