@@ -1,0 +1,17 @@
+# TypeSafe Jev research-use gate
+
+**Checked:** September 30, 2026, against TypeSafe's public legal pages. This is a research-protocol and contract-scope review, not legal advice, an interpretation of any account-specific Order, or permission to call the API.
+
+## Primary-source findings
+
+The currently posted [Master Customer Agreement (MCA)](https://typesafe.ai/legal/mca), last updated September 23, 2026, governs API use together with the applicable Order or separate written agreement. MCA §2.3(b) prohibits using the Services **or any Output** to develop, or facilitate development of, a similar or competing product or service. MCA §4.1 authorizes use of Customer Data during the Term to provide the Services and calculate fees; it separately permits perpetual processing of Telemetry, including summary statistics and learnings, without restriction. Section 4.1 says Customer Data will not be included in a model-training dataset without prior consent. MCA §10.3 says TypeSafe has no obligation to store or retain Customer Data and may delete it at its discretion.
+
+The [Data Processing Addendum](https://typesafe.ai/legal/data-processing), last updated April 24, 2026, is incorporated into the MCA, but its additional limits apply to Customer Personal Data. It does not resolve the MCA's separate Output-use restriction for this research. The [Privacy Policy](https://typesafe.ai/legal/privacy-policy) says inputs are not used to train or fine-tune models; that statement does not address whether this particular comparative study or a Jev-derived controller is permitted under MCA §2.3(b). The [Acceptable Use Policy](https://typesafe.ai/legal/acceptable-use-policy), last updated September 23, 2026, is also incorporated by MCA §2.3(l); it contains general service-use restrictions but does not expressly answer the academic-research question.
+
+## Application to this protocol
+
+The proposed Jev arm would submit visible reasoning/action context and ask Jev to select or rank interventions against local and published controllers; later work could use those outputs to evaluate or derive a controller. That is close enough to the text of MCA §2.3(b) that this project must not assume it is allowed. The public privacy statement about no model training is not a substitute for permission to conduct the comparative research, retain and analyze outputs, publish aggregate results, or use outputs to make a controller. The account-specific Order, applicable institutional authority, and TypeSafe's written interpretation are not present in this repository, so applicability remains unresolved.
+
+**Decision:** no Jev API calls, output-conditioned controller tuning, or release of Jev-derived artifacts until written clarification from an authorized TypeSafe contact or applicable institutional counsel explicitly covers (1) non-commercial academic comparison of Jev with local/published controllers, (2) retention and analysis of request/response data and aggregate results, (3) publication of findings, and (4) selecting, implementing, or releasing a controller informed by Jev outputs. Do not send such a request from this task without user authorization. Continue independent, non-Jev work where its own scientific gates pass; it can establish action usefulness but cannot establish Jev's incremental value.
+
+The existing $25 cumulative Jev ledger is a ceiling, not permission. No call, charge, credential transfer, or vendor contact occurred in this review.

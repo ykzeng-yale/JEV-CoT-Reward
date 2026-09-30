@@ -1,0 +1,151 @@
+{
+  "api": {
+    "credential_transferred": false,
+    "jev_calls": 0
+  },
+  "experiment": "recoma_discoveryworld_react_full_v2",
+  "host": "bouchet",
+  "independent_audit_revision": {
+    "additional_trace_diagnostics": "aggregate visible thought-field presence and parsed action-type counts; no raw thought text is emitted",
+    "full_tests": "435 passed",
+    "purpose": "post-submission pre-generation hardening; does not alter frozen model job inputs",
+    "sha256": "c6424364989e2471557133451c4a7473d5a72aa01442c811e88c5572365cc820",
+    "source": "scripts/audit_recoma_discoveryworld_panel.py",
+    "targeted_tests": "22 passed",
+    "test_sha256": "c79fbe0f98facfe00d7215576e13aff2d2bffadc169725c34c9e4377fe7056f9",
+    "tests": "tests/test_recoma_discoveryworld_audit.py"
+  },
+  "job_id": "27880628",
+  "preflight": {
+    "config_json_sha256": "31f9e2ddaebdc22450369d2c2136bb224e22531244f664409820a33a735a3ec1",
+    "cuda_devices": 0,
+    "expected_tasks": 15,
+    "integrity_repair_receipt": "runs/bouchet-recoma-discoveryworld-full-v2-control/integrity-repair.json",
+    "manifest_sha256": "84175595f412277b614d2c06773412994fdb9e26c3730ded851ff486f04ade8e",
+    "mode": "CPU_ONLY_NO_GENERATION",
+    "restored_input_tree_sha256_verified": "all 2,386/2,386 entries passed at remote inputs/SHA256SUMS; 0 failures after restoring bytecode from the same hashed archive",
+    "shard_index": 0,
+    "status": "PASS_NO_GENERATION",
+    "summary_local": "runs/bouchet-recoma-discoveryworld-full-v2-control/artifacts/preflight-v2/summary.json",
+    "task_manifest_sha256": "c1537b883f764de838d118394bbf89286a2a31e204a97a9d7bb0acff312803f3"
+  },
+  "protocol": {
+    "claim_boundary": "Published ReCoMA-ReAct development baseline/adaptation only; not a GPT-4o reproduction, Jev/intervention efficacy, canonical hidden CoT evaluation, OOD transfer, or innovation claim.",
+    "discoveryworld_revision": "fd591323920be0d3786ef350955de1945aa571e5",
+    "input_bundle_sha256": "aca00780b20f7df9664497a0665adfab90ca6992b7a56ffefed69cd4fdbf306f",
+    "manifest": "data/discoveryworld_e1a_v2/recoma_react_full_panel_v2.json",
+    "manifest_sha256": "84175595f412277b614d2c06773412994fdb9e26c3730ded851ff486f04ade8e",
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "model_revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "remote_sha256sums_sha256": "99d76db8b064d59cbb19073bfd2c65033c1192330af3ee7793ff3efcae8b0706",
+    "sbatch_script": "cluster/bouchet/discoveryworld_recoma_react_full_v2.sbatch",
+    "sbatch_sha256": "6ef3127a2909e89a2ffe0839d76ba42265ce235c4638d2f19e312368e20015e1",
+    "source_revision": "b262ab5476841551c5d6874e8ddecef78c71a072"
+  },
+  "queue_note": "scontrol StartTime is only a mutable estimate, not a reservation. Do not duplicate this pending job.",
+  "queue_observations": [
+    {
+      "allocated_gpu_hours": 0.0,
+      "allocated_tres": null,
+      "alternative_test_only": {
+        "decision": "Preserve job 27880628; array estimate is later and has uncertain whole-array completion time.",
+        "response": "array element estimated 2026-10-02T03:22:31 on gpu_b200; test-only pseudo-ID 27912817",
+        "shape": "four-element array (0-3%4), each 2 GPUs, 8 CPUs, 64 GiB, 48 h; pi_fl426/normal; gpu_h200,gpu_b200",
+        "submission_occurred": false
+      },
+      "checked_at_local": "2026-09-29T19:08:15-04:00",
+      "decision": "No cancel, duplicate, array submission, account switch or priority QOS.",
+      "input_sha256_check": "PASS: 2,386/2,386 files; 0 failures",
+      "job_id": "27880628",
+      "other_user_jobs_observed": [
+        "27903827 DTR-AgentEvals req030ag development screen (pi_gt353, pending; untouched)",
+        "27910823 WDSM winratio CUDA lifecycle v6 (pi_gt353, pending; untouched)"
+      ],
+      "reason": "Priority",
+      "sacct_elapsed": "00:00:00",
+      "start_time_estimate": "2026-10-01T20:44:04 EDT",
+      "state": "PENDING"
+    }
+  ],
+  "queue_strategy_check": {
+    "alternative": "four-element Slurm array, each element 2 GPUs, 8 CPUs, 64 GiB, 48h, same pi_fl426/normal and gpu_h200,gpu_b200 partitions; aggregate requested GPU count 8",
+    "evaluated_at_local": "2026-09-29T17:00:48-04:00",
+    "interpretation": "This is a nonbinding estimate for an array element, not a reservation or predicted whole-array completion. It is later than the current 8-GPU job estimate of 2026-09-30T14:01:23. Keep the current task-owned job; do not cancel, duplicate, split, or switch accounts.",
+    "submission_occurred": false,
+    "test_only_response": "sbatch --test-only estimated an array element for 2026-10-01T15:11:31 on gpu_b200; the test-only response displayed 27902461"
+  },
+  "remote_command": "/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2/discoveryworld_recoma_react_full_v2.sbatch",
+  "remote_workdir": "/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2",
+  "request": {
+    "account": "pi_fl426",
+    "cpus": 32,
+    "gpus": 8,
+    "memory_gib": 256,
+    "nodes": 1,
+    "partitions": [
+      "gpu_h200",
+      "gpu_b200"
+    ],
+    "qos": "normal",
+    "wall_minutes": 2880
+  },
+  "scheduler": {
+    "allocated_gpu_hours": 0.0,
+    "allocated_tres": null,
+    "input_checksum_gate": "PASS 2386/2386",
+    "reason": "Priority",
+    "sacct_elapsed": "00:00:00",
+    "start_time_estimate": "2026-09-30T20:44:04 EDT",
+    "state": "PENDING",
+    "verified_at_local": "2026-09-29T20:10:00-04:00"
+  },
+  "scheduler_observations": [
+    {
+      "allocated_gpu_hours": 0.0,
+      "allocated_tres": null,
+      "comparison": "same-account normal-tier 4x2-GPU test-only estimate 2026-10-02 03:22 EDT; no array submitted",
+      "input_checksum_gate": "PASS 2386/2386",
+      "reason": "Priority",
+      "sacct_elapsed": "00:00:00",
+      "start_time_estimate": "2026-09-30T20:44:04 EDT",
+      "state": "PENDING",
+      "verified_at_local": "2026-09-29T19:34:00-04:00"
+    },
+    {
+      "allocated_gpu_hours": 0.0,
+      "allocated_tres": null,
+      "input_checksum_gate": "PASS 2386/2386",
+      "note": "Independent no-model ScienceWorld prefix-replay CPU job 27916067 is separately queued in day partition; no GPU request or duplicate baseline.",
+      "reason": "Priority",
+      "sacct_elapsed": "00:00:00",
+      "start_time_estimate": "2026-09-30T20:44:04 EDT",
+      "state": "PENDING",
+      "verified_at_local": "2026-09-29T20:02:00-04:00"
+    },
+    {
+      "allocated_gpu_hours": 0.0,
+      "allocated_tres": null,
+      "input_checksum_gate": "PASS 2386/2386",
+      "note": "Prefix replay CPU gate 27916067 completed and audited independently; no GPU inference. Main baseline retained unchanged.",
+      "reason": "Priority",
+      "sacct_elapsed": "00:00:00",
+      "start_time_estimate": "2026-09-30T20:44:04 EDT",
+      "state": "PENDING",
+      "verified_at_local": "2026-09-29T20:10:00-04:00"
+    },
+    {
+      "verified_at_local": "2026-09-30T09:12:00-04:00",
+      "job_id": "27880628",
+      "state": "PENDING",
+      "reason": "Priority",
+      "allocated_tres": null,
+      "sacct_elapsed": "00:00:00",
+      "allocated_gpu_hours": 0.0,
+      "start_time_estimate": "2026-10-01T10:36:58 EDT",
+      "workdir": "/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2",
+      "decision": "Preserve single pi_fl426/normal request; do not duplicate, alter, or switch accounts. Estimate is nonbinding."
+    }
+  ],
+  "submitted_at_local": "2026-09-29T14:41:25-04:00",
+  "verified_at_local": "2026-09-30T09:12:00-04:00"
+}

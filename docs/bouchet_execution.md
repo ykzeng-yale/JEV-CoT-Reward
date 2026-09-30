@@ -1,5 +1,13 @@
 # Bouchet execution track
 
+## September 30, 09:08 EDT — authenticated live-state refresh
+
+Using the authenticated `mac-aux → Bouchet` route, `squeue -u yz2324` identifies task-owned ReCoMA baseline **27880628** as `PENDING` (reason `Priority`) on the frozen `pi_fl426`/normal H200/B200 request. `sacct -j 27880628` reports `PENDING`, `ExitCode=0:0` placeholder, elapsed `00:00:00`, 0 allocated CPUs, no `AllocTRES`, and no start/end time; therefore **0 GPU-hours have accrued**. Its receipt still pins the same workdir, Qwen3-4B-Instruct-2507 BF16 runtime and 2,386/2,386 input checksum pass. No duplicate or alternative submission was made. The large running/pending `pi_gt353` array belongs to the separate WDSM run and was not touched. Current association/fair-share values were inspected for both authorized accounts; this is not a reason to switch the specific frozen ReCoMA run's sponsor.
+
+CPU control `27941320` is terminal `COMPLETED 0:0` (4 CPUs/16 GiB, 00:03:16, MaxRSS 2,116,344 KiB, 0 GPU-hours) and has already been independently audited. No task-owned model inference is running on the Macs. Lead PID **83281** still matches the unrelated process's recorded command and September 27 09:09:22 start identity; PID **57951** is absent. Mini has an existing Ollama service and aux has a Docker workload with heavy swap; no service or process was stopped.
+
+The next compute-dependent step is unchanged: wait for actual allocation/start of `27880628`, then monitor by Slurm ID, retrieve complete traces after terminal state, verify hashes/resources, and run the independent result auditor before any outcome-rate analysis. Pending estimates are not reservations and the current queue state is not scientific evidence.
+
 ## September 30, 03:16 EDT — ARMAP data-provenance gate; primary job still queued
 
 The ARMAP code/checkpoint audit shows the released ScienceWorld reward model scores complete transcripts and triggers retry/reflection; it cannot be called a same-prefix action selector. Its pinned 4,064-row public training corpus contains two records with both “dominant” and “recessive” terms but exposes no task/variation IDs. Exact held-out sample disjointness is therefore unverified, not proven false. The saved scanner writes only aggregate term/schema counts and pinned hashes; three focused tests pass. It emitted no raw rows, task labels, preference values, or trajectories; no model inference, Jev calls, or project-held-out outcomes were used. Keep this checkpoint out of the primary independent comparison pending a provenance gate; consider only a separately frozen train-only adaptation if justified. See `docs/scienceworld_published_baseline_screen_2026-09-30.md`.

@@ -1,5 +1,11 @@
 # Research curriculum v2: reopen the scientific program
 
+## September 30, 09:10 EDT — Jev legal-scope gate made explicit
+
+The current TypeSafe MCA (last updated 2026-09-23) contains a material output-use restriction in §2.3(b): Services or Outputs may not be used to develop or facilitate a similar or competing product or service. The public no-training statement is narrower and does not resolve academic comparison, publication, or controller-development permission. Since the applicable Order and account-specific authorization are not in the research record, keep all Jev calls and output-informed controller work blocked pending written scope clarification. The exact primary-source review and required questions are in `docs/typesafe_jev_research_terms_gate_2026-09-30.md`. This finding does not block a properly frozen non-Jev E2 study if E1 later identifies a valid task/action; such a study cannot answer Jev's incremental-value question.
+
+At 09:08 EDT, current `squeue` and `sacct` still showed DiscoveryWorld ReCoMA panel `27880628` as `PENDING/Priority`, no allocated resources, zero GPU-hours. Preserve the single frozen request and inspect no partial outcomes. See `docs/current_research_state.md` and `docs/bouchet_execution.md` for exact live record.
+
 
 ## September 30, 08:01 EDT — audited label conflicts and next gate
 

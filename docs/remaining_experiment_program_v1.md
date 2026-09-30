@@ -1,5 +1,11 @@
 # Remaining experiment program, version 1
 
+## September 30, 09:10 EDT — Jev output-use gate clarified from primary terms
+
+Before any E3 design or Jev call, account for current TypeSafe MCA §2.3(b), which bars use of Services or Output to develop/facilitate a similar or competing product/service. Public no-training language does not answer permission for academic comparative evaluation, publication, or controller use of outputs. No account-specific Order or written scope interpretation is available in this workspace. Keep Jev calls, output-informed tuning, and release blocked until the exact academic-comparison, retention/analysis, publication, and controller-use scopes are clarified in writing by an authorized route. This task has not contacted the vendor or moved credentials. The full clause review is `docs/typesafe_jev_research_terms_gate_2026-09-30.md`.
+
+This gate does not prohibit completing a non-Jev action-usefulness study if E1 yields an eligible task/action and that study is independently frozen; it does preclude describing such evidence as Jev value. No second GPU run is justified while the non-interventional 120-task ReCoMA panel `27880628` remains unallocated and no action has passed E1.
+
 
 ## September 30, 08:01 EDT — audited label conflicts and next gate
 
