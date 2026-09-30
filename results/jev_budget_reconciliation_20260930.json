@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "audit_status": "passed_cost_metadata_reconciliation",
+  "generated_at_utc": "2026-09-30T15:13:50.086204+00:00",
+  "ledger": {
+    "locator": "~/.local/state/jev-cot-reward/jev.sqlite3",
+    "read_mode": "SQLite mode=ro; query_only; one read transaction; response-column access denied",
+    "cost_metadata_sha256": "51e4981cf6e35af74ca5bc935c2bc9eff7c8c09b9aaf1ecac17afba68f52574d",
+    "integrity_check": "ok",
+    "attempts": 143,
+    "groups": [
+      {
+        "status": "ok",
+        "attempts": 142,
+        "usd": 0.005710698
+      },
+      {
+        "status": "unresolved",
+        "attempts": 1,
+        "usd": 0.01
+      }
+    ],
+    "first_attempt_utc": "2026-09-27T19:10:41.529336+00:00",
+    "last_attempt_utc": "2026-09-29T00:16:47.498474+00:00",
+    "successful_input_tokens": 135969,
+    "successful_token_priced_usd": 0.005710698,
+    "unresolved_reserved_usd": 0.01,
+    "accounted_usd": 0.015710698000000002,
+    "hard_cap_usd": 25.0,
+    "within_hard_cap": true,
+    "duplicate_active_or_successful_cache_entries": 0
+  },
+  "historical_snapshots": [
+    {
+      "source": "results/jev_budget.json",
+      "metadata_key": "<root>",
+      "attempts": 7,
+      "accounted_usd": 0.000223734,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 136,
+      "later_accounted_usd": 0.015486964
+    },
+    {
+      "source": "runs/phase0-20260927/summary.json",
+      "metadata_key": "jev_budget",
+      "attempts": 7,
+      "accounted_usd": 0.000223734,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 136,
+      "later_accounted_usd": 0.015486964
+    },
+    {
+      "source": "runs/phase0-budget1024-20260927/summary.json",
+      "metadata_key": "jev_budget",
+      "attempts": 7,
+      "accounted_usd": 0.000223734,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 136,
+      "later_accounted_usd": 0.015486964
+    },
+    {
+      "source": "runs/mechanism-v1-20260927/summary.json",
+      "metadata_key": "jev_budget",
+      "attempts": 31,
+      "accounted_usd": 0.00124614,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 112,
+      "later_accounted_usd": 0.014464558
+    },
+    {
+      "source": "runs/branch-replication-v3a-20260927/manifest.json",
+      "metadata_key": "jev_ledger_before",
+      "attempts": 55,
+      "accounted_usd": 0.002268504,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 88,
+      "later_accounted_usd": 0.013442194000000001
+    },
+    {
+      "source": "runs/branch-replication-v3a-20260927/manifest.json",
+      "metadata_key": "jev_ledger_after",
+      "attempts": 79,
+      "accounted_usd": 0.003640728,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 64,
+      "later_accounted_usd": 0.012069970000000001
+    },
+    {
+      "source": "runs/jev-arithmetic-pairs-v1-20260928/status.json",
+      "metadata_key": "ledger_before",
+      "attempts": 79,
+      "accounted_usd": 0.003640728,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 64,
+      "later_accounted_usd": 0.012069970000000001
+    },
+    {
+      "source": "runs/jev-arithmetic-pairs-v1-20260928/status.json",
+      "metadata_key": "ledger_after",
+      "attempts": 109,
+      "accounted_usd": 0.014579218000000001,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 34,
+      "later_accounted_usd": 0.00113148
+    },
+    {
+      "source": "runs/jev-natural-addition-v1-20260928/status.json",
+      "metadata_key": "ledger_before",
+      "attempts": 109,
+      "accounted_usd": 0.014579218000000001,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": false,
+      "later_attempts": 34,
+      "later_accounted_usd": 0.00113148
+    },
+    {
+      "source": "runs/jev-natural-addition-v1-20260928/status.json",
+      "metadata_key": "ledger_after",
+      "attempts": 143,
+      "accounted_usd": 0.015710698000000002,
+      "matches_settled_chronological_prefix": true,
+      "is_current_by_attempt_count": true,
+      "later_attempts": 0,
+      "later_accounted_usd": 0.0
+    }
+  ],
+  "run_cost_checks": [
+    {
+      "source": "results/mechanism_v1_analysis.json",
+      "metadata_key": "costs.jev_new_call_usd_in_this_run",
+      "declared_new_call_usd": 0.001022406,
+      "matching_cumulative_ledger_delta_usd": 0.001022406,
+      "matches": true
+    }
+  ],
+  "errors": [],
+  "interpretation": [
+    "A matching smaller snapshot is historical; it is not an additional charge or the live cumulative total.",
+    "Successful cost is calculated from recorded input-token usage and the pinned adapter price; no provider invoice was checked.",
+    "Unresolved reservations are conservative accounted exposure, not verified invoice charges.",
+    "Cache-hit reuse incurs no new ledger row. Per-policy uncached-equivalent costs must not be summed as actual spend.",
+    "Historical prefix matching assumes relevant attempts were settled when snapshots were saved; later status transitions can require review.",
+    "This audit covers the configured central local ledger, not proof that every external/provider account request used that ledger.",
+    "No API calls, private response-column reads, credentials, task labels or outcome analysis are used."
+  ]
+}

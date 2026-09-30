@@ -1,0 +1,103 @@
+{
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "source_archive": "scienceworld-source.tar.gz",
+  "source_archive_sha256": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+  "task": "test-conductivity-of-unknown-substances",
+  "expected_scienceworld_version": "1.3.0",
+  "splits": {
+    "train": {
+      "start_inclusive": 0,
+      "end_exclusive": 300
+    },
+    "dev": {
+      "start_inclusive": 300,
+      "end_exclusive": 450
+    },
+    "test": {
+      "start_inclusive": 450,
+      "end_exclusive": 600
+    }
+  },
+  "source_members": {
+    "conductivity_task": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/tasks/specifictasks/TaskElectricalConductivity2.scala",
+      "sha256": "e089a1210b92573e2e619d5cbd71a79021f183b1b7424a197e0202f2128e849d"
+    },
+    "python_interface": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/runtime/pythonapi/PythonInterface.scala",
+      "sha256": "86ecec51c9e37fb7881927afb54d18afca452cea92bbfe7d6c718989165fd9d7"
+    },
+    "task_maker": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/tasks/TaskMaker1.scala",
+      "sha256": "cad10396e6734bad6984001020a13e1ce613ea7b2b43bebfb5ec0b3184d56416"
+    },
+    "unknown_substances": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/taskitems/UnknownSubstance.scala",
+      "sha256": "fcec7a879fce932956d4a5981532e4a72989c088fea5ea0594d3ff6a6b6298ab"
+    },
+    "python_adapter": {
+      "path": "scienceworld-source/scienceworld/scienceworld.py",
+      "sha256": "43c802c7f9e01b5d6b09224dfdabae8077b4c1de2d56576c2f24fa9aabd9f67c"
+    },
+    "jar": {
+      "path": "scienceworld-source/scienceworld/scienceworld.jar",
+      "sha256": "e77b0fee7d68abe3ca5b12e57d86e2bfe7603f20c5200da0b0f085939faeb465"
+    },
+    "electrical_component": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/electricalcomponent/ElectricalComponent.scala",
+      "sha256": "2a7f882c3ab63bbbc40833b2de559b0c2208c83629cfba3fb1b3c66cf293aeb3"
+    },
+    "connection_action": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/actions/ActionConnectElectrical.scala",
+      "sha256": "6502a4abc27a7b259c7bb20c27d0fbb81b4c8b53c9728f9e44077e4106dad4cc"
+    }
+  },
+  "protocol": "scienceworld_conductivity_action_v1",
+  "policies": [
+    "measurement",
+    "masked_measurement",
+    "random_measurement",
+    "continue_prior"
+  ],
+  "training_integration_ids": [
+    0,
+    125,
+    250
+  ],
+  "random_seed": 20260930,
+  "controller_fields": [
+    "task_description",
+    "observation",
+    "legal_actions"
+  ],
+  "primary_endpoint": "independently verified target placement AND ordered-goal completion AND not task_failed",
+  "primary_contrast": "measurement minus masked_measurement",
+  "secondary_contrasts": [
+    "measurement minus random_measurement",
+    "measurement minus continue_prior"
+  ],
+  "inference": "Finite official development panel, grouped by six target substances. All 150 dev rows retained including policy failures; no iid-150 population interval. Six-cluster bootstrap is descriptive sensitivity only.",
+  "calibration": "Official train 0:300 majority hidden conductivity label; tie predicts False; no dev outcome-driven tuning.",
+  "scope": "Full non-model development action study. No test IDs, gold path requests, model, Jev or external network calls. Not confirmation, new-family transfer or Jev efficacy.",
+  "limits": {
+    "wall_minutes": 120,
+    "cpus": 2,
+    "memory_gib": 8,
+    "gpus": 0,
+    "episode_action_budget": 32,
+    "max_navigation_actions": 12,
+    "settling_wait_actions": 5,
+    "max_result_bytes": 12000000,
+    "max_bundle_bytes": 120000000,
+    "model_calls": 0,
+    "jev_calls": 0,
+    "network_calls": 0,
+    "max_diagnostic_bytes": 32000000
+  },
+  "decision_rule": {
+    "scope": "Development action qualification only, never a Jev scale-up decision.",
+    "operational": "Require all150x4 episodes and independent replay; any infrastructure failure invalidates panel; keep all scientific policy failures in150 denominator.",
+    "action_usefulness": "Report all primary paired outcomes and six-group sensitivity. A positive measurement-minus-masked difference with positive differences in at least5 of6groups and at least95% measurement execution is a development signal for this fixed local baseline. No confirmatory p-value.",
+    "next": "Even if positive, evaluate any learned/Jev controller against this deterministic baseline with full costs on fresh data; do not scale the existing negative branch/repair actions. A negative/imprecise result triggers mechanism diagnosis, not outcome-selected resubmission."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "experiment": "scienceworld_conductivity_action_v1",
+  "input_hashes": {
+    "py4j.lock": "0ef29fd4bcf6b916bdd7be97eb054d19d4a0b5db506fd21c3e483d617b36e394",
+    "scienceworld_conductivity_action_v1.json": "6d195e59f41fb41e4212647375e5476b993cae7cd861c725c618e4acef71c719",
+    "scienceworld_conductivity_action_v1.sbatch": "ee7336b6f324019853c53e4afbc16bc8b90b5edbecd6182b6111547168db531e",
+    "scienceworld-source.tar.gz": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+    "wheelhouse/py4j-0.10.9.9-py2.py3-none-any.whl": "c7c26e4158defb37b0bb124933163641a2ff6e3a3913f7811b0ddbe07ed61533",
+    "scripts/analyze_scienceworld_conductivity_action_study.py": "99d0abb2d52ec450af3bfab9a1bbf0057644db5f531d7478eaa3b200627096d2",
+    "scripts/run_scienceworld_conductivity_action_study.py": "d435dc5dcf8ca29a166ad857879bcaf9b8c96e24d5b61de53b624c795ec37d60",
+    "scripts/audit_scienceworld_conductivity_action_study.py": "3726fb53310b9562eb62b73c76880b076cf9a593686e80ade9f2fc4283d234a3",
+    "src/jev_control/__init__.py": "9b4503fcde6c325e9e454b8fdfadb12470f00fe5b0d72c3a8d2a187a1b0f6cf6",
+    "src/jev_control/scienceworld_conductivity_policy.py": "9598f8955a5ff72f6077e76236b40a57e0381ba6d4310b317454f980c814bbe7",
+    "src/jev_control/scienceworld_conductivity_action_audit.py": "1d3891f1cc6413f261750308a0723ff4c8c468f1fd1369a6bf95160b531f7cc0"
+  },
+  "manifest_sha256": "8a9560ab4a34516880cc4b7e55f228fa3711ff95a6afdb363892c05b99beb32f",
+  "pre_submission_validation": "92 targeted tests; full suite571 before final adapter fixes; no simulator outcomes inspected",
+  "job_id": "27950404",
+  "submitted_at": "2026-09-30T11:34:37-04:00",
+  "state": "PENDING",
+  "account": "pi_fl426",
+  "qos": "normal",
+  "partition": "day",
+  "route": "authenticated direct Bouchet SSH",
+  "workdir": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-action-v1/inputs",
+  "output": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-action-v1/runs/27950404",
+  "resources_requested": {
+    "cpus": 2,
+    "memory_gib": 8,
+    "gpus": 0,
+    "wall_minutes": 120
+  },
+  "gpu_hours": 0,
+  "input_transfer_sha256_verification": "11/11 passed before sbatch",
+  "protocol": "configs/scienceworld_conductivity_action_v1.json",
+  "episode_panel": "150 dev x4 policies; train300 calibration+census only plus3 fixed integration episodes; test0",
+  "independent_audit_required": "all450 census rows and600 episode runtime replays plus exact protocol/result hashes",
+  "scheduler_receipt": "scheduler-refresh.txt",
+  "next": "Wait for actual allocation; on terminal status retrieve checksums, scripts/config/logs/resources; do not inspect partial rates.",
+  "validation": "595 full-suite tests passed; source-contract review; in-place built-in LaTeX compilation successful; no runtime outcomes yet"
+}

@@ -1,5 +1,16 @@
 # Paper evidence and next decisions
 
+## September 30 — corrected input contract and full action study
+
+- [x] Corrected overbroad look-only split conclusion. Full controller includes description and legal actions; full-input train/dev overlap must be measured under that contract. Earlier 30-row filter is superseded for this study.
+- [ ] Action usefulness: frozen full150dev×4policy panel, independent terminal and450-census/600-episode replay required before analysis.
+- [ ] Jev incremental value beyond cheap/strong local: still unsupported; no calls in this study.
+- [ ] Baselines: deterministic measurement, masked same-work, random same-work, continuation prior implemented; published model-controller comparison remains separate.
+- [ ] Cost fairness: report32step padding and intrinsic work separately; fixed-policy information effect is not a universal computational cost advantage.
+- [ ] Sequential/transfer: six substance groups in one template do not resolve fresh-family or sequential control.
+- [x] Theory scope: look-only ambiguity and oracle bounds do not certify full-input impossibility or deployable measurement benefit.
+- [x] Cost ledger reconciled against142 successful requests plus one reserve; no overspend finding.
+- [ ] Reproducibility: unit/source checks precede submission; full simulator replay and terminal scheduler/resource checks remain necessary.
 
 ## September 30, 08:01 EDT — audited label conflicts and next gate
 

@@ -1,5 +1,12 @@
 # ScienceWorld candidate source-leak screen
 
+## September 30, 11:32 EDT — correction of the conductivity input contract
+
+**This supersedes earlier claims that the conductivity full-input split is invalid or restricted to 30 usable dev rows.** The prior audits hashed only the initial look string; they omitted the controller-visible task description and legal-action list. The description names the target substance and answer-container mapping. Pinned source ordering uses disjoint substance names across official train/dev, so look-only overlap cannot establish overlap of the full controller input. The reported 29 shared look groups and 27 conflicting-label groups remain narrow look-only findings. A hidden label before an information-gathering action is ordinary partial observability, not itself an invalid task. The 30-row derived filter is preserved as a historical look-only artifact and is not the eligibility rule for the new action study.
+
+The highest-priority independent deliverable is now the full 150-dev-instance, four-policy conductivity action study (600 episodes), with a visible-only non-model series-circuit controller and independent terminal/environment replay. All 150 dev instances are included; six substance groups constrain generalization. Its primary measurement-minus-masked contrast tests the usefulness of reading a fixed circuit under a fixed decoder, not Jev increment, learned control or general transfer. The protocol explicitly retains failures and reports actual padded and intrinsic action costs. Test IDs remain sealed. Source-order disjointness does not prove that no other public-source reconstruction can infer the hidden label.
+
+Jev cost reconciliation also corrects the earlier claim of a cumulative-ledger discrepancy: the stale export matches the first seven settled requests. The live read-only ledger has 142 successes, 135,969 input tokens, $0.005710698 token-priced cost and one $0.01 unresolved reservation; accounted exposure is **$0.015710698 of $25**. This is not a provider invoice, and it neither creates Jev efficacy evidence nor resolves the separately recorded terms question. See `docs/jev_budget_reconciliation_20260930.md`.
 
 ## Outcome-gate update — September 30, 08:01 EDT
 
