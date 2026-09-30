@@ -1,6 +1,30 @@
 {
   "account": "pi_fl426",
-  "allocated_resources": null,
+  "aggregate_counts": {
+    "all_split_label_conflict_groups": 28,
+    "conflicting_dev_groups": 15,
+    "conflicting_train_groups": 21,
+    "cross_split_label_agreement_groups": 2,
+    "cross_split_label_conflict_groups": 27,
+    "cross_split_shared_exact_input_groups": 29,
+    "cross_split_shared_rows": 361,
+    "dev_rows": 150,
+    "test_rows": 0,
+    "train_rows": 300,
+    "unique_initial_observation_groups": 113
+  },
+  "allocated_resources": {
+    "account": "pi_fl426",
+    "batch_max_rss": "2116344K",
+    "cpus": 4,
+    "gpu_hours": 0,
+    "gpus": 0,
+    "memory_gib": 16,
+    "partition": "day"
+  },
+  "elapsed": "00:03:16",
+  "ended_at": "2026-09-30T08:01:02-04:00",
+  "exit_code": "0:0",
   "experiment": "scienceworld_conductivity_duplicate_observation_label_consistency_v1c",
   "failure_lineage": [
     {
@@ -28,6 +52,8 @@
     }
   ],
   "gpu_hours": 0,
+  "independent_audit_sha256": "7a198f472dcff340c608eb7c32e034bfd4947a36bb05fb8a4b8a8a9f96d923c4",
+  "independent_environment_replay": "PASS",
   "input_hashes": {
     "audit_scienceworld_conductivity_duplicate_observation_label_consistency.py": "a27a5bd62be0007f0ffcfacf10878a0eea361e0fa1809a971580a6b9c17261a1",
     "py4j.lock": "0ef29fd4bcf6b916bdd7be97eb054d19d4a0b5db506fd21c3e483d617b36e394",
@@ -40,6 +66,8 @@
   "input_manifest_sha256": "478703bba109458a540be5f5e1eb15166fd5e2a589561215d060545b1f8d0aee",
   "input_transfer_sha256_verification": "passed 7/7 before submission",
   "job_id": "27941320",
+  "local_record_audit": "PASS",
+  "node": "c1102u05n02",
   "output": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1c/runs/27941320",
   "partition": "day",
   "protocol": "configs/scienceworld_conductivity_duplicate_observation_label_consistency_v1.json",
@@ -51,10 +79,18 @@
     "memory_gib": 16,
     "wall_minutes": 45
   },
+  "result_interpretation": "Among 29 exact initial-observation groups shared by train and dev, 27 have conflicting source-defined labels. A deterministic initial-observation-only classifier cannot assign both labels correctly within these conflicting groups. This is finite-sample identifiability evidence only; it does not establish an informative action, terminal-success benefit, generalization, or Jev value.",
+  "result_sha256": "fe93f4eb2d3cd711513618dea5da6e712c5d4b29917375749d6ae76bea6ebf9b",
+  "retrieved_bundle": "runs/bouchet-scienceworld-conductivity-duplicate-label-v1c-control/retrieved/27941320/run.tar.gz",
+  "retrieved_bundle_sha256": "b23044c946a36bd0621e406072fe7a0b5fefa54f2d5ee1f153349c3d1cb3d37c",
+  "retrieved_manifest_entries_verified": 201,
+  "retrieved_manifest_sha256": "382ad562c30e9f34c7a9d120e3a0189403df9f083d85a9cf0743e8437683564d",
   "retry_decision": "v1c is one final bounded correction after two distinct bridge defects (getter invocation, then heterogeneous modifier subtype). If v1c fails, stop this dynamic audit and leave label consistency unresolved; no further retry without redesign.",
   "route": "mac-aux -> authenticated Bouchet",
   "start_time": "Unknown",
-  "state_at_receipt": "PENDING",
+  "started_at": "2026-09-30T07:57:46-04:00",
+  "state": "COMPLETED",
+  "state_at_receipt": "COMPLETED",
   "submitted_at": "2026-09-30T07:57:06-04:00",
   "test_only_forecast": "Job 27941319 estimated start 2026-09-30T21:28:05 on day; forecast is not a reservation",
   "v1c_fix": "Filter modifier proxies by Java runtime getClass().getSimpleName() == TaskValueBool before invoking key()/value() in both runner and independent replay auditor; test mixed list with a key-less TaskObject first.",

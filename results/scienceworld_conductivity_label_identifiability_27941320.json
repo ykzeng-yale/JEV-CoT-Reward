@@ -1,0 +1,49 @@
+{
+  "access_audit": {
+    "gold_paths_requested": false,
+    "jev_calls": 0,
+    "model_calls": 0,
+    "network_calls": 0,
+    "raw_observations_written": false,
+    "score_reward_values_read": false,
+    "source_label_values_written": false,
+    "test_ids_loaded": false
+  },
+  "artifact_hashes": {
+    "independent_audit_sha256": "7a198f472dcff340c608eb7c32e034bfd4947a36bb05fb8a4b8a8a9f96d923c4",
+    "result_sha256": "fe93f4eb2d3cd711513618dea5da6e712c5d4b29917375749d6ae76bea6ebf9b",
+    "run_tar_sha256": "b23044c946a36bd0621e406072fe7a0b5fefa54f2d5ee1f153349c3d1cb3d37c",
+    "sha256sums_sha256": "382ad562c30e9f34c7a9d120e3a0189403df9f083d85a9cf0743e8437683564d"
+  },
+  "counts": {
+    "all_split_label_conflict_groups": 28,
+    "cross_split_label_agreement_groups": 2,
+    "cross_split_label_conflict_groups": 27,
+    "cross_split_shared_exact_input_groups": 29,
+    "cross_split_shared_rows": 361,
+    "dev_rows": 150,
+    "test_rows": 0,
+    "train_rows": 300,
+    "unique_initial_observation_groups": 113
+  },
+  "evidence_type": "development-only exact-observation label-identifiability audit",
+  "interpretation": "Among 29 exact initial-observation groups shared by train and dev, 27 have conflicting source-defined labels. A deterministic initial-observation-only classifier cannot assign both labels correctly within these conflicting groups. This is finite-sample identifiability evidence only; it does not establish an informative action, terminal-success benefit, generalization, or Jev value.",
+  "protocol": "scienceworld_conductivity_duplicate_observation_label_consistency_v1",
+  "protocol_sha256": "2128ef8d2fb2d599bbe2c2f218df875ad70f165a103455d705469ba391bad509",
+  "resource_record": {
+    "account": "pi_fl426",
+    "batch_max_rss": "2116344K",
+    "cpus": 4,
+    "elapsed": "00:03:16",
+    "ended_at": "2026-09-30T08:01:02-04:00",
+    "exit_code": "0:0",
+    "gpu_hours": 0,
+    "gpus": 0,
+    "job_id": "27941320",
+    "memory_gib": 16,
+    "node": "c1102u05n02",
+    "partition": "day",
+    "started_at": "2026-09-30T07:57:46-04:00",
+    "state": "COMPLETED"
+  }
+}

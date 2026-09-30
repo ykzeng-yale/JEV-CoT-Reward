@@ -1,0 +1,55 @@
+{
+  "interpretation_limit": "The perfect-dependence Kish effective-n value is a cluster-size sensitivity, not an estimate of outcome ICC, model generalization, power, label consistency, or action efficacy. Exact input overlap invalidates prompt-level train/dev independence for the overlapping groups; label outcomes were not read.",
+  "jev_calls": 0,
+  "model_calls": 0,
+  "protocol": "scienceworld_conductivity_visible_index_v1",
+  "source_defined_label_values_read": false,
+  "split_diagnostic": {
+    "cross_split_shared_exact_hash_groups": 29,
+    "dev": {
+      "cluster_size_frequency": {
+        "1": 42,
+        "10": 1,
+        "15": 1,
+        "2": 1,
+        "4": 2,
+        "5": 3,
+        "6": 7,
+        "7": 1,
+        "9": 1
+      },
+      "kish_effective_n_if_within_hash_outcomes_are_perfectly_dependent": 26.163,
+      "rows": 150,
+      "unique_initial_observation_hashes": 59
+    },
+    "dev_distinct_hashes_without_an_exact_train_input": 30,
+    "dev_rows_with_an_exact_train_input": 120,
+    "dev_rows_without_an_exact_train_input": 30,
+    "train": {
+      "cluster_size_frequency": {
+        "1": 53,
+        "10": 2,
+        "11": 2,
+        "13": 1,
+        "14": 2,
+        "17": 1,
+        "2": 10,
+        "20": 1,
+        "22": 1,
+        "28": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 2,
+        "8": 3,
+        "9": 1
+      },
+      "kish_effective_n_if_within_hash_outcomes_are_perfectly_dependent": 26.102,
+      "rows": 300,
+      "unique_initial_observation_hashes": 83
+    },
+    "train_rows_in_cross_split_shared_groups": 241
+  },
+  "test_rows_read": 0,
+  "upstream_result_sha256": "b88cb8842f5021dca328a0d2c8d323edf509e7e48c0da04f966211f98740d243"
+}
