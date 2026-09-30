@@ -1,0 +1,73 @@
+{
+  "audit_type": "static_source_and_split_contract",
+  "date_local": "2026-09-29T21:10:00-04:00",
+  "source": {
+    "repository": "allenai/ScienceWorld",
+    "revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+    "archive_sha256": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+    "members": {
+      "simulator/src/main/scala/scienceworld/tasks/specifictasks/TaskMendelianGenetics2.scala": "9e1dd24a24900475887a60b9a1c6df022517825d3972f175de1c81b01a542890",
+      "simulator/src/main/scala/scienceworld/runtime/pythonapi/PythonInterface.scala": "86ecec51c9e37fb7881927afb54d18afca452cea92bbfe7d6c718989165fd9d7",
+      "simulator/src/main/scala/scienceworld/tasks/TaskMaker1.scala": "cad10396e6734bad6984001020a13e1ce613ea7b2b43bebfb5ec0b3184d56416",
+      "simulator/src/main/scala/scienceworld/processes/genetics/UnknownPlants.scala": "43b3bab8eed059e6646ad2a6560b1749d498f9028454b1f4abbfd947846497bd"
+    }
+  },
+  "task": "mendelian-genetics-unknown-plant",
+  "variation_structure": {
+    "unknown_plants": 4,
+    "traits_per_plant": 4,
+    "dominance_states_per_trait": 2,
+    "flower_pot_variants": 5,
+    "answer_box_pairs": 3,
+    "total_variations": 480,
+    "official_split": {
+      "train": 240,
+      "development": 120,
+      "test": 120,
+      "test_ids_inclusive": [
+        360,
+        479
+      ]
+    },
+    "variation_id_seeds_task_generation": true,
+    "variation_id_must_be_hidden_from_controller": true
+  },
+  "endpoint_contract": {
+    "primary_candidate": "independently checked dominant/recessive answer-box classification",
+    "official_terminal_goal_requires_correct_classification": true,
+    "offspring_growth_and_life_stage_goals_are_optional": true,
+    "aggregate_score_is_primary": false,
+    "interpretation": "large-effect within-template mechanism candidate only; one task template; no OOD-by-family claim"
+  },
+  "structural_test_exposure": {
+    "variation_ids": [
+      360,
+      420,
+      479
+    ],
+    "labels_or_agent_outcomes_read": false,
+    "exclude_from_untouched_confirmatory_analysis": true,
+    "remaining_outcome_unseen_test_variations": 117
+  },
+  "planning": {
+    "unit": "official variation instance",
+    "paired_discordance_scenario": 0.3,
+    "alpha_two_sided": 0.05,
+    "power": 0.8,
+    "primary_contrasts": 1,
+    "mde_at_n_117": 0.1404,
+    "n_for_5pp": 940,
+    "n_for_3pp": 2614,
+    "method": "paired_binary normal approximation; ignores any within-template dependence and is optimistic"
+  },
+  "evidence_scope": {
+    "model_inference": false,
+    "jev_calls": 0,
+    "outcomes_or_labels_opened": false,
+    "gold_path_archive_extracted_or_executed": false,
+    "intervention_efficacy_established": false,
+    "methods_novelty_established": false,
+    "jev_increment_established": false
+  },
+  "decision": "Promote to leading ScienceWorld development candidate after the receipt-backed DiscoveryWorld baseline is terminal and audited; first qualify ID visibility, natural action frequency, evaluator, model-generated-prefix replay, and cost-matched local/sham/random controls on train/dev only. Preserve 117 outcome-unseen test cases. Jev remains gated on written TypeSafe terms."
+}
