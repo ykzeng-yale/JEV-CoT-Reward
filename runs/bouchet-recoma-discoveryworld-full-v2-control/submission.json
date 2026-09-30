@@ -3,6 +3,18 @@
     "credential_transferred": false,
     "jev_calls": 0
   },
+  "execution_review_20260930": {
+    "allocated_gpu_hours": 0,
+    "allocated_tres": null,
+    "cancelled_at_local": "2026-09-30T16:13:06-04:00",
+    "decision": "cancelled_before_allocation",
+    "elapsed_seconds": 0,
+    "input_preservation": "all immutable full-v2 inputs and historical submission remain preserved",
+    "job_id": "27880628",
+    "next_dependency": "Repair scientific failure accounting, freeze a single-GPU end-to-end qualification, verify outcomes/memory/throughput before any larger request",
+    "reason": "8-GPU/48-hour scale request lacks actual end-to-end adapted-controller GPU runtime/throughput qualification; CPU no-generation preflight is insufficient; review also found malformed-model-JSON failure-handling risk",
+    "sacct_state": "CANCELLED by 22470"
+  },
   "experiment": "recoma_discoveryworld_react_full_v2",
   "host": "bouchet",
   "independent_audit_revision": {
@@ -90,14 +102,14 @@
     "wall_minutes": 2880
   },
   "scheduler": {
-    "allocated_gpu_hours": 0.0,
+    "allocated_gpu_hours": 0,
     "allocated_tres": null,
     "input_checksum_gate": "PASS 2386/2386",
-    "reason": "Priority",
+    "reason": "research validity/resource qualification review",
     "sacct_elapsed": "00:00:00",
     "start_time_estimate": "2026-09-30T20:44:04 EDT",
-    "state": "PENDING",
-    "verified_at_local": "2026-09-29T20:10:00-04:00"
+    "state": "CANCELLED",
+    "verified_at_local": "2026-09-30T16:13:06-04:00"
   },
   "scheduler_observations": [
     {
@@ -134,16 +146,16 @@
       "verified_at_local": "2026-09-29T20:10:00-04:00"
     },
     {
-      "verified_at_local": "2026-09-30T09:12:00-04:00",
-      "job_id": "27880628",
-      "state": "PENDING",
-      "reason": "Priority",
-      "allocated_tres": null,
-      "sacct_elapsed": "00:00:00",
       "allocated_gpu_hours": 0.0,
+      "allocated_tres": null,
+      "decision": "Preserve single pi_fl426/normal request; do not duplicate, alter, or switch accounts. Estimate is nonbinding.",
+      "job_id": "27880628",
+      "reason": "Priority",
+      "sacct_elapsed": "00:00:00",
       "start_time_estimate": "2026-10-01T10:36:58 EDT",
-      "workdir": "/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2",
-      "decision": "Preserve single pi_fl426/normal request; do not duplicate, alter, or switch accounts. Estimate is nonbinding."
+      "state": "PENDING",
+      "verified_at_local": "2026-09-30T09:12:00-04:00",
+      "workdir": "/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2"
     }
   ],
   "submitted_at_local": "2026-09-29T14:41:25-04:00",

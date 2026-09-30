@@ -1,0 +1,752 @@
+{
+  "analysis": "scienceworld_conductivity_action_development_panel",
+  "audited_episode_count": 600,
+  "audited_input_census_rows": 450,
+  "calibration": {
+    "selected_prior": true,
+    "tie_rule": false,
+    "train_positive": 153,
+    "train_total": 300
+  },
+  "claim_limit": "Audited development-panel action evidence only. Six observed substances; descriptive sensitivity is not a population CI. No Jev incremental-value, unseen-test, independent-family transfer, or novel-controller claim.",
+  "development_variations": 150,
+  "independent_audit_sha256": "ee8991227bb2c1df8460ce25777109e012342199d6486b766680d6f463461999",
+  "input_census": {
+    "full": {
+      "conflicting_label_groups": 10,
+      "shared_conflicting_label_groups": 0,
+      "shared_dev_rows": 0,
+      "shared_train_dev_groups": 0,
+      "shared_train_dev_rows": 0,
+      "unique_groups": 427
+    },
+    "look": {
+      "conflicting_label_groups": 28,
+      "shared_conflicting_label_groups": 27,
+      "shared_dev_rows": 120,
+      "shared_train_dev_groups": 29,
+      "shared_train_dev_rows": 361,
+      "unique_groups": 113
+    },
+    "target_groups": {
+      "dev": 6,
+      "shared": 0,
+      "train": 12
+    }
+  },
+  "paired_contrasts": {
+    "measurement-minus-continue_prior": {
+      "outcomes": {
+        "classification_correct": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.49333333333333335,
+              0.56
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.56,
+            "unknown substance P": 0.56,
+            "unknown substance Q": 0.52,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.56,
+            "unknown substance T": 0.44
+          },
+          "ties": 70,
+          "wins": 80
+        },
+        "placement_correct": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.49333333333333335,
+              0.56
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.56,
+            "unknown substance P": 0.56,
+            "unknown substance Q": 0.52,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.56,
+            "unknown substance T": 0.44
+          },
+          "ties": 70,
+          "wins": 80
+        },
+        "task_success": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.49333333333333335,
+              0.56
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.56,
+            "unknown substance P": 0.56,
+            "unknown substance Q": 0.52,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.56,
+            "unknown substance T": 0.44
+          },
+          "ties": 70,
+          "wins": 80
+        }
+      },
+      "primary": false
+    },
+    "measurement-minus-masked_measurement": {
+      "outcomes": {
+        "classification_correct": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.49333333333333335,
+              0.56
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.56,
+            "unknown substance P": 0.56,
+            "unknown substance Q": 0.52,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.56,
+            "unknown substance T": 0.44
+          },
+          "ties": 70,
+          "wins": 80
+        },
+        "placement_correct": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.49333333333333335,
+              0.56
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.56,
+            "unknown substance P": 0.56,
+            "unknown substance Q": 0.52,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.56,
+            "unknown substance T": 0.44
+          },
+          "ties": 70,
+          "wins": 80
+        },
+        "task_success": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.49333333333333335,
+              0.56
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.56,
+            "unknown substance P": 0.56,
+            "unknown substance Q": 0.52,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.56,
+            "unknown substance T": 0.44
+          },
+          "ties": 70,
+          "wins": 80
+        }
+      },
+      "primary": true
+    },
+    "measurement-minus-random_measurement": {
+      "outcomes": {
+        "classification_correct": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.47333333333333333,
+              0.6
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.44,
+            "unknown substance P": 0.52,
+            "unknown substance Q": 0.44,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.68,
+            "unknown substance T": 0.56
+          },
+          "ties": 70,
+          "wins": 80
+        },
+        "placement_correct": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.47333333333333333,
+              0.6
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.44,
+            "unknown substance P": 0.52,
+            "unknown substance Q": 0.44,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.68,
+            "unknown substance T": 0.56
+          },
+          "ties": 70,
+          "wins": 80
+        },
+        "task_success": {
+          "descriptive_group_sensitivity": {
+            "caveat": "Only six observed target substances; not a population confidence interval, confirmatory test, or independent-family transfer estimate.",
+            "central_percentiles": [
+              2.5,
+              97.5
+            ],
+            "groups": 6,
+            "interval": [
+              0.47333333333333333,
+              0.6
+            ],
+            "method": "exact equal-substance cluster bootstrap descriptive sensitivity",
+            "percentile_method": "linear interpolation at (N-1)*p",
+            "population_confidence_interval": false,
+            "resamples": 46656
+          },
+          "difference_percentage_points": 53.333333333333336,
+          "losses": 0,
+          "mean_paired_difference": 0.5333333333333333,
+          "paired_variations": 150,
+          "six_substance_group_mean_differences": {
+            "unknown substance O": 0.44,
+            "unknown substance P": 0.52,
+            "unknown substance Q": 0.44,
+            "unknown substance R": 0.56,
+            "unknown substance S": 0.68,
+            "unknown substance T": 0.56
+          },
+          "ties": 70,
+          "wins": 80
+        }
+      },
+      "primary": false
+    }
+  },
+  "policy_summary": {
+    "continue_prior": {
+      "analyzed_variations": 150,
+      "assigned_variations": 150,
+      "costs": {
+        "executed_actions_including_padding_and_failures": 4800,
+        "intrinsic_actions_known_total": 900,
+        "intrinsic_count_known_episodes": 150,
+        "intrinsic_count_unknown_episodes": 0,
+        "jev_calls": 0,
+        "mean_episode_wall_seconds": 4.548843232529859,
+        "model_calls": 0,
+        "note": "Policy execution wall time excludes calibration, simulator reset census, integration gates, independent replay, and scheduler idle/setup overhead. Use Slurm accounting for allocation costs.",
+        "padding_actions_among_known_episodes": 3900,
+        "summed_episode_wall_seconds": 682.3264848794788
+      },
+      "execution_eligibility": {
+        "answer_decisions_committed": 150,
+        "definition": "Frozen input panel includes all 150; the following are execution diagnostics, never filtering criteria.",
+        "public_measurement_readings_recorded": 0,
+        "six_circuit_connections_completed": 0
+      },
+      "failure_types": {},
+      "failures": 0,
+      "interventions": {
+        "circuit_connection_actions": 0,
+        "episodes_with_circuit_actions": 0
+      },
+      "outcomes": {
+        "classification_correct": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        },
+        "placement_correct": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        },
+        "task_success": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        }
+      }
+    },
+    "masked_measurement": {
+      "analyzed_variations": 150,
+      "assigned_variations": 150,
+      "costs": {
+        "executed_actions_including_padding_and_failures": 4800,
+        "intrinsic_actions_known_total": 2700,
+        "intrinsic_count_known_episodes": 150,
+        "intrinsic_count_unknown_episodes": 0,
+        "jev_calls": 0,
+        "mean_episode_wall_seconds": 3.7708512956866374,
+        "model_calls": 0,
+        "note": "Policy execution wall time excludes calibration, simulator reset census, integration gates, independent replay, and scheduler idle/setup overhead. Use Slurm accounting for allocation costs.",
+        "padding_actions_among_known_episodes": 2100,
+        "summed_episode_wall_seconds": 565.6276943529956
+      },
+      "execution_eligibility": {
+        "answer_decisions_committed": 150,
+        "definition": "Frozen input panel includes all 150; the following are execution diagnostics, never filtering criteria.",
+        "public_measurement_readings_recorded": 150,
+        "six_circuit_connections_completed": 150
+      },
+      "failure_types": {},
+      "failures": 0,
+      "interventions": {
+        "circuit_connection_actions": 900,
+        "episodes_with_circuit_actions": 150
+      },
+      "outcomes": {
+        "classification_correct": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        },
+        "placement_correct": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        },
+        "task_success": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        }
+      }
+    },
+    "measurement": {
+      "analyzed_variations": 150,
+      "assigned_variations": 150,
+      "costs": {
+        "executed_actions_including_padding_and_failures": 4800,
+        "intrinsic_actions_known_total": 2700,
+        "intrinsic_count_known_episodes": 150,
+        "intrinsic_count_unknown_episodes": 0,
+        "jev_calls": 0,
+        "mean_episode_wall_seconds": 3.9671643893482784,
+        "model_calls": 0,
+        "note": "Policy execution wall time excludes calibration, simulator reset census, integration gates, independent replay, and scheduler idle/setup overhead. Use Slurm accounting for allocation costs.",
+        "padding_actions_among_known_episodes": 2100,
+        "summed_episode_wall_seconds": 595.0746584022418
+      },
+      "execution_eligibility": {
+        "answer_decisions_committed": 150,
+        "definition": "Frozen input panel includes all 150; the following are execution diagnostics, never filtering criteria.",
+        "public_measurement_readings_recorded": 150,
+        "six_circuit_connections_completed": 150
+      },
+      "failure_types": {},
+      "failures": 0,
+      "interventions": {
+        "circuit_connection_actions": 900,
+        "episodes_with_circuit_actions": 150
+      },
+      "outcomes": {
+        "classification_correct": {
+          "denominator": 150,
+          "rate": 1,
+          "successes": 150
+        },
+        "placement_correct": {
+          "denominator": 150,
+          "rate": 1,
+          "successes": 150
+        },
+        "task_success": {
+          "denominator": 150,
+          "rate": 1,
+          "successes": 150
+        }
+      }
+    },
+    "random_measurement": {
+      "analyzed_variations": 150,
+      "assigned_variations": 150,
+      "costs": {
+        "executed_actions_including_padding_and_failures": 4800,
+        "intrinsic_actions_known_total": 2700,
+        "intrinsic_count_known_episodes": 150,
+        "intrinsic_count_unknown_episodes": 0,
+        "jev_calls": 0,
+        "mean_episode_wall_seconds": 3.789213295619314,
+        "model_calls": 0,
+        "note": "Policy execution wall time excludes calibration, simulator reset census, integration gates, independent replay, and scheduler idle/setup overhead. Use Slurm accounting for allocation costs.",
+        "padding_actions_among_known_episodes": 2100,
+        "summed_episode_wall_seconds": 568.3819943428971
+      },
+      "execution_eligibility": {
+        "answer_decisions_committed": 150,
+        "definition": "Frozen input panel includes all 150; the following are execution diagnostics, never filtering criteria.",
+        "public_measurement_readings_recorded": 150,
+        "six_circuit_connections_completed": 150
+      },
+      "failure_types": {},
+      "failures": 0,
+      "interventions": {
+        "circuit_connection_actions": 900,
+        "episodes_with_circuit_actions": 150
+      },
+      "outcomes": {
+        "classification_correct": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        },
+        "placement_correct": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        },
+        "task_success": {
+          "denominator": 150,
+          "rate": 0.4666666666666667,
+          "successes": 70
+        }
+      }
+    }
+  },
+  "protocol": "scienceworld_conductivity_action_v1",
+  "protocol_sha256": "6d195e59f41fb41e4212647375e5476b993cae7cd861c725c618e4acef71c719",
+  "result_sha256": "d9c9a5821c68c0852ccae9d36b2b80a8167bd1066e5fe50162d840e09c3a3ebe",
+  "scheduler_costs": {
+    "accounting_source": "results/investment_review_receipted_slurm_costs_20260930.json",
+    "allocated_cpu_hours": 1.912222222222222,
+    "allocated_gpu_hours": 0.0,
+    "exclusion": "Earlier environment/source qualification and local-host work excluded; they remain in broader accounting subtotal.",
+    "included_jobs": [
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 1.4661111111111111,
+        "elapsed_seconds": 2639,
+        "gpu_hours": 0.0,
+        "job": "27950404",
+        "state": "FAILED"
+      },
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 0.002777777777777778,
+        "elapsed_seconds": 5,
+        "gpu_hours": 0.0,
+        "job": "27954539",
+        "state": "FAILED"
+      },
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 0.04055555555555555,
+        "elapsed_seconds": 73,
+        "gpu_hours": 0.0,
+        "job": "27954652",
+        "state": "COMPLETED"
+      },
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 0.005,
+        "elapsed_seconds": 9,
+        "gpu_hours": 0.0,
+        "job": "27954850",
+        "state": "COMPLETED"
+      },
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 0.04833333333333333,
+        "elapsed_seconds": 87,
+        "gpu_hours": 0.0,
+        "job": "27955388",
+        "state": "COMPLETED"
+      },
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 0.017222222222222222,
+        "elapsed_seconds": 31,
+        "gpu_hours": 0.0,
+        "job": "27963721",
+        "state": "CANCELLED by 22470"
+      },
+      {
+        "allocated_cpu_count": 2,
+        "allocated_gpu_count": 0,
+        "cpu_hours": 0.3322222222222222,
+        "elapsed_seconds": 598,
+        "gpu_hours": 0.0,
+        "job": "27964129",
+        "state": "COMPLETED"
+      }
+    ],
+    "status": "Terminal parent Slurm records, including original runner, all post-run diagnoses, cancelled audit and successful full replay; CPU-hours are reserved CPU count times allocation duration, not measured busy CPU time."
+  },
+  "substance_groups": {
+    "unknown substance O": {
+      "policies": {
+        "continue_prior": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "masked_measurement": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "measurement": {
+          "classification_correct": 1,
+          "placement_correct": 1,
+          "task_success": 1
+        },
+        "random_measurement": {
+          "classification_correct": 0.56,
+          "placement_correct": 0.56,
+          "task_success": 0.56
+        }
+      },
+      "variations": 25
+    },
+    "unknown substance P": {
+      "policies": {
+        "continue_prior": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "masked_measurement": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "measurement": {
+          "classification_correct": 1,
+          "placement_correct": 1,
+          "task_success": 1
+        },
+        "random_measurement": {
+          "classification_correct": 0.48,
+          "placement_correct": 0.48,
+          "task_success": 0.48
+        }
+      },
+      "variations": 25
+    },
+    "unknown substance Q": {
+      "policies": {
+        "continue_prior": {
+          "classification_correct": 0.48,
+          "placement_correct": 0.48,
+          "task_success": 0.48
+        },
+        "masked_measurement": {
+          "classification_correct": 0.48,
+          "placement_correct": 0.48,
+          "task_success": 0.48
+        },
+        "measurement": {
+          "classification_correct": 1,
+          "placement_correct": 1,
+          "task_success": 1
+        },
+        "random_measurement": {
+          "classification_correct": 0.56,
+          "placement_correct": 0.56,
+          "task_success": 0.56
+        }
+      },
+      "variations": 25
+    },
+    "unknown substance R": {
+      "policies": {
+        "continue_prior": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "masked_measurement": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "measurement": {
+          "classification_correct": 1,
+          "placement_correct": 1,
+          "task_success": 1
+        },
+        "random_measurement": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        }
+      },
+      "variations": 25
+    },
+    "unknown substance S": {
+      "policies": {
+        "continue_prior": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "masked_measurement": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        },
+        "measurement": {
+          "classification_correct": 1,
+          "placement_correct": 1,
+          "task_success": 1
+        },
+        "random_measurement": {
+          "classification_correct": 0.32,
+          "placement_correct": 0.32,
+          "task_success": 0.32
+        }
+      },
+      "variations": 25
+    },
+    "unknown substance T": {
+      "policies": {
+        "continue_prior": {
+          "classification_correct": 0.56,
+          "placement_correct": 0.56,
+          "task_success": 0.56
+        },
+        "masked_measurement": {
+          "classification_correct": 0.56,
+          "placement_correct": 0.56,
+          "task_success": 0.56
+        },
+        "measurement": {
+          "classification_correct": 1,
+          "placement_correct": 1,
+          "task_success": 1
+        },
+        "random_measurement": {
+          "classification_correct": 0.44,
+          "placement_correct": 0.44,
+          "task_success": 0.44
+        }
+      },
+      "variations": 25
+    }
+  },
+  "target_substance_groups": 6
+}

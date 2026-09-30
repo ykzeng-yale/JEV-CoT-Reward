@@ -1,0 +1,252 @@
+{
+  "scope": "Unique parent Slurm jobs discovered in local submission/process/resource receipts; not guaranteed exhaustive of all historical project jobs or local Mac inference",
+  "receipt_jobs": 27,
+  "accounting_parent_records": 27,
+  "gpu_hours": 3.6833333333333336,
+  "cpu_hours": 17.741944444444442,
+  "jobs": [
+    {
+      "job": "27713897",
+      "state": "FAILED",
+      "elapsed_seconds": 23,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.006388888888888889,
+      "cpu_hours": 0.025555555555555557
+    },
+    {
+      "job": "27714091",
+      "state": "FAILED",
+      "elapsed_seconds": 102,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.028333333333333332,
+      "cpu_hours": 0.11333333333333333
+    },
+    {
+      "job": "27714861",
+      "state": "COMPLETED",
+      "elapsed_seconds": 215,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.059722222222222225,
+      "cpu_hours": 0.2388888888888889
+    },
+    {
+      "job": "27717762",
+      "state": "COMPLETED",
+      "elapsed_seconds": 870,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.24166666666666667,
+      "cpu_hours": 0.9666666666666667
+    },
+    {
+      "job": "27719471",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1436,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.3988888888888889,
+      "cpu_hours": 1.5955555555555556
+    },
+    {
+      "job": "27724738",
+      "state": "COMPLETED",
+      "elapsed_seconds": 1577,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.43805555555555553,
+      "cpu_hours": 1.7522222222222221
+    },
+    {
+      "job": "27727778",
+      "state": "COMPLETED",
+      "elapsed_seconds": 5617,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 1.5602777777777779,
+      "cpu_hours": 6.2411111111111115
+    },
+    {
+      "job": "27857096",
+      "state": "FAILED",
+      "elapsed_seconds": 166,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.04611111111111111,
+      "cpu_hours": 0.18444444444444444
+    },
+    {
+      "job": "27858691",
+      "state": "COMPLETED",
+      "elapsed_seconds": 3254,
+      "allocated_gpu_count": 1,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.9038888888888889,
+      "cpu_hours": 3.6155555555555554
+    },
+    {
+      "job": "27868803",
+      "state": "COMPLETED",
+      "elapsed_seconds": 303,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 1,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.08416666666666667
+    },
+    {
+      "job": "27880628",
+      "state": "CANCELLED by 22470",
+      "elapsed_seconds": 0,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 0,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.0
+    },
+    {
+      "job": "27913546",
+      "state": "COMPLETED",
+      "elapsed_seconds": 87,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.09666666666666666
+    },
+    {
+      "job": "27916067",
+      "state": "COMPLETED",
+      "elapsed_seconds": 126,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.14
+    },
+    {
+      "job": "27927761",
+      "state": "FAILED",
+      "elapsed_seconds": 142,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.07888888888888888
+    },
+    {
+      "job": "27937039",
+      "state": "FAILED",
+      "elapsed_seconds": 70,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.03888888888888889
+    },
+    {
+      "job": "27937234",
+      "state": "FAILED",
+      "elapsed_seconds": 48,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.02666666666666667
+    },
+    {
+      "job": "27939987",
+      "state": "COMPLETED",
+      "elapsed_seconds": 262,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.2911111111111111
+    },
+    {
+      "job": "27940549",
+      "state": "FAILED",
+      "elapsed_seconds": 76,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.08444444444444445
+    },
+    {
+      "job": "27941095",
+      "state": "FAILED",
+      "elapsed_seconds": 34,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.03777777777777778
+    },
+    {
+      "job": "27941320",
+      "state": "COMPLETED",
+      "elapsed_seconds": 196,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 4,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.21777777777777776
+    },
+    {
+      "job": "27950404",
+      "state": "FAILED",
+      "elapsed_seconds": 2639,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 1.4661111111111111
+    },
+    {
+      "job": "27954539",
+      "state": "FAILED",
+      "elapsed_seconds": 5,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.002777777777777778
+    },
+    {
+      "job": "27954652",
+      "state": "COMPLETED",
+      "elapsed_seconds": 73,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.04055555555555555
+    },
+    {
+      "job": "27954850",
+      "state": "COMPLETED",
+      "elapsed_seconds": 9,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.005
+    },
+    {
+      "job": "27955388",
+      "state": "COMPLETED",
+      "elapsed_seconds": 87,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.04833333333333333
+    },
+    {
+      "job": "27963721",
+      "state": "CANCELLED by 22470",
+      "elapsed_seconds": 31,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.017222222222222222
+    },
+    {
+      "job": "27964129",
+      "state": "COMPLETED",
+      "elapsed_seconds": 598,
+      "allocated_gpu_count": 0,
+      "allocated_cpu_count": 2,
+      "gpu_hours": 0.0,
+      "cpu_hours": 0.3322222222222222
+    }
+  ]
+}
