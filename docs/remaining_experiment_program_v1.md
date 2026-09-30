@@ -1,5 +1,11 @@
 # Remaining experiment program, version 1
 
+## September 30, 13:35 EDT — context-aligned replay diagnostic pending
+
+Three fresh-load repetitions from job **27954850** were internally stable but began from a different legal-action set than the recorded experiment, despite matching the observation text. Because they omitted the preceding 450-row census and 3 training integration traces, they do not test replay of the original trajectory context; preserve them as a diagnostic limitation, not a scientific result. No outcome data were accessed.
+
+Job **27955388** now reproduces that exact visible prelude and then the first variation303/measurement action, three times in new JVMs. It is pending under `pi_fl426` normal `day`, 2 CPUs/8 GiB/45 minutes, no GPU; the sanitized inputs and exact hashes are in `replay-context-receipt.json`. The main ReCoMA run **27880628** remains pending/no allocation. If the recorded initial/transition states still cannot be matched after this prelude, stop the conductivity panel as unreplayable; only a complete independent replay can unblock sealed rate analysis.
+
 ## September 30, 13:23 EDT — action transition reproducibility remains unresolved
 
 Corrected diagnostic job **27954652** completed successfully (73 seconds; 2 CPUs/8 GiB; MaxRSS 1,475,296 KiB; 0 GPU-hours). It reproduced the 450/450 census and matched the saved complete initial view for variation303/measurement, but the first action `open door to hallway` produced a different post-action view hash at trace index 0. It did not reach the measurement or terminal outcome; no outcomes were read. The initial failed diagnostic `27954539` was only a staging path defect, preserved separately. Details and checksums are in `diagnosis-retry1-receipt.json`.

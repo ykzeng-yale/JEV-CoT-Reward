@@ -1,5 +1,11 @@
 # Bouchet execution track
 
+## September 30, 13:35 EDT — exact runner prelude now being reproduced
+
+Three fresh `load(303)` replays in **27954850** produced a stable post-action hash but did not match the saved initial full-view hash; the observation digest matched while the legal-action set did not. That test omitted the experiment's preceding census and integration actions, so it is not a valid equivalence check for the saved execution. Its verified output is preserved at `replay-repeat-retrieved/27954850/`; no endpoints or success fields were read.
+
+The next bounded forensic job **27955388** repeats the original visible census order (0–449) and the three saved training-integration action traces before the target transition, in three independent fresh JVMs. Sanitized inputs exclude labels/predictions/endpoints, and output is hashes/mismatch indices only. At the latest authenticated check it was `PENDING`, with zero allocated CPU/GPU resources; **27880628** remains pending with no GPU allocation. Completed diagnostics have used 0.0483 CPU-hours and 0 GPU-hours in total; no model/token, hosted-judge or Jev calls occurred. A matching transition would justify an audit-only full saved-record replay. A mismatch in this faithful prelude context means the fixed episode panel cannot pass independent runtime validation and should be closed as unauditable, without treatment reruns or outcome-rate analysis.
+
 ## September 30, 13:23 EDT — first transition mismatch isolated
 
 The corrected trace diagnostic **27954652** completed successfully in 73 seconds (2 CPUs, 8 GiB; peak RSS 1,475,296 KiB; 0 GPU-hours). Checksums pass on both remote and retrieved output. The initial full-view hash and task-description target match the saved variation303/measurement record; replaying its first action, `open door to hallway`, immediately gives a different post-action visible-view hash. The diagnostic replayed the 450 census rows but reached only one action in this episode. Reading digest and terminal endpoint are null; no outcome fields/rates were inspected. This is a state-transition reproducibility discrepancy, not evidence of policy failure.

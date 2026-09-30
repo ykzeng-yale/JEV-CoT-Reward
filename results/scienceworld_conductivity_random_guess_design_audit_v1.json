@@ -1,0 +1,55 @@
+{
+  "audit": "frozen_random_guess_assignment_only",
+  "checks": {
+    "coverage_exact": true,
+    "no_group_collapsed_to_one_bit": true,
+    "reads_census_label_flags_or_calibration": false,
+    "uses_endpoint_or_outcome_fields": false,
+    "uses_variation_id": false
+  },
+  "development_rows": 150,
+  "distinct_full_visible_inputs": 147,
+  "duplicate_full_input_rows": 3,
+  "groups": {
+    "unknown substance O": {
+      "distinct_guess_bits": 2,
+      "guess_ones": 10,
+      "guess_zeros": 15,
+      "rows": 25
+    },
+    "unknown substance P": {
+      "distinct_guess_bits": 2,
+      "guess_ones": 14,
+      "guess_zeros": 11,
+      "rows": 25
+    },
+    "unknown substance Q": {
+      "distinct_guess_bits": 2,
+      "guess_ones": 11,
+      "guess_zeros": 14,
+      "rows": 25
+    },
+    "unknown substance R": {
+      "distinct_guess_bits": 2,
+      "guess_ones": 13,
+      "guess_zeros": 12,
+      "rows": 25
+    },
+    "unknown substance S": {
+      "distinct_guess_bits": 2,
+      "guess_ones": 10,
+      "guess_zeros": 15,
+      "rows": 25
+    },
+    "unknown substance T": {
+      "distinct_guess_bits": 2,
+      "guess_ones": 10,
+      "guess_zeros": 15,
+      "rows": 25
+    }
+  },
+  "guess_ones": 68,
+  "guess_zeros": 82,
+  "interpretation": "Deterministic seeded hash allocation over the full visible-input hash; balance is descriptive for this fixed panel, not proof of independent population sampling or a Jev comparison.",
+  "random_seed": 20260930
+}
