@@ -1,0 +1,60 @@
+{
+  "account": "pi_fl426",
+  "allocated_resources": null,
+  "elapsed": "00:00:34",
+  "ended_at": "2026-09-30T07:51:56-04:00",
+  "experiment": "scienceworld_conductivity_duplicate_observation_label_consistency_v1b",
+  "failure_artifact_path": "runs/bouchet-scienceworld-conductivity-duplicate-label-v1b-control/failed/27941095/evidence.tar.gz",
+  "failure_artifact_sha256": "9f89715e0921ded8a1f20fe21338ea00aaad12656df93604d15d452b8032b44d",
+  "failure_cause": "After invoking Scala agentInterface/task/taskModifiers getters, the runner called key() on a TaskObject modifier, which has no key method. It failed on variation 0 before label extraction and before writing any result row. This is a heterogeneous TaskModifier subtype issue.",
+  "failure_lineage": {
+    "failed_artifact_path": "runs/bouchet-scienceworld-conductivity-duplicate-label-v1-control/failed/27940549/",
+    "first_attempt_cause": "Py4J/Scala accessor invocation bug in source_label; fixed by invoking agentInterface(), task(), taskModifiers(), key(), and value().",
+    "first_attempt_exit_code": "1:0",
+    "first_attempt_job_id": "27940549",
+    "first_attempt_state": "FAILED"
+  },
+  "gpu_hours": 0,
+  "input_hashes": {
+    "audit_scienceworld_conductivity_duplicate_observation_label_consistency.py": "545b04e94add0b2e27034008e5faae175b476da40e774de081f0d52d4f222a3b",
+    "py4j.lock": "0ef29fd4bcf6b916bdd7be97eb054d19d4a0b5db506fd21c3e483d617b36e394",
+    "run_scienceworld_conductivity_duplicate_observation_label_consistency.py": "474f274cabce27b2484ce27599f58a411cda19785afd03f14ba3c0cd894ac257",
+    "scienceworld-source.tar.gz": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+    "scienceworld_conductivity_duplicate_observation_label_consistency_v1.json": "2128ef8d2fb2d599bbe2c2f218df875ad70f165a103455d705469ba391bad509",
+    "scienceworld_conductivity_duplicate_observation_label_consistency_v1b.sbatch": "01a4d03cf001b39c92b93aca79f5e82d00ce2721dc95fcbfdbb66ea3aa71356d",
+    "wheelhouse/py4j-0.10.9.9-py2.py3-none-any.whl": "c7c26e4158defb37b0bb124933163641a2ff6e3a3913f7811b0ddbe07ed61533"
+  },
+  "input_manifest_sha256": "843f423818f0b7c0f35344cf9ac1b81f656cb95f40a9d4b86d238826f146a971",
+  "input_transfer_sha256_verification": "passed 7/7 before submission",
+  "job_id": "27941095",
+  "max_rss": "291568K",
+  "output": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1b/runs/27941095",
+  "partition": "day",
+  "protocol": "configs/scienceworld_conductivity_duplicate_observation_label_consistency_v1.json",
+  "purpose": "Read source-defined unknownIsConductive only for train/dev rows and test exact duplicate-observation label consistency; export no raw label values or observations. No test, score, reward, model, Jev, network, or gold-path calls.",
+  "qos": "normal",
+  "resources_requested": {
+    "cpus": 4,
+    "gpus": 0,
+    "memory_gib": 16,
+    "wall_minutes": 45
+  },
+  "retry_decision": "One subtype-filter correction was prepared and submitted as final bounded v1c job 27941320; no further retry if this attempt fails.",
+  "route": "mac-aux -> authenticated Bouchet",
+  "squeue_reason": "None",
+  "start_time": "Unknown",
+  "started_at": "2026-09-30T07:51:22-04:00",
+  "state_at_receipt": "PENDING",
+  "stderr_sha256": "cf91fe3e0577b7c3edc883a7083979a17d3b9a52ffebc8893a1c8e64dfbfb4c8",
+  "stdout_sha256": "cdfc062b29666333e4923f724f08956fae275193dda13e8018e0c81c4f918d1a",
+  "submitted_at": "2026-09-30T07:50:11-04:00",
+  "terminal_allocated_resources": {
+    "cpus": 4,
+    "gpus": 0,
+    "memory_gib": 16
+  },
+  "terminal_exit_code": "1:0",
+  "terminal_status": "FAILED",
+  "test_only_forecast": "Job 27941094 estimated start 2026-09-30T21:30:02 on day; forecast is not a reservation",
+  "workdir": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1b/inputs"
+}

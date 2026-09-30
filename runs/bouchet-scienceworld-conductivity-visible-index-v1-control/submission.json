@@ -1,0 +1,63 @@
+{
+  "experiment": "scienceworld_conductivity_visible_index_v1",
+  "host": "bouchet",
+  "input_file_count": 6,
+  "input_hashes": {
+    "audit_scienceworld_conductivity_visible_index_result.py": "063774ef1663e126c7bc1d09fcb775e3d85571610200df551236391088d30c71",
+    "py4j.lock": "0ef29fd4bcf6b916bdd7be97eb054d19d4a0b5db506fd21c3e483d617b36e394",
+    "run_scienceworld_conductivity_visible_index.py": "a314c491dcc0acad9720ca0878c9d3833ed7d47bf12afc134a50f2be970e733a",
+    "scienceworld-source.tar.gz": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+    "scienceworld_conductivity_visible_index_v1.json": "0ee9b59600f52170cef601ccacaea82904de9c2851383999e568bd4be7e0ec3b",
+    "wheelhouse/py4j-0.10.9.9-py2.py3-none-any.whl": "c7c26e4158defb37b0bb124933163641a2ff6e3a3913f7811b0ddbe07ed61533"
+  },
+  "input_manifest_sha256": "4e6c9564d1e2fce4254e983a902ba30f5385919564c809f393fb917c3e94224b",
+  "interpretation": "Pending infrastructure only. No observations or outcomes available until job terminates and independent audit passes.",
+  "job_id": "27939987",
+  "parallel_job_27880628": {
+    "account": "pi_fl426",
+    "allocated_gpu_hours": 0.0,
+    "allocated_tres": null,
+    "state": "PENDING",
+    "workdir": "/nfs/roberts/project/pi_fl426/yz2324/discoveryworld-recoma-react-full-v2"
+  },
+  "pre_submit_checks": {
+    "bash_syntax": "passed",
+    "focused_tests": "5 passed",
+    "python_compile": "passed",
+    "remote_sha256sum": "6/6 passed",
+    "remote_storage": "project filesystem 14% used; user home quota 126 GiB",
+    "sbatch_test_only": "eligible; predicted node/start are not reservations"
+  },
+  "protocol": "configs/scienceworld_conductivity_visible_index_v1.json",
+  "protocol_sha256": "0ee9b59600f52170cef601ccacaea82904de9c2851383999e568bd4be7e0ec3b",
+  "remote_root": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-visible-index-v1",
+  "request": {
+    "account": "pi_fl426",
+    "cpus": 4,
+    "gpus": 0,
+    "memory_gib": 16,
+    "nodes": 1,
+    "partition": "day",
+    "qos": "normal",
+    "wall_minutes": 45
+  },
+  "retry_submitted": false,
+  "sbatch": "cluster/bouchet/scienceworld_conductivity_visible_index_v1.sbatch",
+  "sbatch_sha256": "1cbedb5f999a41e8037d6d5dd097df965ed337cff6924453b13dfaefc93af2e7",
+  "scheduler_snapshot": {
+    "allocated_gpu_hours": 0.0,
+    "allocated_tres": null,
+    "elapsed": "00:00:00",
+    "exit_code": "0:0",
+    "job_id": "27939987",
+    "reason": "None",
+    "state": "PENDING",
+    "verified_at_local": "2026-09-30T07:16:22-04:00",
+    "workdir": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-visible-index-v1"
+  },
+  "scope": "Train/dev-only initial reset observation decoder audit for the public conductivity task-combination index; test 450-599 never loaded. No label/score/reward values, model, Jev, network, or gold paths.",
+  "source_archive_sha256": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "submit_response": "27939987",
+  "submitted_at_local": "2026-09-30T07:15:54-04:00"
+}

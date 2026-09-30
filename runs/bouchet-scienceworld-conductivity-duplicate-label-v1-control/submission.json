@@ -1,0 +1,55 @@
+{
+  "account": "pi_fl426",
+  "allocated_resources": null,
+  "elapsed": "00:01:16",
+  "ended_at": "2026-09-30T07:43:15-04:00",
+  "experiment": "scienceworld_conductivity_duplicate_observation_label_consistency_v1",
+  "failed_artifact_sha256": {
+    "run.tar.gz": "d8790941d88ee4720087292fcb6aa89d5eabdaa2710e8f08ddfec59a1678ea0b",
+    "slurm.err": "2ef2fc3f8e2764e8ba7f1e4b3d65154552859c7e4da040066bc04ddbab1cb404",
+    "slurm.out": "1d52a7d8c3908deff9910c0510aaf28759eb1e838b766642e5ac185b5c48b8e8"
+  },
+  "failed_artifacts": "runs/bouchet-scienceworld-conductivity-duplicate-label-v1-control/failed/27940549/",
+  "failure_cause": "Runner failed at first source-label extraction: Scala accessor agentInterface was treated as a Python field rather than invoked as agentInterface(). No label was read and no result row was written.",
+  "gpu_hours": 0,
+  "input_hashes": {
+    "audit_scienceworld_conductivity_duplicate_observation_label_consistency.py": "839dc756271a9fc62bd49d598e070bbaa7514dd67d757aa20fbbefc448c0cfb7",
+    "py4j.lock": "0ef29fd4bcf6b916bdd7be97eb054d19d4a0b5db506fd21c3e483d617b36e394",
+    "run_scienceworld_conductivity_duplicate_observation_label_consistency.py": "be1cb2bbf6d0a57397b9b38161c7ad0ba2c94aea9ab8f59f5227ff8ded6d96f0",
+    "scienceworld-source.tar.gz": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+    "scienceworld_conductivity_duplicate_observation_label_consistency_v1.json": "2128ef8d2fb2d599bbe2c2f218df875ad70f165a103455d705469ba391bad509",
+    "scienceworld_conductivity_duplicate_observation_label_consistency_v1.sbatch": "17bb789a79e97336df1ae70746807cfd55000fdd18c01d6a4067b3beddc2f6e2",
+    "wheelhouse/py4j-0.10.9.9-py2.py3-none-any.whl": "c7c26e4158defb37b0bb124933163641a2ff6e3a3913f7811b0ddbe07ed61533"
+  },
+  "input_manifest_sha256": "a7d2c9b2a08330a370bceff0e5e6516067cdad63a4d90ab55d8b5998bf6db6fd",
+  "input_transfer_sha256_verification": "passed 7/7 before submission",
+  "job_id": "27940549",
+  "max_rss": "275924K",
+  "output": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1/runs/27940549",
+  "partition": "day",
+  "protocol": "configs/scienceworld_conductivity_duplicate_observation_label_consistency_v1.json",
+  "purpose": "Read source-defined unknownIsConductive only for train/dev rows and test exact-initial-observation label consistency; export no label values or raw observations. No test, score, reward, model, Jev, network, or gold-path calls.",
+  "qos": "normal",
+  "resources_requested": {
+    "cpus": 4,
+    "gpus": 0,
+    "memory_gib": 16,
+    "wall_minutes": 45
+  },
+  "retry_decision": "One bounded v1b retry is justified by a precise Py4J/Scala accessor fix; preserve this failure and do not reuse its work directory.",
+  "route": "mac-aux -> authenticated Bouchet",
+  "squeue_reason": "None",
+  "start_time": "Unknown",
+  "started_at": "2026-09-30T07:41:59-04:00",
+  "state_at_receipt": "PENDING",
+  "submitted_at": "2026-09-30T07:38:50-04:00",
+  "terminal_allocated_resources": {
+    "cpus": 4,
+    "gpus": 0,
+    "memory_gib": 16
+  },
+  "terminal_exit_code": "1:0",
+  "terminal_status": "FAILED",
+  "test_only_forecast": "Job 27940520 estimated start 2026-09-30T21:12:40 on day; forecast is not a reservation",
+  "workdir": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1/inputs"
+}

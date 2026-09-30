@@ -1,0 +1,127 @@
+{
+  "protocol": "scienceworld_conductivity_visible_index_v1",
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "source_archive": "runs/scienceworld-prefix-replay-v1-control/artifacts/inputs/scienceworld-source.tar.gz",
+  "source_archive_sha256": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+  "task": "test-conductivity-of-unknown-substances",
+  "expected_scienceworld_version": "1.3.0",
+  "splits": {
+    "train": {
+      "start_inclusive": 0,
+      "end_exclusive": 300
+    },
+    "dev": {
+      "start_inclusive": 300,
+      "end_exclusive": 450
+    },
+    "test": {
+      "start_inclusive": 450,
+      "end_exclusive": 600
+    }
+  },
+  "source_members": {
+    "conductivity_task": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/tasks/specifictasks/TaskElectricalConductivity2.scala",
+      "sha256": "e089a1210b92573e2e619d5cbd71a79021f183b1b7424a197e0202f2128e849d"
+    },
+    "python_interface": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/runtime/pythonapi/PythonInterface.scala",
+      "sha256": "86ecec51c9e37fb7881927afb54d18afca452cea92bbfe7d6c718989165fd9d7"
+    },
+    "task_maker": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/tasks/TaskMaker1.scala",
+      "sha256": "cad10396e6734bad6984001020a13e1ce613ea7b2b43bebfb5ec0b3184d56416"
+    },
+    "unknown_substances": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/taskitems/UnknownSubstance.scala",
+      "sha256": "fcec7a879fce932956d4a5981532e4a72989c088fea5ea0594d3ff6a6b6298ab"
+    },
+    "answer_box": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/taskitems/AnswerBox.scala",
+      "sha256": "de0c35c61880be659446e9939645375b9f78c7b37b4543f37c5724f0b94e9135"
+    },
+    "light_bulb": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/electricalcomponent/LightBulb.scala",
+      "sha256": "286ca252f0b7c0848b187081b6f5c49cf83674b89b2c7491331f36de2af8b896"
+    },
+    "electric_motor": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/electricalcomponent/ElectricMotor.scala",
+      "sha256": "eb6a6d58155153852f4985672f5c9870cc30cea49dc4db795be510e2aba453df"
+    },
+    "electric_buzzer": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/electricalcomponent/ElectricBuzzer.scala",
+      "sha256": "ab3256638fe9d999798376fb3e464695530132921a434c96a284eac4148ed131"
+    }
+  },
+  "recovery_rule": {
+    "letter_order": [
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z"
+    ],
+    "combination_order": "unknownSubstancesSorted outer, powerSource singleton, partToPower (5) middle, answerBoxes (5) inner",
+    "index_formula": "letter_index * 25 + part_index * 5 + answer_box_pair_index",
+    "part_names": [
+      "red light bulb",
+      "green light bulb",
+      "blue light bulb",
+      "electric motor",
+      "electric buzzer"
+    ],
+    "answer_box_pairs": [
+      [
+        "red box",
+        "green box"
+      ],
+      [
+        "green box",
+        "blue box"
+      ],
+      [
+        "blue box",
+        "orange box"
+      ],
+      [
+        "orange box",
+        "yellow box"
+      ],
+      [
+        "yellow box",
+        "purple box"
+      ]
+    ]
+  },
+  "scope": "Train/dev reset observations only. Test variations are never loaded. The audit tests whether public task wording and initial visible scene identify the source combination index; it does not read answer labels, scores, rewards, outcome fields, or gold paths.",
+  "output_policy": "Only split/id, observation SHA-256, visibility booleans, candidate-count aggregates, and recovered-index equality booleans. Never write raw task descriptions/observations, answer labels, conductivity values, info values, scores, rewards, model text, or test records.",
+  "limits": {
+    "wall_minutes": 45,
+    "cpus": 4,
+    "memory_gib": 16,
+    "gpus": 0,
+    "model_calls": 0,
+    "jev_calls": 0,
+    "network_calls": 0,
+    "gold_paths": false
+  }
+}

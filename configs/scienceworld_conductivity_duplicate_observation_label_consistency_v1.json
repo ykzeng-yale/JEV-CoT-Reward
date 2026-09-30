@@ -1,0 +1,36 @@
+{
+  "protocol": "scienceworld_conductivity_duplicate_observation_label_consistency_v1",
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "source_archive": "scienceworld-source.tar.gz",
+  "source_archive_sha256": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+  "upstream_result_sha256": "b88cb8842f5021dca328a0d2c8d323edf509e7e48c0da04f966211f98740d243",
+  "task": "test-conductivity-of-unknown-substances",
+  "expected_scienceworld_version": "1.3.0",
+  "splits": {
+    "train": {"start_inclusive": 0, "end_exclusive": 300},
+    "dev": {"start_inclusive": 300, "end_exclusive": 450},
+    "test": {"start_inclusive": 450, "end_exclusive": 600}
+  },
+  "label_key": "unknownIsConductive",
+  "source_members": {
+    "conductivity_task": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/tasks/specifictasks/TaskElectricalConductivity2.scala",
+      "sha256": "e089a1210b92573e2e619d5cbd71a79021f183b1b7424a197e0202f2128e849d"
+    },
+    "python_interface": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/runtime/pythonapi/PythonInterface.scala",
+      "sha256": "86ecec51c9e37fb7881927afb54d18afca452cea92bbfe7d6c718989165fd9d7"
+    },
+    "task_maker": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/tasks/TaskMaker1.scala",
+      "sha256": "cad10396e6734bad6984001020a13e1ce613ea7b2b43bebfb5ec0b3184d56416"
+    },
+    "unknown_substances": {
+      "path": "scienceworld-source/simulator/src/main/scala/scienceworld/objects/taskitems/UnknownSubstance.scala",
+      "sha256": "fcec7a879fce932956d4a5981532e4a72989c088fea5ea0594d3ff6a6b6298ab"
+    }
+  },
+  "scope": "Development-only source-validity audit over official train IDs 0-299 and dev IDs 300-449. It reads only the task's source-defined unknownIsConductive bit to assess whether exact duplicate initial controller inputs can have conflicting labels. Test IDs 450-599 are never loaded. No agent actions, score, reward, gold path, model, Jev, or network calls.",
+  "output_policy": "Write one row per train/dev variation with split, variation ID, initial-observation SHA-256, and whether its hidden label equals the lowest-ID row with the same observation hash. Never write the label bit or raw observation/description. Report only group-level consistency and split-overlap aggregates.",
+  "limits": {"wall_minutes": 45, "cpus": 4, "memory_gib": 16, "gpus": 0, "max_result_bytes": 2000000, "max_bundle_bytes": 60000000, "model_calls": 0, "jev_calls": 0, "network_calls": 0, "gold_paths": false}
+}

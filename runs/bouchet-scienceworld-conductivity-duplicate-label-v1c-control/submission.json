@@ -1,0 +1,63 @@
+{
+  "account": "pi_fl426",
+  "allocated_resources": null,
+  "experiment": "scienceworld_conductivity_duplicate_observation_label_consistency_v1c",
+  "failure_lineage": [
+    {
+      "cause": "Scala agentInterface was accessed as a Python field; Py4J exposed JavaMember and required invoking agentInterface(). No labels read or result row written.",
+      "elapsed": "00:01:16",
+      "exit_code": "1:0",
+      "gpu_hours": 0,
+      "job_id": "27940549",
+      "max_rss": "275924K",
+      "state": "FAILED",
+      "stderr_sha256": "2ef2fc3f8e2764e8ba7f1e4b3d65154552859c7e4da040066bc04ddbab1cb404"
+    },
+    {
+      "cause": "After getter fix, taskModifiers iteration called key() on a TaskObject subtype that has no key method. Failure occurred on variation 0 before result output.",
+      "elapsed": "00:00:34",
+      "exit_code": "1:0",
+      "gpu_hours": 0,
+      "job_id": "27941095",
+      "max_rss": "291568K",
+      "preserved_bundle": "runs/bouchet-scienceworld-conductivity-duplicate-label-v1b-control/failed/27941095/evidence.tar.gz",
+      "preserved_bundle_sha256": "9f89715e0921ded8a1f20fe21338ea00aaad12656df93604d15d452b8032b44d",
+      "state": "FAILED",
+      "stderr_sha256": "cf91fe3e0577b7c3edc883a7083979a17d3b9a52ffebc8893a1c8e64dfbfb4c8",
+      "stdout_sha256": "cdfc062b29666333e4923f724f08956fae275193dda13e8018e0c81c4f918d1a"
+    }
+  ],
+  "gpu_hours": 0,
+  "input_hashes": {
+    "audit_scienceworld_conductivity_duplicate_observation_label_consistency.py": "a27a5bd62be0007f0ffcfacf10878a0eea361e0fa1809a971580a6b9c17261a1",
+    "py4j.lock": "0ef29fd4bcf6b916bdd7be97eb054d19d4a0b5db506fd21c3e483d617b36e394",
+    "run_scienceworld_conductivity_duplicate_observation_label_consistency.py": "9f37a00b2909a215255a00c4d09c78b0d477905f58b1164958b1416692e958f2",
+    "scienceworld-source.tar.gz": "b5977fdf71fecaa3cc3985caa9a2f295569db96031ed453041f0e3eef3a6d41b",
+    "scienceworld_conductivity_duplicate_observation_label_consistency_v1.json": "2128ef8d2fb2d599bbe2c2f218df875ad70f165a103455d705469ba391bad509",
+    "scienceworld_conductivity_duplicate_observation_label_consistency_v1c.sbatch": "8d993bfd3e9120adacd841fe157517f891f72008b9f7cf1073743c447c5b8fa7",
+    "wheelhouse/py4j-0.10.9.9-py2.py3-none-any.whl": "c7c26e4158defb37b0bb124933163641a2ff6e3a3913f7811b0ddbe07ed61533"
+  },
+  "input_manifest_sha256": "478703bba109458a540be5f5e1eb15166fd5e2a589561215d060545b1f8d0aee",
+  "input_transfer_sha256_verification": "passed 7/7 before submission",
+  "job_id": "27941320",
+  "output": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1c/runs/27941320",
+  "partition": "day",
+  "protocol": "configs/scienceworld_conductivity_duplicate_observation_label_consistency_v1.json",
+  "purpose": "Read source-defined unknownIsConductive only for train/dev rows and compare labels among exact duplicate initial observations. Export no label values or raw observations. Never load test, score, reward, model, Jev, network, or gold paths.",
+  "qos": "normal",
+  "resources_requested": {
+    "cpus": 4,
+    "gpus": 0,
+    "memory_gib": 16,
+    "wall_minutes": 45
+  },
+  "retry_decision": "v1c is one final bounded correction after two distinct bridge defects (getter invocation, then heterogeneous modifier subtype). If v1c fails, stop this dynamic audit and leave label consistency unresolved; no further retry without redesign.",
+  "route": "mac-aux -> authenticated Bouchet",
+  "start_time": "Unknown",
+  "state_at_receipt": "PENDING",
+  "submitted_at": "2026-09-30T07:57:06-04:00",
+  "test_only_forecast": "Job 27941319 estimated start 2026-09-30T21:28:05 on day; forecast is not a reservation",
+  "v1c_fix": "Filter modifier proxies by Java runtime getClass().getSimpleName() == TaskValueBool before invoking key()/value() in both runner and independent replay auditor; test mixed list with a key-less TaskObject first.",
+  "v1c_validation": "Focused adapter test passes 2/2; Python compile, sbatch bash -n, and remote 7/7 SHA-256 input checks passed. No Java runtime exists on lead or mini for local simulator smoke testing; no model/inference launched.",
+  "workdir": "/nfs/roberts/project/pi_fl426/yz2324/scienceworld-conductivity-duplicate-label-v1c/inputs"
+}
