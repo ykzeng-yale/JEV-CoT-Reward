@@ -1,5 +1,24 @@
 # Current JEV-CoT-Reward research state
 
+## September 30 — terminal census and full phase accounting audited
+
+Production 27983982 and CPU audit 27987263 are terminal COMPLETED 0:0. The frozen balanced seed-zero census covers 24/24 tasks (eight themes, three difficulties). Independent source/record/official endpoint recomputation PASS; this is not a second independently implemented world oracle. Final receipt: runs/recoma-final-six-hour-v3-control/final-audited-analysis-v4-27983982/final_pipeline_receipt.json.
+
+Official success 0/24; normalized progress 0.07781760146. Three typed format failures; 16 incomplete tasks without format failure reached the 30-action cap. 530 model calls, 3,614,264 input tokens, 77,505 generated tokens including 1,200 in final format failures. Eight-family reweighting range [0.0242958,0.1401972] is descriptive sensitivity, not a population interval. There is no paired controller contrast in this census. Recognized visible instrument candidates: 5/24 tasks, 41/530 states, three recognized use proposals. These are not validated causal opportunities.
+
+Exactly ten terminal parent allocations total 1.14083333333 GPU-hours and 4.76055555556 reserved CPU-hours, including failures and idle. All-phase generation lower bounds: 613 calls, 4,206,056 input and 91,473 generated tokens. An earlier failed attempt is incompletely recovered; exact total token accounting remains unresolved and is explicitly retained. No new Jev calls. All generation ended before the absolute deadline.
+
+Recommendation: PIVOT, do not expand the unchanged Jev regime. Conductivity's audited 150/150 versus 70/150 controls is a genuine cheap-action information-use signal, but the fixed decoder already saturates that panel and leaves no demonstrated Jev headroom. Historical Jev comparisons do not establish replicated incremental value. The current baseline census is negative under its frozen 30-action envelope; it does not prove that longer-horizon DiscoveryWorld is unsolvable or that a controller cannot help. Theory remains conditional identification/value-of-information reasoning, not established novel methodology or a guarantee of paid-judge net benefit.
+
+Further investment should be decision-focused: first establish multiple useful action choices and strong cheap/local competence on fresh independent units, then a prospectively frozen paired static/sham/random-rate-matched/published/cheap/local/Jev comparison with equal total costs and a practical effect margin. Sequential/transfer, depth/trim/prune, training and discovery requirements E2–E7 remain unresolved. No broad-project completion or efficacy claim follows from this bounded phase. The six-hour follow-up remains active, with no unlimited compute authorization; Gmail delivery is not configured pending connection and exact recipient.
+
+
+## September 30, 19:21 EDT — live experiment and six-hour follow-up
+
+Fresh `squeue` and parent `sacct` confirm **27983982 RUNNING**, elapsed 18:34, two RTX Pro 6000 Blackwell GPUs / eight CPUs / 64 GiB on `a1112u01n01`. This is a verified wait for the complete frozen 24-task census, not a terminal outcome; no partial efficacy outputs were inspected. The terminal-only independent audit remains the next scientific dependency, and the absolute 22:26:58 EDT generation deadline and 16 actual GPU-hour phase cap remain binding.
+
+The human subsequently requested six-hour research checks and email only for important independently validated positive findings. New thread heartbeat **jev-six-hour-scientific-research** is active every six hours; the deleted two-hour job remains deleted. This follow-up does not extend the bounded phase deadline, close the active goal, or authorize unlimited compute. Gmail is not yet connected and the exact Yale recipient has not been supplied: email delivery is not configured. Record and deduplicate any qualifying finding and send only after recipient/connection verification, with a successful send receipt. Routine unchanged job status does not warrant an email.
+
 ## September 30, 19:03 EDT — actual two-GPU production allocation
 
 **27983982 is verified `RUNNING` from 19:02:40 EDT**, `pi_fl426` / requested `normal` / `gpu_devel`, node `a1112u01n01`, two qualified RTX Pro 6000 Blackwell GPUs, eight CPUs, 64 GiB, 186-minute maximum and absolute deadline 22:26:58 EDT. Receipt: `runs/recoma-final-six-hour-v3-control/production-running-27983982.json`. The source/config input checksum gate has completed; offline environment setup is in progress. No production outcome or partial efficacy rate has been inspected.
