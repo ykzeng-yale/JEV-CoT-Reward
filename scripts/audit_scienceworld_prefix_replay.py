@@ -73,6 +73,9 @@ def audit(result: dict, protocol: dict, resources: dict) -> dict:
     for key, expected in (("cpu_count", 4), ("memory_gib", 16), ("gpu_count", 0)):
         if int(resources.get(key, -1)) != expected:
             raise ValueError(f"unexpected Slurm {key}")
+    manifest_digest = resources.get("output_manifest_sha256")
+    if resources.get("output_manifest_verified") is not True or int(resources.get("verified_output_files", 0)) < 1 or not isinstance(manifest_digest, str) or not HEX.fullmatch(manifest_digest):
+        raise ValueError("remote output checksum manifest was not independently verified and preserved")
     elapsed = float(resources.get("elapsed_seconds", math.nan))
     if not math.isfinite(elapsed) or not 0 < elapsed <= protocol["limits"]["wall_minutes"] * 60:
         raise ValueError("Slurm runtime outside frozen wall-time budget")
@@ -85,6 +88,8 @@ def audit(result: dict, protocol: dict, resources: dict) -> dict:
         "model_inference_calls": 0,
         "jev_calls": 0,
         "actual_gpu_hours": elapsed * int(resources["gpu_count"]) / 3600,
+        "verified_output_files": int(resources["verified_output_files"]),
+        "output_manifest_sha256": manifest_digest,
         "slurm_accounting": resources,
     }
 

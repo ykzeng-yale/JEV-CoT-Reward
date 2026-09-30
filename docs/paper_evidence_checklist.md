@@ -1,8 +1,8 @@
 # Paper evidence and next decisions
 
-## Live jobs — September 29, 20:02 EDT
+## Live jobs and prefix-gate result — September 29, 20:10 EDT
 
-- [ ] Common-prefix technical prerequisite: Slurm **27916067** is pending, zero allocated TRES. Frozen protocol tests deterministic random-legal-action prefixes up to 25 steps on paired replicas of nine held-out variations. This decides whether exact-prefix counterfactual branches are technically defensible; it does not test agent/action efficacy.
+- [x] Common-prefix technical prerequisite: Slurm **27916067** completed `0:0`; 195/195 transitions matched across paired replicas of nine held-out variations using fixed-seed legal-action prefixes up to 25 steps. No-model, 126 CPU seconds, 0 GPUh, 199 output hashes pass. This does not test agent/action efficacy. The nine structurally touched test variation IDs are excluded from future untouched confirmatory analysis.
 - [ ] Main ReCoMA baseline **27880628** remains pending, 8 GPU request, no allocation, current start estimate Sep 30 20:44 EDT. Maintain its immutable input tree; do not duplicate.
 - [x] One-step simulator feasibility `27913546` completed and independently audited; no-model, 9/9 reset-plus-one-action replay matches. See dated status below.
 

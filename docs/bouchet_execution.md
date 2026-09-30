@@ -1,5 +1,11 @@
 # Bouchet execution track
 
+## September 29, 20:10 EDT — prefix replay result audited
+
+Slurm **27916067** is terminal `COMPLETED 0:0`: standard `day`, `pi_fl426`, 4 CPU/16 GiB, 126 seconds, no GPUs. The independent result auditor confirms 9 frozen test-variation episodes / **195 of 195** one-step transitions matched across the paired runtime copies; all 199 run-manifest files passed. This is technical prefix replay only under the pinned version and fixed random-legal-action sequences; it does not show that action branches improve outcomes or that all generated prefixes replay. Conservatively exclude those nine variation IDs from any future untouched confirmatory endpoint.
+
+The separate baseline **27880628** remains `PENDING/Priority`, no allocation or GPU-hours. Current `StartTime` is a mutable September 30, 20:44 EDT estimate. The main 2,386-file checksum gate still passes; do not duplicate or alter its immutable inputs.
+
 ## September 29, 20:02 EDT — task-owned jobs reconciled
 
 - **27916067 `scienceworld-prefix`**: `PENDING/Priority`, `pi_fl426`/normal `day`, 4 CPU/16 GiB/45 min/0 GPUs, `AllocTRES=(null)`, `StartTime=Unknown`; no allocation yet. Test-only pseudo-ID `27916064` estimated Sep 30 11:04:41 but is not a reservation. The six-file input integrity gate passed remotely. Receipt: `runs/scienceworld-prefix-replay-v1-control/submission.json`.

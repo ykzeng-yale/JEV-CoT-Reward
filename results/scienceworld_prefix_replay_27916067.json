@@ -1,0 +1,1642 @@
+{
+  "episode_count": 9,
+  "gold_paths_requested": false,
+  "jev_calls": 0,
+  "max_steps_per_prefix": 25,
+  "model_inference_calls": 0,
+  "network_calls": 0,
+  "protocol": "scienceworld_prefix_replay_v1",
+  "protocol_sha256": "e07e76e80e5f93a3f73a0bb85d8904c969f84f49bf7cef7b42b6e358f4118f6e",
+  "python_version": "3.12.3",
+  "raw_action_strings_written": false,
+  "raw_observations_written": false,
+  "replay_records": [
+    {
+      "step_count": 25,
+      "steps": [
+        {
+          "action_sha256": "4592320f137fc5046faf0f37fcf4a868646312e42c8086e3719ad832b9cb1087",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "8f67fa1f52866d40881253a3a48d541656afc5a786822300f070c8afbab8748f",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "2d263b31d790467c03bd9c21f7233110a545a8092b63216bd9aa6d21c78d5f09",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "792af08767fdddb10a60b63c2e7695a510640fdc5d706283856118d83f6abd01",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "5b526b478ecd2a0f0b85dfc0d1b744cdd69c5e92d07be42976e44a73444895bf",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "931bdd600dea2d60a5d0d3683cc2a08ca2e61b30fa9bd39002359bb95a845ed2",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "9d41d5d5b7494b89a4182da90051073207a2447c05cbf2d0b2cc8c5303ae02be",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "1cfdc826ab5fbb9df53e254aa222a7f697432c7e6898e414badfaccc877fe115",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7af8e5f7155d08e6050b4ffed41d785bd2fc054256434c7068c0cba94cc6bbfb",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "978972ee104c800832f2d1e98d36142f49622fde2da8b2dbaa89557428ca3104",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f2e3874cf32d5ea9fec2402784861e694265ca50be0d5f8ae72fe4484a6b8217",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "da6cbd4f2fbfba84a2ae2ab554dd6ac17e51685295f1c279780d914613a4f0aa",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a4466f34f85b800c8977bbaa46f568b57e752146ef2da0442ce8188bb9dfffc8",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "765e53bce6d82227569b2198b14f23b90d78c9532f5f1a0f7ea60b14b35fe48d",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "73c69873e62a0087ecbb09c98e32a1adcb1c12c1d3bad7c33a0a657752b4d6ba",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "93fe5f3a897dd490a65aa40dec55175488ea290a817e73c87a8c80e03c1f74f4",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a8c9e16d98b30696b58fd1a5be8bfe6e1d3dac2bb11fd9002d798bce257364b0",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "cca685239531503432796d33adbf53ace4f21ef1bf9394e3532f989955c48f0d",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a7c8614f728b5cb7d366856467dce5aaa5296f1eb745d47505bd171efe9bd15e",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "43eaeff344b9729215c416fe1823a271802c676acd4526f7556011e0d4107ee7",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ef44e8e111fd6aec4dc411aad2e7193acc6d35f768139c0a8181471020e684e7",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "f862cea40e0b9dc341d224c3e51c376281d8a339c3c680b69304a2268f8f1a5d",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+          "legal_action_count": 2,
+          "matched": true,
+          "state_sha256": "b1364ae355e445709e11336ecf28ce6ec5b15ec886891251b6440d214d1d8f6d",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "8474598c0e6ba1d7489d8e656619325451a3738804362fc6b9f5fbfda5620f8c",
+          "legal_action_count": 932,
+          "matched": true,
+          "state_sha256": "d3160777984d55c972e3c17f81089581ec78365af2ca33c4f8a46f5987c4918f",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e04773262687907b412e3bcaa3707c9d5387ecc91938808be181ad8035fb0afd",
+          "legal_action_count": 932,
+          "matched": true,
+          "state_sha256": "f6107b625be502d5c966cefd2837ddb8d30bbe47d08ab5863793d9fd51d9e138",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "65e3a41358a74faffd30ac6e4e764f43f65c2014704d5fa051df010ee31a5d4d",
+          "legal_action_count": 934,
+          "matched": true,
+          "state_sha256": "8d482266c915e7bfe431eeef7f82e75996922eab36fed1dbe0a791c8e71a0627",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "bf2f2583976afce7c0364bd517b692165201ffb4e8d3435bae93c25729991998",
+          "legal_action_count": 934,
+          "matched": true,
+          "state_sha256": "927fbcc34d96e82103a2a607bc42643943ca937651cde755419a146be78fb291",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "3a62fbfa0b4d1aaf4a703b740e676531ef7c628b27a152d12c2107b8df000f32",
+          "legal_action_count": 934,
+          "matched": true,
+          "state_sha256": "c122f07c7690bc3e421eac464767a7248bc63f17fcfc08d58b105851fed33275",
+          "step": 17,
+          "terminated": false
+        },
+        {
+          "action_sha256": "d58b0945b3f32ea5de6ce719fa272a8336c5fc1d825af231f67812a9a85bb3c7",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "468709d3d59afe4b53eb24bf3ae893261441d2ae64f5d18b55b40aec50801b02",
+          "step": 18,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c829ea547ac6bcfe8f57b590f3758eed330a248f34620a13fd9dbdcfbdfaf9df",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "40adef85ae66a821f0291395615abb475af9c054fb7fcfb1706a9fc6135a8bab",
+          "step": 19,
+          "terminated": false
+        },
+        {
+          "action_sha256": "d6e934e06c6f45cdbd12bbea443104df9fff55a4a12b36fd3767713307c9c28f",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "3dd9d0273aeb866531e9aab07082d57c7857bd7f9d977deadf086d675c3dc3cb",
+          "step": 20,
+          "terminated": false
+        },
+        {
+          "action_sha256": "bb6f281fa9ff0a9954ef41a94ee23fb5fe8e13a96d46f5670cc9914586641e6e",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "102f522469c7cd1d933d3c552156b1a4b7d90e715715aa033a351a5ddca247b9",
+          "step": 21,
+          "terminated": false
+        },
+        {
+          "action_sha256": "62d7f7195d24d6e9a5b2b3e0872aac88a0214aa262106cbf472cae0ab05f7b9d",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "aa0bc51547c2ac40769cc290926c956f8972f46edcfdffb760410bc95b63c229",
+          "step": 22,
+          "terminated": false
+        },
+        {
+          "action_sha256": "30fda822c8f4cebc349abea747fdc6cc78db4086e8a3e162cd607459f8ef65a7",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "b3bc2f0fac31f5677508ffa9da51b946410c6fdd19922a72109d44971b51986a",
+          "step": 23,
+          "terminated": false
+        },
+        {
+          "action_sha256": "98089e6d36f78e9766c9ea34d5acb3611f3a92cd81c5eb102095d924ffc7d08b",
+          "legal_action_count": 3,
+          "matched": true,
+          "state_sha256": "a97d9ed5b6ab6fcdac4a0bb71ea5b490d9c1d9bf568df5622706335736b558a6",
+          "step": 24,
+          "terminated": false
+        },
+        {
+          "action_sha256": "403677b1090f850de41e56aba2e4cd4aa236360c38839b46e20c001520cf9e3a",
+          "legal_action_count": 876,
+          "matched": true,
+          "state_sha256": "942d0d6d65c4cc26525a96cd64952aca9bf5a839f7d6264dfd1e1cbb92f34dc6",
+          "step": 25,
+          "terminated": false
+        }
+      ],
+      "task": "measure-melting-point-unknown-substance",
+      "variation": 225
+    },
+    {
+      "step_count": 17,
+      "steps": [
+        {
+          "action_sha256": "1d02f2aa8d67f2586d646f3252c2f963690b45811d58119c4c1d9b698bf0c620",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "4b601f8a4ca0dc81f0cad12e9d27f60bc0115fc87e86af7c922e7b00e05549d0",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "75895314a1da97fd45633d45db057620821fec3cf76679c2a6553764ada2186a",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "4b601f8a4ca0dc81f0cad12e9d27f60bc0115fc87e86af7c922e7b00e05549d0",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "eb073ac747a3f79edcc487050ca85de44556b01be00f372b3dc39410ba94ffb1",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "4b601f8a4ca0dc81f0cad12e9d27f60bc0115fc87e86af7c922e7b00e05549d0",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "213f2d9592bbeabfb18b123a0707ccdba67cf45bf7c30a3424f3f11c9b18388b",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "97423abfbe1c8231e2e3f147765352a162fbef92199299bca1e7ec8f7c4abc64",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "626ed78d8f060dfeb4d7ea86aeb7a02b6257ab158941ce6a257039e3fcd62295",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "c27aa0ccecbb0b204bac7cc77d1fba62629c417d414874161033e9bf9fc6fde5",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "63a93c4df0af98b75e885aa00866bb1da120b5b3bb59b739cff67cbf50fa7eb7",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "c27aa0ccecbb0b204bac7cc77d1fba62629c417d414874161033e9bf9fc6fde5",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "8bad9fbb4eaaa78cccdca6d06619190607159d23bfad40fac68ca9a6c9635be6",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "d0021f0481d2a1e97f2a2fe10985dd295c95a5f4c3b9796ff2a6a0e146b44d40",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "dd81893a3338a033613bc7cb42764420dad64a0b5f22a107bbb3e92a85df2394",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "1cfe391fe71b832a89eb5086ddcad2bebe793006313885c3e1acef15cc6c8680",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "71d064fef03a286960abf1459f76bc334a880e61c1f2cef5f3b52d80375559cf",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "cb070b354c8055070325c9d2be4ab79780fca0803ea111dabfea6d9bb1119e69",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ae3d1520b3efedc14c8951c9501ea4d5a7a173e4faf4dcd0bf17aa192dbbceb5",
+          "legal_action_count": 556,
+          "matched": true,
+          "state_sha256": "9f7953a0cb1765001ebe36b387bf649e3432afb2fab09c115627efcef36eedd4",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e654f4e13f17702e1331d312d7bd3192d267fd809f7f11fc7556d7de70bc9ffd",
+          "legal_action_count": 486,
+          "matched": true,
+          "state_sha256": "9f2082a60189689e1ef6153737cd88f9f94e37ace47f89c4c0fe368ded750427",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "5d561f24b7a4fcdb250433f6957bafd739d322357da462a2a7a4ee0debde7006",
+          "legal_action_count": 454,
+          "matched": true,
+          "state_sha256": "5dd654a70eb751226e2d2f06e05e65bbf0c818336f3367d9ca3590a0d3486009",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "bfbb635239f560b1819b1adafa13cfe0a905f016ada8d3975d6c9596b63c7dbe",
+          "legal_action_count": 454,
+          "matched": true,
+          "state_sha256": "d167d60fb374a54fd1bce4e352326bb882f3a29f3fd89fc10e6d7c15d62390f0",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "87cfe5aec76fc6f3bda47f961601b9931054baebc16044e5dccd999aa69cdba9",
+          "legal_action_count": 454,
+          "matched": true,
+          "state_sha256": "d167d60fb374a54fd1bce4e352326bb882f3a29f3fd89fc10e6d7c15d62390f0",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "3bff7dcee014fd8ea9b9317fc406c5bb7afad6842b8a9d1156c1ba59c60b4ad6",
+          "legal_action_count": 454,
+          "matched": true,
+          "state_sha256": "d167d60fb374a54fd1bce4e352326bb882f3a29f3fd89fc10e6d7c15d62390f0",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "dd4142a82cb3a81be21f300f8986b3f4e1d71afbd8056c28c33c682bbf868573",
+          "legal_action_count": 454,
+          "matched": true,
+          "state_sha256": "d167d60fb374a54fd1bce4e352326bb882f3a29f3fd89fc10e6d7c15d62390f0",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "b82eb7a48650d60508ee838bbb3a3d59370281280adf3c2055ebb50eecc94b59",
+          "legal_action_count": 454,
+          "matched": true,
+          "state_sha256": "6e2740e0ba44fe42c4fc68cf55f2d5ea7b3e2e92cbcc08709d8ee7695895914c",
+          "step": 17,
+          "terminated": true
+        }
+      ],
+      "task": "measure-melting-point-unknown-substance",
+      "variation": 262
+    },
+    {
+      "step_count": 25,
+      "steps": [
+        {
+          "action_sha256": "16deadb258cc60ddd707c4f8a70b6484d7469e4b9202840038825e27396fd08d",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "cee5a54dc7b15beaaf975f971d6af1e1a34a5fa16674c9090dd4e0dcbcdee5c0",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "9d1c72f3af07bc911e761f735a68a8ef79c8d1c8dfd1161c1cef992e94510810",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "eef630c3304d7a5de7e566ed03b668643e5ec1e88c2c2c38e4b65e68ecd565ec",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e306a07529ecbb2c739b6277f8cf2e945cd4b8e8ae3b2535c654386302a7d11a",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "2ec70a344a51c844aa868c0e3861ffc8fcb8343d6ee11f38ec035308c4818966",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "dbc12123c2b85f70088afe2896dac1032a28c56d46edbcd302a23a393bf7daa1",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "806de630f4049f6c3c702b960118047e82c3bb70bc0e7b99c0bb30cf3327c921",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "84cf5b12757bb2570fa1ad9f6c411fdf02e5faec9ff3b04d5b81d09aed5636b4",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "ff5ac5a43241d21151280df7c919e38d2d88834494340ca1f566c1039c2d5186",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c4fc8005b0e5aa28741d0d86bab9cb515e7b578ed42d109cfea058802d9a8049",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "cf07ed55fd7f18e19667336e592804e294c3537b2ab9d3cbfb2ef33adc69cd28",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "79d97ee24883a798d9c09d38294057cb16c1de2afd6545872ae0e3ae3b97f753",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "9f1d7033c41dee1093c8bf982eed49b99f99af7078ef4330f3eb759aced82dd0",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "fce9172174a3ffa584ee759bde7616f27330a172851f737f175ffffbc0a40afb",
+          "legal_action_count": 939,
+          "matched": true,
+          "state_sha256": "3647a0bd1f96af62676a86e49e342daab3364d2d47a38b0a7fdf0866d6f04ba0",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "240891e9bff9d71ba16e5971a9774d057aa175b1e5f23978814d0cc48e70a8df",
+          "legal_action_count": 895,
+          "matched": true,
+          "state_sha256": "538566e03f20a7e2b3067042ae95610e54be62ac63d8bc371d0dd38c08fc6f60",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "890979cdfa28fce850286739d78e8e5bce19eddb77b171df1681cc28e2214987",
+          "legal_action_count": 895,
+          "matched": true,
+          "state_sha256": "a5ed9a6a43ae2318cec119bdb52afada5be616eb69dac80dd7794f07eed46faf",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "20379e48fac42da3159bd0875c9288613e9f7f24834e23ca654e697a4e878a45",
+          "legal_action_count": 895,
+          "matched": true,
+          "state_sha256": "054c3cb063b0131a4b8311fa65d0ab6a2148fbdef021e19305ca2628dacf9d27",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "8316d6f906e11b91de967126895a4de4730a52f6ff26a9af03073f3cb37767c1",
+          "legal_action_count": 853,
+          "matched": true,
+          "state_sha256": "0da7f5fd7ff375a286185b79dc64c0bb2f854182bfa7a73021b64a24c66d70ae",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "00ed16e693d4228a22eb5b33efd42bffd39f5f3ce8b3ff2365e7fdd1fc890d67",
+          "legal_action_count": 853,
+          "matched": true,
+          "state_sha256": "fc6de07c1dc2b1557916252b76b24915d3d403b2526ff6e24cd7cd3b94f94b0f",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "5e2ede05291751a97439d5a2a9d68d05df84867acdf33484ec03e99ee10412b2",
+          "legal_action_count": 813,
+          "matched": true,
+          "state_sha256": "acb5ddcc8d5b63463658b5f01755d2bd24d422adcc1249bf9d21ff12057e492e",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "965124cd5b049d92215a32a4550626753135412bef14d7f8015dcd1906b9c2bc",
+          "legal_action_count": 813,
+          "matched": true,
+          "state_sha256": "61862860d87ddfb35e221f2e105daaffefd013cd4f12b888be5741f27b531be8",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "9a948816a5c53f9e00d309eccd2c5b16c174fd02c10286a9d53694d8b66989b5",
+          "legal_action_count": 813,
+          "matched": true,
+          "state_sha256": "d564ea19fa953ab15b3ec6cd0f4ac747a36d20270fca25b1c620ba2206021028",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7d1ae61a1aea8d356c60fe8dd5d94850edc981abbf395623d499df6d874a11d1",
+          "legal_action_count": 775,
+          "matched": true,
+          "state_sha256": "761cb8b36e3b0349c479f2909b235ad14705d006e4a7d7d9d133c1b049c0e395",
+          "step": 17,
+          "terminated": false
+        },
+        {
+          "action_sha256": "9ade253014f90ee3174e5da2cc4a3d03624be6e8ffe8f0533c61ac9e9e41d204",
+          "legal_action_count": 775,
+          "matched": true,
+          "state_sha256": "be0627094ecb99ca70f05f294d0f2d6f2ca7cb9b9ab4f8fe08824ba5b3111271",
+          "step": 18,
+          "terminated": false
+        },
+        {
+          "action_sha256": "170970d0c695a00e8b34099c11ed2adf102a93cabffe88a0205e500c6e5f2468",
+          "legal_action_count": 775,
+          "matched": true,
+          "state_sha256": "a9e1fafb6609a4021115f21cd7b77241d94c1ebfb6dac893f08cdeb064e48f5f",
+          "step": 19,
+          "terminated": false
+        },
+        {
+          "action_sha256": "56d9114e20b41aa0cdf720fbc0386145f75f0c67dbfd8e4f7826749a18b50688",
+          "legal_action_count": 775,
+          "matched": true,
+          "state_sha256": "e0c057caec28488d6db949da8535470ca54e3e2af50654ba150e7a1d3b94856f",
+          "step": 20,
+          "terminated": false
+        },
+        {
+          "action_sha256": "6671de2b27d8a35bc38716898fb22242842225505ecd9e39e164267e647e0f30",
+          "legal_action_count": 775,
+          "matched": true,
+          "state_sha256": "61f2dc2d3c0281cdceb41020fb89e0de97102d24a6c6b485bfe2e66d55fbbaed",
+          "step": 21,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c6b7ea98730ebff6edf7795e11386f956521ea52c177a5158f90ebf85d9f1bd3",
+          "legal_action_count": 739,
+          "matched": true,
+          "state_sha256": "bbc10f7bffb1e43c40a16c8c8d2628caa143034d22c59d691017c26f01d2863c",
+          "step": 22,
+          "terminated": false
+        },
+        {
+          "action_sha256": "781746fd8624c8c6ce5cedb1f8a9fdee79fe5192bd666ad031d797fbc6d7c6f8",
+          "legal_action_count": 813,
+          "matched": true,
+          "state_sha256": "0ac77e5681aacb1cc93dda6262cbbbc96eddb0a8a80a6d15c8588f90cdf63c42",
+          "step": 23,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ca18a77fd4fc92fceb454a36796287093cca77559b7941bfaa3d2468f2bcd86b",
+          "legal_action_count": 813,
+          "matched": true,
+          "state_sha256": "e2d748a0e47190edf9870995a539b216a1f0532f8ee112d2dc1521ab56895ccb",
+          "step": 24,
+          "terminated": false
+        },
+        {
+          "action_sha256": "196ad87059464a670edf5d6b67af7df06ea3ccb6fc4f7474d394ae7d9b1b482f",
+          "legal_action_count": 853,
+          "matched": true,
+          "state_sha256": "bc0995f44d6ee4626c91bd95d94208066bbf5fb926374660da3aa422d59b01b5",
+          "step": 25,
+          "terminated": false
+        }
+      ],
+      "task": "measure-melting-point-unknown-substance",
+      "variation": 299
+    },
+    {
+      "step_count": 13,
+      "steps": [
+        {
+          "action_sha256": "e6f4029a63ed3bb7a6ad8b378781be4079a3373b5561ebe45fed05602c78081e",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "e4a3261a382d7476e62d05bc84336f42d131976e8ae6301e50fd286804e7df3c",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "655def2c40ee503b9f50035bb28f108bfc47e178fd841ac401062b6a6316f696",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "01aa7de010cbd488e778b77a109fec5c0d2f55bbac1e36349b6e8ad6e4e11c39",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a0d2836547632b33451ab91ee204eab036f246a5bd7e3a7e2e2dbed3a5746ffc",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "60a46e405c2e428811b7b3ae07d9251715d47ee6f26f8b9c3bdd5374e770225f",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a0611a1588bfb7f02b4d239bdfb95373e4aa466eed67f2ae9b4c1e336b8ba9d2",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "cd774b56a7a03557aba30fc3585622ecb9c76319e94b55aab7191514e3c0ec04",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "13c962d3b112a76c1a445740186d4c71e06ff3f92bdc86b13d4580538c61ef79",
+          "legal_action_count": 355,
+          "matched": true,
+          "state_sha256": "69238f9d742bf25a49fd1443f999d56114dabe4a5b150401446179a988244a4a",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ee707a49df40978fa595d0804bc699aca376538214b84797bcf91c6564690145",
+          "legal_action_count": 355,
+          "matched": true,
+          "state_sha256": "68918a42e3caeab06dce7f4c0b2f3548332a09b3b0e5466e12d4fc8135b89cd7",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "19f9b085bd38fa69c7e94aac5cffe10045ce5e0950245e3e81e7c3436388f53d",
+          "legal_action_count": 329,
+          "matched": true,
+          "state_sha256": "56e7093e5d642832a2b7f9a4f1069e8a29783f7c277e58ca39369da642c91d4e",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f4ec3372be8ad70bad1ba088e90999c2b1b9ee225b7785c33704c2dc70bfc320",
+          "legal_action_count": 305,
+          "matched": true,
+          "state_sha256": "303591a956f70fff3c99510f249c4a77ec3b96aa0396ad9db1d1ca3039a14aed",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "be595fb0da350a72df9d573143126308ddd2e73375533912212850fa6a2e5b5a",
+          "legal_action_count": 283,
+          "matched": true,
+          "state_sha256": "afece485291b82ed6460c05d6fc3dbdfc9d4f05f7929ab9ec2b249e4674b4517",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "b68646672098fed163184fb9fffb60d65030e1261c82cd9db87d251a73c9aae1",
+          "legal_action_count": 283,
+          "matched": true,
+          "state_sha256": "71147f39bd0b6c059a7f5cfc34bf70ba86e1cf0a9314021b162ca39d1662cc38",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a8c9e16d98b30696b58fd1a5be8bfe6e1d3dac2bb11fd9002d798bce257364b0",
+          "legal_action_count": 263,
+          "matched": true,
+          "state_sha256": "47ab75e42c3894fe7ba003be82fbc367ba8dc4b6fa8330fb5a7f9ef2e10c872b",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "4beb4641d300b3cb347c41f051ee06f79a2260e9afba85740d4798d47be32093",
+          "legal_action_count": 263,
+          "matched": true,
+          "state_sha256": "d8cf3808d12389d6dc1725c445ddca4c500bde69b9e2843490d05c35294ba64b",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ddd8857c20e634d913cffd6af65e6961dfeb1099f7f8d0483a58ffb9f182953d",
+          "legal_action_count": 263,
+          "matched": true,
+          "state_sha256": "1c80d5956646679e86b87f47c55d53c96c04bb5a4d40296438c86b14b4fe8c6f",
+          "step": 13,
+          "terminated": true
+        }
+      ],
+      "task": "test-conductivity-of-unknown-substances",
+      "variation": 450
+    },
+    {
+      "step_count": 25,
+      "steps": [
+        {
+          "action_sha256": "c1f3100245780d1a7077ca56ae188253083d7c9c4da63a4d02338248a80716b0",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "dafbaeef763d27b09a5fb2cdecc1d7ef982b06950f478d905a3f5edcbeb3ee17",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7e9fbe3ff20937be22022b0c75463c9c79f7e5b4a3ae3f8578ef76850ab2135d",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "db9f35bf1c8a710a8959bb181a77bf2da9729198667c1a11dbcd70ea723e45a8",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "95ea6670441bbaccb66c275a84b8768d0e6a9cbeed855b1665cb9e4f26f90a52",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "1739bbbc686052317c2059e9823c74d1e49b810ffd7ddd599c9c3b807efd94df",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f7a589eb6b67edd026f4bb67688e4a70020188dfbb8ef8720aabae983826ced2",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "67033a6a7291ca83234cf5ee77873a51fd466331a7a4e33c4d5445a055ab3074",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "747ecbf469a6173acba44e6330ce0f4d50e094a8d346f5b1a3d569eb1e8c8df8",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "97bd2b9e4306d24772bf429d65b5d5faa0e9b5cf2273960c2c58f4f1fa01b776",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "1f6a20cb7cf5fdbafca5a90c6937352deb59f248a2a2825d41e87d45df31294b",
+          "legal_action_count": 2642,
+          "matched": true,
+          "state_sha256": "9a2463c42fb6595995902efe49d4ac9396e05ecc3bc4a9a29da4d4b00f9f3500",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "3a16c2ade80674b10f07cd994895d42188f8e78147fd3c17e02f32bab3fe8b1a",
+          "legal_action_count": 2642,
+          "matched": true,
+          "state_sha256": "dce27362c8874b12456c7921ffe68f0bb0955aa8b4a3b49f26a6dc28a5c735d7",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "efaaf2660c80d211f1168c6534a79536dfeae36021e0b9c8d3a825b265f68a3b",
+          "legal_action_count": 2562,
+          "matched": true,
+          "state_sha256": "f924a159476d6df48f407f3ffe107fff3188880da44f6018dff456a1857b36c6",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "eb66da1b65d811ecedee16af21f1e6335b37edbd9ed968cb83cb0bc469f11211",
+          "legal_action_count": 2484,
+          "matched": true,
+          "state_sha256": "62e946708c0d14de996f16aba0e3a8832f4364f435db43883575272adf768d6e",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a1e225ea8d0e1be59a50dc9e3d832f88014b0f61eca5bee247d80ad105d4a2d9",
+          "legal_action_count": 2484,
+          "matched": true,
+          "state_sha256": "c31f5eb516a5e2340635e97d44678a204ba12718b8d2f628ec56492e1eb18eb0",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "da4c3380ef2d754c24cc7f9f0f3540f4b919cab29406030d141a1b4e6967b8a4",
+          "legal_action_count": 2366,
+          "matched": true,
+          "state_sha256": "44215d5290f166328c8b0e6abd7b6abf5ee58ef2e967a9a2a7e445f887c71528",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "32aedc5ba77cd7e8d81f231681558690ffb58936647a89f2df9bf65099f8a099",
+          "legal_action_count": 2366,
+          "matched": true,
+          "state_sha256": "accccd3e0accee55bd48a792ea467bced3e7bb48bad70d43829148b5a422b2d7",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "95eb7a2140e485722f233060c154730c3b0ece0943de3c6e16aa587768e9a2a8",
+          "legal_action_count": 2220,
+          "matched": true,
+          "state_sha256": "82a24842a163a577f434df708e71ae264a0c4be73f7730942e4f07028df09da8",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "6eaef476a5ed2513f7f883853ad8525bf016a9d3617f439798c674e5f340a0db",
+          "legal_action_count": 1541,
+          "matched": true,
+          "state_sha256": "11c5412a8df6b019b50e09b599fad00c562dfc4e0e29b7f81696088230bf13f2",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "dbb9272a05479864c00e6bf9308f54b7057bcfd0b20b05a9c7f316dcde3beb1b",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "de4ea08affca38539183d26b5693b3d2695f5b882f64a38973b054d542906a96",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "1fe4738f63e0c83ab0d331600aa200aa69ce86e43daeb28b1ae0e6a2658cea3e",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "e3eaca093645c492370ebb85d30cbb5f85777dd5e0cfca4dc54015ed4afaa832",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a23bfe667eeb29118bbb15dcabd59e7e8b37a1a45763607cee42a84c42371b9c",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "cc270612a3e8f4027c73dbcdeb08ef0ff68ff6ca92b29634f2dad9800ef5c3d1",
+          "step": 17,
+          "terminated": false
+        },
+        {
+          "action_sha256": "13da13ab81367293e577de328e4ecf9f5d83dab8d51aad67405b0e1f17258a66",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "176d55280120d53f644c66c1327c8ab1bdc16aa9caee75953ca6fc6313971424",
+          "step": 18,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f74aa72cc29853529846bfcce6a11ef072bfba24f4ce3e303245e23c56a21e60",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "176d55280120d53f644c66c1327c8ab1bdc16aa9caee75953ca6fc6313971424",
+          "step": 19,
+          "terminated": false
+        },
+        {
+          "action_sha256": "053627e2ccc0a246a49ee903bfd72b4bc34ddc6d0d01bc104a42a7a6a801d658",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "4b8ac8b7874cdac153c1af5932ca243c6d7d69e2ec6934ed01dd0667f19571a9",
+          "step": 20,
+          "terminated": false
+        },
+        {
+          "action_sha256": "bd7044c2e85417fe4691c2ae24d3975b451c84c89440ed8d9b1a05fe3ad3eac4",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "eb1c11092cf5ead22f61169482ef20a6b2ce7c30becbfd9f14f890b3976a1f19",
+          "step": 21,
+          "terminated": false
+        },
+        {
+          "action_sha256": "323185c96e8c27509c489806db0e6f384a2927793249bbda7430cee558b6a387",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "719fe99d7708ff05904abccb8f35ceaa269cacb1ed82a871bd7480f9087dbca7",
+          "step": 22,
+          "terminated": false
+        },
+        {
+          "action_sha256": "d0c35c1ad56eea2ef8e2cc7e7c2e0b433065e144793465f348eb3d9c8e8e9768",
+          "legal_action_count": 1663,
+          "matched": true,
+          "state_sha256": "a273ad301f08c11f0df23d5b6a7d418bd2996bc0e2c322f244b96506cb621726",
+          "step": 23,
+          "terminated": false
+        },
+        {
+          "action_sha256": "773f1ccdb750d72aea8e2bfa36096e8ed65430e57fdd9e687cdbb598895ef37e",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "0c95a50d9592fc30b0c9ecc0f89377b7e1d83277936e0abe2ed0480bbbb0fa99",
+          "step": 24,
+          "terminated": false
+        },
+        {
+          "action_sha256": "4cce4fd5c4daee0b6bf7f9950bcec4c155bd7777cf7b4c38b8f14572cb8e934b",
+          "legal_action_count": 1601,
+          "matched": true,
+          "state_sha256": "1b6f29db39d98a1cfde49424a389b123e516b40f5b630998cccc79e952af4971",
+          "step": 25,
+          "terminated": false
+        }
+      ],
+      "task": "test-conductivity-of-unknown-substances",
+      "variation": 525
+    },
+    {
+      "step_count": 25,
+      "steps": [
+        {
+          "action_sha256": "2b24493c0a2c5c9f68c4e722d0380db7a1b8d087e42e70f8b3bded231a01dcb4",
+          "legal_action_count": 417,
+          "matched": true,
+          "state_sha256": "8b84887e623257ee57d8b10fe7260692f8de091cdecfcec73690fb8fa53edcf3",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "5c36edb75c17d42827f821548729c6f7bb86fd32ac2269d63958ab4d570cf2e4",
+          "legal_action_count": 417,
+          "matched": true,
+          "state_sha256": "5f28bd29c87507e0851569a18d3577534913e517da24453846ba5df4719b88e0",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "824990bf0bb1352e0799e851550f70b292d54ac440818556d992cb091a36d363",
+          "legal_action_count": 417,
+          "matched": true,
+          "state_sha256": "1060be6153f7283e56506315b036d5a46fa8de1ed5a16df80759ca83fd149124",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "2d263b31d790467c03bd9c21f7233110a545a8092b63216bd9aa6d21c78d5f09",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "5fbbaaa6a744fcc95c7e48e489ae0b5ea331d66fdbad2030665400a6f2a4e803",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e7bccdae81554d246f9a0a5907ea9fb196d43bd4db2e418661699268f1320fc0",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "a9503b092a90bc28b72cd7d9f7f3e86927e080ba537eb76f1dd2f64f102ea404",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c47cc1a5ecd83999dff3d8978cc70a4a22e7f02abb3ef263b76203447e773461",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "598fdd836a81a8cfb42f20c5d8c5b7b3d55d75d4c834ce9a91701d1368f0b3b8",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "5fa8da03b3de55da07d46d73e5d14d789cccf65539de5501737f065ae2fcc2f4",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "056ad59f909cf73c2ffc13ef157322334ae106fa62260f4cd248a34a1ddc1107",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c542b5a3e7233d87ae32871c15e7ab74bc0a6061171c4449e0d803719f94f3e4",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "cdeff15f19e894398e8ca7f45715b3e19a33e7939ddecfc8b54c82873ff45126",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c107afbb7e112fd5233e1f3cac9757bff5bc2d5bb3ebaf130b2f67f6f176cf51",
+          "legal_action_count": 351,
+          "matched": true,
+          "state_sha256": "e59feed32e9b9fa097b5a15e8eb0f5c08456747315c1a351628f0112d2400902",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "0e24e519c456a5c1cd0a3f90342e03c22c1b405655a21e0ee2d894084fde40e7",
+          "legal_action_count": 293,
+          "matched": true,
+          "state_sha256": "b456b02d434f1face35e5e821e6085fa49c45f7a5ce0cf6de357bc8bd0bf3827",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "987768f3b5b3b423e889419e47c9e2200731f3c41984d3392ae95a8da62d4366",
+          "legal_action_count": 253,
+          "matched": true,
+          "state_sha256": "8f28f29423e1a8a11806754ccfd3fa721c7b708a24b80e95b1bdb104941cce5e",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "217d243d2e42b9f90fb0e0f854ecccde2e78a04b56c9f7e8c399f18c283571b9",
+          "legal_action_count": 253,
+          "matched": true,
+          "state_sha256": "e74f8e0840fedec55c820ef18ab3e6eaae80b7250a9985acc10ecf479be3a3b5",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "9a3de6c0eea7a8f6ce90a6987b088fa6c743496bf16dc61cb054f022e0583a1b",
+          "legal_action_count": 207,
+          "matched": true,
+          "state_sha256": "4c83bd492edb3d7d76c626d5c16321d98f29c3c6c0f9de93442f74683951d8ad",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "d64a8916e042a78d0f03646a356b921e6182cfec30e830551a718aac197078a9",
+          "legal_action_count": 187,
+          "matched": true,
+          "state_sha256": "7ccf3346e21bc2a9702346787948edcdce7b2b3b171a43200939c5c2b2790f9c",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "775a558136ae0dcf92f2c0c8756f6f900c1d66a6a1379f90c6dc1ca5a5cc9a7b",
+          "legal_action_count": 187,
+          "matched": true,
+          "state_sha256": "5d85b3d83eb73c10b142ebaa2c5e43376b0c137364580153cbc24eab00f7f7a3",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "b734921151ce2e013d9db65a2c22505a3296086fbcf1f4069611e31405bb73d5",
+          "legal_action_count": 187,
+          "matched": true,
+          "state_sha256": "414ce1fc941ebef74adbce5bd50be311521d84af1bc9343aa0f06ef61c77a59d",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "bd7aa0a2dc1852b872a9cee83b2002caad679663e9a0e19f197e70dff1b55694",
+          "legal_action_count": 169,
+          "matched": true,
+          "state_sha256": "595f211dab41511593b6664c5ef1f1d0cf6e3a48b1ad33fa302233f421f9da5f",
+          "step": 17,
+          "terminated": false
+        },
+        {
+          "action_sha256": "37563cc2ab645a0fb17b62c36c819521ec290de9fef6fe39a2fead3ac62643f9",
+          "legal_action_count": 153,
+          "matched": true,
+          "state_sha256": "31b7c62781eaae778926c4336cee2add97386b902dac7af91f458633c773cde4",
+          "step": 18,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7b50aa87d76d02c8bb24f5f8ff7c4ff928849229fe81bc8b655a61b9136a7924",
+          "legal_action_count": 153,
+          "matched": true,
+          "state_sha256": "9b2b40cff291bb3396671bbbe892e6580c970a2fd16201e5187f35ecc92307ea",
+          "step": 19,
+          "terminated": false
+        },
+        {
+          "action_sha256": "4f3e3f1a68ad9c456bc8f0c25cb1816dd75d66286fcfef1c1ed21d9959d178fe",
+          "legal_action_count": 155,
+          "matched": true,
+          "state_sha256": "631c6db21dc6c04eceeb088187ce4e39af5ca67a5e6025aabb077a60ee94061d",
+          "step": 20,
+          "terminated": false
+        },
+        {
+          "action_sha256": "83de4f72ed0354a9711ac2628a36faa1c4bfef87475b3876f3848ef149e7ab3c",
+          "legal_action_count": 141,
+          "matched": true,
+          "state_sha256": "29ca35b659fc81ebc94d8f3bcc5a01fdd6d1ea0a66881c30c125d313858ef9b4",
+          "step": 21,
+          "terminated": false
+        },
+        {
+          "action_sha256": "782265c5834c957fe419cafc8b2db19da85939aeab49b642b811ca48e458e1f0",
+          "legal_action_count": 158,
+          "matched": true,
+          "state_sha256": "543ffcb4379e0f73b6c9f3a2703ef626bd748b20f265d0d9468167b11250ac2d",
+          "step": 22,
+          "terminated": false
+        },
+        {
+          "action_sha256": "8a4814910da577624e758085fa516e23cda51a54d28e116f0ab458e98a920241",
+          "legal_action_count": 128,
+          "matched": true,
+          "state_sha256": "695d440f8b1aa5f11e77f4542e6b4a787a28a8f41840ff043751cbd35177ebf0",
+          "step": 23,
+          "terminated": false
+        },
+        {
+          "action_sha256": "799c958490facef0ee215b2b1aecac775f8a15d528dc3532865efb7aa1b0784f",
+          "legal_action_count": 128,
+          "matched": true,
+          "state_sha256": "7f18d0085a3f0ece1d212d777f7e178cd5611cddfb57180c8105494a0fb8d26a",
+          "step": 24,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c47cc1a5ecd83999dff3d8978cc70a4a22e7f02abb3ef263b76203447e773461",
+          "legal_action_count": 128,
+          "matched": true,
+          "state_sha256": "67b3317cbeb65d96e4e6f27b9882f52819d434ac0a1f2f9e3606c6ed1dd5f243",
+          "step": 25,
+          "terminated": false
+        }
+      ],
+      "task": "test-conductivity-of-unknown-substances",
+      "variation": 599
+    },
+    {
+      "step_count": 15,
+      "steps": [
+        {
+          "action_sha256": "59d7e39d979a3735920cf6dc6c9da67f2bb4870b1e33f637b7d67ed1116d7d68",
+          "legal_action_count": 342,
+          "matched": true,
+          "state_sha256": "01479d3508e13308fff661aae384e36f98128f1a0bb368d8e82de81ab187935a",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c6d392cbcd5776c4de4911dffca4d96b2dede78b93030bceac0a36a058417221",
+          "legal_action_count": 342,
+          "matched": true,
+          "state_sha256": "8acc69e88f46c6c497094fe77da557923956bc1a03cd2fb1888f07b9ee068b3d",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "25bad12c347b7961124fc410a9fb25d944880fa7fc94c1c625f5f56efc562334",
+          "legal_action_count": 342,
+          "matched": true,
+          "state_sha256": "c4db0a5ac3c9bc4cb17a86b164515f8d12184b6a9a832c094d509d9159c4e925",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "53b855b6a21373d300ab2fdc6fc6f5eba1fc0e013f8ce78b5ea0ba106065c166",
+          "legal_action_count": 342,
+          "matched": true,
+          "state_sha256": "a30a0d46c2b2c468150ff7ff7dcea3eac6189d26d54def89280265cf1e68a97b",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "11487d68e2d7a8066693cca06e0f45094c11a36b580c103482cef24680f06a65",
+          "legal_action_count": 316,
+          "matched": true,
+          "state_sha256": "73bef3838393050a0f5f2987be19c81fb52fe2947e701560d74228cf75952fa2",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "523e58da470092ee7885ebff2a136a767aafc510d1c235b30fef04c9713d465c",
+          "legal_action_count": 316,
+          "matched": true,
+          "state_sha256": "1f3589345dfdf089aafa9e348c84e52fc00778f4edf01f84a952b2b186820990",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "07c9981f262884c0d783e2cf43a8990b88ee7c6ca097f700d6271a95e9a5e540",
+          "legal_action_count": 292,
+          "matched": true,
+          "state_sha256": "3e612951b7d3db21549155360627d32a9a5a6d6cee85be8a9974495f261e8a68",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "00a8e9219ee26a7c82e19b5a3d99a08e22550ba743212fb87e93b01ad27736d3",
+          "legal_action_count": 270,
+          "matched": true,
+          "state_sha256": "b6b484c3892867b8a68e1a4596263d33897116e939d8a82826bb3064bf3458e3",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "be595fb0da350a72df9d573143126308ddd2e73375533912212850fa6a2e5b5a",
+          "legal_action_count": 270,
+          "matched": true,
+          "state_sha256": "f21dee253e6973d3a575866c711405ad170124a4c916aef589ea8b6a96649469",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "3ca64c492a8e00689c10f5940b11624c9d158fa1a8716aa1e788c9e564ffbeae",
+          "legal_action_count": 270,
+          "matched": true,
+          "state_sha256": "6da1d7e22ca3fb77fa2eb208ec2447140e4ad2e53fee1a08683fad929729fa01",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f53d1eecc8d77b9b2b1b525a6f25c7c59dba23e153419e10ab48c63eec87cfcf",
+          "legal_action_count": 232,
+          "matched": true,
+          "state_sha256": "6b988390f26f37ff352c24c5940a93f19cd4908925659f2b761bc70bde9aaa46",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "4021c2973c2e6f9278de88646cc20b6e556d2c064c2e30cdc4c681683665d95e",
+          "legal_action_count": 250,
+          "matched": true,
+          "state_sha256": "ab7c694e231337c3752bfa055495cdb5f474ea1c97b7737bb5415c5da05f6fde",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e6f4029a63ed3bb7a6ad8b378781be4079a3373b5561ebe45fed05602c78081e",
+          "legal_action_count": 270,
+          "matched": true,
+          "state_sha256": "f44e2e28f7bf36261be113da4cbdbf90fb35828354c308ff700cfae5b2bb8a4e",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a6ac6447fa8a3692846c943740ec7ba1eb5a4312ab22b7c4327c1b707a564687",
+          "legal_action_count": 292,
+          "matched": true,
+          "state_sha256": "fc3d975da6323bb3b2c858e02318f04fcc52e8409353868399f0bfe8a15750f9",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "5827b4f4e552b119211c2eb49d4df6feccb600fd28ad789d0c5c6e17fdcf93b0",
+          "legal_action_count": 270,
+          "matched": true,
+          "state_sha256": "0b61e9ace8f2183df0df83428eb765498dd52c7659afbe40b5d608153883d742",
+          "step": 15,
+          "terminated": true
+        }
+      ],
+      "task": "mendelian-genetics-unknown-plant",
+      "variation": 360
+    },
+    {
+      "step_count": 25,
+      "steps": [
+        {
+          "action_sha256": "d141a03cdad255b77c3779c8b990878348584e47b41c02e4b03ef0cb817150c7",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "88a8a787bac9fc34b7f57951e617379310a3448fa47dd089853546d929747780",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7e160dc878d08c7c61a31e349a564eda5cc4e784344e14b21d9a812bca3d4893",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "f07234a610bf230f0d3c4ac612075bb081ffe9e361079cf49f9c2582bfc44ac0",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "2a1fc7a6d6a4131865ba769f7dbc9c54858e608c8278b692e27e87c39fdd3d35",
+          "legal_action_count": 2724,
+          "matched": true,
+          "state_sha256": "ee1dac7cc31f86e176800075fe87454a1eb2f594df8c8be83071e53e1164c2ca",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "a44e20c4e424df35f595ab12ec8a871c5f1dc7d0f2654cc20adee35a0dade1c7",
+          "legal_action_count": 2642,
+          "matched": true,
+          "state_sha256": "dc61f7a21262cbdc4594cae64e71dda9f32806f43b6c45d091b8864d90fb142a",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "abe9b592239c510c784153020dac84a8075c99f031326a494b1fc2226707d5d3",
+          "legal_action_count": 2642,
+          "matched": true,
+          "state_sha256": "e2abfe83ee46b1f20caad8d1fd4a7f82b20a01b2930f87e57d08d0d69194c2db",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "95412f80be598e2428b1edef201425b65888b7a5d5f4f01ed0be3c2e79c2e993",
+          "legal_action_count": 2642,
+          "matched": true,
+          "state_sha256": "6b190c2fba00459353a17d146bfddcd40e2338c7f36923c58db98d5c99e2eda1",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "67a23a6124b12d6fb2682d0e5b64b1086c3410bd5100146dc49f30ac70c6aceb",
+          "legal_action_count": 2642,
+          "matched": true,
+          "state_sha256": "024679ed3825df5af5e9a19ffe691212c8eb6492715e59e81ae4b4205ff1ee5a",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f8c6ce7aff40c43531f1a1ea85c36fb78c0c4931b2e14dcaa1598045bd087d49",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "a0aafcc0dfbe3cd5c22deb21e84354c8186b58bdb1b060dd776f1f6b04148f97",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "6aa084b4777747e37a8d84fe1200e0d91732a80967f8c69b4591e940cfe18b4c",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "264d9f90c3df975387d329c7573686798bb93a7b954140b1701e13921fe9c2b1",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "4b6908bf76f0cd7d173c4d8636ef7217d8536541456f6057aef631abe998ae88",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "b9328aa7c5d4ff6cce01382d47a1bec765fe8c16d431822fd067c30c7113c5f4",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "d9e6ce48b384ffcd5eb85391113c8981ec5e7baf77185c51c245a7c4fa407c29",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "eb780d0829c3d84f2fd4000df4d9fdfd2328a6a2521dd970c4fb176308fdcba4",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "3a62fbfa0b4d1aaf4a703b740e676531ef7c628b27a152d12c2107b8df000f32",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "ef681be1fe1423b2328082b9042446e86edecc8555d2f12d2817340c120b3774",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "99951d5d1e96289ab49f6449b87d8f754bcde4a861014b3c070701361cf6bdc4",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "687ba36321467024a6a872fb9353a2ba1290aee939865547a899af422d02d183",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c0fe625d56880ed561c43d15191278a3da84ccd9d8ec09a6f38ae6caa68f7f5c",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "687ba36321467024a6a872fb9353a2ba1290aee939865547a899af422d02d183",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "52df8b487bfd35f7fcecc392f2d97615a0d9e05ede95b98461aecf6b1e1d4c7d",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "65fe15392d9f8d725737c5027560990d608672fce65f5ca3abc1222f1224b2bc",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "682c10a29a3cdf0421f799557a3d9e77c587b7545ce37331d1f4511af17af075",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "d5bfc85a8725f10a903bc47ab3a1c8100be712e68c9b4a5484768eea1198a529",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "35014ded365c0b3af9646231dcf2cdb4bfcd2567201f3ff9c2f5681da7ccf3af",
+          "legal_action_count": 2656,
+          "matched": true,
+          "state_sha256": "119681c0a225fec7c1d3f508b303b10f39167545c4efc22f04ae0771a8605747",
+          "step": 17,
+          "terminated": false
+        },
+        {
+          "action_sha256": "531e56290e27947d5e85db007b6ab5f7b44c14284969638615ce0dc520455522",
+          "legal_action_count": 2574,
+          "matched": true,
+          "state_sha256": "519ac8559971f339f3d24db5e6406430193be4124f3aa410ae97dfc71b57faa2",
+          "step": 18,
+          "terminated": false
+        },
+        {
+          "action_sha256": "67e2342c935129bba0b9e100fce0042cb46a55839bfe1632350f7a40cfb96be5",
+          "legal_action_count": 2574,
+          "matched": true,
+          "state_sha256": "519ac8559971f339f3d24db5e6406430193be4124f3aa410ae97dfc71b57faa2",
+          "step": 19,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f8ba6318cb0585cee2968229dfe23a3e65c0f090741f2864e1ddfb1ba45366f5",
+          "legal_action_count": 2574,
+          "matched": true,
+          "state_sha256": "519ac8559971f339f3d24db5e6406430193be4124f3aa410ae97dfc71b57faa2",
+          "step": 20,
+          "terminated": false
+        },
+        {
+          "action_sha256": "470b96e18fbc6251248c405a98857ab9fd74826c76ec176809d403ec21c72233",
+          "legal_action_count": 2574,
+          "matched": true,
+          "state_sha256": "519ac8559971f339f3d24db5e6406430193be4124f3aa410ae97dfc71b57faa2",
+          "step": 21,
+          "terminated": false
+        },
+        {
+          "action_sha256": "397a6b96b80b0baae229a243795ef8087b1c62944616f8be37d4cf07ba0e95fb",
+          "legal_action_count": 2574,
+          "matched": true,
+          "state_sha256": "9f9aaf990976e8b4298cc2b4ece6d3633bc77a1f59a89cec8686d6dc76c31499",
+          "step": 22,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ab1cb348c8049467008abe2d83aafa1c21545e5adf6cea85c873bd83820b7129",
+          "legal_action_count": 2416,
+          "matched": true,
+          "state_sha256": "f90e27a510b7ea8d5aeb126378a80029804e5d339ecc8782c4028afc0ed0f787",
+          "step": 23,
+          "terminated": false
+        },
+        {
+          "action_sha256": "18353adad4f07fd6f7ec4efca1b53a026354451feded6596c401cf5d3800ec53",
+          "legal_action_count": 2416,
+          "matched": true,
+          "state_sha256": "993140722d94a5f3cc160ccee4f6883a390e585024fb16cee8b2f30106d1bb30",
+          "step": 24,
+          "terminated": false
+        },
+        {
+          "action_sha256": "8bbe6b5246df15f0e1ec7c8bcb1b2d3032ab7159805375d77aef91444b0da7a6",
+          "legal_action_count": 2416,
+          "matched": true,
+          "state_sha256": "e1b6d120ba3a1081fe093c8b58b65fe48bd51b289a94fb06db7e59c9cccf184e",
+          "step": 25,
+          "terminated": false
+        }
+      ],
+      "task": "mendelian-genetics-unknown-plant",
+      "variation": 420
+    },
+    {
+      "step_count": 25,
+      "steps": [
+        {
+          "action_sha256": "550a7b8c6f9248d777d085ccbd2ca098b88ca2d9e220c676209ccb43ff7cce24",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "095ca7777a16c7712553136ac3bf182c64e526fd2577d397240aa5b60cca233e",
+          "step": 1,
+          "terminated": false
+        },
+        {
+          "action_sha256": "23e94046b7d6568efc0205b8a883c57732bacd173e94671c7487f3d209c843ce",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "26a645da7c7d2a28c0ff1bd75d49503f03c11aa0434b1b4d669de5d1232ccf77",
+          "step": 2,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e8e5788197e4a8e19e2b2ce63e2b2017a1f8a7f7cacee5853ca372a043750d69",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "b04d157c899fb68779795c2792d1a6e6ff126cdf0b55e8385f12509e71f57f28",
+          "step": 3,
+          "terminated": false
+        },
+        {
+          "action_sha256": "1d02f2aa8d67f2586d646f3252c2f963690b45811d58119c4c1d9b698bf0c620",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "b04d157c899fb68779795c2792d1a6e6ff126cdf0b55e8385f12509e71f57f28",
+          "step": 4,
+          "terminated": false
+        },
+        {
+          "action_sha256": "d09ac48b16e5b0035263eecf5de01cfb64f7e867d9fca29660c2229e2b373747",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "c469ecc2cf0e7b80f238642bd9c2496e0c6d8fd0a1ef4053920acad28bb24173",
+          "step": 5,
+          "terminated": false
+        },
+        {
+          "action_sha256": "ee254ffdf2ac6698a8a7410a05b032ac94a8437af543ef4bd0ecdc231252c87e",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "3dc4b385ea0f9067395b64b41044fc92abd1b37db0928534e6b8f0a72d4214fa",
+          "step": 6,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7447a58d90e4ad2d3620f2b9bbfb22b1155528650b0abfa06aac5cb6a1026451",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "3dc4b385ea0f9067395b64b41044fc92abd1b37db0928534e6b8f0a72d4214fa",
+          "step": 7,
+          "terminated": false
+        },
+        {
+          "action_sha256": "2f1a49197946ab50c2f2bfd7f1feb9708c865636907109cc28519dcfd0228cc7",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "3dc4b385ea0f9067395b64b41044fc92abd1b37db0928534e6b8f0a72d4214fa",
+          "step": 8,
+          "terminated": false
+        },
+        {
+          "action_sha256": "03e0202bd769d4bac5f7af7a3f234f431a44cc65f67179367fd81482cb5996c2",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "3dc4b385ea0f9067395b64b41044fc92abd1b37db0928534e6b8f0a72d4214fa",
+          "step": 9,
+          "terminated": false
+        },
+        {
+          "action_sha256": "791609f3d8167d069acf7991429acfe5b9a938b111f2410180b17c9f1126e803",
+          "legal_action_count": 415,
+          "matched": true,
+          "state_sha256": "d9d1564a087ce856209cc24d12b7670d3284156650b4a28c480f18bce4d51c62",
+          "step": 10,
+          "terminated": false
+        },
+        {
+          "action_sha256": "46bd13d9e89c759c993fa2fd6d1bec8aa86f1fe0de9b885f4c8084bfa3556f2b",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "d030b4b98aaa755fe6412ccac9959d29fb134373fe1573978999456aa2f1d623",
+          "step": 11,
+          "terminated": false
+        },
+        {
+          "action_sha256": "9d9c7e114412766bc8924a3f73d27380e90cc2c8c3be5401a253f46c6ab1db60",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "82baeee06f0ff2813fa4ea20ebf095c5dbd7812f0a8fe754d6bbef3bfeec1790",
+          "step": 12,
+          "terminated": false
+        },
+        {
+          "action_sha256": "8cdaadcad159c224b7686ef615e6679e5cc8b96726dd62fe3413d17c2961ba36",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "9eaea6dedb26f509b1743dfe047bb4a3a48be41228eca2bc9d50bbb0d7060fda",
+          "step": 13,
+          "terminated": false
+        },
+        {
+          "action_sha256": "b9afaf862c95f710a10b11c0051cd8be9e536976d7da0d7a6d76c98ddf325c75",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "72ff627fb1718c43bec2006a3afb0e4ba4fe1626d1cc70b758da096d69a5040a",
+          "step": 14,
+          "terminated": false
+        },
+        {
+          "action_sha256": "f4d0a223cc5af19f220579cb59218af7e5cb7960635f2578b660d21aee7fdd1f",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "319febfcc51f947194cac6b95e7ebe348ebdf6bc0b08a2209fbbcc46441c7438",
+          "step": 15,
+          "terminated": false
+        },
+        {
+          "action_sha256": "2529157c79db111064475578b76b4e15d5a0bbe2aad25c8d3c652c852ef14dbd",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "01d5490d1e1d8c78d4adea7a3e0530e15fc704d9a092ad2dd8e15a48d51e1afe",
+          "step": 16,
+          "terminated": false
+        },
+        {
+          "action_sha256": "037575eae29fc63abd19c2fe53d3820ddab69281903d482359d4cde13bd145cc",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "59659a20df2e3a07d7f6ccfad8bba6a883c28476a546cff1fcfd72f20a94dc58",
+          "step": 17,
+          "terminated": false
+        },
+        {
+          "action_sha256": "63ca65f222cf7103af91c08c9e7dc608d7e8b25e3b2541192d8bf2edb59b4969",
+          "legal_action_count": 383,
+          "matched": true,
+          "state_sha256": "c39cb7ddded3735258afc6ede1ac74316dbd8f7878533e6ae1a67d8fe002eea0",
+          "step": 18,
+          "terminated": false
+        },
+        {
+          "action_sha256": "69490c07d86fdd6a0ce757fc11f19a8ea74877b84c1b1cbfae1a41e87a9a9b2c",
+          "legal_action_count": 384,
+          "matched": true,
+          "state_sha256": "63ad13c15dce842a3865e35a78e06b1129edea6a5ab83a1503740e1ddde1a400",
+          "step": 19,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c3764c3d1c8ef36e06173f931fcde2f4f662791a36be21d2e4f0d6ca6845dd11",
+          "legal_action_count": 354,
+          "matched": true,
+          "state_sha256": "05470a27d48cbf8d32534d9b1c7ff1158286ce3ab8892b09d3f399d02134536b",
+          "step": 20,
+          "terminated": false
+        },
+        {
+          "action_sha256": "7dcbf4eb755f0d51a9c75d6c493dada87863e974b7e6d573dd7dde29ff8cfcc0",
+          "legal_action_count": 354,
+          "matched": true,
+          "state_sha256": "11088f2bc6b8826c9d1cbb21fc2bab023f6af1c47d45bccf0b513f3c1be6b85d",
+          "step": 21,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e8d85842474bf76852c109496d0e384f971092c1d6a0d1ebfadee7b78684ed35",
+          "legal_action_count": 354,
+          "matched": true,
+          "state_sha256": "11088f2bc6b8826c9d1cbb21fc2bab023f6af1c47d45bccf0b513f3c1be6b85d",
+          "step": 22,
+          "terminated": false
+        },
+        {
+          "action_sha256": "c242871df022cd6ed00933d3bd9527eed2c37030050b166d40a6958f8205de1a",
+          "legal_action_count": 354,
+          "matched": true,
+          "state_sha256": "f532ec971463958bd37b6c9538a6f72337ce8efbd2a58dd1fdd9c1723a622586",
+          "step": 23,
+          "terminated": false
+        },
+        {
+          "action_sha256": "3ad17ac120053b68894a363d183b41efca85d40d8f8659583990a24838dfec6e",
+          "legal_action_count": 354,
+          "matched": true,
+          "state_sha256": "9f4dfba9045c51a931b3bf8a651400360244b32ee2dd87011f76cdcdd57d0f3d",
+          "step": 24,
+          "terminated": false
+        },
+        {
+          "action_sha256": "e3b2d79d40f0b4139e081a82b689ca89b6ca124023fbdd2f037d76d8e1eef303",
+          "legal_action_count": 354,
+          "matched": true,
+          "state_sha256": "9f4dfba9045c51a931b3bf8a651400360244b32ee2dd87011f76cdcdd57d0f3d",
+          "step": 25,
+          "terminated": false
+        }
+      ],
+      "task": "mendelian-genetics-unknown-plant",
+      "variation": 479
+    }
+  ],
+  "scienceworld_version": "1.3.0",
+  "source_revision": "e8216d6044e8e39be9fcb185e3b2dfb602584b52",
+  "status": "PASS_NO_MODEL",
+  "task_score_or_reward_values_written": false
+}

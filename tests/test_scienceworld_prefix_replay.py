@@ -19,7 +19,7 @@ def _fixture():
                 for i in (1, 2)
             ]})
     result = {"status":"PASS_NO_MODEL", "protocol":PROTOCOL["protocol"], "protocol_sha256":hashlib.sha256(json.dumps(PROTOCOL, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest(), "source_revision":PROTOCOL["source_revision"], "scienceworld_version":"1.3.0", "episode_count":len(records), "replay_records":records, "model_inference_calls":0, "jev_calls":0, "network_calls":0, "gold_paths_requested":False, "raw_observations_written":False, "raw_action_strings_written":False, "task_score_or_reward_values_written":False}
-    resources={"state":"COMPLETED", "exit_code":"0:0", "account":"pi_fl426", "qos":"normal", "partition":"day", "cpu_count":4, "memory_gib":16, "gpu_count":0, "elapsed_seconds":120}
+    resources={"state":"COMPLETED", "exit_code":"0:0", "account":"pi_fl426", "qos":"normal", "partition":"day", "cpu_count":4, "memory_gib":16, "gpu_count":0, "elapsed_seconds":120, "output_manifest_verified":True, "verified_output_files":199, "output_manifest_sha256":"c"*64}
     return result, resources
 
 
@@ -50,3 +50,8 @@ def test_mismatched_state_fails():
 def test_gpu_allocation_fails():
     result, resources = _fixture(); resources["gpu_count"]=1
     with pytest.raises(ValueError, match="gpu_count"): audit(result, PROTOCOL, resources)
+
+
+def test_unverified_output_manifest_fails():
+    result, resources = _fixture(); resources["output_manifest_verified"] = False
+    with pytest.raises(ValueError, match="checksum manifest"): audit(result, PROTOCOL, resources)
