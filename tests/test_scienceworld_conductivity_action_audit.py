@@ -426,3 +426,52 @@ def test_aggregate_distinguishes_look_overlap_from_full_controller_overlap(panel
     assert report["input_census"]["look"]["shared_train_dev_groups"] == 1
     assert report["input_census"]["full"]["shared_train_dev_groups"] == 0
     assert report["input_census"]["target_groups"]["shared"] == 0
+
+
+def test_chronological_replay_includes_split_load_and_training_traces(panel, state):
+    protocol, result = copy.deepcopy(panel)
+    protocol['training_integration_ids'] = [0, 1]
+    result['training_integration'] = []
+    for variation in (0, 1):
+        row = copy.deepcopy(result['episodes'][0])
+        row.update(variation_id=variation, split='train_smoke')
+        result['training_integration'].append(row)
+    state.env.get_variations_train = lambda: range(300)
+    state.env.get_variations_dev = lambda: range(300, 450)
+    original_load = state.env.load
+    chronology = []
+    def load(task, **kwargs):
+        chronology.append(kwargs['variationIdx'])
+        original_load(task, **kwargs)
+    state.env.load = load
+    report = audit(protocol, result, env_factory=lambda: state.env)
+    assert report['passes']
+    assert report['replay_training_integration_verified'] == 2
+    assert chronology == [0, 0, 1, 2, 3, 0, 1, 2, 2, 2, 2, 3, 3, 3, 3]
+
+
+def test_failed_runtime_audit_does_not_release_policy_outcomes(panel, state):
+    protocol, result = copy.deepcopy(panel)
+    for row in result['episodes'][:4]:
+        row['trace'][0]['view_sha256'] = 'f' * 64
+    report = audit(protocol, result, env_factory=lambda: state.env)
+    assert not report['passes']
+    assert report['policy_counts'] == {}
+    assert report['replay_identity'] == {'variation_id': 2, 'policy': 'measurement'}
+    assert report['replay_stage'] == 'development_episodes'
+    assert 'action 0' in report['replay_error']
+
+
+def test_replay_does_not_add_rng_consuming_legal_action_queries(panel, state):
+    protocol, result = copy.deepcopy(panel)
+    original = state.env.get_valid_action_object_combinations
+    queries = []
+    def legal():
+        queries.append(state.steps)
+        return original()
+    state.env.get_valid_action_object_combinations = legal
+    report = audit(protocol, result, env_factory=lambda: state.env)
+    assert report['passes']
+    # Four census captures, then one initial + two post-action captures per row.
+    # The fake step has no adapter query; the real adapter's own query is unchanged.
+    assert queries == [0] * 4 + [0, 1, 2] * 8

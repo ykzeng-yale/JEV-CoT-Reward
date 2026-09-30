@@ -152,40 +152,51 @@ def training_label(env: Any, variation_id: int, train_ids: list[int]) -> bool:
     return _source_values(env.server.agentInterface().get().task())["unknownIsConductive"]
 
 
-def _full_view_hash(env: Any, observation: str) -> str:
+def _full_view(env: Any, observation: str) -> dict:
     # Authored separately from the policy adapter: compare exact canonical
     # field values rather than trusting a stored policy digest or mixed info.
-    view = {
+    return {
         "task_description": env.taskdescription(),
         "observation": observation,
         "legal_actions": sorted(set(env.get_valid_action_object_combinations())),
     }
+
+
+def _view_hash(view: dict) -> str:
     raw = json.dumps(view, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
+def _full_view_hash(env: Any, observation: str) -> str:
+    return _view_hash(_full_view(env, observation))
 
 
 def _replay_episode(env: Any, protocol: dict, row: dict) -> dict:
     env.load(protocol["task"], variationIdx=row["variation_id"],
              simplificationStr="", generateGoldPath=False)
     observation, _ = env.reset()
-    if _full_view_hash(env, observation) != row["initial_view_sha256"]:
+    view = _full_view(env, observation)
+    if _view_hash(view) != row["initial_view_sha256"]:
         raise ValueError("independent replay initial full-view mismatch")
     if hashlib.sha256(observation.encode("utf-8")).hexdigest() != row["initial_look_sha256"]:
         raise ValueError("independent replay initial look mismatch")
     # Read only the policy-visible task sentence to identify its target.
     target = re.search(r"Your task is to determine if (unknown substance [A-Z]) is electrically conductive\.",
-                       env.taskdescription())
+                       view["task_description"])
     if target is None:
         raise ValueError("independent replay cannot identify visible task target")
     if target.group(1) != row["target_group"]:
         raise ValueError("independent replay target group differs")
     reading_hash = None
-    for step in row["trace"]:
-        if step["action"] not in env.get_valid_action_object_combinations():
+    for step_index, step in enumerate(row["trace"]):
+        # Legal-action queries can consume Scala RNG during referent resolution.
+        # The runner checks its cached visible view; replay must do the same.
+        if step["action"] not in view["legal_actions"]:
             raise ValueError("independent replay action was not publicly legal")
         observation, _reward, _done, _info = env.step(step["action"])
-        if _full_view_hash(env, observation) != step["view_sha256"]:
-            raise ValueError("independent replay post-action view mismatch")
+        view = _full_view(env, observation)
+        if _view_hash(view) != step["view_sha256"]:
+            raise ValueError(f"independent replay post-action view mismatch at action {step_index}")
         if step["action"].startswith(("look at ", "examine ")):
             reading_hash = hashlib.sha256(observation.encode("utf-8")).hexdigest()
     if reading_hash != row["reading_sha256"]:
@@ -378,12 +389,33 @@ def audit(protocol: dict, result: dict, *, env_factory: Callable[[], Any] | None
     record_pass = all(checks.values())
     replay_checked = 0
     census_replayed = 0
+    integration_replayed = 0
+    replay_stage = "not_started"
+    replay_identity = None
     replay_error: str | None = None
     if record_pass and env_factory is not None:
         env = env_factory()
         try:
+            # Mirror the runner's split-validation load before the census.
+            if "training_integration_ids" in protocol:
+                env.load(protocol["task"], variationIdx=0, simplificationStr="", generateGoldPath=False)
+                if (list(env.get_variations_train()) != list(range(300))
+                        or list(env.get_variations_dev()) != list(range(300, 450))):
+                    raise ValueError("independent split validation mismatch")
+            replay_stage = "census"
             census_replayed = _replay_census(env, protocol, result)
+            replay_stage = "training_integration"
+            smoke = result.get("training_integration", [])
+            if [r["variation_id"] for r in smoke] != protocol.get("training_integration_ids", []):
+                raise ValueError("independent training integration order mismatch")
+            for row in smoke:
+                replay_identity = {"variation_id": row["variation_id"], "policy": row["policy"]}
+                if _replay_episode(env, protocol, row) != row["endpoint"]:
+                    raise ValueError("independent training integration endpoint mismatch")
+                integration_replayed += 1
+            replay_stage = "development_episodes"
             for row in episodes:
+                replay_identity = {"variation_id": row["variation_id"], "policy": row["policy"]}
                 endpoint = _replay_episode(env, protocol, row)
                 if endpoint != row["endpoint"]:
                     raise ValueError("independent replay endpoint mismatch")
@@ -391,11 +423,15 @@ def audit(protocol: dict, result: dict, *, env_factory: Callable[[], Any] | None
         except Exception as exc:
             # Do not include repr of bridge objects/private source values.
             replay_error = f"{type(exc).__name__}: independent runtime replay failed after {replay_checked} episodes"
+            # Only our fixed auditor diagnostics can be exposed, never bridge repr.
+            detail = str(exc)
+            if detail.startswith("independent ") and len(detail) < 180:
+                replay_error += ": " + detail
         finally:
             env.close()
 
     aggregates: dict[str, Any] = {}
-    if record_pass:
+    if record_pass and replay_error is None:
         for policy in policies:
             rows = [by_key[variation, policy] for variation in ids]
             aggregates[policy] = {
@@ -415,6 +451,8 @@ def audit(protocol: dict, result: dict, *, env_factory: Callable[[], Any] | None
         "replay_performed": env_factory is not None,
         "replay_episodes_verified": replay_checked, "replay_error": replay_error,
         "replay_census_rows_verified": census_replayed, "input_census": census_aggregates,
+        "replay_training_integration_verified": integration_replayed,
+        "replay_stage": replay_stage, "replay_identity": replay_identity,
         "passes": record_pass and env_factory is not None and replay_error is None and replay_checked == len(expected),
         "policy_counts": aggregates,
         "interpretation": "Development-only finite panel; no confirmatory efficacy, transfer, or Jev claim. Full pass requires environment replay.",

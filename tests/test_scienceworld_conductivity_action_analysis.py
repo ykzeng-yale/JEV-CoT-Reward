@@ -41,6 +41,7 @@ def files(tmp_path):
     r.write_text(json.dumps(result))
     audit = {"passes": True, "record_checks_pass": True, "replay_performed": True,
              "replay_episodes_verified": 600, "replay_census_rows_verified": 450,
+             "replay_training_integration_verified": 3,
              "replay_error": None, "checks": {"synthetic_check": True},
              "result_sha256": hashlib.sha256(r.read_bytes()).hexdigest(),
              "protocol_sha256": hashlib.sha256(p.read_bytes()).hexdigest(), "input_census": {"synthetic": True}}
@@ -82,7 +83,7 @@ def test_full_panel_failures_pairing_and_actual_costs_retained(files):
 
 @pytest.mark.parametrize("field,value", [("passes", False), ("record_checks_pass", False),
                                          ("replay_performed", False), ("replay_episodes_verified", 599),
-                                         ("replay_census_rows_verified", 449), ("replay_error", "failure"),
+                                         ("replay_census_rows_verified", 449), ("replay_training_integration_verified", 2), ("replay_error", "failure"),
                                          ("checks", {"runtime": False}), ("checks", {})])
 def test_rejects_failed_missing_or_partial_replay_before_rates(files, field, value):
     rewrite(files[2], lambda obj: obj.update({field: value}))

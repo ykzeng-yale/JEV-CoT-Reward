@@ -49,6 +49,7 @@ def analyze(protocol_path: Path, result_path: Path, audit_path: Path) -> dict:
             or report.get("replay_performed") is not True
             or report.get("replay_episodes_verified") != 600
             or report.get("replay_census_rows_verified") != 450
+            or report.get("replay_training_integration_verified") != 3
             or report.get("replay_error") is not None
             or not isinstance(report.get("checks"), dict) or not report["checks"]
             or any(value is not True for value in report["checks"].values())):
