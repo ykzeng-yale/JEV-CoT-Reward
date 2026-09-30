@@ -1,0 +1,260 @@
+diff --git a/discoveryworld/agents/recoma/react_controller.py b/discoveryworld/agents/recoma/react_controller.py
+--- a/discoveryworld/agents/recoma/react_controller.py
++++ b/discoveryworld/agents/recoma/react_controller.py
+@@ -6,6 +6,8 @@
+ from multiprocessing.managers import ValueProxy
+ from typing import List, Any, Tuple, Optional
+ import re
++
++from recoma.utils.task_accounting import parse_generated_action
+ 
+ from matplotlib.pyplot import hist
+ from numpy import isin
+@@ -120,12 +122,10 @@
+         if step_type == self.OBSERVATION:
+             current_history.append(Observation(raw_observation=last_child.output))
+         else:
++            raw_output = last_child.output
+             action_json = self.extract_json_output(last_child)
+-            try:
+-                formatted_json = json.loads(action_json)
+-                current_history.append(Action(action_str=last_child.output, action_json=formatted_json))
+-            except json.JSONDecodeError:
+-                raise ValueError("Failed to decode JSON from action output: {}".format(last_child.output))
++            formatted_json = parse_generated_action(action_json, raw_output)
++            current_history.append(Action(action_str=last_child.output, action_json=formatted_json))
+ 
+ 
+     def build_message_thread(self, history):
+diff --git a/recoma/recoma/search/search.py b/recoma/recoma/search/search.py
+--- a/recoma/recoma/search/search.py
++++ b/recoma/recoma/search/search.py
+@@ -1,5 +1,7 @@
+ import heapq
+ import logging
++
++from recoma.utils.task_accounting import ScientificTaskFailure
+ from dataclasses import dataclass
+ 
+ from recoma.datasets.reader import Example
+@@ -103,7 +105,17 @@
+             iters += 1
+             # generate new states
+             stopped_state = None
+-            for new_state in self.execute(current_state):
++            try:
++                next_states = self.execute(current_state)
++            except ScientificTaskFailure as exc:
++                # The model output is retained; this task ends without another
++                # call, repair, fallback, environment action, or resampling.
++                current_state.data["scientific_task_failure"] = exc.record()
++                current_state.data["scientific_task_status"] = "scientific_failure"
++                answer = self.answerer.generate_answer(current_state)
++                return ExamplePrediction(example=example, prediction=answer,
++                                         final_state=current_state)
++            for new_state in next_states:
+                 # check stopping conditions
+                 should_stop = False
+                 for stopping_condition in self.stopping_conditions:
+diff --git a/recoma/recoma/run_inference.py b/recoma/recoma/run_inference.py
+--- a/recoma/recoma/run_inference.py
++++ b/recoma/recoma/run_inference.py
+@@ -4,6 +4,8 @@
+ from dataclasses import dataclass
+ from pathlib import Path
+ from typing import List
++
++from recoma.utils.task_accounting import collect_durable_predictions
+ 
+ import _jsonnet
+ 
+@@ -109,8 +111,8 @@
+     Path(args.output_dir).mkdir(parents=True, exist_ok=True)
+     with open(args.output_dir + "/source_config.json", "w") as output_fp:
+         output_fp.write(json.dumps(configurable_systems.source_json, indent=2))
+-    for example in reader.get_examples(args.input):
+-        example_predictions.append(search_algo.predict(example))
++    example_predictions = collect_durable_predictions(
++        reader, search_algo, args.input, args.output_dir)
+     dump_predictions(args, example_predictions)
+ 
+ 
+diff --git a/recoma/recoma/models/impl/hf_torch_generator.py b/recoma/recoma/models/impl/hf_torch_generator.py
+--- a/recoma/recoma/models/impl/hf_torch_generator.py
++++ b/recoma/recoma/models/impl/hf_torch_generator.py
+@@ -32,6 +32,7 @@
+             raise ValueError("MODEL_PATH must point to the frozen local snapshot")
+         self.model_id = model
+         self.model_path = str(Path(model_path).resolve())
++        self.model_revision = Path(self.model_path).name
+         if not torch.cuda.is_available():
+             raise RuntimeError("hf_torch ReCoMA adaptation requires an allocated CUDA GPU")
+         self.tokenizer = AutoTokenizer.from_pretrained(
+@@ -73,6 +74,8 @@
+             kwargs["stopping_criteria"] = self.stop_criteria
+         prompt_text = json.dumps(messages, ensure_ascii=False, separators=(",", ":"))
+         prompt_hash = hashlib.sha256(prompt_text.encode("utf-8")).hexdigest()
++        torch.cuda.synchronize()
++        torch.cuda.reset_peak_memory_stats()
+         start = time.monotonic()
+         try:
+             with torch.inference_mode():
+@@ -82,10 +85,15 @@
+             for stop_text in params.stop:
+                 if stop_text in text:
+                     text = text.split(stop_text, 1)[0]
++            torch.cuda.synchronize()
+             elapsed = time.monotonic() - start
+             record = {
+                 "status": "ok", "task_id": state.example.unique_id,
+-                "model": self.model_id, "prompt_sha256": prompt_hash,
++                "model": self.model_id, "model_revision": self.model_revision,
++                "prompt_sha256": prompt_hash,
++                "controller_output_sha256": hashlib.sha256(text.lstrip().encode("utf-8")).hexdigest(),
++                "peak_allocated_gpu_bytes": int(torch.cuda.max_memory_allocated()),
++                "peak_reserved_gpu_bytes": int(torch.cuda.max_memory_reserved()),
+                 "input_tokens": int(input_ids.shape[1]),
+                 "output_tokens": len(output_ids), "elapsed_seconds": elapsed,
+                 "temperature": params.temperature, "max_new_tokens": params.max_tokens,
+diff --git a/recoma/recoma/utils/task_accounting.py b/recoma/recoma/utils/task_accounting.py
+new file mode 100644
+--- /dev/null
++++ b/recoma/recoma/utils/task_accounting.py
+@@ -0,0 +1,137 @@
++"""Typed scientific failures and durable task accounting, without retries."""
++from __future__ import annotations
++
++import hashlib
++import json
++import os
++from pathlib import Path
++import time
++
++
++class ScientificTaskFailure(ValueError):
++    """Only a declared model-output failure; never a simulator/runtime error."""
++
++    CODES = frozenset({"missing_action_json", "invalid_action_json",
++                       "non_object_action_json", "invalid_submit_arguments"})
++
++    def __init__(self, code, raw_output):
++        if code not in self.CODES or not isinstance(raw_output, str):
++            raise TypeError("scientific failure requires a declared code and text")
++        self.code = code
++        self.output_sha256 = hashlib.sha256(raw_output.encode("utf-8")).hexdigest()
++        # No raw output/private state in exception text.
++        super().__init__(code)
++
++    def record(self):
++        return {"code": self.code, "output_sha256": self.output_sha256,
++                "retry_or_resample": False}
++
++
++def parse_generated_action(payload, raw_output):
++    """Preserve upstream JSON extraction; validate only its crash-prone shape.
++
++    Valid object actions, including environment-denied actions and dialog
++    objects, are returned unchanged. None means upstream found no JSON. Other
++    unexpected internal payload types are infrastructure errors, not failures.
++    """
++    if payload is None:
++        raise ScientificTaskFailure("missing_action_json", raw_output)
++    if not isinstance(payload, str):
++        raise TypeError("unexpected internal action payload type")
++    try:
++        action = json.loads(payload)
++    except json.JSONDecodeError as exc:
++        raise ScientificTaskFailure("invalid_action_json", raw_output) from exc
++    if not isinstance(action, dict):
++        raise ScientificTaskFailure("non_object_action_json", raw_output)
++    if action.get("action") == "SUBMIT" and (
++            not isinstance(action.get("arg1"), str)
++            or not isinstance(action.get("thought", ""), str)):
++        raise ScientificTaskFailure("invalid_submit_arguments", raw_output)
++    return action
++
++
++def prediction_record(prediction):
++    """Record an ended task without mutating its example or official scorecard."""
++    row = dict(prediction.example.__dict__)
++    row["task_id"] = prediction.example.unique_id
++    try:
++        value = json.loads(prediction.prediction)
++    except (json.JSONDecodeError, TypeError):
++        value = prediction.prediction
++    row["predicted"] = value
++    metadata = dict(prediction.final_state.data)
++    failure = metadata.get("scientific_task_failure")
++    row["scientific_task_status"] = "scientific_failure" if failure else "completed"
++    row["runtime_contract"] = "recoma_scientific_failure_accounting_v3"
++    row["runtime_contract_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
++    card = metadata.get("final_scorecard")
++    if not isinstance(card, list) or len(card) != 1:
++        raise RuntimeError("ended task lacks a unique terminal scorecard")
++    # Preserve official partial progress; do not turn a model-format failure
++    # into success or silently zero its actual progress score.
++    observed_success = card[0].get("completedSuccessfully")
++    if type(observed_success) is not bool:
++        raise RuntimeError("ended task lacks an official success Boolean")
++    row["failure_adjusted_completed_successfully"] = observed_success and failure is None
++    row["metadata"] = metadata
++    return row
++
++
++class DurableJSONL:
++    def __init__(self, path, byte_cap):
++        self.path = Path(path)
++        if type(byte_cap) is not int or byte_cap <= 0:
++            raise ValueError("positive output byte cap required")
++        self.byte_cap = byte_cap
++        self.bytes_written = 0
++        # Refuse an existing ledger instead of overwriting/resuming/retrying.
++        with self.path.open("x", encoding="utf-8") as stream:
++            stream.flush()
++            os.fsync(stream.fileno())
++
++    def append(self, row):
++        raw = json.dumps(row, sort_keys=True, ensure_ascii=False, allow_nan=False) + "\n"
++        size = len(raw.encode("utf-8"))
++        if self.bytes_written + size > self.byte_cap:
++            raise RuntimeError("durable accounting output byte cap exceeded")
++        with self.path.open("a", encoding="utf-8") as stream:
++            stream.write(raw)
++            stream.flush()
++            os.fsync(stream.fileno())
++        self.bytes_written += size
++
++
++def collect_durable_predictions(reader, search, input_file, output_dir):
++    """Persist each ended task before starting another; abort unknown errors."""
++    root = Path(output_dir)
++    tasks = DurableJSONL(root / "task_records.jsonl",
++                         int(os.environ.get("RECOMA_TASK_RECORDS_MAX_BYTES", "33554432")))
++    events = DurableJSONL(root / "task_events.jsonl",
++                          int(os.environ.get("RECOMA_TASK_EVENTS_MAX_BYTES", "4194304")))
++    predictions, seen = [], set()
++    for example in reader.get_examples(input_file):
++        task_id = example.unique_id
++        if task_id in seen:
++            raise RuntimeError("duplicate task identity before inference")
++        seen.add(task_id)
++        started = time.monotonic()
++        events.append({"event": "task_started", "task_id": task_id,
++                       "monotonic_seconds": time.monotonic()})
++        try:
++            prediction = search.predict(example)
++            row = prediction_record(prediction)
++            if row["task_id"] != task_id:
++                raise RuntimeError("prediction identity differs from requested task")
++            row["task_wall_seconds"] = time.monotonic() - started
++            tasks.append(row)
++        except Exception as exc:
++            events.append({"event": "infrastructure_abort", "task_id": task_id,
++                           "exception_type": type(exc).__name__,
++                           "monotonic_seconds": time.monotonic()})
++            raise
++        predictions.append(prediction)
++        events.append({"event": "task_ended", "task_id": task_id,
++                       "scientific_task_status": row["scientific_task_status"],
++                       "monotonic_seconds": time.monotonic()})
++    return predictions

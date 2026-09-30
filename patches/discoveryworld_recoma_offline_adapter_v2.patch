@@ -1,0 +1,34 @@
+--- a/agents/recoma/discoveryworld_promptlm.py
++++ b/agents/recoma/discoveryworld_promptlm.py
+@@ -4,7 +4,16 @@
+ from typing import Any
+ import json
+ from agents.recoma.discoveryworld_env_models import SingletonEnvironment
+-from agents.HypothesizerAgent import mkShortInteractableObjectList
++
++def mkShortInteractableObjectList(observation):
++    # Exact formatting copied from the pinned official adapter; avoid importing the
++    # legacy OpenAI agent module (which initializes a network-backed tiktoken cache).
++    objStrs = []
++    for obj in observation["ui"]["inventoryObjects"]:
++        objStrs.append("{\"name\": \"" + obj["name"] + "\", \"uuid\": " + str(obj["uuid"]) + "}")
++    for obj in observation["ui"]["accessibleEnvironmentObjects"]:
++        objStrs.append("{\"name\": \"" + obj["name"] + "\", \"uuid\": " + str(obj["uuid"]) + "}")
++    return "[" + ", ".join(objStrs) + "]"
+ import yaml
+ from recoma.models.core.base_model import BaseModel
+ from recoma.models.core.prompted_lm_model import PromptedLMModel
+--- a/agents/recoma/discoveryworld_env_models.py
++++ b/agents/recoma/discoveryworld_env_models.py
+@@ -174,6 +174,11 @@
+             validDifficulties = SCENARIO_INFOS[scenarioName]["difficulty"]
+             validSeeds = SCENARIO_INFOS[scenarioName]["variations"]
+             validSeeds = [int(x) for x in validSeeds]
++            # The official benchmark protocol specifies API seeds 0-4. When a
++            # frozen run explicitly supplies seeds, use those IDs directly; the
++            # upstream convenience list (1-5) is not the benchmark panel.
++            if self.limit_seeds is not None:
++                validSeeds = [int(x) for x in self.limit_seeds]
+             for difficulty in validDifficulties:
+                 if self.limit_difficulties is not None and difficulty not in self.limit_difficulties:
+                     continue

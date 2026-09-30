@@ -1,0 +1,26 @@
+--- a/discoveryworld/scenarios/not_rocket_science.py
++++ b/discoveryworld/scenarios/not_rocket_science.py
+@@ -334,7 +334,8 @@
+     # Rocket mass
+     MIN_ROCKET_MASS = 1e3  # kg
+     MAX_ROCKET_MASS = 1e4  # kg
+-    rocketMass = float(world.rng.randint(MIN_ROCKET_MASS, MAX_ROCKET_MASS))  # kg
++    # Bounds are integral-valued floats; randint requires integer bounds.
++    rocketMass = float(world.rng.randint(int(MIN_ROCKET_MASS), int(MAX_ROCKET_MASS)))  # kg
+     scoringInfo["criticalHypotheses"].append(f"The dry mass of the rocket is {rocketMass} kg.")
+ 
+     rocketTanksVolume = 10000  # L
+--- a/discoveryworld/objects/Object.py
++++ b/discoveryworld/objects/Object.py
+@@ -17,7 +17,10 @@
+         self.name = objectName
+         self.defaultSpriteName = defaultSpriteName
+         self.uuid = world.uuidGenerator.generateUUID()          # Generate a unique integer to represent this object
+-        self.rng = random.Random()                              # Random number generator for this object
++        # Derive per-object randomness from the frozen scenario seed and stable object ID.
++        scenario_seed = getattr(world, "randomSeed", None)
++        scenario_seed = 0 if scenario_seed is None else int(scenario_seed)
++        self.rng = random.Random((scenario_seed << 16) | self.uuid)
+ 
+         # Whether the agent has had tick() called already this past update
+         self.tickCompleted = False

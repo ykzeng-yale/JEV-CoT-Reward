@@ -1,0 +1,21 @@
+# Pinned ReCoMA and DiscoveryWorld runtime extras for Yale CPython 3.12.
+# PyTorch 2.9.1 / Transformers 4.55.2 are provided by the pinned Yale module set.
+diskcache==5.6.3
+attrs==25.3.0
+Jinja2==3.1.6
+jsonnet==0.22.0
+matplotlib==3.10.8
+numpy==2.2.6
+openai==1.30.1
+packaging==26.3
+pathfinding==1.0.18
+pillow==12.2.0
+pygame==2.6.1
+pyyaml==6.0.2
+python-dateutil==2.9.0.post0
+registrable==0.0.4
+six==1.17.0
+sympy==1.13.3
+termcolor==3.1.0
+tenacity==8.5.0
+treelib==1.7.1

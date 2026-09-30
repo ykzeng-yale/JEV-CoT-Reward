@@ -1,0 +1,227 @@
+diff --git a/recoma/models/impl/__init__.py b/recoma/models/impl/__init__.py
+index e97091d..1b3a314 100644
+--- a/recoma/models/impl/__init__.py
++++ b/recoma/models/impl/__init__.py
+@@ -3,4 +3,4 @@ from recoma.models.impl.l2m_controller import LeastToMostController
+ from recoma.models.impl.math_executer import MathProgramExecuter
+ from recoma.models.impl.openai_generators import OpenAIChatGenerator
+ from recoma.models.impl.react_controller import SimpleReactController
+-from recoma.models.impl.lite_llm_generator import LiteLLMGenerator
+\ No newline at end of file
++from recoma.models.impl.hf_torch_generator import HFTorchGenerator
+\ No newline at end of file
+diff --git a/recoma/models/impl/hf_torch_generator.py b/recoma/models/impl/hf_torch_generator.py
+new file mode 100644
+index 0000000..eeb28b8
+--- /dev/null
++++ b/recoma/models/impl/hf_torch_generator.py
+@@ -0,0 +1,112 @@
++"""Explicit in-process Transformers backend for open-weight ReCoMA adaptations."""
++import hashlib
++import json
++import os
++import time
++from pathlib import Path
++
++import torch
++from transformers import AutoModelForCausalLM, AutoTokenizer
++from transformers.generation.stopping_criteria import StopStringCriteria, StoppingCriteriaList
++
++from recoma.models.core.generator import GenerationOutputs, LMGenerator
++
++
++def _append_jsonl(path: str, row: dict) -> None:
++    if not path:
++        return
++    target = Path(path)
++    target.parent.mkdir(parents=True, exist_ok=True)
++    with target.open("a", encoding="utf-8") as stream:
++        stream.write(json.dumps(row, sort_keys=True) + "\n")
++        stream.flush()
++        os.fsync(stream.fileno())
++
++
++@LMGenerator.register("hf_torch")
++class HFTorchGenerator(LMGenerator):
++    def __init__(self, model: str, model_path: str = None, **kwargs):
++        super().__init__(**kwargs)
++        model_path = model_path or os.environ.get("MODEL_PATH")
++        if not model_path:
++            raise ValueError("MODEL_PATH must point to the frozen local snapshot")
++        self.model_id = model
++        self.model_path = str(Path(model_path).resolve())
++        if not torch.cuda.is_available():
++            raise RuntimeError("hf_torch ReCoMA adaptation requires an allocated CUDA GPU")
++        self.tokenizer = AutoTokenizer.from_pretrained(
++            self.model_path, local_files_only=True, trust_remote_code=False,
++            padding_side="left", use_fast=False)
++        self.model = AutoModelForCausalLM.from_pretrained(
++            self.model_path, local_files_only=True, trust_remote_code=False,
++            torch_dtype=torch.bfloat16, attn_implementation="sdpa").to("cuda").eval()
++        if self.tokenizer.pad_token_id is None:
++            self.tokenizer.pad_token_id = self.tokenizer.eos_token_id
++        self.usage_log = os.environ.get("RECOMA_USAGE_LOG")
++        self.stop_criteria = (
++            StoppingCriteriaList([StopStringCriteria(self.tokenizer, self.generator_params.stop)])
++            if self.generator_params.stop else None
++        )
++
++    def generate(self, input_str, state):
++        messages = self.extract_role_messages(input_str)
++        input_ids = self.tokenizer.apply_chat_template(
++            messages, tokenize=True, add_generation_prompt=True, return_tensors="pt")
++        if input_ids.ndim == 1:
++            input_ids = input_ids.unsqueeze(0)
++        input_ids = input_ids.to("cuda")
++        attention_mask = torch.ones_like(input_ids)
++        params = self.generator_params
++        kwargs = {
++            "input_ids": input_ids,
++            "attention_mask": attention_mask,
++            "max_new_tokens": params.max_tokens,
++            "do_sample": params.temperature > 0,
++            "pad_token_id": self.tokenizer.pad_token_id,
++            "eos_token_id": self.tokenizer.eos_token_id,
++            "use_cache": True,
++        }
++        if params.temperature > 0:
++            kwargs["temperature"] = params.temperature
++            kwargs["top_p"] = params.top_p
++        if self.stop_criteria is not None:
++            kwargs["stopping_criteria"] = self.stop_criteria
++        prompt_text = json.dumps(messages, ensure_ascii=False, separators=(",", ":"))
++        prompt_hash = hashlib.sha256(prompt_text.encode("utf-8")).hexdigest()
++        start = time.monotonic()
++        try:
++            with torch.inference_mode():
++                generated = self.model.generate(**kwargs)
++            output_ids = generated[0, input_ids.shape[1]:].tolist()
++            text = self.tokenizer.decode(output_ids, skip_special_tokens=True)
++            for stop_text in params.stop:
++                if stop_text in text:
++                    text = text.split(stop_text, 1)[0]
++            elapsed = time.monotonic() - start
++            record = {
++                "status": "ok", "task_id": state.example.unique_id,
++                "model": self.model_id, "prompt_sha256": prompt_hash,
++                "input_tokens": int(input_ids.shape[1]),
++                "output_tokens": len(output_ids), "elapsed_seconds": elapsed,
++                "temperature": params.temperature, "max_new_tokens": params.max_tokens,
++                "messages": messages, "output_text": text,
++                "output_token_ids": output_ids,
++            }
++            _append_jsonl(self.usage_log, record)
++            prefix = "hf_torch.{}".format(self.model_id)
++            state.update_counter(prefix + ".calls", 1)
++            state.update_counter(prefix + ".prompt_tokens", record["input_tokens"])
++            state.update_counter(prefix + ".completion_tokens", record["output_tokens"])
++            result = GenerationOutputs(outputs=[text.lstrip()], scores=[])
++            if len(messages) > 1:
++                open_node = state.get_open_node()
++                open_node.add_input_output_prompt(json.dumps(messages, ensure_ascii=False), result)
++            return result
++        except Exception as exc:
++            _append_jsonl(self.usage_log, {
++                "status": "error", "task_id": state.example.unique_id,
++                "model": self.model_id, "prompt_sha256": prompt_hash,
++                "messages": messages,
++                "error_type": type(exc).__name__, "elapsed_seconds": time.monotonic()-start,
++            })
++            raise
+diff --git a/recoma/models/impl/openai_generators.py b/recoma/models/impl/openai_generators.py
+index ac0d06d..5ad23b3 100644
+--- a/recoma/models/impl/openai_generators.py
++++ b/recoma/models/impl/openai_generators.py
+@@ -5,7 +5,6 @@ import os
+ from calendar import c
+ from http import client
+ from typing import Any
+-from litellm import completion_cost
+ import openai
+ from openai.types.chat.chat_completion import ChatCompletion
+ from diskcache import Cache
+@@ -68,12 +67,6 @@ class OpenAIChatGenerator(LMGenerator):
+             function = self.client.chat.completions.create
+ 
+         response: ChatCompletion = self.completion_with_backoff(function=function, **generator_args)
+-        try:
+-            cost = completion_cost(response)
+-            state.update_counter("openai.{}.cost".format(self.model), cost)
+-        except:
+-            # Unknown model
+-            pass
+         generation_outputs = GenerationOutputs(outputs=[], scores=[])
+         state.update_counter("openai.{}.calls".format(self.model), 1)
+         for usage_key, count in response.usage.__dict__.items():
+diff --git a/recoma/run_inference.py b/recoma/run_inference.py
+index 37a40b7..efb22ac 100644
+--- a/recoma/run_inference.py
++++ b/recoma/run_inference.py
+@@ -6,7 +6,6 @@ from pathlib import Path
+ from typing import List
+ 
+ import _jsonnet
+-import gradio as gr
+ 
+ from recoma.datasets.reader import DatasetReader, QAExample
+ from recoma.models.core.base_model import BaseModel
+@@ -199,6 +198,7 @@ def gradio_demo_fn(args, configurable_systems: ConfigurableSystems,
+ 
+ 
+ def build_gradio_interface(parsed_args, config_sys):
++    import gradio as gr
+ 
+     gradio_fn = lambda *field_values: gradio_demo_fn(parsed_args, config_sys, field_values)
+ 
+diff --git a/recoma/search/early_stopping.py b/recoma/search/early_stopping.py
+index 10e1c45..9cacc4b 100644
+--- a/recoma/search/early_stopping.py
++++ b/recoma/search/early_stopping.py
+@@ -58,6 +58,9 @@ class MaximumLLMCalls(EarlyStoppingCondition):
+             m = re.match("litellm.(.*).calls", key)
+             if m:
+                 counter[m.group(1)] += value
++            m = re.match("hf_torch.(.*).calls", key)
++            if m:
++                counter[m.group(1)] += value
+         num_calls = sum(counter.values())
+         if num_calls >= self.max_llm_calls:
+             logger.warning("Hit max calls: {} >= {}".format(num_calls, self.max_llm_calls))
+diff --git a/recoma/search/search.py b/recoma/search/search.py
+index 29ad6af..282d92a 100644
+--- a/recoma/search/search.py
++++ b/recoma/search/search.py
+@@ -102,6 +102,7 @@ class BestFirstSearch(SearchAlgo):
+ 
+             iters += 1
+             # generate new states
++            stopped_state = None
+             for new_state in self.execute(current_state):
+                 # check stopping conditions
+                 should_stop = False
+@@ -109,15 +110,20 @@ class BestFirstSearch(SearchAlgo):
+                     if stopping_condition.should_stop(new_state, iters, heap):
+                         should_stop = True
+                         break
+-                if not should_stop:
++                if should_stop:
++                    # Preserve this terminal state so per-request cost counters and the last
++                    # observation/action are not silently lost when a cap is reached.
++                    stopped_state = new_state
++                else:
+                     heapq.heappush(heap, new_state)
+ 
+-            # Rather than failing at the beginning of the loop, fail at the end here and return the
+-            # current state
++            # Rather than failing at the beginning of the loop, return the most recent generated
++            # state when the stopping condition empties the search frontier.
+             if len(heap) == 0:
+-                answer = self.answerer.generate_answer(current_state)
++                final_state = stopped_state or current_state
++                answer = self.answerer.generate_answer(final_state)
+                 logger.warning("!EMPTY HEAP!: {}".format(example.unique_id))
+-                return ExamplePrediction(example=example, prediction=answer, final_state=current_state)
++                return ExamplePrediction(example=example, prediction=answer, final_state=final_state)
+ 
+         logger.error("NONE OF THE STOPPING CONDITIONS MET AFTER 1M STEPS!!: {}".format(example.unique_id))
+         best_state = heapq.heappop(heap)

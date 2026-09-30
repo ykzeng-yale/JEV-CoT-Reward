@@ -1,0 +1,46 @@
+{
+  "analyzer_sha256": "e60b86e2d391a3d08a19b3a3055d7edb8df722792962c488bdc78c807c8cebc7",
+  "census_task_inputs": [
+    "current_agent_visible_observation",
+    "visible_known_actions",
+    "current_dialog_status"
+  ],
+  "checkpoint_rule": "first_classifiable_candidate_per_task",
+  "claim_boundary": "Visible instrument/object candidate states and generated USE proposals only; not proven legal pairs, successful measurements, causal opportunities, intervention value, hidden CoT or efficacy.",
+  "counterfactual_or_controller_interventions": 0,
+  "earlier_unclassifiable_calls_disclosed": true,
+  "excluded_selection_inputs": [
+    "terminal_scorecard",
+    "terminal_success",
+    "hidden_traits",
+    "future_model_outputs",
+    "claimed_SUBMIT_success",
+    "seed_to_label_mapping",
+    "Jev_score"
+  ],
+  "recognized_instrument_names": [
+    "microscope",
+    "ph meter",
+    "radiation meter",
+    "spectrometer",
+    "thermometer",
+    "densitometer",
+    "proteomics meter"
+  ],
+  "report_proposals_separately_from_checkpoint_selection": true,
+  "required_record_audit_scope": [
+    "full_panel",
+    "balanced_census"
+  ],
+  "retains_entire_assigned_denominator": true,
+  "selection_uses_terminal_outcomes": false,
+  "selection_uses_visible_fields_only": true,
+  "source_sha256": {
+    "agents/recoma/discoveryworld_promptlm.py": "cff1db1564d5380fa4b5981e1bd139605135f9242812722308b2c56ee0274f09",
+    "agents/recoma/prompts/react_prompt.txt": "9dfdc58c9ef10f72f0de11d7b83d01648fcc59d8e146eae31ad681a90fe13d8e",
+    "discoveryworld/UserInterface.py": "135f80c0ebc3a909f09cb72306226368b2ca38d657429ded4a700aee76aa3934",
+    "discoveryworld/objects/ScienceTools.py": "3da269df51d52cff8684ed0d34ed6a32f791077a30f61e372765c77884002108"
+  },
+  "unclassifiable_is_not_no_candidate": true,
+  "version": "visible_instrument_census_v3"
+}
