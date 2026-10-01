@@ -1,5 +1,10 @@
 # Paper evidence and next decisions
 
+## October 1 — post-phase source-grounded failure diagnosis
+
+No new positive efficacy signal. Hash-bound retrospective analysis partitions all24 audited development tasks into16 action-cap incomplete,5 final SUBMIT with unsuccessful official endpoint,3 typed format failures. The source terminates on SUBMIT independently of official completion; textual success assertions therefore cannot count as success. No rerun or evaluator relaxation occurred. Fresh scheduler receipts confirm27983982/27987263 COMPLETED0:0 and no task-owned ReCoMA queue entry; previously observed local PID83281 is absent, not restarted. The six-hour bounded goal is complete; the six-hour research heartbeat is active. The expired16GPU-hour phase cap does not automatically roll over. A fresh balanced prompt-by-horizon diagnosis design is prepared, not launched, pending a documented post-phase compute envelope. See docs/recoma_postphase_diagnosis_and_next_design_20261001.md. No Jev call or email was sent.
+
+
 ## Current final-phase pointer — September 30, 19:03 EDT
 
 Recurring automation deleted; corrected six-hour goal active, deadline 22:26:58 EDT. Independent qualification **27978394 / CPU reaudit 27981904 PASS**. Production **27983982 is RUNNING from 19:02:40 EDT**, two qualified RTX Pro GPUs, eight CPUs/64 GiB, `pi_fl426`/requested`normal`/`gpu_devel`, with unchanged frozen 24-stratum/seed-0 inputs. The same pending job's frozen compatible route was restored after the unrelated development job became terminal; no duplicate or cross-project interruption was made. Terminal audit/analysis is prepared and no partial outcomes have been inspected. See [current_research_state.md](current_research_state.md) for exact running/placement/input receipts and [final_validation_decision_20260930.md](final_validation_decision_20260930.md) for investment boundaries. Eight terminal parents total 0.484722 GPU-hours; the live allocation is not included in that subtotal. No production efficacy result, Jev increment, methods novelty or E2–E7 completion is claimed.
