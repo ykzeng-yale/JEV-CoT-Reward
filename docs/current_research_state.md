@@ -1,5 +1,9 @@
 # Current JEV-CoT-Reward research state
 
+## October 1, 13:23 EDT — prospective factorial analysis prepared
+
+The complete-assignment four-arm paired analyzer is implemented with8CPU testsPASS (zero outcomes, paired wins/losses, failures and invalid/incomplete evidence). This is preparatory validation, not efficacy. No96-cell experiment has run. Actual source-bound arm auditing and terminal-reason runtime integration remain required; new compute still requires a documented post-phase envelope. Existing27983982/27987263 are freshly verifiedCOMPLETED0:0, no ReCoMA job queued, and localPID83281 absent. No new positive finding or email. Details:recoma_postphase_diagnosis_and_next_design_20261001.md.
+
 ## October 1 — post-phase source-grounded failure diagnosis
 
 No new positive efficacy signal. Hash-bound retrospective analysis partitions all24 audited development tasks into16 action-cap incomplete,5 final SUBMIT with unsuccessful official endpoint,3 typed format failures. The source terminates on SUBMIT independently of official completion; textual success assertions therefore cannot count as success. No rerun or evaluator relaxation occurred. Fresh scheduler receipts confirm27983982/27987263 COMPLETED0:0 and no task-owned ReCoMA queue entry; previously observed local PID83281 is absent, not restarted. The six-hour bounded goal is complete; the six-hour research heartbeat is active. The expired16GPU-hour phase cap does not automatically roll over. A fresh balanced prompt-by-horizon diagnosis design is prepared, not launched, pending a documented post-phase compute envelope. See docs/recoma_postphase_diagnosis_and_next_design_20261001.md. No Jev call or email was sent.
