@@ -26,3 +26,11 @@ def test_actual_action_cap_checks_counter_once_and_preserves_stop():
     count=[];ns={'num_interactions':lambda:count.append(1) or 30,'logger':SimpleNamespace(warning=lambda x:None)};exec(compile(ast.Module(body=[fn],type_ignores=[]),'test','exec'),ns)
     state=SimpleNamespace(data={});assert ns['should_stop'](SimpleNamespace(max_env_calls=30),state,0,[]) is True;assert len(count)==1 and state.data['recoma_terminal_trigger']=='action_cap'
     count.clear();ns['num_interactions']=lambda:count.append(1) or 29;state=SimpleNamespace(data={});assert ns['should_stop'](SimpleNamespace(max_env_calls=30),state,0,[]) is False;assert len(count)==1 and not state.data
+
+def test_durable_prediction_keeps_endpoint_and_stop_branch():
+    text=m.patch_durable((source/'recoma/recoma/utils/task_accounting.py').read_text());ns={'__file__':__file__};exec(compile(text,'prepared','exec'),ns)
+    ex=SimpleNamespace(unique_id='task');state=SimpleNamespace(data={'recoma_terminal_trigger':'submit','final_scorecard':[{'completedSuccessfully':False}]});pred=SimpleNamespace(example=ex,prediction='0.1',final_state=state)
+    row=ns['prediction_record'](pred);assert row['terminal_trigger']=='submit' and not row['failure_adjusted_completed_successfully'] and row['metadata']['final_scorecard'][0]['completedSuccessfully'] is False
+def test_format_and_infrastructure_hooks_compile_without_retry():
+    search=m.patch_search((source/'recoma/recoma/search/search.py').read_text());compile(search,'prepared','exec');assert 'current_state.data["recoma_terminal_trigger"] = "format_failure"' in search
+    durable=m.patch_durable((source/'recoma/recoma/utils/task_accounting.py').read_text());assert '"outcome_unknown": True' in durable;compile(durable,'prepared','exec')

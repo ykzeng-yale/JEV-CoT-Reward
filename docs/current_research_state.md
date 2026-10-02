@@ -1,5 +1,10 @@
 # Current JEV-CoT-Reward research state
 
+## October 2, 19:31 EDT — durable termination instrumentation prepared
+
+Future-runtime preparation now also tags the actual typed-format-failure branch and persists its observed trigger in durable prediction records. Infrastructure-abort events explicitly retain unknown outcomes. All five prepared source files compile; combined30 CPU testsPASS, including actual prediction-record execution verifying SUBMIT cannot alter official failure. Original frozen source/results remain untouched. Missing stop observations remain `unobserved`, never guessed from outcomes. End-to-end runtime qualification, source-bound independent arm auditing, fresh-data provenance and post-phase compute envelope still block release; no96-cell experiment or new efficacy. No model/Jev call/email.
+
+
 ## October 2, 13:29 EDT — no live experiment; release prerequisites remain
 
 Fresh scheduler receipts confirm prior JEV parents COMPLETED 0:0 and empty queue; local PID83281 absent. Actual action-cap source instrumentation now records the executed stop branch without extra simulator counter queries; combined28 CPU tests PASS and distinct v2 prepared source compiles. This is partial implementation, not scientific evidence or a compute wait. Format/infrastructure and durable receipt integration, independent arm auditing, fresh-data provenance and a documented post-phase GPU envelope remain unresolved. No96-cell experiment launched, no positive result, no Jev call or email. The expired six-hour cap does not roll over; successive preparation sessions cannot replace a launched decision experiment.

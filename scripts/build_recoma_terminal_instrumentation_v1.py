@@ -21,13 +21,26 @@ def patch_action_cap(text):
     if text.count(old)!=1:raise ValueError('action cap source anchor differs')
     return text.replace(old,'if env_calls >= self.max_env_calls:\n            current_state.data["recoma_terminal_trigger"] = "action_cap"\n            logger.warning')
 
+def patch_search(text):
+    old='current_state.data["scientific_task_status"] = "scientific_failure"'
+    if text.count(old)!=1:raise ValueError('format failure anchor differs')
+    return text.replace(old,old+'\n                current_state.data["recoma_terminal_trigger"] = "format_failure"')
+
+def patch_durable(text):
+    old='row["metadata"] = metadata'
+    if text.count(old)!=1:raise ValueError('durable metadata anchor differs')
+    text=text.replace(old,'row["terminal_trigger"] = metadata.get("recoma_terminal_trigger", "unobserved")\n    '+old)
+    old='"exception_type": type(exc).__name__,'
+    if text.count(old)!=1:raise ValueError('infrastructure event anchor differs')
+    return text.replace(old,old+'\n                           "terminal_trigger": "infrastructure_failure", "outcome_unknown": True,')
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('--source',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
     if a.output.exists():raise ValueError('refuse overwrite or mutate frozen source')
-    changes={'discoveryworld/agents/recoma/react_controller.py':patch_controller,'recoma/recoma/search/early_stopping.py':patch_llm_cap,'discoveryworld/agents/recoma/discoveryworld_env_models.py':patch_action_cap}
+    changes={'discoveryworld/agents/recoma/react_controller.py':patch_controller,'recoma/recoma/search/early_stopping.py':patch_llm_cap,'discoveryworld/agents/recoma/discoveryworld_env_models.py':patch_action_cap,'recoma/recoma/search/search.py':patch_search,'recoma/recoma/utils/task_accounting.py':patch_durable}
     a.output.mkdir(parents=True);receipt={}
     for rel,patch in changes.items():
         src=a.source/rel;out=a.output/rel;out.parent.mkdir(parents=True,exist_ok=True);new=patch(src.read_text());compile(new,str(out),'exec');out.write_text(new)
         receipt[rel]={'original_sha256':hashlib.sha256(src.read_bytes()).hexdigest(),'prepared_sha256':hashlib.sha256(out.read_bytes()).hexdigest()}
-    (a.output/'preparation-receipt.json').write_text(json.dumps({'status':'PARTIAL_RUNTIME_PREPARED_NOT_RELEASED','source':receipt,'remaining':['format/infrastructure hook','durable receipt integration','full end-to-end runtime audit','bounded post-phase compute envelope'],'behavior_boundary':'Only observed executed stop branches are tagged; official endpoints and controller returns unchanged. Not a complete release.'},indent=2)+'\n')
+    (a.output/'preparation-receipt.json').write_text(json.dumps({'status':'PARTIAL_RUNTIME_PREPARED_NOT_RELEASED','source':receipt,'remaining':['full end-to-end runtime audit','independent arm audit','fresh-data provenance','bounded post-phase compute envelope'],'behavior_boundary':'Only observed executed stop branches are tagged; official endpoints and controller returns unchanged. Not a complete release.'},indent=2)+'\n')
 if __name__=='__main__':main()
