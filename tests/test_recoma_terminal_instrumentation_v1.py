@@ -18,3 +18,11 @@ def test_actual_completion_branch_return_and_single_query_preserved():
  self=SimpleNamespace(get_react_node=lambda s:None,get_history=lambda n:[SimpleNamespace(action_json={'action':'USE'})]);state=SimpleNamespace(data={});assert ns['terminate_with_output'](self,state,SimpleNamespace(output='world'))=='world';assert len(count)==1 and state.data['recoma_terminal_trigger']=='official_completion'
 def test_anchor_mutation_rejected():
  with pytest.raises(ValueError):m.patch_controller('unrecognized source')
+
+def test_actual_action_cap_checks_counter_once_and_preserves_stop():
+    text=m.patch_action_cap((source/'discoveryworld/agents/recoma/discoveryworld_env_models.py').read_text())
+    tree=ast.parse(text);cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='MaximumEnvironmentCalls');fn=next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='should_stop')
+    for a in fn.args.args:a.annotation=None
+    count=[];ns={'num_interactions':lambda:count.append(1) or 30,'logger':SimpleNamespace(warning=lambda x:None)};exec(compile(ast.Module(body=[fn],type_ignores=[]),'test','exec'),ns)
+    state=SimpleNamespace(data={});assert ns['should_stop'](SimpleNamespace(max_env_calls=30),state,0,[]) is True;assert len(count)==1 and state.data['recoma_terminal_trigger']=='action_cap'
+    count.clear();ns['num_interactions']=lambda:count.append(1) or 29;state=SimpleNamespace(data={});assert ns['should_stop'](SimpleNamespace(max_env_calls=30),state,0,[]) is False;assert len(count)==1 and not state.data

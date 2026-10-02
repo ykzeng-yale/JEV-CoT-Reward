@@ -1,5 +1,10 @@
 # Current JEV-CoT-Reward research state
 
+## October 2, 13:29 EDT — no live experiment; release prerequisites remain
+
+Fresh scheduler receipts confirm prior JEV parents COMPLETED 0:0 and empty queue; local PID83281 absent. Actual action-cap source instrumentation now records the executed stop branch without extra simulator counter queries; combined28 CPU tests PASS and distinct v2 prepared source compiles. This is partial implementation, not scientific evidence or a compute wait. Format/infrastructure and durable receipt integration, independent arm auditing, fresh-data provenance and a documented post-phase GPU envelope remain unresolved. No96-cell experiment launched, no positive result, no Jev call or email. The expired six-hour cap does not roll over; successive preparation sessions cannot replace a launched decision experiment.
+
+
 ## October 2, 07:27 EDT — partial actual-runtime instrumentation prepared
 
 Distinct future source records actual SUBMIT/official-completion/LLM-cap stop branches without changing controller returns. Three private-source CPU integration testsPASS; missing frozen source explicitly skips, no replacement download. Action-cap/format/infrastructure and durable receipt hooks remain incomplete; no GPU qualification or efficacy claim. PriorJEVparents terminal, noJEVqueued; otherprojects untouched, localPID83281absent. Post-phase budget/fresh-data/arm-auditor gates remain. Details:recoma_postphase_diagnosis_and_next_design_20261001.md.
