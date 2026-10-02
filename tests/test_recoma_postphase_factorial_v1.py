@@ -21,3 +21,13 @@ def test_rejects_invalid_or_survivor_evidence(bad):
     elif bad=='negative':r['prompt_tokens']=-1
     else:r['model_service_seconds']=float('nan')
     with pytest.raises(ValueError):m.analyze(d,a)
+
+@pytest.mark.parametrize('kind',['duplicate_unit','duplicate_arm','unbalanced','wrong_arm','bool_latency'])
+def test_design_balance_and_latency_types(kind):
+    d,a=fixture()
+    if kind=='duplicate_unit':d['tasks'].append(copy.deepcopy(d['tasks'][0]))
+    elif kind=='duplicate_arm':d['arms'].append(copy.deepcopy(d['arms'][0]))
+    elif kind=='unbalanced':d['tasks'][0]['scenario']='family1'
+    elif kind=='wrong_arm':d['arms'][0]['arm_id']='new_arm'
+    else:a['original_30']['per_task'][0]['model_service_seconds']=True
+    with pytest.raises(ValueError):m.analyze(d,a)

@@ -4,7 +4,12 @@ import argparse,hashlib,json,math
 from pathlib import Path
 
 def analyze(design,arms):
-    units={t['unit_id']:t for t in design['tasks']};ids={a['arm_id'] for a in design['arms']}
+    tasks=design['tasks'];units={t['unit_id']:t for t in tasks};ids={a['arm_id'] for a in design['arms']}
+    if len(tasks)!=len(units) or len(design['arms'])!=len(ids):raise ValueError('duplicate design assignment')
+    families={t['scenario'] for t in tasks}
+    if len(families)!=8 or any(sum(t['scenario']==f for t in tasks)!=3 for f in families):raise ValueError('eight balanced families required')
+    expected_arms={'original_30','original_90','conservative_30','conservative_90'}
+    if ids!=expected_arms:raise ValueError('unexpected factorial arms')
     if len(units)!=24 or len(arms)!=4 or set(arms)!=ids:raise ValueError('complete balanced four-arm assignment required')
     validated={}
     for arm,data in arms.items():
@@ -16,7 +21,7 @@ def analyze(design,arms):
             if type(row['official_success']) is not bool or type(row['scientific_failure']) is not bool:raise ValueError('typed outcome/failure required')
             for k in ['prompt_tokens','generated_tokens','model_calls','environment_actions']:
                 if type(row[k]) is not int or row[k]<0:raise ValueError('nonnegative exact generation counters required')
-            if not math.isfinite(row['model_service_seconds']) or row['model_service_seconds']<0:raise ValueError('invalid latency')
+            if type(row['model_service_seconds']) not in (int,float) or not math.isfinite(row['model_service_seconds']) or row['model_service_seconds']<0:raise ValueError('invalid latency')
         validated[arm]=by
     def contrast(high,low):
         diffs={u:int(validated[high][u]['official_success'] and not validated[high][u]['scientific_failure'])-int(validated[low][u]['official_success'] and not validated[low][u]['scientific_failure']) for u in units}

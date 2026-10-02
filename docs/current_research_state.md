@@ -1,5 +1,10 @@
 # Current JEV-CoT-Reward research state
 
+## October 2, 01:26 EDT — design integrity checks strengthened
+
+Prepared factorial analyzer now rejects duplicated/unbalanced assignments, unexpected arms and Boolean latency; combined24CPU testsPASS. No new efficacy or runtime qualification. Directsqueue/sacct revalidate priorJEV parents terminal; pendingDTR/WinRatio jobs untouched, noReCoMAqueued, localPID83281absent. Post-phase GPU envelope, source-bound arm audit, runtime integration and fresh-data provenance remain unresolved. No Jev call/email. Details:recoma_postphase_diagnosis_and_next_design_20261001.md.
+
+
 ## October 1, 19:25 EDT — terminal receipt semantics prepared; remote observation unavailable
 
 Prospective receipt contract preserves distinct SUBMIT/official-completion/format/cap/infrastructure triggers and unknown failure outcomes. Combined19CPU testsPASS; runtime integration remains unqualified, with no new efficacy. Authenticated mac-aux→Bouchet check now returns keyboard-interactive permission denied; no fresh scheduler state is inferred, no job duplicated/restarted. LocalPID83281 absent. The post-phase budget/provenance/arm-auditor gates remain unresolved. No model/Jev call or email. Detailed evidence:recoma_postphase_diagnosis_and_next_design_20261001.md.
