@@ -1,0 +1,20 @@
+import ast,importlib.util
+from pathlib import Path
+from types import SimpleNamespace
+import pytest
+root=Path(__file__).parents[1];spec=importlib.util.spec_from_file_location('patch',root/'scripts/build_recoma_terminal_instrumentation_v1.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+source=root/'runs/recoma-final-six-hour-v3-control/production-inputs-complete-27983982/inputs/source'
+pytestmark=pytest.mark.skipif(not source.is_dir(), reason='requires preserved private frozen runtime; no replacement source downloaded')
+def method(text):
+ tree=ast.parse(text);fn=next(n for n in ast.walk(tree) if isinstance(n,ast.FunctionDef) and n.name=='terminate_with_output');fn.returns=None
+ for a in fn.args.args:a.annotation=None
+ ns={'Optional':object,'Action':SimpleNamespace,'task_completed':lambda:False};exec(compile(ast.Module(body=[fn],type_ignores=[]),'test','exec'),ns);return ns
+def test_actual_controller_submit_branch_preserves_return_and_skips_world_query():
+ text=(source/'discoveryworld/agents/recoma/react_controller.py').read_text();ns=method(m.patch_controller(text));ns['task_completed']=lambda:(_ for _ in ()).throw(AssertionError('extra world query'))
+ self=SimpleNamespace(get_react_node=lambda s:None,get_history=lambda n:[SimpleNamespace(action_json={'action':'SUBMIT','arg1':'answer','thought':'reason'})]);state=SimpleNamespace(data={})
+ assert ns['terminate_with_output'](self,state,SimpleNamespace(output='unused'))=='answerreason';assert state.data['recoma_terminal_trigger']=='submit'
+def test_actual_completion_branch_return_and_single_query_preserved():
+ text=(source/'discoveryworld/agents/recoma/react_controller.py').read_text();ns=method(m.patch_controller(text));count=[];ns['task_completed']=lambda:count.append(1) or True
+ self=SimpleNamespace(get_react_node=lambda s:None,get_history=lambda n:[SimpleNamespace(action_json={'action':'USE'})]);state=SimpleNamespace(data={});assert ns['terminate_with_output'](self,state,SimpleNamespace(output='world'))=='world';assert len(count)==1 and state.data['recoma_terminal_trigger']=='official_completion'
+def test_anchor_mutation_rejected():
+ with pytest.raises(ValueError):m.patch_controller('unrecognized source')

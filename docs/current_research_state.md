@@ -1,5 +1,10 @@
 # Current JEV-CoT-Reward research state
 
+## October 2, 07:27 EDT — partial actual-runtime instrumentation prepared
+
+Distinct future source records actual SUBMIT/official-completion/LLM-cap stop branches without changing controller returns. Three private-source CPU integration testsPASS; missing frozen source explicitly skips, no replacement download. Action-cap/format/infrastructure and durable receipt hooks remain incomplete; no GPU qualification or efficacy claim. PriorJEVparents terminal, noJEVqueued; otherprojects untouched, localPID83281absent. Post-phase budget/fresh-data/arm-auditor gates remain. Details:recoma_postphase_diagnosis_and_next_design_20261001.md.
+
+
 ## October 2, 01:26 EDT — design integrity checks strengthened
 
 Prepared factorial analyzer now rejects duplicated/unbalanced assignments, unexpected arms and Boolean latency; combined24CPU testsPASS. No new efficacy or runtime qualification. Directsqueue/sacct revalidate priorJEV parents terminal; pendingDTR/WinRatio jobs untouched, noReCoMAqueued, localPID83281absent. Post-phase GPU envelope, source-bound arm audit, runtime integration and fresh-data provenance remain unresolved. No Jev call/email. Details:recoma_postphase_diagnosis_and_next_design_20261001.md.
