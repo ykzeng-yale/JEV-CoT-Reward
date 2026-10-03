@@ -1,5 +1,13 @@
 # Current JEV-CoT-Reward research state
 
+## October 3 — stalled heartbeat deleted; no JEV experiment is waiting for GPUs
+
+At the user's explicit request to correct or remove the nonprogressing workflow, `jev-six-hour-scientific-research` was deleted successfully; its former automation TOML is absent and the delete/before-prompt receipts are preserved in `runs/resource-routing-20261003-user-correction/`. No replacement automation or goal was created. Fresh authenticated Bouchet access works, the JEV queue is empty, all ten final-phase parents are terminal, and 27983982/27987263 remain COMPLETED 0:0. Other projects' CPU jobs were untouched. Access/quota eligibility is not a GPU reservation.
+
+The 96-cell study has not been submitted: its complete executor, runnable four-arm prompt/configuration bundle and actual independent arm-audit integration are still missing, and no later compute envelope was documented. This is an implementation/budget boundary, **not a live GPU wait**. Local mini/aux CPU work is feasible; the current CUDA backend cannot run unchanged on Apple GPUs. A separate MLX route would require implementation and memory/latency qualification. Lead model content matches the ten pinned files, but current unrelated CPU/memory load and low disk preclude a competing model load.
+
+Seven artifact hashes close the recorded seed-1 model-trajectory development provenance question; prior structural exposure and shared task families prohibit untouched-final/transfer claims. No new experiment, scientific outcome, Jev call or email occurred. Full resource evidence, remaining experiment dependencies and the correction decision: [resource_and_automation_correction_20261003.md](resource_and_automation_correction_20261003.md). Prior dated entries are historical snapshots. The full curriculum remains incomplete.
+
 ## October 2, 19:31 EDT — durable termination instrumentation prepared
 
 Future-runtime preparation now also tags the actual typed-format-failure branch and persists its observed trigger in durable prediction records. Infrastructure-abort events explicitly retain unknown outcomes. All five prepared source files compile; combined30 CPU testsPASS, including actual prediction-record execution verifying SUBMIT cannot alter official failure. Original frozen source/results remain untouched. Missing stop observations remain `unobserved`, never guessed from outcomes. End-to-end runtime qualification, source-bound independent arm auditing, fresh-data provenance and post-phase compute envelope still block release; no96-cell experiment or new efficacy. No model/Jev call/email.
